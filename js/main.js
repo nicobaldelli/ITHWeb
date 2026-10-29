@@ -380,8 +380,8 @@
   const filecab = document.querySelector('[data-filecab]');
   if (filecab) {
     const PER_CARD = 6;
-    const FLIP_MS = 3800;
-    const ANIM_MS = 600;
+    const FLIP_MS = 2800;
+    const ANIM_MS = 700;
     const source = filecab.querySelector('[data-filecab-logos]');
     const stack = filecab.querySelector('[data-filecab-stack]');
     const tabs = [...filecab.querySelectorAll('.filecab__tab')];

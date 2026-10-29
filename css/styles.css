@@ -421,10 +421,20 @@ a:hover { color: var(--ink); }
 .filecab__card[data-pos="1"] { z-index: 4; transform: translateY(10px) scale(.975); }
 .filecab__card[data-pos="2"] { z-index: 3; transform: translateY(20px) scale(.95); }
 .filecab__card[data-pos="3"] { z-index: 2; transform: translateY(26px) scale(.93); opacity: 0; }
-.filecab__card.is-out { z-index: 6; animation: filecabOut .6s var(--ease) forwards; }
-.filecab__card.is-in { z-index: 6; animation: filecabIn .6s var(--ease) both; }
-@keyframes filecabOut { to { transform: translateY(-40px) rotateX(-70deg); opacity: 0; } }
-@keyframes filecabIn { from { transform: translateY(-40px) rotateX(-70deg); opacity: 0; } }
+/* Las dos puntas explícitas: la ficha que sale ya tiene `data-pos="3"` (opacidad 0) cuando arranca la animación,
+   así que sin el `from` se iría invisible, sin girar. */
+.filecab__card.is-out { z-index: 6; animation: filecabOut .7s var(--ease) forwards; }
+.filecab__card.is-in { z-index: 6; animation: filecabIn .7s var(--ease) both; }
+@keyframes filecabOut {
+  from { transform: none; opacity: 1; }
+  60% { opacity: 1; }
+  to { transform: translateY(-48px) rotateX(-80deg); opacity: 0; }
+}
+@keyframes filecabIn {
+  from { transform: translateY(-48px) rotateX(-80deg); opacity: 0; }
+  40% { opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
 .filecab__card-tab { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--purple); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .filecab__card-tab::before { content: ""; flex: none; width: 24px; height: 3px; border-radius: 2px; background: var(--purple); }
 .filecab__logos { display: grid; flex: 1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 28px; align-items: center; }
