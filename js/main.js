@@ -394,13 +394,14 @@
     let current = 0;
     let timer = 0;
     let animating = false;
-    let hovering = false;
     let focusInside = false;
     let inView = false;
 
+    // Sin pausa por mouse encima: al scrollear con la rueda el puntero queda sobre las fichas y la primera pasada
+    // tardaba más que las demás. Se pausa solo con foco adentro (teclado), fuera de pantalla o con la pestaña oculta.
     const schedule = () => {
       clearTimeout(timer);
-      if (!motion || cards.length < 2 || hovering || focusInside || !inView || document.hidden) return;
+      if (!motion || cards.length < 2 || focusInside || !inView || document.hidden) return;
       timer = setTimeout(() => go(1), FLIP_MS);
     };
     const render = () => {
@@ -450,7 +451,11 @@
         tab.textContent = labels[card.group];
         const ul = document.createElement('ul');
         ul.className = 'filecab__logos list-reset';
-        card.logos.forEach((l) => ul.append(l.node.cloneNode(true)));
+        card.logos.forEach((l) => {
+          const li = l.node.cloneNode(true);
+          li.querySelector('img').removeAttribute('loading'); // que no aparezcan a medio cargar en el primer giro
+          ul.append(li);
+        });
         el.append(tab, ul);
         return el;
       }));
@@ -469,8 +474,6 @@
       else if (e.target.closest('[data-filecab-next]')) go(1);
       else if (e.target.closest('.filecab__card')) go(1); // tocar la ficha también la pasa
     });
-    stack.addEventListener('pointerenter', () => { hovering = true; schedule(); });
-    stack.addEventListener('pointerleave', () => { hovering = false; schedule(); });
     filecab.addEventListener('focusin', () => { focusInside = true; schedule(); });
     filecab.addEventListener('focusout', (e) => {
       if (filecab.contains(e.relatedTarget)) return;
