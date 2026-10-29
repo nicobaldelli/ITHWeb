@@ -219,7 +219,7 @@
 
     // Al entrar en pantalla, las provincias se prenden de a una: de CABA hacia afuera.
     if (motion) {
-      const ORDER = ['Ciudad Autónoma de Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Entre Ríos', 'Córdoba', 'San Luis', 'Mendoza', 'San Juan', 'Salta'];
+      const ORDER = ['Ciudad Autónoma de Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Entre Ríos', 'Córdoba', 'San Luis', 'Mendoza', 'San Juan', 'Neuquén', 'Corrientes', 'Misiones', 'Salta'];
       const rank = (p) => { const i = ORDER.indexOf(p.dataset.name); return i === -1 ? ORDER.length : i; };
       [...active].sort((a, b) => rank(a) - rank(b)).forEach((p, i) => { p.style.animationDelay = `${0.5 + i * 0.25}s`; });
       new IntersectionObserver((entries) => {

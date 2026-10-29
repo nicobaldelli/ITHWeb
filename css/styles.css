@@ -13,12 +13,14 @@
 }
 
 /* ---------- Tokens ----------
-   Paleta cerrada: no agregar colores. Regla por fondo:
-   - gris carbón (--ink) o #333  → texto blanco, acento e íconos lima
-   - blanco / lila (--lavender)  → texto carbón, acento e íconos violeta
-   - card violeta (--purple)     → texto, íconos, líneas y botones solo en blanco (lila para texto secundario)
-   - card o botón lima           → texto e íconos carbón
-   El lima y el violeta nunca se tocan. Lima nunca como texto, ícono fino ni línea sobre blanco o lila (1,9:1). */
+   Paleta cerrada: no agregar colores. Dos familias que nunca se tocan:
+   - Familia lima:    fondo carbón (--ink) o #333, o card carbón (.card-dark) sobre blanco → texto blanco, lila para
+                      texto secundario, acento e íconos lima. Card o botón lima (.card-lime, .btn-lime) → texto e íconos carbón.
+   - Familia violeta: fondo blanco o lila → texto carbón, acento e íconos violeta. Card violeta (.card-violet) → texto
+                      blanco, lila para texto secundario, íconos y botones en blanco.
+   Sobre fondo carbón nunca va una card violeta; sobre una card violeta nunca va lima.
+   Lima nunca como texto, ícono fino ni línea sobre blanco o lila (1,9:1).
+   Las secciones alternan las dos familias para que la página quede equilibrada. */
 :root {
   --ink: #2A2A2A;
   --ink-2: #333333;
@@ -58,6 +60,8 @@ a:hover { color: var(--ink); }
 .site-header :focus-visible,
 .site-footer :focus-visible { outline-color: var(--lime); }
 .card-violet :focus-visible { outline-color: var(--white); }
+.card-dark :focus-visible { outline-color: var(--lime); }
+.card-lime :focus-visible { outline-color: var(--ink); }
 
 .list-reset { list-style: none; margin: 0; padding: 0; }
 
@@ -179,6 +183,13 @@ a:hover { color: var(--ink); }
 
 .card-violet { background: var(--purple); color: var(--white); }
 .card-violet .icon-circle { border: 2px solid var(--white); background: transparent; color: var(--white); }
+
+/* Card carbón (sobre blanco): familia lima. Card lima (sobre carbón): texto e íconos carbón. */
+.card-dark { background: var(--ink); color: var(--white); }
+.card-dark .icon-circle { border: 2px solid var(--lime); background: transparent; color: var(--lime); }
+.card-lime { background: var(--lime); color: var(--ink); }
+.card-lime .icon-circle { border: 2px solid var(--ink); background: transparent; color: var(--ink); }
+.card-lime .btn-ghost:hover { background: var(--ink); color: var(--lime); border-color: var(--ink); }
 
 /* Íconos de trazo: el color sale de `color` del contenedor */
 .ico { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
@@ -395,14 +406,14 @@ a:hover { color: var(--ink); }
   border-radius: var(--radius);
   background: var(--lavender);
 }
-.compare__card--after { background: var(--purple); color: var(--white); }
-.compare__card--after .eyebrow { color: var(--white); }
+.compare__card--after { background: var(--ink); color: var(--white); }
+.compare__card--after .eyebrow { color: var(--lime); }
 
 .points { display: flex; flex-direction: column; gap: 24px; }
 .point { display: flex; align-items: flex-start; gap: 14px; }
 .point__title { margin: 0 0 5px; font-size: 22px; font-weight: 600; }
 .point__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.compare__card--after .point__text { color: var(--white); }
+.compare__card--after .point__text { color: var(--lavender); }
 
 .ic {
   display: flex;
@@ -415,6 +426,7 @@ a:hover { color: var(--ink); }
   background: var(--white);
   color: var(--purple);
 }
+.ic-ok { background: var(--lime); color: var(--ink); }
 
 /* ---------- Servicios (carrusel de a tres) ---------- */
 .carousel__track {
@@ -502,8 +514,9 @@ a:hover { color: var(--ink); }
 .service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
 .service__title { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; }
 .service__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.card-violet .service__num { color: var(--white); }
-.card-violet .service__text { color: var(--white); }
+.card-violet .service__num { color: var(--lavender); }
+.card-violet .service__text { color: var(--lavender); }
+.service.card-violet.card-h:hover { border-color: var(--lavender); }
 .services-nota { margin-top: 20px; }
 
 /* ---------- Historia ---------- */
@@ -570,7 +583,7 @@ a:hover { color: var(--ink); }
   padding: 36px 40px;
   border-radius: var(--radius);
 }
-.quote__mark { color: var(--white); font-size: 56px; font-weight: 500; line-height: .6; }
+.quote__mark { color: var(--lime); font-size: 56px; font-weight: 500; line-height: .6; }
 .quote blockquote { max-width: 960px; margin: 0; font-size: 32px; font-weight: 600; line-height: 1.35; }
 .quote blockquote p { margin: 0; }
 .quote figcaption { color: var(--lavender); font-size: 15px; }
@@ -659,11 +672,11 @@ a:hover { color: var(--ink); }
 }
 .case__box--after { border: 0; background: var(--white); color: var(--purple); }
 .case__value { font-size: 48px; font-weight: 700; line-height: 1; }
-.case__label { font-size: 15px; }
+.case__label { color: var(--lavender); font-size: 15px; }
 .case__box--after .case__label { color: var(--ink); font-weight: 600; }
 .case__arrow { flex: none; color: var(--white); }
 .case__sla { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 22px; border-top: 1px solid var(--lavender); }
-.case__sla-text { flex: 1 1 200px; min-width: 0; font-size: 17px; line-height: 1.5; }
+.case__sla-text { flex: 1 1 200px; min-width: 0; color: var(--lavender); font-size: 17px; line-height: 1.5; }
 
 .cases { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 28px; }
 .mini-case { display: flex; flex: 1 1 220px; flex-direction: column; gap: 6px; min-width: 0; padding-top: 16px; border-top: 2px solid var(--purple); }
@@ -697,9 +710,9 @@ a:hover { color: var(--ink); }
 .steps { display: flex; flex-wrap: wrap; gap: 24px; }
 .step { display: flex; flex: 1 1 280px; flex-direction: column; gap: 14px; min-width: 0; padding: 30px; border-radius: var(--radius); }
 .step__head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-.step__num { color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
+.step__num { color: var(--lime); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
 .step__title { margin: 0; color: var(--white); font-size: 36px; font-weight: 700; line-height: 1.1; }
-.step__text { margin: 0; color: var(--white); font-size: 17px; line-height: 1.6; }
+.step__text { margin: 0; color: var(--lavender); font-size: 17px; line-height: 1.6; }
 
 /* ---------- Preguntas frecuentes ---------- */
 .faq-layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px; }
@@ -752,7 +765,7 @@ a:hover { color: var(--ink); }
 
 .cta-card { display: flex; flex: 1 1 400px; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; padding: 40px 36px; border-radius: var(--radius); }
 .cta-card__title { margin: 0; font-size: 36px; font-weight: 700; line-height: 1.15; }
-.cta-card__text { margin: 0; font-size: 17px; line-height: 1.6; }
+.cta-card__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
 
 /* ---------- Footer ---------- */
 .site-footer { padding: 48px 0 24px; border-top: 1px solid var(--line-dark); background: var(--ink-2); color: var(--white); }
@@ -797,7 +810,7 @@ a:hover { color: var(--ink); }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes ring { from { stroke-dashoffset: 75.4; } to { stroke-dashoffset: 0; } }
-@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .6); } 100% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); } }
+@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(152, 204, 50, .6); } 100% { box-shadow: 0 0 0 16px rgba(152, 204, 50, 0); } }
 @keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(102, 51, 153, .35); } 100% { box-shadow: 0 0 0 16px rgba(102, 51, 153, 0); } }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes heroMedia { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }

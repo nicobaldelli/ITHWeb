@@ -33,12 +33,16 @@ y entrá a <http://localhost:8000>.
 Solo se usan los colores de `:root` (blanco, carbón `#2A2A2A`, violeta `#663399`, lila `#F0EBF5`, lima `#98CC32`
 y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
-- **Carbón o `#333333`**: texto blanco, acento lima (`.hl`, íconos, líneas) y botón `.btn-lime`.
-- **Blanco o lila**: texto carbón, acento violeta (`.hl`, íconos, bordes) y botón `.btn-primary`.
-- **Cards violeta** (`.card-violet`): texto, íconos, líneas y botones solo en blanco (lila para texto secundario);
-  el botón adentro es `.btn-light`.
-- **Cards o botones lima**: texto e íconos carbón.
-- El lima y el violeta nunca se tocan. Lima nunca como texto, ícono fino o línea sobre blanco o lila.
+Hay dos familias que nunca se tocan, y las secciones las alternan para que la página quede equilibrada:
+
+- **Familia lima**: fondo carbón o `#333333` (hero, historia, agenda, footer) y cards carbón `.card-dark` sobre blanco
+  (card "Así trabajamos con vos", cita del equipo, los tres pasos). Texto blanco, lila para texto secundario, acento e
+  íconos lima, botón `.btn-lime`. Sobre carbón la card es lima (`.card-lime`): texto e íconos carbón, botón `.btn-ghost`.
+- **Familia violeta**: fondo blanco o lila. Texto carbón, acento e íconos violeta, botón `.btn-primary`. Cards violeta
+  `.card-violet` (servicios, bloque de Casos): texto blanco, lila para texto secundario, íconos y botones en blanco
+  (`.btn-light`).
+- Sobre fondo carbón nunca va una card violeta; sobre una card violeta nunca va lima. Lima nunca como texto, ícono fino
+  o línea sobre blanco o lila.
 
 `.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.
 
@@ -46,8 +50,8 @@ y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
 - **Texto del hero**: bloque `TEXTO DEL HERO (editable)` en `index.html`. Es provisorio hasta que Claudio pase la versión definitiva.
 - **Imagen o video del hero**: dentro de `.hero__media` hay un ejemplo comentado de `<img>` y de `<video>` en loop. El overlay oscuro se aplica solo.
-- **Servicios**: el carrusel muestra siempre tres tarjetas por vista. Para sumar servicios, agregá otro `.carousel__slide` con tres tarjetas, una de ellas `.card-violet`. La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
-- **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Neuquén está marcada con un comentario, lista para activar.
+- **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
+- **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Hoy están Buenos Aires, CABA, Santa Fe, Entre Ríos, Córdoba, San Luis, Mendoza, San Juan, Neuquén, Corrientes, Misiones y Salta.
 - **Notas internas** (`.nota`): indicaciones del borrador para Carlos. El botón del pie las oculta o muestra (equivale al switch `notesDisplay` del diseño) y recuerda la elección en `localStorage`.
 
 ## Medición
@@ -77,9 +81,7 @@ y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
 - [ ] Texto definitivo del hero (Claudio).
 - [ ] Crear la landing `/asesoria`. Todos los CTA apuntan ahí.
-- [ ] Confirmar Neuquén en el mapa.
-- [ ] Validar las descripciones nuevas de Desarrollo de aplicaciones, Soluciones IoT y Energía solar.
-- [ ] El hero dice "+10 provincias"; el mapa marca 8 provincias + CABA (9 con Neuquén): alinear.
+- [ ] Validar los doce servicios del carrusel (nombres, orden y marcas mencionadas).
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
 - [ ] Links reales de Blog y LinkedIn en el pie.
