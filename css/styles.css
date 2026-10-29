@@ -132,11 +132,11 @@ a:hover { color: var(--ink); }
 .section-title { margin: 0; font-size: clamp(36px, 4.4vw, 52px); font-weight: 700; line-height: 1.1; }
 .lead { margin: 0; font-size: 21px; line-height: 1.6; color: var(--muted); }
 
-/* Palabra clave: lima con un contorno fino gris sobre blanco (para que se lea), violeta sobre lila, lima sobre carbón.
-   `paint-order` pinta el contorno por debajo del relleno: solo asoma la mitad exterior del trazo. */
-.hl { color: var(--lime); -webkit-text-stroke: 1.4px var(--muted); paint-order: stroke fill; }
-.section--alt .hl { color: var(--purple); -webkit-text-stroke: 0; }
-.section--dark .hl { color: var(--lime); -webkit-text-stroke: 0; }
+/* Palabra clave: resaltador lima con letra carbón sobre blanco (como una card lima), violeta sobre lila, lima sobre carbón.
+   `box-decoration-break: clone` cierra el resaltado en cada línea cuando la frase se corta. */
+.hl { padding: 0 .14em; border-radius: .18em; background: var(--lime); color: var(--ink); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.section--alt .hl { padding: 0; background: none; color: var(--purple); }
+.section--dark .hl { padding: 0; background: none; color: var(--lime); }
 
 /* ---------- Botones ---------- */
 .btn {
@@ -195,7 +195,10 @@ a:hover { color: var(--ink); }
 .card-h:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(42, 42, 42, .10); }
 
 .card-violet { background: var(--purple); color: var(--white); }
+/* Íconos en lila, un poco más oscuro (lila mezclado con un 25 % de violeta; sin color-mix queda lila puro) */
 .card-violet .icon-circle { border: 2px solid var(--lavender); background: transparent; color: var(--lavender); }
+.card-violet .icon-circle { border-color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); }
+.card-violet .more__chev { color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); }
 
 /* Card lima (sobre carbón): texto e íconos carbón. */
 .card-lime { background: var(--lime); color: var(--ink); }
@@ -409,15 +412,14 @@ a:hover { color: var(--ink); }
   border-radius: var(--radius);
   background: var(--white);
 }
-.compare__card--after { background: var(--lime); color: var(--ink); }
-.compare__card--after .eyebrow { color: var(--ink); }
-.compare__card--after .eyebrow::before { background: var(--white); }
+.compare__card--after { border-color: var(--ink); background: var(--ink); color: var(--white); }
+.compare__card--after .eyebrow { color: var(--lime); }
 
 .points { display: flex; flex-direction: column; gap: 24px; }
 .point { display: flex; align-items: flex-start; gap: 14px; }
 .point__title { margin: 0 0 5px; font-size: 22px; font-weight: 600; }
 .point__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.compare__card--after .point__text { color: var(--ink); }
+.compare__card--after .point__text { color: var(--lavender); }
 
 .ic {
   display: flex;
@@ -430,7 +432,7 @@ a:hover { color: var(--ink); }
   background: var(--muted);
   color: var(--white);
 }
-.compare__card--after .ic { background: var(--white); color: var(--ink); }
+.compare__card--after .ic { background: var(--lime); color: var(--ink); }
 
 /* ---------- Servicios (carrusel de a tres) ---------- */
 .carousel__track {
@@ -674,10 +676,28 @@ a:hover { color: var(--ink); }
 .case-card__logo img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .case-card__logo--text { color: var(--ink); font-size: 20px; font-weight: 700; text-align: center; }
 .case-card__name { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; }
-.chip--lime { background: var(--lime); color: var(--ink); }
+.chip--lime { display: inline-flex; align-items: center; gap: 7px; background: var(--lime); color: var(--ink); }
+.chip--lime .ico { flex: none; }
 
-.case-card__what { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.case-card__what { display: flex; flex-direction: column; justify-content: center; gap: 16px; min-width: 0; }
+.case-card__head { display: flex; align-items: center; gap: 14px; }
+.icon-circle--lime { background: var(--lime); color: var(--ink); }
 .case-card__text { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.5; }
+.case-card__timer { display: none; height: 3px; border-radius: 2px; background: var(--lime); transform-origin: left; transform: scaleX(0); }
+.carousel.is-auto .case-card:not([inert]) .case-card__timer { display: block; animation: stepbar var(--auto-ms, 7s) linear forwards; }
+.carousel.is-paused .case-card__timer { animation-play-state: paused; }
+
+/* Entrada de cada caso cuando pasa a ser el activo (pierde `inert`); solo con animaciones habilitadas */
+.anim .case-card:not([inert]) .case-card__logo { animation: pop .55s var(--ease) both; }
+.anim .case-card:not([inert]) .case-card__name { animation: rise .5s .1s var(--ease) both; }
+.anim .case-card:not([inert]) .case-card__who .eyebrow { animation: rise .5s .18s var(--ease) both; }
+.anim .case-card:not([inert]) .chips > li { animation: rise .45s .22s var(--ease) both; }
+.anim .case-card:not([inert]) .chips > li:nth-child(2) { animation-delay: .3s; }
+.anim .case-card:not([inert]) .chips > li:nth-child(3) { animation-delay: .38s; }
+.anim .case-card:not([inert]) .chips > li:nth-child(4) { animation-delay: .46s; }
+.anim .case-card:not([inert]) .case-card__what { animation: rise .6s .2s var(--ease) both; }
+.anim .case-card:not([inert]) .case-card__head .icon-circle { animation: pop .5s .35s var(--ease) both; }
+.anim .case-step[aria-current="true"] .case-step__btn { animation: rise .4s var(--ease) both; }
 
 /* Varios proyectos de un mismo cliente: uno activo por vez, con barra de avance lima mientras corre el carrusel */
 .case-steps { display: flex; flex-direction: column; gap: 4px; }
@@ -821,7 +841,7 @@ a:hover { color: var(--ink); }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes ring { from { stroke-dashoffset: 75.4; } to { stroke-dashoffset: 0; } }
-@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .7); } 100% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); } }
+@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(152, 204, 50, .6); } 100% { box-shadow: 0 0 0 16px rgba(152, 204, 50, 0); } }
 @keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(68, 68, 68, .35); } 100% { box-shadow: 0 0 0 16px rgba(68, 68, 68, 0); } }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes stepbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }

@@ -127,6 +127,7 @@
     const autoplay = motion && carousel.dataset.carouselAutoplay !== 'off';
     carousel.classList.toggle('is-auto', autoplay);
     carousel.style.setProperty('--step-ms', `${STEP_MS}ms`);
+    carousel.style.setProperty('--auto-ms', `${AUTOPLAY_MS}ms`);
     const track = carousel.querySelector('[data-carousel-track]');
     const slides = [...track.children];
     const controls = carousel.querySelector('[data-carousel-controls]');

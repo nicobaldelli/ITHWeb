@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <style>
-.grid{fill:none;stroke:#2a2a2a;stroke-width:1;stroke-opacity:.07;stroke-linejoin:round}
-.hx{fill:#2a2a2a;fill-opacity:.03;animation:breathe 9s ease-in-out infinite}
+.grid{fill:none;stroke:#2a2a2a;stroke-width:1.25;stroke-opacity:.16;stroke-linejoin:round}
+.hx{fill:#2a2a2a;fill-opacity:.06;animation:breathe 9s ease-in-out infinite}
 .drift{animation:drift 60s ease-in-out infinite}
-@keyframes breathe{0%,100%{fill-opacity:.02}50%{fill-opacity:.06}}
+@keyframes breathe{0%,100%{fill-opacity:.04}50%{fill-opacity:.13}}
 @keyframes drift{50%{transform:translate(-14px,10px)}}
 @media (prefers-reduced-motion:reduce){.hx,.drift{animation:none}}
 </style>
 <defs>
-<radialGradient id="fade" cx="50%" cy="50%" r="62%">
-<stop offset="0" stop-color="#000"/><stop offset=".45" stop-color="#000"/><stop offset="1" stop-color="#fff"/>
+<radialGradient id="fade" cx="50%" cy="50%" r="72%">
+<stop offset="0" stop-color="#000"/><stop offset=".28" stop-color="#222"/><stop offset="1" stop-color="#fff"/>
 </radialGradient>
 <mask id="edges"><rect width="1440" height="900" fill="url(#fade)"/></mask>
 </defs>

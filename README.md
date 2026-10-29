@@ -39,8 +39,7 @@ La familia de colores la decide el fondo de cada sección, y los fondos se alter
 anterior):
 
 - **Blanco** (`.section`): gris y verde, sin lila. Texto carbón y `#444444`, título chico gris con barra lima, palabra
-  clave en lima con un contorno fino gris (`-webkit-text-stroke`), recuadros con borde o relleno lima y texto carbón,
-  botón `.btn-lime`.
+  clave como resaltador lima con letra carbón, recuadros con borde o relleno lima y texto carbón, botón `.btn-lime`.
   Secciones: problema, casos, testimonios, preguntas.
 - **Lila** (`.section--alt`): violeta. Texto carbón, acento violeta, botón `.btn-primary`. Cards violeta `.card-violet`
   con íconos, numeración y texto secundario en lila (botón adentro: `.btn-light`).
@@ -50,7 +49,7 @@ anterior):
 - Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (carbón) · equipo (lila) ·
   casos (blanco) · presencia (lila) · testimonios (blanco) · cómo trabajamos (lila) · preguntas (blanco) · agenda (carbón) ·
   pie (`#333333`).
-- Lima como texto sobre blanco solo en la palabra clave de los títulos, siempre con el contorno gris.
+- Lima nunca como texto fino sobre blanco: va como relleno, barra o resaltador.
 
 `.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.
 
