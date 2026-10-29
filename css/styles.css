@@ -751,17 +751,16 @@ a:hover { color: var(--ink); }
   background: var(--white);
   color: var(--ink);
   font: inherit;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   text-align: left;
   cursor: pointer;
   transition: background .2s, color .2s, border-color .2s;
 }
-.case-menu__sector::after { content: ""; flex: none; width: 10px; height: 10px; border: 2px solid var(--line-dark); border-radius: 50%; transition: background .2s, border-color .2s; }
 .case-menu__sector:hover { border-color: var(--ink); }
 .case-menu__sector[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--white); }
-.case-menu__sector[aria-pressed="true"]::after { border-color: var(--lime); background: var(--lime); }
-.case-menu__count { color: var(--muted); font-size: 14px; font-weight: 400; margin-left: auto; }
-.case-menu__sector[aria-pressed="true"] .case-menu__count { color: var(--white); }
 .case-menu__logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-height: 330px; overflow-y: auto; padding: 2px; scrollbar-width: thin; }
 .case-menu__logo {
   display: flex;

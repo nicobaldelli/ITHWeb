@@ -308,11 +308,6 @@
     let sector = null;
     let client = null;
 
-    sectorBtns.forEach((btn) => {
-      const n = cases.filter((c) => c.sector === btn.dataset.sector).length;
-      btn.querySelector('[data-sector-count]').textContent = n;
-    });
-
     const renderLogos = () => {
       logosList.replaceChildren();
       if (!sector) return;
