@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intellihelp — Servicios IT para empresas y organismos</title>
+  <meta name="description" content="Mesa de ayuda, outsourcing IT, redes y seguridad física para empresas medianas, grandes y organismos públicos. Desde 2012, en Buenos Aires y en el interior del país.">
+  <meta name="theme-color" content="#2A2A2A">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Intellihelp">
+  <meta property="og:title" content="Intellihelp — Servicios IT para empresas y organismos">
+  <meta property="og:description" content="Un equipo con nombre y apellido que mantiene tu tecnología andando. Hace 14 años.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    // Antes del primer pintado: habilita las animaciones de entrada y recuerda si las notas están ocultas.
+    (function (root) {
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('anim');
+      try { if (localStorage.getItem('ith-notas') === 'ocultas') root.classList.add('notes-hidden'); } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- TODO: reemplazar por el número real de WhatsApp (también en #agenda) -->
+<a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="wa-float" aria-label="Escribinos por WhatsApp">
+  <svg class="ico" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8"/><path d="M8 12.5h5"/></svg>
+  WhatsApp
+</a>
+
+<header id="inicio" class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="#inicio" class="brand">
+      <img src="img/logo-intellihelp.png" alt="ITH, Intellihelp" width="82" height="44">
+      <span class="brand__tag"><span>Servicios IT</span><span>desde 2012</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <ul class="list-reset">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#historia">Nuestra historia</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#casos">Casos</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+      </ul>
+    </nav>
+    <a href="#agenda" class="btn btn-lime btn-sm">Agendá una reunión</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero section--dark">
+    <div class="wrap hero__inner">
+      <div class="hero__media rv" data-d="0.05">
+        <p class="nota nota--white"><b>ACÁ VA IMAGEN</b>El equipo completo en la oficina de Dorrego 1789 (Carlos, Nicolás, Laura, Brian, Alejandro y técnicos). Luz natural, trabajando.</p>
+      </div>
+      <h1 class="hero__title">
+        <span class="rv" data-d="0.25">Un equipo con nombre y apellido</span>
+        <span class="rv" data-d="0.4">que mantiene tu tecnología andando.</span>
+        <span class="rv hl" data-d="0.55">Hace 14 años.</span>
+      </h1>
+      <p class="lead hero__lead rv" data-d="0.7">Mesa de ayuda, outsourcing IT, redes y seguridad física para empresas medianas, grandes y organismos públicos. Desde Buenos Aires hasta las sucursales del interior, con un solo responsable.</p>
+      <div class="hero__ctas rv" data-d="0.85">
+        <a href="#agenda" class="btn btn-lime">Agendá una reunión <span class="arr" aria-hidden="true">→</span></a>
+        <a href="#equipo" class="btn btn-light">Conocé al equipo</a>
+      </div>
+      <p class="hero__note rv" data-d="1">La primera charla es sin cargo: te asesoramos aunque todavía estés evaluando.</p>
+      <div class="stats rv" data-d="1.15" data-counter="1200">
+        <div class="stat">
+          <span class="stat__value"><span data-count="14">14</span> años</span>
+          <span class="stat__label">trabajando con empresas y organismos</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">+<span data-count="10">10</span> provincias</span>
+          <span class="stat__label">con proyectos y partners locales</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">Gold Partner</span>
+          <span class="stat__label">de Huawei y de Hikvision</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Clientes ===== -->
+  <section class="clients" aria-labelledby="clientes-titulo">
+    <div class="wrap clients__inner">
+      <h2 id="clientes-titulo" class="eyebrow">Organizaciones que confiaron su tecnología en nosotros</h2>
+      <div class="marquee">
+        <!-- La segunda tanda repite la primera para que el loop no tenga cortes -->
+        <ul class="marquee__track list-reset">
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+          <li class="logo-ph" aria-hidden="true">LOGO</li>
+        </ul>
+      </div>
+      <ul class="sectors list-reset">
+        <li>Sector público</li>
+        <li>Seguros y salud</li>
+        <li>Laboratorios</li>
+        <li>Industria</li>
+        <li>Medios y telecomunicaciones</li>
+      </ul>
+      <p class="nota"><b>CONFIRMAR CON CARLOS</b>Logos tomados de la web actual. Validar cuáles se pueden seguir mostrando hoy y sumar Cartocor y ODI si dan permiso.</p>
+    </div>
+  </section>
+
+  <!-- ===== Problema / solución ===== -->
+  <section id="problema" class="section">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Lo que cuesta un mal soporte</span>
+        <h2 class="section-title">Cuando la tecnología se frena, se frena tu empresa.</h2>
+        <p class="lead">Cada hora con la red caída, una cámara apagada o un equipo sin soporte se paga en ventas, en datos y en la paciencia de tu gente. Y casi siempre llega en el peor momento.</p>
+      </div>
+      <div class="compare">
+        <div class="compare__card rv">
+          <span class="eyebrow">Así se vive hoy</span>
+          <ul class="points list-reset">
+            <li class="point">
+              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
+              <div>
+                <h3 class="point__title">Tres proveedores, ningún responsable</h3>
+                <p class="point__text">Uno para la red, otro para las cámaras, otro para la mesa de ayuda. Cuando algo falla, se pasan la pelota.</p>
+              </div>
+            </li>
+            <li class="point">
+              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
+              <div>
+                <h3 class="point__title">El interior, a la buena de Dios</h3>
+                <p class="point__text">Cada sucursal con su técnico suelto, su criterio y sus tiempos.</p>
+              </div>
+            </li>
+            <li class="point">
+              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
+              <div>
+                <h3 class="point__title">Cada vez, una cara nueva</h3>
+                <p class="point__text">El técnico rota y hay que explicarle todo de nuevo.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="compare__card compare__card--after rv">
+          <span class="eyebrow eyebrow--lime">Así trabajamos con vos</span>
+          <ul class="points list-reset">
+            <li class="point">
+              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div>
+                <h3 class="point__title">Un solo equipo responsable</h3>
+                <p class="point__text">Redes, soporte y seguridad física con un único interlocutor que responde por todo.</p>
+              </div>
+            </li>
+            <li class="point">
+              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div>
+                <h3 class="point__title">El mismo estándar en todo el país</h3>
+                <p class="point__text">Partners locales que trabajan con nuestros procesos, y Intellihelp como responsable ante vos.</p>
+              </div>
+            </li>
+            <li class="point">
+              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div>
+                <h3 class="point__title">Personas que ya conocen tu empresa</h3>
+                <p class="point__text">Profesionales asignados a tu cuenta, con inducción en tu empresa y capacitación continua.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Servicios ===== -->
+  <section id="servicios" class="section section--alt">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Qué hacemos</span>
+        <h2 class="section-title">Tres frentes, un mismo equipo.</h2>
+        <p class="lead">Lo que tu empresa necesita para trabajar tranquila todos los días, resuelto por la misma gente de punta a punta.</p>
+      </div>
+      <div class="services">
+        <article class="service card-h rv slow" data-d="0">
+          <span class="service__num" aria-hidden="true">01</span>
+          <span class="icon-circle"><svg class="ico svc-ico" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19a3 3 0 0 1-3 3h-3"/></svg></span>
+          <h3 class="service__title">Mesa de ayuda y outsourcing IT</h3>
+          <p class="service__text">Soporte y mantenimiento para tus usuarios, y profesionales de TI que se suman a tu equipo. Los seleccionamos con psicodiagnóstico laboral, hacemos la inducción en tu empresa y los capacitamos de forma continua.</p>
+          <ul class="chips list-reset">
+            <li class="chip">Service desk</li>
+            <li class="chip">Soporte y mantenimiento</li>
+            <li class="chip">Outsourcing de TI</li>
+            <li class="chip">Búsqueda de perfiles IT</li>
+          </ul>
+        </article>
+        <article class="service card-h rv slow" data-d="0.35">
+          <span class="service__num" aria-hidden="true">02</span>
+          <span class="icon-circle"><svg class="ico svc-ico" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v5"/><path d="M12 12.5l-6 4.5"/><path d="M12 12.5l6 4.5"/></svg></span>
+          <h3 class="service__title">Redes e infraestructura</h3>
+          <p class="service__text">Fibra óptica, redes empresariales e inalámbricas, servidores, almacenamiento y nube. Diseñamos, instalamos y mantenemos, con tecnología Huawei y las marcas que tu operación necesite.</p>
+          <ul class="chips list-reset">
+            <li class="chip">Fibra óptica</li>
+            <li class="chip">Redes y wifi</li>
+            <li class="chip">Servidores y storage</li>
+            <li class="chip">Huawei Cloud</li>
+          </ul>
+        </article>
+        <article class="service card-h rv slow" data-d="0.7">
+          <span class="service__num" aria-hidden="true">03</span>
+          <span class="icon-circle"><svg class="ico svc-ico" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3 class="service__title">Seguridad física y control de acceso</h3>
+          <p class="service__text">Control de acceso biométrico y por reconocimiento facial, videovigilancia IP y monitoreo centralizado con Hikvision. Proveemos, instalamos, configuramos y capacitamos a tu gente.</p>
+          <ul class="chips list-reset">
+            <li class="chip">Control de acceso</li>
+            <li class="chip">Videovigilancia IP</li>
+            <li class="chip">Reconocimiento facial</li>
+            <li class="chip">HikCentral</li>
+          </ul>
+        </article>
+      </div>
+      <p class="services__more">Además: desarrollo de aplicaciones, soluciones IoT y energía solar para proyectos a medida.</p>
+    </div>
+  </section>
+
+  <!-- ===== Historia ===== -->
+  <section id="historia" class="section section--dark">
+    <div class="wrap history">
+      <div class="history__intro rv">
+        <span class="eyebrow eyebrow--lime">Nuestra historia</span>
+        <h2 class="section-title">14 años, contados por lo que hicimos.</h2>
+        <p class="history__text">Empezamos en una oficina de Puerto Madero con una idea simple: que la tecnología de nuestros clientes funcione. Lo que vino después lo construimos proyecto a proyecto.</p>
+        <div class="history__big">
+          <span class="history__big-num">14.</span>
+          <span class="history__big-label">años, proyecto a proyecto</span>
+        </div>
+      </div>
+      <ol class="timeline list-reset">
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2012</span>
+            <h3 class="timeline__title">Primeras oficinas</h3>
+            <p class="timeline__text">Abrimos en Quartier Madero, Puerto Madero.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2013</span>
+            <h3 class="timeline__title">El primer gran cliente</h3>
+            <p class="timeline__text">Outsourcing de mantenimiento de plataformas para la Agencia de Sistemas de Información del Gobierno porteño.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2015</span>
+            <h3 class="timeline__title">Fibra bajo tierra</h3>
+            <p class="timeline__text">Tendido de fibra óptica en las líneas B y C del subte de Buenos Aires.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2016</span>
+            <h3 class="timeline__title">Gold Partner de Huawei</h3>
+            <p class="timeline__text">Nos habilitan para comercializar todas sus soluciones.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2017</span>
+            <h3 class="timeline__title">AGIP y el Senado</h3>
+            <p class="timeline__text">Fibra óptica para conectar las 33 oficinas de AGIP, con soporte 24/7, y servidores para el Senado de la Nación.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2018</span>
+            <h3 class="timeline__title">Más espacio, más equipo</h3>
+            <p class="timeline__text">Gold Partner de Hikvision. Duplicamos el espacio con oficinas nuevas en Palermo Hollywood.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2019</span>
+            <h3 class="timeline__title">Primer proyecto de energía</h3>
+            <p class="timeline__text">Energía solar para una bodega del Valle de Uco, Mendoza.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2021</span>
+            <h3 class="timeline__title">Seguridad para un diario</h3>
+            <p class="timeline__text">Solución integral de seguridad para El Cronista.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">2022</span>
+            <h3 class="timeline__title">Mesa de ayuda y outsourcing</h3>
+            <p class="timeline__text">Mesa de ayuda en las oficinas de Lojack y outsourcing de TI para Pfizer.</p>
+          </div>
+        </li>
+        <li class="timeline__item rv">
+          <span class="timeline__mark" aria-hidden="true"><svg class="ring" width="32" height="32" viewBox="0 0 30 30"><circle class="ring-bg" cx="15" cy="15" r="12"/><circle class="ring-p" cx="15" cy="15" r="12" transform="rotate(-90 15 15)"/><circle class="ring-c" cx="15" cy="15" r="4.5"/></svg></span>
+          <div class="timeline__body">
+            <span class="timeline__year">Hoy</span>
+            <h3 class="timeline__title">De Buenos Aires a todo el país</h3>
+            <p class="timeline__text">Proyectos en Paraná y Córdoba, soporte a sucursales del interior y partners en Mendoza, Salta y Rosario.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Equipo ===== -->
+  <section id="equipo" class="section">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Quiénes somos</span>
+        <h2 class="section-title">Las personas que vas a tener del otro lado.</h2>
+        <p class="lead">A una empresa de tecnología se la elige por su gente. Acá está la nuestra: la que atiende, la que va a tu oficina y la que se queda hasta que todo funciona.</p>
+      </div>
+      <ul class="team list-reset">
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Carlos en la oficina, plano medio, sonriendo.</p></div>
+          <span class="eyebrow">CEO y dirección comercial</span>
+          <h3 class="member__name">Carlos Baldelli</h3>
+          <p class="member__bio">La cara comercial de Intellihelp. Si tenés un proyecto, la primera charla es con él.</p>
+        </li>
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Nicolás trabajando con un equipo o un rack.</p></div>
+          <span class="eyebrow">Técnico y comercial</span>
+          <h3 class="member__name">Nicolás Baldelli</h3>
+          <p class="member__bio">Entiende la red y entiende el negocio. Acompaña cada proyecto desde la propuesta hasta la puesta en marcha.</p>
+        </li>
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Laura con un cliente o en la mesa de ayuda.</p></div>
+          <span class="eyebrow">Preventa y postventa</span>
+          <h3 class="member__name">Laura Zaltron</h3>
+          <p class="member__bio">Está cerca de cada cliente antes y después del servicio, y cubre en sitio cuando hace falta.</p>
+        </li>
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Brian atendiendo un ticket.</p></div>
+          <span class="eyebrow">Postventa</span>
+          <h3 class="member__name">Brian</h3>
+          <p class="member__bio">Parte del equipo desde hace muchos años. Es la primera cara cuando necesitás soporte después de la implementación.</p>
+        </li>
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Alejandro en una instalación.</p></div>
+          <span class="eyebrow">Preventa e instalaciones</span>
+          <h3 class="member__name">Alejandro</h3>
+          <p class="member__bio">Responsable de las instalaciones: releva, planifica y pone en marcha cada solución en tu sitio.</p>
+        </li>
+        <li class="member rv">
+          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>El equipo técnico en un cliente (con permiso del cliente).</p></div>
+          <span class="eyebrow">En tus oficinas</span>
+          <h3 class="member__name">Nuestro equipo técnico</h3>
+          <p class="member__bio">Los profesionales que trabajan todos los días en las empresas y organismos que acompañamos.</p>
+        </li>
+      </ul>
+      <figure class="quote rv">
+        <span class="quote__mark num" aria-hidden="true">“</span>
+        <blockquote><p>Si hoy tenemos que dar un servicio de comunicaciones, de control de acceso o de desarrollo de software en cualquier lugar del país, lo podemos hacer.</p></blockquote>
+        <figcaption>Carlos Baldelli, CEO de Intellihelp</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Presencia nacional ===== -->
+  <section id="presencia" class="section section--alt">
+    <div class="wrap presence">
+      <div class="presence__text rv">
+        <span class="eyebrow">Presencia nacional</span>
+        <h2 class="section-title">De Buenos Aires al interior, con el mismo estándar.</h2>
+        <p class="lead">El técnico local resuelve lo puntual, pero a una empresa grande le hace falta estructura: procesos, respaldo y alguien que responda. Esa estructura la ponemos nosotros.</p>
+        <ul class="checks list-reset">
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Ideal para empresas con sucursales: una sola relación para todas tus sedes.</span></li>
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Partners locales en Mendoza, Salta y Rosario que trabajan con nuestros procesos.</span></li>
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Intellihelp responde por todo: contratos, equipamiento y tiempos, en cualquier provincia.</span></li>
+        </ul>
+      </div>
+      <div class="map-card rv">
+        <svg class="armap" role="img" aria-label="Mapa de Argentina por provincias. Con proyectos o partners: Salta, Córdoba, Santa Fe, Entre Ríos, Mendoza, Buenos Aires y la Ciudad Autónoma de Buenos Aires." viewBox="0 0 360 768">
+          <path class="prov" data-name="Jujuy" d="M95.5 6.8l1.2.2 1.8 2.7 2 .1 2.3 2.4.5.8 1.2.8 1.8 0 1-.3 2.4 0 .8-.3 5.5 0 .7.5.1 1.1-.8 2.2-.2 1.2-1 1.6-.3 3 .3 1 .2 1.9.7 1.1.3 1.2 0 1 .8 1.7.2.8 1.3 1.3 3.4 1.2.3.5-.2.8-.8 1 0 2 2.8 2.7 1.4 2.8 1 .7 1.6.2 1.4-.5 1 0 2.5 1 .6 1.1.7.5 1-.1 2.3-1.9 1 0 .7.7.2 5.7.3.8 0 2.8.3 1.2.2 4.2-.2.5-1.5 1.8-.3.8-.7.7-1 .3-1.6-.1-1 .5-3 3-.7 0-2-1.7-1.3 0-.5.5-.4 1-1.1.8-.7 0-1.3-.5-2.5-1.8-1.5.2-2.4-.2-4.6-1.3-1.5-1.5-.2-.7-.8-1-.4-1.3-.8-1.2-.3-1.3-1.7-1.5-1.3-.7-1.7-1.8-.3-4-.5-1-.4-1.5-1-1.9-4.6-3.3-1.4-.3-1.6.1-1 1.5 0 1.5.6 1.5.2 1.4 1 1.6.2 7.9-.4 1.3-.6 1-1.7 1.3-2 .2-1.3-1-.9-.2-1.6-1.5-1.2-.6-3-3-1.8-1.5-2.4-1.2-1.1-1-.2-.8.8-1.4.2-2.8.7-1.2.3-2.1.8-1.9 0-2 1-2 0-2.1-1-1.4-1.8-1.6-.7-1 0-.7 1-1.2 1.4-1 .3-.8.2-2.5 1.5-.8.6-.7 1.4-.2 1-.6.3-1 0-1.7 1.2-2.7 1.1-.3 1-.7 1.2-.1 1-.7 1.8-.3 1.9-.9.6-.6.7-1.9.3-2 0-1.6z"><title>Jujuy</title></path>
+          <path class="prov on" data-name="Salta" d="M178 22.2l.2.6-.2.2 0 41.2-2.7 3.3-.3.8-1.7 1.9-1.3 2.1-2 2.2-.3 1-3 3.5-.9 1.5-2.6 3.2-3.4 4.6-1.8 2-.3.9-1.5 1.3-9.7.2-1.2-.7-1.3-.2-2.5-1-1.2.2-1.3 1.8-.2.9-1.8 3.3-.2 1-.8 1.2-.2 1.5-.8 1.8-.2 2-.3.8-.5.5-1 .2-2-.5-.3.2-2-.2-2 .5-1 .7-1.5 0-.7-.5-1.7-.5-4-2.7-2 0-1.5.7-3.3-.5-.7.5-.5 1.5-1.8 1.8-.7.3-3.5 0-1.1-.5-.7-.6-1.8-1-.9 0-1.1.8-.5 1.5-1.4 1.3-1.6.2-.5-.3-1.4-2.4-1.1-1.1-1.9-2.9-1.8-2.1-.5-1.7.2-2 .8-.7.8 0 1.9-.8 1.3-.2 1.8-3.1.2-.9-1.5-2.5-.2-2-.3-.6-1-.5-1.8 0-.9.3-2.8 0-1.2.3-18.8.5-1.5-.3-3.2-.2-2.3-.8-2.2 0-1.1-.3-1 0-1.5-1.5-.5-1.9-1-1.6-1.7-1.5-.2-2 .9-1.2.3-1.3 5-5.9 1.3-.8 1.4-.3.6-.7 2-1 1-.2 1.4-1 1-.1.5-.5 1.3-.5.7-.7 1.1-.2.9-.6 1.3-.5.5-.5 1.7-.5 1-.9 1-1.8.5-3.5.6-.7.7 0 .7.4 1.8 1.5 1 .5 4.3 4 3.4 2.3 2.1.8.9 0 .5-.3 1.8-.3 1.7-1.7 1-2.5 0-7.2-.7-1.3-.2-1-.8-1.5-.3-1.8 0-1 .8-.9.8.2.7.7 2.3 1.3 1.7 1.5.2 1 .6.8.2.7.2 3.7.6 1.8 1.7 2 1.7.7 1.5 1.3.3 1.5 1 1.7.2.8 2.1 3 1.5.5 1.5.8 2.5.2 1.5.7 2.5-.2.9.5.6.8 1.2.2 1.2.8 1.5 0 1.6-1.3.5-1 .7.2 1.3 1.1 1.4.4.6-.4 2.9-2.8 3.1-.2.5-.3 1.9-2.2.1-.6 1-1.2.2-.5-.2-11.2-.1-.1 0-3-.4-.9-.1-1.5-.7-.6-1.8-.2-1.4.3-1.3 1-.7.2-1.1-1-1.9-1-3.5 0-.1.2-1.2-.2-.5-.3-.3-1.4-.9-1.3-2-1.7-.1-.3 0-1.5.3-1-.2-2.2-.6-.8-.7-.3-2-.2-1.3-1.3-.5-1.7-.5-.8-.4-2.2-1-2.5.2-3.3.7-.9 1-2 .3-3.3.8-.8 2.2-.2 2.8.8.9 0 1.8 1 1.5.2 1.7 1.3.3.7 0 2 1 1.5.2 1 .6.8.4 2.5.8 1.7.8.8.5 1.4.7.8 0 .7.5.5.7 0 .5-.4 1.1-4.3 0-1.3.4-1.2 1-2 .5-.5.5-1.5.5-.5.3-1.5.7-.7.3-1.3 1.5-2 .5-1.3 1.3-1.4 1 .2 1.7.8.8 0 .7-.3.3-.7.9-.6 16.1 0 .9 1 .1 2.1.5.5 1.2.2 1 .7 1.5 2.5 4.3 3.6.9.4z"><title>Salta</title></path>
+          <path class="prov" data-name="Formosa" d="M179.5 23.8l1 1 .5 1.7.8 1.2.2.8 2 2.3.7 1.5.1 1.2 3 2.5 3.5 3.8 1 .2 2.5 2.5 2.7 1.5.8.8.9.2.8.7 1.3.3 1.7 1.3.2 1.2 1 1.8 1.3 1.5 1.2.9 1.5.3 1.3.8 1 .2 1.5.8 1.3 0 3.5 1.9 1.5.1 1.7 1 1.8.5 2-.1.7-.4 2 .2 1.7 1.5 1.1.5 2.2 1.8 3 2 8.2 6.9.6.1 1 1 2.2 1.2 3.2 2.5.6.3 1.7.2 1.8.8 2.5.2 1.7 1.5 1.7 2.2 1.1.3 1.7-1 .8.8 1.9 1 .8.9 2 .3 1.7.7 5.1 5.8.2.5 0 3.2-1.3 1.6-1.2.5-1.5 1.4 0 .5-.8 1.1-.4 1.4-1.8 2.6-.2 1.4-3.5 2.3-.6 1.3-.5.5-.4 1-1.6 2.2-.4 3 .2 4-.2.5-.6.7-.4 1-1.1 1.1-.5 0-.5-.3-4.7-4.8-.7-.4-4.8-4.8-2-1.7-1.2-.5-1.5 0-1.5 1-.6-.1-2.4-3.5-1.8-1-1.3-.4-1.2-1.1-.5-1.5-1.7-2.4-6.3-5.8-.8-.2-1.7-1.1-1.2-2.4-2.8-3.8-1.3-2.3-1.2-1.2-2.2-1-1.1-1-.7-.2-1.7-1.5-3.6-2.5-.9-.8-1-.2-.5-.6-.1-.9-.7-.8-.2-1-1.3-1.5-1.8-1-1-.2-1.2-.6-1.3-.4-4.7-4.8-1.3-1-1.9-.2-1.5-1-1.8-1.6-1.5-.9-1.7-.5-1.5-.8-1 0-.8-.5-.2-.3 0-12.5-.1-.2 0-14.2.1-.1-.1-6z"><title>Formosa</title></path>
+          <path class="prov" data-name="Chaco" d="M179.7 59.3l.5-.1 1.3.6 1.3.2 1 .5 4.4 3.3 2.1.2 2.4 2 3.6 4 1.4.7 1.6.1 2.2 1.2 1.2 1.3.5 2 1 1.2 2.3 1.3 7.7 5.7 1.1.3 1.7 1.7 1 2 .8.8.5 1.2 1.5 1.7.4 1.1 1 1.5.8.9 1.2.1 1 .7 5.6 5.3 1.2 1.5 1.2 2.7.6.7 1.4.3 2.1 1.2 1.9 3 .8.6 2.5 0 1-.8.8.2 6.5 5.8 6.4 6.3-.4 1.2-1.1 1.2-1.5.6-3 3.7-.2 1.2 1 1.1-.2.9-.6.6-1 .2-1.7 1-1.5 1.8 0 3 .8 1.5.2.9 0 3.5-.3 1.3-.7.8-.3.2-10.7-.2-1.2-.3-5.8 0-.2-.2-6.6-.1-.2-.2-26-.2-.2-.1-3.5 0-.6-.7-.2-1 .2-.2 0-9 .1-.1 0-30.7.2-.2 0-10.3-.2-.3-1-.7-12.3 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-9-.2-1 .2-.5-.5.2-1 1.8-1.9.4-.8 3.5-4.3.3-.9 2.2-2.5.6-1.1 2-2.4 4.2-5.8 2.7-3.2.3-.8 1.8-2 .5-1.3-.1-3.9z"><title>Chaco</title></path>
+          <path class="prov" data-name="Misiones" d="M348.3 101l1.7 1.3.7 1.2.3 3.2 0 2.6 1 1.9.2 1.1.6.9.9 2 0 .6-.7 1.7 0 1.2-1 1.8-.2 2.5-.8 1.5-.5 2.5.2.2.1 4.3-.6.7-.4 1-1.5 1.5-1.6.1-.7.4-1.8 1.6-2.2 1-1.5.4-.5.6 0 .5-1.7 1.5-2.8-.1-.8.3-2 .2-1.7 1-.7.6-2.5.4-4.5 4.8-1 .2-.5.5-.8.3-1.7.2-.6.6-1 .5-1.2 1.5-5 1.9-.7-.7-.8-1.7-.2-1.8-1-2.2 0-2.1-.6-1.4-.4-2-.8-1-1-2 0-.6.3-.4.5 0 2.2 1.9.7 0 .6-.7 1-.2 1.2-1 1-.5 1.7-4.5 1.8-1.1 1.5-1.7 4.8-.2.5-.5 1-2 1.2-1.1.7-.4.6 0 2-2.1 1-.4.9-.8 0-1.2.5-1 1.1-1.1 1-1.5 0-1.5.9-2.5.3-3 .7-1.2 1.1-3.2 0-3.1-.3-.9.2-1.8.5-.5.5-.2 1 .9 1.3.5.5 0 1.8-1 3.7-.2z"><title>Misiones</title></path>
+          <path class="prov" data-name="Corrientes" d="M304.7 137l.3.5-.2.7.2 1.8 1.8 3.2.2 1.8.8 2.2.4 3.1.6 1.2.4 1.3.8 1-.2 1-1.8 1.9.2 1.8-.7.5-1.3 0-1 .8-1 1.5-3.2 3.7-2.8 2.8-.9.4-1.1 1.1-.4 1-.8 1-5.8 5.7-.4.8-.6.7-.4 1-1 1.2-4.6 4.1-.4.7-2.5 2.8-.6.4-2.2-.2-1 .3-.5.5-.2 2.7-1 2.2-7.6 6.6-2 2.2-.5 1.2-1.2 1-.7-.7-.1-1-2.5-3.2-.5-1.1-1.2-1.2-1.2 0-1.5-.8-2-.4-1.8-.8-2.5 0-1.8 1-4.5-.2-1 .4-.7.6-1 .4-1 .8-1.7 0-2-1-1.8 0-1 .5-.5 0-.5-.5 0-.8.8-1.5.4-1.5-.2-2.2-1-1.7 0-2.1 1.8-3.4 0-5.6 2.2-4 2.5-1.4 2.3-2.3.9-1.7.3-2 .8-1.5.2-1.8.7-1.2.3-2 .8-1.6 0-7.2 1.5-1.5 1.4-.7 2.1-3 .2-6.8-.2-.2 0-1.8-.3-.7 0-1.1.8-1.7.9-.2 1-.8 1.1-.3 1.4-.9 12.8 0 1.3.7 1.5.3 1.5 1 .7 0 1.5.9 1.7.3 1.3.8 1.8.2 1.4.8 1 .2 1.6.8 2.4-.1 1.5-.9 1.3.2 2.3 1.8 1.2 0 1.3-1 1 0 1 .9.2.6 1 1.2 1.3.5 1.5-.3 1.2-1.2.8-2.2 1.4-1.1.6-.4z"><title>Corrientes</title></path>
+          <path class="prov" data-name="Catamarca" d="M51.7 86.2l.6-.4 2.7 0 2.2.5 1 0 1.1.5 3.2.2 2.3.8 9.9-.1.8-.4 3 0 1-.3 3.5 0 .2-.2 7.8 0 .7.5.3 2 1 1.2-.2 1.5-1.5 1.8-2.5.5-2.5 1.4-.3.5 0 3.3 1.7 2.2.3.8 1.8 2.2 1.4 2.1 3 3.9.8.1 1.3-.8 1-.2 1.4-1.5.5-1.3.3-.2 1.3.2 1 1 .2.7-1 1.3-.3 1.2-.7 1.1 0 1.7.3.7 1.5 1.1 1.9.2 2.3 1.8.8 1 0 3.5-1.6 2.2-.5 1-2.7 2.8-.3.9-1 1.1-.4.7.2 1 .8.8 1.5 0 1 .7.4 2 .6.8.4 2.2.6.8.4 1 .8 1.2 4.5 4.2 1.2.5.8.6 1.2 0 2.3-1.8 1.2-.2 1.3 1 1.3.2 1.2 1.5.2 2.7.6 1.8.2 6.3-1.7 2.2-.1.8 1.8 1.9.3 1 0 1 .4.8.3 2.5.2 5.5.8 4.2 0 1.6 1 3.2 0 3 .5 1.2 0 .8-.7 1.2-3.1 3.6-1.4.4-1.6.8-1.2 0-.7-.7-1-2.8-.8-1.2-.2-1-.8-1.3-.2-.8-.6-.9-.4-1.1-2-3.7 0-4.2-.1-.3-1.4-1-4.8-5-2.3-1.7-3-1.6-1-1 .3-1.5-2.5-2.7-.3-1.2-.7-1.1-.3-1.9-.9-1.1-1.3-.4-1-.6-2.7-.5-1.5-.7-2.5 0-2.3 1-1 0-2 .7-9.7-.2-1.3.5-.5-.2-.7-.6-1.8-3-.8-.9-.7-.3-2.3-.3-1.5-.5-1.2 0-.8-.4-1-.8-.7-.2-.5-.5-.2-.6-.1-3.4-.4-.6-.8-.7-1.3 0-1 .5-3.2 0-1.5.5-2 0-2 .8-1.2 0-.3-.3 0-1 .8-1.7 0-2.5 1-1.8 1.9-2.3.1-2.9 1.5-1.5 1 0 1.5 1 .9 0 .6-.3.4-1 .8-.8 1.3-.7 1.9-.2.6-.3.5-.8 0-3.2-1.8-2.2-.5-1-3.7-4.8 0-4.2.4-.6 2.3-2.5.2-1.2-.5-.8-.5-2.9-.7-1-.3-2.1-.7-1.7-.2-1.3-.8-1.4-.2-1.5-1-1.6 0-2 .2-.9.8-1.5 0-2z"><title>Catamarca</title></path>
+          <path class="prov" data-name="Tucumán" d="M133.5 107.2l.5.8 0 2.5-.5 4.8-1.3 1.4-.9 1.1-.5 1.4-.8 1-.2 2.3-.8 1.7-.2 1-.8 1.1-.2 1.4-2 3-2.6 3.1 0 .9.8.8 0 .7-.8 1.1 0 .9.8 2.6-.2 2-1.6 2-.5.2-1-.2-.5-.5-.9-.3-1-1-1 .2-3 2.1-1.3-.3-1.5-1-2.3-2.2-2-2.5-.4-1.1-.8-1.5-.2-1.5-.6-1.2-.4-1.7-.6-.5-1.4 0-.8-.6 0-.9 1-.8 2-2.3 1.8-2.7 1-1 0-5.7-1.5-1.6-1-.4-1-1-1.1-.5-.7 0-.8-.6-.2-.9.7-2.1 1.3-1.9 4.8-.1 2.4-2.4.3-1.1.5-.4 3.8 0 1.4-.6 1.1.5 1 1 1.2.3 1.2.8.8.2 1.5.8 2.8 0 2.2-1 2.8 0 .9.4z"><title>Tucumán</title></path>
+          <path class="prov" data-name="Santiago del Estero" d="M141.3 92.2l.4 0 .8.6 1 0 2.3 1 11.9 0 .1-.1.2.1 32.3 0 .7.7-.2 17.5-.1.2-.2 15.6-.2.2 0 5.5-.1.2-.2 14.5-.5 2.6-.5 1.2-.2 4-.8 2.3 0 2.4-.5 1.6 0 2-.5.9-.2 3.3-.8 2.3-.2 4.4-.8 2.3-.2 3.3-.8 2.7 0 3-1 4.7-.3.5-.4 0-.5-.7 0-1.3-.8-1.4-.3-1.6-1.2-1.4-.5-.1-1.7.5-5.1 0-.5-.2-1 .3-11.7 0-.5-.1-3.7-2.9-1.3-.3-4 .2-1.5-.7-2.2-1.3-1.3-1.7-1-.2-1.7-.8-2.8 0-1.7.8-2.3.2-1.8.8-1.7.2-1.3.7-2.4.5-.6-.2-.5-.7-.2-1.1-.5-1-.2-5.4-.6-2.5-.4-3 0-3.6-.5-1.2-1.1-1-.4-.7.2-.6.8-.7.7-1.2-.2-4.3-.5-2 0-2.2-1-3.6.2-.5 2.7-3.2 0-.8-.9-1.9 0-2.3 1-1.2.2-.6-1-1-.2-.7 4-5.3.2-1.2.8-1.5 0-.7 1-1.5 0-1.6 1-2.5 1-1.2.2-.5 1.8-1.5 0-4.5.2-.2 0-2.3.3-1 0-1.7.5-1 0-1 .4-1.1.5-.7.3-2.7.8-1.5.2-1 1.8-3.1.4-1.4z"><title>Santiago del Estero</title></path>
+          <path class="prov" data-name="La Rioja" d="M43.2 146.2l1-.4 2.1 0 3-1 4.4 0 .5-.3.5 0 .8 1 .5 2.7 0 1.3.5.7.8.1 2.4 1.4 4.5.3 1.6 1.5 1.4 2.3 1.3 1.5.8 0 1-.5 11.7 0 1.7-.8 2-.2.8-.5.8 0 1.2.5 2.3.2 1.2.7 1.3.1.7.5.7 1.2.3 1.8.8 1.2.2 1 2 2-.2.8.2 1.4 1.3 1.1 1 .4 3.9 2.5 5.8 5.6.3 1.2 0 2.7 1.7 3.1 0 .7 1.8 3.2.2 1.1.7.9.3 1.1.8 1.2.2 1 .7.8.5 1.2-.2 2.8-.3.9-.5.5-.4 2.3-.8 1.5-.2 1.7-.8 1.3-.2 2-.6 1-.4 1.8-.8 1.5-.2 2-.8 1.4.2 8.8.3 1 0 3.8.3 1.2 0 3.3-.5.5-1.5 0-1.5-.5-1.3 0-.8.5-.9.2-1.3 1-7.3 0-2-1-1.4-.2-.5-.8 0-1.5-3.8-3.8-1-2-.2-1.9-.5-1.3.4-2.5 0-2.7-.7-.8-.2-4.3-.6-.9-.4-1-1-1.1-2.6-2.4-5.2-5.1-.3-1.9-3.4-3-3-2.1-8.1-7.5-1.9-1.2-4.8 0-1.7-.8-.6 0-1.7.8-3 0-.5-.3-.2-.4 0-8-.3-.5 0-.8.3-.8 1-1.4.2-.8-.2-.8-1-1-1.1-2.2-1.5-1.8-1.4-2.9-.8-1-.8-.5-1.9-1.8-.8-.2-1.3-.8-3-.2-.5-.6.1-.7 3-3.3.9-1.9.3-1.6.7-.7 1.3-.2.8-.6.2-2.4z"><title>La Rioja</title></path>
+          <path class="prov" data-name="San Juan" d="M33.7 161l1.3-.2 2.2.4.8.5 1.3.3 3.4 3.2 1.6 3.1 1.2 1.4.7 1.6 1 1 .1 1.4-1.3 1.8 0 1.3.5 1.2 0 2.2.2.1 0 5.2-.2.5.8 1.3 3.5.4 1.9-.9 1.6 0 1.4.7 1.1.2 2.7-.2 1.2.3 5 4.2 1.6 1.8 2.4 2 2 1.4 3.3 3 .2 1 .8 1.3 8.2 8 1.5 2.3.3.9-.2.3.2 9.5.8 1.2.2 2.5 1.2 1.6 2.8 2.7.8 1.3 0 1.2-.6.7-.5.1-.7-.1-.8-.7-1.4-.2-5.8.4-1 1.1-.2 1.5.2 4.5-.2.5-.6.7-1.2.3-5.7 0-1.3-1.1-.5-.9-1.3-1.3-1-.2-.7.5-1 .2-2.5 1.8-1 0-1 .4-3 2.5-1.2.3-1.3 1-1.3.5-1.7-.7-.5-.5-.7-2 .2-1-.8-1.1-1.2-.2-2-1.3-1-1-1.2-.2-2.3 2.2-2.2.1-2.1 1.2-.7.7-.2.8-.6.7-.4 1.1-.5.5-1.5.2-2.3 1-4.5 0-2.2 1.3-.5 0-.5-.5-.8-1.6-.2-1.4.9-1 .8-.5.3-.6 0-1.9-1.1-1.8-.7-.3-1.5 0-1.2-1-.6-1.7-1.7-2.5 0-8.2-.2-.6.9-.9 1.8 0 .3-.3.2-1.3 1.5-1.4 0-.6-1.5-2.2 0-2.7.7-1.1.1-1.7 1-1.8.4-2 .6-1.5.7-.7 1.8 0 1.2-1.2.5-1.8.7-1 .5-1.7 0-.8-.4-.7-1-1-.3-.8 0-6-1.5-2.8-.2-1.4-.8-1.3-.2-1.8-1-1.7 0-1 1-1.2.4-1 1.3-1.3 1.2-.5.8-1 0-.5-.7-1.3 0-1.5.9-1.7.3-1.8-.5-2.4.5-1.3.8-1 .4-1.2 0-2.3z"><title>San Juan</title></path>
+          <path class="prov on" data-name="Córdoba" d="M140 179l.7 0 1.5.8 1.3.2 1.3 1.7 2.7 1.3 1 .8 5.8.2 2.2 1.8 3 1.5 1-.3 7 0 .2-.2 10.8 0 .5.2.7.7.5 2.3.6 1 .4 1.5.6.8.4 1.5-.2 4.2-.5 1.5 0 1.2 1.7 2.6 2.8 3.2-.2 2.5-.8 2-.2 2.2-.8 1.8-.2 2.8-.6 1.4-.4 2.6-.8 1.7 0 1.8-.3.7-2.4 2.5-.1 1.2.3.5 0 1.3.3 1 .2 5.5.3 1.8 3.7 5.4 1.3 1 .5.8.2 3.5 2 2.8 0 3.4-.3.8-3.7 4-1.8 2.7-1.5 2.8-1.5 2-.5 1.3-1.7 2.4-.3 1-1.4 1.6-.3 1-1 1.2-.2.7-3.5 5.3-.3 1-.8 1-1 1.8-.9.7-9.1 0-.7.3-.3.9.1 11.8-1 1-.5-.2-27.5.2-.5-.5-.1-10.3-.5-1.7-.4-19.7-.1-.1 0-2.4-.7-1.1-.2-3 .4-.9 1.6-1.6 0-4.4.9-1.8.3-1.7.7-1 .3-2 .7-1.1 0-.9-.9-2.3 0-2.3-.1-.5-1-.7-1 0-1.2.3-2 0-.5-.5-.2-1.6-.6-1.2-.4-1.3-.8-.9-4.8-2.8-1-.2-1.4-.8-1.3-.2-.7-1 0-10.5-.1-.1 0-4.4-.4-.8 0-1.2.5-1 .2-1.5.8-1.5.2-2 .8-1.1.2-1.9.8-1.1.2-2 .8-1.4 0-1 1-2.5.2-1.3.8-1.7.9-.8 2.5-.3 1.1-.7 4.4-4.8.1-3.4-.6-1.8 0-1 .5-.5 2.5-.7.8 0 2.3-1 1.5 0 1.9-.8 1.8-.2z"><title>Córdoba</title></path>
+          <path class="prov on" data-name="Santa Fe" d="M245.5 148l.5.5-.2.5-3 2.5-.3.8 0 6.5-.5 1.2-.3 2-.7 1.2 0 1.3-1 1.7-.2 2.1-1 2-1 1.4-1.5 1.3-1.8 1-1.2 1.2-.3 1.1-1 1.4 0 .5-.8 1.5.1 3.8-.3 1 0 1-1 1.7-.3 1.5.1 2.1 1.2 2.2 0 1.2-1 1.8 0 1.5-.5 2.7.5 2-.2 5.5-1.1 1.8-2.7 3.2-.2.6-1.8 2-.3.9-2.9 3.5-1.5 2.3-.5 1.7-1 1-1 1.5-2.5 2.8-1 .5-1.8.2-1 .5-.5.8-.2 1-1 1.7-.3 1.3 0 1.2-.3.8 0 .7.3.5 0 2.1-.3.9 0 2-.4 2-.8 2.3 0 3.5.8 1.3.2 2.2 1 2.7 1 1.5 0 .6 1 1.2 1 2 1.2.8 1.8 1.9.3.6-.1.5-1.2 1-1.2 3.2-1 1.7-.6.5-.9-.2-1-1.2-.6-.3-5.2 0-7.3 8.8-.2.5-2.8 3.2-.5 1-.7.5-1.2 1.7-2 2.1-.5.2-18 0-.5-.5.2-1 1.7-2.2.3-1 .8-.8.4-1 1.6-2.3.2-.7.7-.7 1.1-2.3 1.7-2.3.7-1.5 2.6-4 1-2 1-1.2.4-1 3.8-4.3 1.2-1.9 0-4.3-.5-1.3-1.7-2.2-.2-3.5-2.6-2.7-.4-1-1-1-1-1.8-.8-4.8-.2-5.9.4-.6 1.6-1.5.2-1 .8-1.7.2-3 .8-1.7 0-1.3 1-2.7 0-2.1 1-2.4 0-1.5.7-2 0-1-4.5-5.5-.2-2 1-3.8 0-3.3 1-3.2 0-2.2.4-1.6.6-1.7 0-3.7 1-3.3 0-1.8.9-3.2.3-4.8.8-2.5.2-4.2.8-2.5 0-2.2 1-3.8 0-2.8.4-1.9 1-.5 7.5 0 .1.2 6 0 3.4.3 9.1-.1 1.5.5 5.9 0 .1.1 13 0 .2.2 5.8 0 .2-.2z"><title>Santa Fe</title></path>
+          <path class="prov on" data-name="Entre Ríos" d="M250 197.2l1.2.6 2 .2 1.6.8 1.5.2 1.2 1 .7 1.3 2.6 3.4.4 1.8.8 1.2.2 1.1.6 1.2.2 1.7.8 1.3 0 .5-.8 1.5-.2 1.5-.6 1.2-.2 2.6-.7.9-.5 1.3-1 1-1.6 2.5 0 1 .5.5.8 1.7 0 .8-.3.5-.4 1.8-1 1.9-.5.5-1.5.5-.6 1 0 1 .6 1.6 0 2.4-.5 1 0 .5.7 1.3.8 1 0 .7-.5.5-.5 1.3-.8 1 0 4.2.2.1-.2.2 0 4.3.5 1.4-.3 2.6-.9 1-1 .4-1.8 0-1.2.6-.3.7 0 1.5-.8 2.2-.4 3.6-.5 1.2 0 4-.3 1.8 0 2 .7 1 0 .7-.5.7-.7.3-1 0-1.3-1-.9-.3-1.6-1.5-2.4-1.2-1.1 0-.9-.3-2-1.7-1.6-1-.9-.2-1.5-.8-1.6-.2-1.7-.8-1.7-.2-.8-.6-.8-.2-2-1.7-2.5-1.5-8.4-8.6 0-.4-1.6-2.3-.4-1.2-1-1.6 0-.9-.8-2-.7-3.6.5-2.2 0-1.7 1-2.3 0-8.3 1.4-2.7 1-1 2.1-.2.5-.3 3.9-4.5 2-2.8.3-1.7 1.5-1.5 1.3-1.8.4-.9 1.6-1.8.2-.5 4.7-6.2.3-.8 0-.8.7-1.5 0-1-.9-3.2.2-1.2.7-.5 3.1-.1 1.4.3.8.7 1.3.1 2.2-1.6 2.2-1.2 4.3.2 1.5-.4.8-.6z"><title>Entre Ríos</title></path>
+          <path class="prov on" data-name="Mendoza" d="M47.3 240.2l1 0 1.4 1.3 1.3.7.8.8.4 1.8.8 1.4.7.6 1.8 1 1.8-.1 1-.9 2.5-1.1 2.2-1.9 1.3-.6 1.7-.4 3-2 .7.2 2.6 2.8.5.2 7.7-.2.5.7 0 3.2 2 3 0 .3.8 1 1.2 2.3 0 6.7.8 2.2.2 4.3.8 2 .2 2.5.8 1.3.2 1 1 1.2.3 1 .7 1 .8.7.5 1.1 1.5 1.9.4.8 1.6 2.3 0 2.2-.8 2.3 0 2.5.5 1.2.5 2.8.8 1 .2.9.7.8.5 1.3.8 1 1 2 .2 2 .6 1.7 0 2 .2.2-.3 9.1-.7 1.5 0 2.9-.3 1-.4 3.6-.8.7-10.2 0-1.8.3-3 0-.8.4-2.7-.2-1.2.3-7.5.2-.5.7.2 11.1.3 1.4 0 2.1.4.9 0 2.6.3 2.7 0 6.5.2.2 0 1.8.5 1.5-.2 1.3.3 1-.1.9-.5.3-1.2 0-1.7-.8-.5 0-2.6-2-1.4-.5-1.1-.2-1 .3-1.4 0-.6-.3-1.2-1.2-.8-2.3-1.4-.8-4.5-.2-1.1.5-1.2 0-1.5-.5-1.3 0-.9-.7-1-1.8 0-2.5-1-1.7-4.5-4.3-1-.2-1.3-1.1-.3-1.4-2.5-3.6-.7-1.5-1-.5-.7-1 0-1 .4-.9-.4-1.8 0-1.2.4-.8 0-1.7-1.2-3.6-.2-2.2-1-3.3 0-1.2-.3-.7-1.5-.5-.3-.5.1-.5.7-.5 1.5.2.8-.7.2-.5 0-5.5.5-1.5.3-5 2.4-3.5.6-.6.4-1.2 0-1.7.6-.5 1.9-.1 1-1.2.1-.5 0-2.2-.3-1 0-1.1-.7-1.9-.1-2-.7-1.5 0-2.5.8-2.8 0-2.3.2-1.2.5-1.2 0-1.5-.7-.8-1.5-1.2-1-.1-.8.5-1 0-1.3-1.9 0-1.8 1.1-2.8.2-1-.8-1.2-1.7-1.5-.2-2.5-1-3.5 0-1-1-1.3-.3-1.2.5-.5 1.8-.7.9 0 1.6.5 2-1 1 0 1.9-.8 1.3-.2 1.2-2 .3-1.1.7-.7 1.5-1 2.5-.2z"><title>Mendoza</title></path>
+          <path class="prov" data-name="San Luis" d="M83.3 235.2l1.2.1 1-.3 2.5 0 1.5.8 2.3 0 .5-.3 1.5-.3 1.4.6 2.5.7 6.1.2 2.9-1.9 3.6 0 .9.4 2.3-.2 1 .7 1.5.3.8.7 1.4.3.8.7 1.3.5 1.7 2.1.2 1.2.8 1.7 0 1.1.5.5 1.2.2 3.1-.3.9 1 .3 1.6 0 3.2-1 1.7 0 1.3-.8 1.5-.4 2-.6 1.3.1 1.7-.1 1.3-1 1.2-.9 1.5 0 .8.7 2.4.2 4.5.3.8 0 2.3.3 1.2 0 4 .2.2 0 21.3.3 1.8 0 6 .4.9-.2 1.1.2 4.4-.2.3.3 1.2 0 6.8.2.2 0 .8-.7.8-13.1.2-.2.2-3.3 0-1.4.3-3.1 0-1.2.3-2.8 0-.2.2-.7-.2-.5-.5 0-3.8.2-1.3.8-2.7 0-3.5.5-2.5 0-1.5-.3-1.2-.2-5.5-.8-2.1-.2-1.4-1-1.3-.8-1.5-.5-1.5-.8-1-.7-1.3-.3-2.5 0-3 .5-2.5 0-1.4-.4-1.5-2-3-.8-.8-.3-1-1.7-1.8-2-3.7-.2-.8-.8-1.7-.3-3.8-.5-1.2-.4-1.8 0-2.4-.5-1-.3-1.5.3-4.1-.5-2.2-.6-.7-1-1.5-.4-1-1-1.1-.6-1.9 0-10z"><title>San Luis</title></path>
+          <path class="prov on" data-name="Buenos Aires" d="M216.5 267.2l3.3 3.3 2.7 1.7 3 2.3.7.3 2 .4 1 .6 1.1 0 1.4.9 2.1.3.7.7.8.3 2 1.8 1.9.2 1.3.8.8.2.7.7 3.8 2.5 1.2.1 1.8-.6.7 0 .5.5.2.5-.2.8-1 1-.2.7-2.1 2.1-.4.7.2 1.8-2.3 1.9-1.2 2.1.2 2.7.8 1.8 1.7 1.4 3.5.1 1.1-1 1.4 0 1.1.9 1.4.5.5.5 1.6.3.5.5 1.5.5.7.7.8.3 2.4 1.7 5.8 5.8.3.8 1.5 2.2 0 2.8-3.5 4.2-.3.7 0 .5-1 1.8.2 2.8.8 1.9.2 1.5.8 1.6 4.7 4.4 1.5.8.6 0 1.2-.7.5 0 .5.5.3 3 .4.9 0 7.5-.7 1.3-2.8 3-4.4 7.5-5.5 5.2-.5 1-1.5 1.8-.5 1.2-1.1 1.5-.2 3.1-1.5 1.5-1.7 1.2-.8.2-.7.6-2.6 1.2-1 .8-2 1-1.2.2-1.3.8-1.9.2-1.3.8-1.3.2-1.5.8-2.2.4-1 .6-1.2.2-1.1.7-3.4.3-2.6 1-2.7.2-1.8.6-2.7.2-2.8.8-3.7.2-3.3 1-2.2 0-2.5.8-4 .2-1 .3-4.8 0-1.2.4-9.5 0-2 .5-1 1.1-.2 1.4-.3.6-.8.5-.9-.6 0-1.9.7-1.8-.5-2-.5-.8-2-1.5-2.2-.7-2 .5-.5.8-.1 2.2.5 1.5.5.7-.4 2.6.4.7.3 2.8 1.3 1.2 1.2.3.7.7.8 1.5 0 1.7-.3 1.1-.7 1.2-.2 3.3-2.5 2.2-.5 1.3-.6.7-.4 1.8.2 2.9-2.7 3.1-.1.7 1 2.8 1.6 1.5.5.9 1.4 1.3.1 1.5-1 2-.5.5-.3 1-.5.5-2.7 1.2-1.1.8-.9.2-.5.5-2 1-.5-.5 0-.9-.8-2-.2-1.1-1-1.7-.5-.5-.6-.2-1.2-.8-1.5-.2-1-.5-.8-1 .1-.8-.1-44.3.1-.4-.3-1.1-.3-91.5.6-1 5.2 0 .2.1 2 0 .1-.1 3.2 0 .2.1 1.6-.1 1.4.1 16.1-.1 1.4-1.2.1-.5 2.2-2.3 1.8-2.4.2-.5 2-2.1 2.8-3.9 2.9-3.1.5-1 1.3-1.2 3.2 0 .5.2 1.8 1.6.5.2 1.3-.2 1.9-1.8.3-1.3.8-1.4 0-.8 1.2-1.2z"><title>Buenos Aires</title></path>
+          <path class="prov" data-name="La Pampa" d="M157.3 304.5l-.1 4.7.3.8 0 5.2.2.1-.2 21.5.3 1.2 0 56 .2.2 0 5-.5.5-.3 0-3-2.5-.7-.2-3.2-2.8-1-.4-2-1.5-1.5-.5-3.3-1.6-2.8-.4-1.7-.8-1.8 0-2.2-.5-.3.2-6.4 0-1.6.3-1.9-.7-1.8-.3-1.7 0-1.8.3-1-.3-4.7-.3-1.6-.5-3.4 0-3.1-.4-1.9-1.6-.3-.9-1-.5-.7-.6-2-.4-1.1-.8-1.4-.2-.8-.6-1-.4-1.3-1.6-.4-.9 0-.8-1-1-.8-.2-.8.5-1.9.2-1.8.8-1 0-1.7-1.5-.1-.6-.5-.5-1.5-.9-1.5-.3-1-.8-.2-.4.2-1 3.5-3.1.1-1.2-1-1.8-1.5-1.5-1.3-.4-1.3-.8-4.4 0-.5-.7 0-5.5-.1-.1 0-1.9-.5-1.5.1-1.6-.3-1 0-2.7-.2-.2 0-8.8-.3-1.3.2-1.7-.4-.7 0-2-.3-1 0-2.5.5-.6.3-.2 4 0 .2-.2 13 0 1-.3 2.7.2 1.6-.5 2.9.1 2.1-.5.4.2 11.3-.2.2-.1 3.5 0 .8-.4 3.3 0 1.4-.3 7 0 .8-.8-.2-21 .9-.7 9 0 .8-.3 6.2 0 .3.1 1.2-.3 8.8 0 .2-.2 1.1 0z"><title>La Pampa</title></path>
+          <path class="prov" data-name="Neuquén" d="M30.8 335.8l.7.4 1.2 1.3.5 1.2 1.3 1.5.5 1 .2 1.1.6.7.4.8.8.9 1.7.5 4 4 .6 1.5.7 3.3 1.5 1.8 2.3 1 5.5 0 .2-.1 2.8.1.7.7.2 1.5 1.3 1.5 1.3.5 3.7-.2.8.4 3.5 2.6 2.7.2 1.2.7.3.8 0 8.5.2.2 0 2.5.3.8.3 3.2.2 9 .5 4-.2.5-.6.6-2 1.2-3.7 3.3-.2.9-1.6 2.3-.4.8-2.6 3.2-2.7 1.5-.8.2-1.4 1-1.1 1.5-.5 1.5-1.5 1.5-1.5.5-.5.5-1.5.5-1.2.8-1.3.2-2.5 2.3-.7 1.5-.2 3.7-.3.8.3 2.5-1 1.8-1.3 1.4-1.2.6-4 .2-.8.8-.8.4-.5.5-1.4.5-.8.6-1.5.4-1.2.8-2.3 2.5 0 1.7.8 1 .2 1-.8 1.1-.4 1.2-1.8 1.3-2.3.2-1.4-1-5 0-.5-.2-.8-1.1-.3-1.7-.9-1.3 0-2 .9-2.5.1-1.5 2-2.4.4-1 0-.8-.5-.8-.5-.4-.7 0-.7-.6-.1-.5.3-1.7.3-.3.9 0 .6-.4.4-.5 0-3 .1-.1-.6-2.4-.7-.6-1-1.7 0-2 1-.7 1 .2.8-.2.7-.6-.5-1.9.8-2 0-1 .9-1.3.1-1-.8-2.2-.2-3-.5-1 0-.6 2.2-2.2.7-.2 4.8-3.5.8-.8 1.2-2.7-.3-1.5-2.9-3.3-.3-2.5-.3-.8-.4-3.7-1.1-2.7-.7-.8-.2-1.3-1.8-3.2 0-1.2.8-1.3 0-2.7-1-1.8 0-2.3.4-2.7-.4-1.8-.6-1.2-.4-1.2 0-4.5 1-.8.5-1.3-.1-.2 0-2.5.5-.8.8-.9.8-.3 2.4 0 .6-.3.5-.7 0-3.2.9-1 .3-1 .7-.5z"><title>Neuquén</title></path>
+          <path class="prov" data-name="Río Negro" d="M16.8 460.7l0-1.4.5-1.1-.5-2.4 0-2.6-.1-.2.1-.3 0-5.5-.1-.5.3-1.2.5-.3.8.1 2.7-.1 2.8 1.5 1.2 0 1.3-.9.7 0 .7-.3 2.1-2.8.4-2.7-.7-1.3.2-1.2 2.8-2.3 1.5-.4.8-.6 1.5-.5 2-1.7 2.4.2.6-.4 1.7-.1 2.8-3.4 0-5.8.5-2 .9-1.7.6-.6 1.2-.5.5-.5 1.2-.4 1.1-.8 1.5-.3 1-.9 1-.3 1.4-1.5 1.3-2.7 1.5-1.1 1.3-.4 2-1.1 1.9-1.9.5-1 1.5-1.8.3-.8.8-.9.2-.8.7-1 2.8-2.5 2.3-1.3 1-1.2 0-3.7-.8-6.1-.5-15.2-.3-.8.1-1.7-.3-1 0-1 .7-.7 2.6-.1 2.2.6 1.8 1.2.7 1 .2.7-.2.8-1.8 1.2-1 1.3-.4.8.2 2 .7.9 1.6 1 1.5.3 1.2 1.5 1.3 1.3.5.2 3.2-.2 1.7-.8.6-.2 1 .2.5.7.5 1.6 1.2 1.4 1.7 1.1 1.3.2.8.7 1.7.3 2.3 1.2.7 1.1 1.8 1.7 2.9.7 8.1.1 1.7.4 1 .6 4.7-.1 2.6.3 2.9 0 .1-.2 8.7.2 1.3.7 2.4.3 1.6.8 1.4 0 4 2 1.1 1 2.2 1.2 3 2.7.8.3 1.9 1.7 1 .5.8 1.1 0 28.4.8 1 2.7.3 1.8 1 .7.7.8 1.6.2 1.7.7 1.7-.2.8-2.2 1.3-12.3 0-3.5-2.8-1.3 0-1.9-.8-1.6-.4-.9-.6-2-1-1.5-.2-1.6-1-2-.2-1.5-.8-.9-.8-.5-.2-1.6.2-1 .8-.4 1.2-.8 1.1-.2 1.2-.5 1.2 0 2.8.5.8.4 4.4 1.8 5-.2 6.5-.6 1.1-.2 1.2-.7.5-18.5 0-.1.2-3.9 0-1 .3-3.5 0-1 .3-15.5.4-1.5.5-3.1 0-.4-.2-1.1.3-2.5 0-.2.2-5.7 0-1 .3-3.3.2-1.2.3-2 0-.1.2-5.9 0-.1.2-5 .1-3 .5-7.5.2-4.4.8-8.3.2-2.2.5-4.8.5-1.8 0-.7-.5-.2-1-.8-1-.3-1.5z"><title>Río Negro</title></path>
+          <path class="prov" data-name="Chubut" d="M152.2 464.3l.6 1.4.2 1 .8 1.5.2 3.5.2.1-.2 1 .2.2-.2.2 0 1.6-1 1.7 0 .8-1.5 1.5-2.7.2-.8.3-1.5-.1-1.3-1.7 0-2.2-.4-1-1.6-1.3-2.2-1-3.7.2-.6.6-1 .4-2 1.5-1.7.5-1 1.3 0 1.7.3.6 1.2 1 1.7 1 .8.2 2.5 1.7 1.2.1 1.6-.1.7.3 0 .5-.5.5-3.2 1-1.1.8-1.4.2-.6.3-4 3.9-.4 2.6-3.6 4.7-.2 4.8 2 4 0 1.2-1 1.8.2 4.7-1 1.8-.4 1.2-.6.7-.9.3-.6.8-1 .5-1.7 1.7-.8 1.3-.2 1.7.3.7 1.5 1.1.7.9-.7 1.8-.8.3-1.3-.8-2.4 0-2-.7-1.1 0-.7.5-1.2.2-.6.8-2.9 1.5-1 1-.1 1-.7.7-2.7.2-2.8 1.6-1.5 1.5-.2.9-1.8 2.6 0 .4-2.8 3.6-.2 3.4-1.8 1.8-.4 1.2-.8.8-2.3.2-1.4.5-1.6-.2-1 .3-8.9.2-.1.2-5.7.1-.8.4-5.4.1-.1.2-6.4 0-.1.2-2 0-1.9.5-4.3.1-.2.2-7 0-7.1 1-4.9-.2-3-2.5-.1-1.1.1-3.9.7-.5 1 .2 1-.2.8-.6.5-2.7 2.5-2.3.2-1-.7-1 0-.5-2.8-2.7-2.3-2.8-2.9-.4-2.5.2-.8-.7-1.2-.5-.3-.3 0-.8.5-.5 2.2 0 .8-.4 3.2 0 1.1-.6.9 0 1.1.6 2.5-.1.5-.5.4-.9 0-2.8 1.5-2.2 0-1-.9-1.1-1.3-1.2-9 0-.7-.5-.1-4.8 2.1-3.4 0-1.5-1-1.6-1.3-1.5.2-.9 1.1-1.5-.1-1-1.2-1.3-1.5-1-1.3-1.3-.2-.5.5-1.4 1.8-1.3.2-.5-.2-2.7-1-1.1-1.6-.7-2.4.2-1.8-1.7-.2-2 .5-2.3-.5-1.5 0-1.2-.8-1.3 0-.9 1-1.8-.2-2.8-1-1.5 0-1.4.9-1.1.1-.7.5-.5.5-.2 2.5.2.9-.3.5-.5.1-1-.6-1.4.6-.8 8.7-.2 1.5-.1 1.5-.5 3.3-.2.2-.2 4.5 0 1.5-.1 1.5-.5 1.8 0 .2-.2 10-.2.2-.1 2 0 1.8-.5 1 .1 1-.3 8-.2 1-.3 4.7-.2 5-.5 9.5-.1.8-.4 3.3 0 1.2-.3 21-.3.2-.2 3 0 .8-.3 4.5.1 1-.3 3.3 0 .7.5.5 1.2 0 .6 1.7 1.5 1.3.2 1.5.8 1.2.2 2.1 1 .4.3 0 .7-.5.8 0 .9.8 1 .7.1 6.1 0 1-.3 1.4-1.2.1-.5 0-1.5-1.1-1.3 0-.7.3-.3 1.2-.3 2.5-1.4.6.2z"><title>Chubut</title></path>
+          <path class="prov" data-name="Santa Cruz" d="M91.5 552.7l.5.6 0 4.5.8 2.5.2 1.5 1.2 2 1 1.2 4.3 3.8 7.2 7.2 5.6.2.9.3 4.3 0 2 .5 1.5 1.5 0 1.5.8 1.5.2 2.5-.8 2.3-.2 1.2-1.2 1.2-.8 1.3 0 2.8 1 1.5 0 1.2-.7.8-.1 1.5-.9.9-1.1.6-5.4 5.5-2.8 2.2-2.8 2.8-1.5.4-2.5 1.8-1 1.2-.5 1.3-.9 1.2-3.5 3.6-.5 1.4-.8 1-.7 4 0 3 .4.8 0 1.7-.4.8 0 1.3-.3 1.2 0 2.5-.8 2.3-.2 1.2-.7.7-1.3 2.3-1.5 1.5-2 1.2-2.2 1.6-1.3.4-2 1-3.7 2.8-2.1 2.5-.2.8-.8 1.5-.5 4.4-.4.8 0 3.3-.6 1.5 0 .7 1 1 .3.7 0 1.8 1 2.7 1 1.6.2 1.5.8 1.4.2 1-.2.5-1 1 0 1 1.3 2.1.7.7.2.8.6.7 2.5 4.5 3.7 4.7.5 1.3-1 .2-1.5-.7-1.7 0-3.5-2-5.3-.2-1.2-.6-1.1-.4-.9-.6-1.6-.4-.9-.6-1.1-.4-5.4.2-1.6.3-1.5 0-.9.4-4 .1-.1.2-6.7 0-1 .3-1.5 0-.8.4-2 0-1.9.3-.8-.7-.2-1.6-1.5-1.5-.3-.7-2.8-1.7-.9-.8-.1-.5-1-.8-.4-.7 0-.5.7-1.5 0-2.7.7-1 .1-1.3-.3-.7-1.8-1.8 0-1.2 1.1-2 0-3.5-1.1-2.1 0-1-.4-1.2-1.3-1.3-1.8-.2-2.4 1.3-.6 0-.7-.3-1.3 0-1.5 1-2 2-1-.5-.2-.8-.7-1.2-.1-1.8-.9-2.5 0-1.9-4-4.1 0-2.4-.8-1.6 0-1.4.7-1.3-.2-2-.5-.8-.5-2.2-.7-1.3 0-3.2.4-.8 1.3-1.4 1.8 0 1.4-.6.1-3 .9-1.7.1-1.5.4-.8 1.1-1.4 1.2-.1 1.5-1 .7-.7 1-1.7.3-1.3-.2-4-1-2 0-.7.7-.6.8-.4 1.5-1.5 1-1.8 0-3-.3-1.8-.3-.7-3-2.7-.2-1.3.7-1 .1-1.5 1-2 0-1.7.9-1.5 0-.5-.5-.6.1-1 .7-.7 1-.3 1.5-1.5.3-.9 0-1 .7-.6.8-.2 1-.7.4-.5 0-1-1.9-2 0-4.6 3.4-4.5 0-2.9-.4-1.1-1-1.5 0-3.2-1.8-2.5-.2-1.3.9-.9.5-.1 1.6-1.9 1.7-.6 2.3 0 2.2-.4 6.3 0 3.2-.5 2 0 2.7-.5 5.8 0 .2-.1 1.8 0 1-.4 2.5 0 1-.3 12-.2.2-.1 2.3 0 1.5-.5 2 0 .2-.2z"><title>Santa Cruz</title></path>
+          <path class="prov" data-name="Tierra del Fuego" d="M87.8 710.2l.7 0 .3.3 1 1.8 0 .5-.6 1-.4 1.4-.1 2.3.5 2.2 1.1 1 1.2.1 1 1 .5 1 .2 1.4.5.5 1.6 3 1 1.3 3.7 3.3 1.2 1.9 5.1 4.6 1 .4 2 1.6.9.2.8.7 1.2.3 1.1.7 2.9 3.1 2.3 1.9 1 .3.7.7 1.6.8 1.9.3 1.1.9 2.5.6 6.2-.5.5.7 0 2-.8 1-.2.7-.7.6-1.3 0-1.5.9-.7 0-1.8-.9-2.2 0-.5.2-2 1.8-2.8.2-2.3 2-.7 0-1.3-1-.5 0-3.9-2-.8-.2-7.8-.1-.9-.4-2.8 0-1.2-.3-2.5 0-3.1.8-1.2 0-.5-.5-.2-7.8-.3-1.2 0-2.8-.3-.8-.4-14.2-.3-1.7 0-1.6-.3-.9 0-2.5-.4-2 .2-4.1-.3-1.2 0-2.8-.2-.2 0-2zM151 752.5l-.7.7-2.3 0-.7.5-2.3.5-1.3.8-1.2 0-.3-.3 0-.5 1.8-1.4 2.8-.1 1.7-.7 2 0zM216.8 676.7l.2.5-.3.6-1.2 1.2-1 .2-1.3 1.3-1.4 2.2-1.5 1.6-.3.9-1.3 1.6-2.4.2-.8.7-1.5.5-.8.8-.4 1.2-.5.6-1 .5-1 0-1 1-.6-.1-.7-.7-.2-.7-1-1.1 0-.9.5-.5 1.4.5.8-.1 1.3-1.2 1-2.2 1.9-1.5 2.3-1.3.8-1.2 0-.8-.6-.7-2.7-1.6-1.3-1.5.3-.5 1.7.6 3.3 0 1.5-1.3.7 0 1.8.7 2.5-.2 1.2.8 1-.3zM238 676.3l.2 1.2-.5.5-1 0-.7.3-.7 1.4.9 1.6 1.5 1 0 .7-.4.3-3.6-.1-.7.3-1.5 1.5-.8.3-1.4 0-1-.3-3.1 0-1-.5-.9 0-1 .8 0 .7.5.7 1.2.8 1.7.8 0 .5-.4.4-.8.1-1 .7-.5 0-2.3-1.8-.9-.2-.8.8 0 1.5 1 1.4 0 .8-.3.5-.5.2-2.2-1.7-.8-.2-.9 1 .4 1.2 0 .7-.4.3-.8-.3-1.3-1.7 0-1 .5-.5.3-.8.2-2.4.8-.8 1.3-.5.5-.8 2.5-2.5.7-.4 1.5-.1 1.2-1 .1-.5-.1-.7-1.4-.7-.3-.3 0-.7 1.2-1.3.1-1 2.2-2.3 1.2-.2.5.5 1 .3 1.6-1 .9 0 .5.7-1.2 1.2 0 1 1.7 1.6.5 1.4 1.1 1.1 1.2 0 .5-1-.2-2.8.7-.8 3-.4z"><title>Tierra del Fuego</title></path>
+          <circle class="prov on caba" data-name="Ciudad Autónoma de Buenos Aires" cx="246.7" cy="297.2" r="5.5"><title>CABA</title></circle>
+        </svg>
+        <div class="map-info" aria-hidden="true">
+          <span class="map-info__name" data-map-name></span>
+          <span class="map-info__status" data-map-status></span>
+        </div>
+        <ul class="legend list-reset">
+          <li><span class="legend__dot"></span>Con proyectos o partners</li>
+          <li><span class="legend__dot legend__dot--off"></span>A sumar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Casos ===== -->
+  <section id="casos" class="section">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Casos</span>
+        <h2 class="section-title">Casos reales, con nombre y apellido.</h2>
+      </div>
+      <article class="case card-h rv">
+        <div class="case__body">
+          <p class="case__client"><strong>Agencia de Sistemas de Información</strong><span>Gobierno de la Ciudad de Buenos Aires</span></p>
+          <h3 class="case__title">De horario de oficina a cobertura permanente.</h3>
+          <dl class="case__story">
+            <div><dt class="eyebrow">El desafío</dt><dd>Sostener sistemas operativos, bases de datos y almacenamiento de distintos estándares, en horario extendido.</dd></div>
+            <div><dt class="eyebrow">Qué hicimos</dt><dd>Armamos un equipo multidisciplinario que administra, monitorea, actualiza y documenta toda la plataforma.</dd></div>
+            <div><dt class="eyebrow">El resultado</dt><dd>El servicio pasó de 5x8 a 7x24, con menos incidentes y mejor disponibilidad de los servidores.</dd></div>
+          </dl>
+        </div>
+        <div class="case__stats" data-counter="300">
+          <div class="case__compare">
+            <div class="case__box">
+              <span class="case__value">5x8</span>
+              <span class="case__label">Antes</span>
+            </div>
+            <svg class="case__arrow" aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M13 5l7 7-7 7"/></svg>
+            <div class="case__box case__box--after">
+              <span class="case__value"><span data-count="7">7</span>x<span data-count="24">24</span></span>
+              <span class="case__label">Con Intellihelp</span>
+            </div>
+          </div>
+          <div class="case__sla">
+            <span class="case__value"><span data-count="2">2</span> h</span>
+            <span class="case__sla-text">tiempo máximo de respuesta acordado ante cualquier incidente</span>
+          </div>
+        </div>
+      </article>
+      <ul class="cases list-reset">
+        <li class="mini-case rv">
+          <span class="eyebrow">Paraná, Entre Ríos</span>
+          <h3 class="mini-case__name">Petropack</h3>
+          <p class="mini-case__text">Sistema de control automatizado para el fabricante de envases, en el polo tecnológico de Paraná.</p>
+        </li>
+        <li class="mini-case rv">
+          <span class="eyebrow">Córdoba</span>
+          <h3 class="mini-case__name">Cartocor</h3>
+          <p class="mini-case__text">Proyecto para la empresa que fabrica las cajas de cartón de los productos de Arcor.</p>
+        </li>
+        <li class="mini-case rv">
+          <span class="eyebrow">Interior del país</span>
+          <h3 class="mini-case__name">ODI</h3>
+          <p class="mini-case__text">Soporte técnico para sus 4 sucursales del interior, a través de nuestros representantes locales.</p>
+        </li>
+        <li class="mini-case rv">
+          <span class="eyebrow">CABA</span>
+          <h3 class="mini-case__name">AGIP</h3>
+          <p class="mini-case__text">Red de fibra óptica para conectar sus 33 oficinas, con mantenimiento y soporte 24/7.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Testimonios ===== -->
+  <section id="testimonios" class="section section--alt">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Lo que dicen nuestros clientes</span>
+        <h2 class="section-title">La mejor carta de presentación la escriben ellos.</h2>
+      </div>
+      <div class="testimonials">
+        <figure class="testimonial card-h rv">
+          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente de outsourcing o mesa de ayuda. Idealmente en video corto, con cara: qué problema tenían y qué cambió en el día a día.</p>
+          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
+        </figure>
+        <figure class="testimonial card-h rv">
+          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente con sucursales en el interior (por ejemplo ODI). Que cuente cómo es tener un solo responsable para todas las sedes.</p>
+          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
+        </figure>
+        <figure class="testimonial card-h rv">
+          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente de seguridad física o redes. Que cuente la instalación: tiempos, prolijidad y la capacitación a su gente.</p>
+          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
+        </figure>
+      </div>
+      <p class="nota nota--white reviews-note"><b>Reseñas verificadas de Google</b>Acá se integran las reseñas del Perfil de Empresa de Google, enlazadas al perfil real.</p>
+    </div>
+  </section>
+
+  <!-- ===== Cómo empezamos ===== -->
+  <section id="como-empezamos" class="section">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Cómo empezamos</span>
+        <h2 class="section-title">Empezar con nosotros es simple.</h2>
+        <p class="lead">La primera charla y el asesoramiento son sin cargo. Decidís con toda la información sobre la mesa.</p>
+      </div>
+      <ol class="steps list-reset">
+        <li class="step rv">
+          <div class="step__head">
+            <span class="step__num num" aria-hidden="true">1</span>
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 5h16v10H9l-5 4V5z"/><path d="M8 10h8"/></svg></span>
+          </div>
+          <h3 class="step__title">Una charla para entender tu operación</h3>
+          <p class="step__text">Nos contás cómo trabajan hoy, qué se rompe y qué te preocupa. Escuchamos primero.</p>
+        </li>
+        <li class="step rv">
+          <div class="step__head">
+            <span class="step__num num" aria-hidden="true">2</span>
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6"/><path d="M10 17h6"/></svg></span>
+          </div>
+          <h3 class="step__title">Una propuesta a tu medida</h3>
+          <p class="step__text">Alcance, tiempos y responsables por escrito, buscando la mejor ecuación entre costo y beneficio.</p>
+        </li>
+        <li class="step rv">
+          <div class="step__head">
+            <span class="step__num num" aria-hidden="true">3</span>
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5A5 5 0 0 1 21 19"/></svg></span>
+          </div>
+          <h3 class="step__title">Un equipo asignado desde el primer día</h3>
+          <p class="step__text">Inducción en tu empresa, una persona responsable de tu cuenta y seguimiento continuo.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Preguntas frecuentes ===== -->
+  <section id="preguntas" class="section section--alt">
+    <div class="wrap faq-layout">
+      <div class="faq-layout__intro rv">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2 class="section-title">Lo que nos preguntan antes de empezar.</h2>
+      </div>
+      <!-- `name` compartido: al abrir una pregunta se cierra la anterior -->
+      <div class="faq rv">
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">¿Trabajan con empresas del interior del país?<span class="faq__sign" aria-hidden="true"></span></summary>
+          <p class="faq__a">Sí. Tenemos partners locales en Mendoza, Salta y Rosario que trabajan con nuestros procesos, e Intellihelp responde por todo: contratos, equipamiento y tiempos, en cualquier provincia.</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">¿Pueden sumar profesionales a mi área de sistemas?<span class="faq__sign" aria-hidden="true"></span></summary>
+          <p class="faq__a">Sí. Hacemos outsourcing de TI y búsqueda de perfiles IT: los seleccionamos con psicodiagnóstico laboral, hacemos la inducción en tu empresa y los capacitamos de forma continua.</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">¿Qué tecnologías implementan?<span class="faq__sign" aria-hidden="true"></span></summary>
+          <p class="faq__a">Fibra óptica, redes empresariales e inalámbricas, servidores, almacenamiento y nube con tecnología Huawei; control de acceso y videovigilancia IP con Hikvision; y las marcas que tu operación necesite.</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">¿Atienden organismos públicos?<span class="faq__sign" aria-hidden="true"></span></summary>
+          <p class="faq__a">Sí. Trabajamos con organismos públicos desde 2013, cuando empezamos con la Agencia de Sistemas de Información del Gobierno porteño, y también con AGIP y el Senado de la Nación.</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">¿Cuánto tarda en arrancar un servicio?<span class="faq__sign" aria-hidden="true"></span></summary>
+          <p class="faq__a">[DEFINIR CON CARLOS: tiempo típico desde la propuesta aprobada hasta el equipo asignado.]</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Agenda / contacto ===== -->
+  <section id="agenda" class="section section--dark">
+    <div class="wrap contact">
+      <div class="contact__intro rv">
+        <span class="eyebrow eyebrow--lime">Hablemos</span>
+        <h2 class="section-title contact__title">En 14 años la tecnología cambió mucho. Nuestra forma de trabajar, poco: <span class="hl">escuchar, ir y resolver.</span></h2>
+        <p class="contact__lead">Contanos qué necesitás. Te responde una persona del equipo, con nombre y apellido.</p>
+        <div class="contact__channels">
+          <a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="btn btn-light">Escribinos por WhatsApp</a>
+          <a href="mailto:info@intellihelp.tech" class="contact__mail">info@intellihelp.tech</a>
+          <address class="contact__address">Dorrego 1789, piso 6, of. 604, CABA</address>
+        </div>
+      </div>
+      <div class="contact__card rv">
+        <h3 class="contact__card-title">Agendá una reunión</h3>
+        <p class="contact__card-text">Dejanos tus datos y coordinamos el día y el horario que te quede cómodo.</p>
+        <form class="form" method="post" data-contact-form>
+          <div class="form__row">
+            <label class="form__label">Nombre y apellido<input class="field" type="text" name="nombre" autocomplete="name" required></label>
+            <label class="form__label">Empresa<input class="field" type="text" name="empresa" autocomplete="organization" required></label>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Mail laboral<input class="field" type="email" name="mail" autocomplete="email" required></label>
+            <label class="form__label">Teléfono<input class="field" type="tel" name="telefono" autocomplete="tel"></label>
+          </div>
+          <label class="form__label">¿Qué necesitás?
+            <select class="field" name="necesidad">
+              <option>Mesa de ayuda u outsourcing IT</option>
+              <option>Redes e infraestructura</option>
+              <option>Seguridad física y control de acceso</option>
+              <option>Otro proyecto</option>
+            </select>
+          </label>
+          <label class="form__label">Contanos un poco más (opcional)<textarea class="field" name="mensaje" rows="3"></textarea></label>
+          <button type="submit" class="btn btn-lime btn-block">Quiero agendar la reunión <span class="arr" aria-hidden="true">→</span></button>
+          <p class="form__ok" role="status" data-form-status></p>
+          <p class="form__privacy">Usamos tus datos solo para responderte.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer__inner">
+    <div class="footer__cols">
+      <div class="footer__about">
+        <div class="footer__brand">
+          <img src="img/logo-intellihelp.png" alt="ITH, Intellihelp" width="82" height="44" loading="lazy">
+          <span class="footer__tag">Servicios IT<br>desde 2012</span>
+        </div>
+        <p class="footer__text">Servicios IT para empresas y organismos. 14 años en Buenos Aires y en el interior del país.</p>
+      </div>
+      <nav class="footer__col" aria-label="Servicios">
+        <span class="eyebrow eyebrow--lime">Servicios</span>
+        <a href="#servicios">Mesa de ayuda y outsourcing IT</a>
+        <a href="#servicios">Redes e infraestructura</a>
+        <a href="#servicios">Seguridad física</a>
+      </nav>
+      <nav class="footer__col" aria-label="Empresa">
+        <span class="eyebrow eyebrow--lime">Empresa</span>
+        <a href="#historia">Nuestra historia</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#casos">Casos</a>
+        <a href="#inicio">Blog</a><!-- TODO: URL del blog -->
+      </nav>
+      <div class="footer__col footer__col--wide">
+        <span class="eyebrow eyebrow--lime">Contacto</span>
+        <a href="mailto:info@intellihelp.tech">info@intellihelp.tech</a>
+        <a href="mailto:rrhh@intellihelp.tech">rrhh@intellihelp.tech</a>
+        <a href="#inicio">LinkedIn</a><!-- TODO: URL del perfil de LinkedIn -->
+        <address class="footer__address">Dorrego 1789, piso 6, CABA</address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Intellihelp. Todos los derechos reservados.</span>
+      <span>Gold Partner Huawei · Gold Partner Hikvision</span>
+      <button type="button" class="notes-toggle" data-notes-toggle>Ocultar notas para Carlos</button>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
