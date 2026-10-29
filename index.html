@@ -724,11 +724,28 @@
       <div class="section-head rv">
         <span class="eyebrow">Casos</span>
         <h2 class="section-title">Casos reales, <span class="hl">con nombre y apellido.</span></h2>
-        <p class="lead">Un caso por vez, sacados de nuestra presentación institucional. Se pasan solos cada pocos segundos, o con las flechas.</p>
+        <p class="lead">Elegí un sector y un cliente para ver sus proyectos, o dejá que los casos pasen solos en orden aleatorio.</p>
       </div>
       <!-- Para sumar un caso, agregar otro article.case-card (los logos salen de img/clientes). Si el cliente tiene varios
-           proyectos, van en una lista `data-steps`: el carrusel los muestra de a uno antes de pasar al cliente siguiente. -->
-      <section class="carousel carousel--lime rv" aria-roledescription="carrusel" aria-label="Casos de éxito" data-carousel>
+           proyectos, van en una lista `data-steps`: el carrusel los muestra de a uno antes de pasar al cliente siguiente.
+           El mini menú de la izquierda lo arma el JS a partir de las tarjetas (sector = eyebrow, logo = .case-card__logo). -->
+      <div class="cases-layout" data-cases-layout>
+      <aside class="case-menu rv" data-case-menu hidden aria-label="Elegir casos">
+        <div class="case-menu__group">
+          <p class="case-menu__title">Sector</p>
+          <div class="case-menu__sectors" role="group" aria-label="Sector">
+            <button type="button" class="case-menu__sector" data-sector="publico" aria-pressed="false">Sector público <span class="case-menu__count" data-sector-count></span></button>
+            <button type="button" class="case-menu__sector" data-sector="privado" aria-pressed="false">Sector privado <span class="case-menu__count" data-sector-count></span></button>
+          </div>
+        </div>
+        <div class="case-menu__group" data-case-clients hidden>
+          <p class="case-menu__title">Cliente</p>
+          <ul class="case-menu__logos list-reset" data-case-logos aria-label="Clientes del sector"></ul>
+        </div>
+        <p class="case-menu__status" data-case-status aria-live="polite"></p>
+        <button type="button" class="case-menu__reset" data-case-reset hidden>Ver todos los casos</button>
+      </aside>
+      <section class="carousel carousel--lime rv" aria-roledescription="carrusel" aria-label="Casos de éxito" data-carousel data-carousel-order="random">
         <div class="carousel__track" data-carousel-track>
           <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 1 de 39: Gobierno de la Ciudad de Buenos Aires (ASI)">
             <div class="case-card__who">
@@ -1254,6 +1271,7 @@
           <button type="button" class="carousel__pause" data-carousel-pause hidden>Pausar</button>
         </div>
       </section>
+      </div>
       <p class="nota services-nota"><b>CONFIRMAR CON CARLOS</b>Los 39 casos son los de la presentación institucional 2026. Validar cuáles se pueden publicar con nombre y en qué orden conviene mostrarlos (hoy: sector público y después privado).</p>
     </div>
   </section>

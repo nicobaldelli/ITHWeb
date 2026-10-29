@@ -120,6 +120,15 @@
   // Sin JS quedan como scroll horizontal con snap; con JS suman flechas, puntos o contador y, salvo
   // `data-carousel-autoplay="off"`, avance automático con pausa. Si una tarjeta tiene una lista `data-steps`
   // (varios proyectos de un cliente), se muestran de a uno antes de pasar a la tarjeta siguiente.
+  // Con `data-carousel-order="random"` el orden se baraja (y se vuelve a barajar en cada vuelta). Devuelve una API
+  // con `setPool(indices, { pinned })` para limitar las tarjetas visibles (la usa el mini menú de casos).
+  const shuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
   const initCarousel = (carousel) => {
     const AUTOPLAY_MS = 7000;
     const STEP_MS = 3500;
@@ -133,8 +142,28 @@
     const controls = carousel.querySelector('[data-carousel-controls]');
     const dotsBox = carousel.querySelector('[data-carousel-dots]');
     const pauseBtn = carousel.querySelector('[data-carousel-pause]');
-    const offset = (i) => slides[i].offsetLeft - slides[0].offsetLeft;
-    let index = 0;
+    const random = carousel.dataset.carouselOrder === 'random';
+    let pool = slides.map((_, i) => i); // tarjetas habilitadas (todas, o las que elige el mini menú)
+    let seq = [];                        // orden de reproducción (barajado si `random`)
+    let pinned = false;                  // una sola tarjeta elegida: no se pasa a otra
+    const buildSeq = (first) => {
+      seq = random ? shuffle([...pool]) : [...pool];
+      if (first !== undefined && seq.includes(first)) seq.splice(seq.indexOf(first), 1), seq.unshift(first);
+    };
+    buildSeq();
+    const neighbor = (dir) => {
+      const p = seq.indexOf(index);
+      if (p === -1) return seq[0];
+      if (random && dir > 0 && p === seq.length - 1 && seq.length > 1) {
+        // Fin de la vuelta: se baraja de nuevo, cuidando que no se repita la última
+        do buildSeq(); while (seq[0] === index);
+        return seq[0];
+      }
+      return seq[(p + dir + seq.length) % seq.length];
+    };
+    const firstShown = () => slides.find((slide) => !slide.hidden) || slides[0];
+    const offset = (i) => slides[i].offsetLeft - firstShown().offsetLeft;
+    let index = seq[0] || 0;
     let step = 0;
     let timer = 0;
     let userPaused = false;
@@ -155,21 +184,34 @@
       carousel.classList.toggle('is-paused', Boolean(busy));
       if (!autoplay || busy) return;
       const steps = stepsOf(index);
+      if (pinned && steps.length < 2) return; // una sola tarjeta con un solo proyecto: nada que pasar
       timer = setTimeout(() => {
-        if (steps.length > 1 && step < steps.length - 1) { setStep(step + 1); schedule(); } else go(index + 1);
+        if (steps.length > 1 && step < steps.length - 1) { setStep(step + 1); schedule(); }
+        else if (pinned) { setStep(0); schedule(); } // tarjeta elegida: sus proyectos vuelven a empezar
+        else go(neighbor(1));
       }, steps.length > 1 ? STEP_MS : AUTOPLAY_MS);
     };
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
       dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
-      if (!dots.length) dotsBox.textContent = `${index + 1} de ${slides.length}`;
+      if (!dots.length) dotsBox.textContent = `${seq.indexOf(index) + 1} de ${seq.length}`;
       setStep(0);
     };
-    const go = (i) => {
-      index = (i + slides.length) % slides.length;
-      track.scrollTo({ left: offset(index), behavior: motion ? 'smooth' : 'auto' });
+    const go = (i, instant) => {
+      index = pool.includes(i) ? i : seq[0];
+      track.scrollTo({ left: offset(index), behavior: motion && !instant ? 'smooth' : 'auto' });
       render();
       schedule();
+    };
+    // Limita el carrusel a un grupo de tarjetas. `pinned`: una sola, elegida a mano (no se pasa a otra).
+    const setPool = (indices, opts = {}) => {
+      pool = indices.length ? [...indices] : slides.map((_, i) => i);
+      pinned = Boolean(opts.pinned);
+      slides.forEach((slide, i) => { slide.hidden = !pool.includes(i); });
+      dots.forEach((dot, i) => { dot.hidden = !pool.includes(i); });
+      buildSeq(pool.includes(index) && !pinned ? index : undefined);
+      controls.hidden = seq.length < 2;
+      go(pool.includes(index) && !pinned ? index : seq[0], true);
     };
     const dots = slides.length > MAX_DOTS ? [] : slides.map((slide, i) => {
       const dot = document.createElement('button');
@@ -181,8 +223,8 @@
       return dot;
     });
 
-    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(index - 1));
-    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(index + 1));
+    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(neighbor(-1)));
+    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(neighbor(1)));
     // Elegir un proyecto a mano dentro de la tarjeta activa
     track.addEventListener('click', (e) => {
       const li = e.target.closest('[data-steps] > li');
@@ -207,7 +249,7 @@
       clearTimeout(settle);
       settle = setTimeout(() => {
         const x = track.scrollLeft;
-        const nearest = slides.reduce((best, _, i) => (Math.abs(offset(i) - x) < Math.abs(offset(best) - x) ? i : best), 0);
+        const nearest = pool.reduce((best, i) => (Math.abs(offset(i) - x) < Math.abs(offset(best) - x) ? i : best), pool[0]);
         if (nearest === index) return;
         index = nearest;
         render();
@@ -231,10 +273,106 @@
       schedule();
     }, { threshold: 0.4 }).observe(carousel);
 
-    controls.hidden = slides.length < 2;
+    controls.hidden = seq.length < 2;
+    if (random) track.scrollTo({ left: offset(index), behavior: 'auto' }); // arranca en una tarjeta al azar
     render();
+    return { slides, setPool };
   };
-  document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+  const carousels = new Map();
+  document.querySelectorAll('[data-carousel]').forEach((c) => carousels.set(c, initCarousel(c)));
+
+  /* ---------- Casos: mini menú (sector → cliente) ---------- */
+  // Se arma con los datos de las tarjetas: sector por el eyebrow, logo por .case-card__logo. Sin elección, pasan
+  // todos al azar; con sector, pasan al azar los de ese sector; con cliente, queda fija su tarjeta.
+  const caseMenu = document.querySelector('[data-case-menu]');
+  const caseCarousel = caseMenu && caseMenu.parentElement.querySelector('[data-carousel]');
+  if (caseMenu && carousels.has(caseCarousel)) {
+    const api = carousels.get(caseCarousel);
+    const cases = api.slides.map((slide, i) => {
+      const logo = slide.querySelector('.case-card__logo');
+      const img = logo && logo.querySelector('img');
+      return {
+        i,
+        name: slide.querySelector('.case-card__name').textContent.trim(),
+        sector: /privad/i.test(slide.querySelector('.case-card__who .eyebrow').textContent) ? 'privado' : 'publico',
+        logoSrc: img ? img.getAttribute('src') : '',
+        projects: Math.max(1, slide.querySelectorAll('[data-steps] > li').length),
+      };
+    });
+    const sectorBtns = [...caseMenu.querySelectorAll('[data-sector]')];
+    const clientsBox = caseMenu.querySelector('[data-case-clients]');
+    const logosList = caseMenu.querySelector('[data-case-logos]');
+    const status = caseMenu.querySelector('[data-case-status]');
+    const resetBtn = caseMenu.querySelector('[data-case-reset]');
+    const SECTOR_NAME = { publico: 'sector público', privado: 'sector privado' };
+    let sector = null;
+    let client = null;
+
+    sectorBtns.forEach((btn) => {
+      const n = cases.filter((c) => c.sector === btn.dataset.sector).length;
+      btn.querySelector('[data-sector-count]').textContent = n;
+    });
+
+    const renderLogos = () => {
+      logosList.replaceChildren();
+      if (!sector) return;
+      cases.filter((c) => c.sector === sector).forEach((c, k) => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'case-menu__logo';
+        btn.dataset.case = c.i;
+        btn.title = c.name;
+        btn.setAttribute('aria-label', `${c.name}: ${c.projects} ${c.projects === 1 ? 'proyecto' : 'proyectos'}`);
+        btn.setAttribute('aria-pressed', String(c.i === client));
+        btn.style.animationDelay = `${k * 0.03}s`;
+        if (c.logoSrc) {
+          const img = document.createElement('img');
+          img.src = c.logoSrc; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+          btn.append(img);
+        } else {
+          btn.textContent = c.name;
+        }
+        li.append(btn);
+        logosList.append(li);
+      });
+    };
+    const apply = () => {
+      sectorBtns.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.sector === sector)));
+      clientsBox.hidden = !sector;
+      resetBtn.hidden = !sector && client === null;
+      renderLogos();
+      if (client !== null) {
+        const c = cases[client];
+        api.setPool([client], { pinned: true });
+        status.textContent = `${c.name}: ${c.projects === 1 ? 'un proyecto' : `${c.projects} proyectos`}.`;
+      } else if (sector) {
+        const group = cases.filter((c) => c.sector === sector).map((c) => c.i);
+        api.setPool(group);
+        status.textContent = `Pasan al azar los ${group.length} casos del ${SECTOR_NAME[sector]}. Elegí un cliente para ver solo el suyo.`;
+      } else {
+        api.setPool([]);
+        status.textContent = `Sin filtro: pasan al azar los ${cases.length} casos.`;
+      }
+    };
+    caseMenu.addEventListener('click', (e) => {
+      const sBtn = e.target.closest('[data-sector]');
+      const lBtn = e.target.closest('[data-case]');
+      if (sBtn) {
+        sector = sector === sBtn.dataset.sector ? null : sBtn.dataset.sector; // volver a tocarlo lo destilda
+        client = null;
+      } else if (lBtn) {
+        const i = Number(lBtn.dataset.case);
+        client = client === i ? null : i;
+      } else if (e.target.closest('[data-case-reset]')) {
+        sector = null; client = null;
+      } else return;
+      apply();
+    });
+    caseMenu.hidden = false;
+    caseMenu.parentElement.classList.add('cases-layout--menu');
+    apply();
+  }
 
   /* ---------- Mapa de provincias ---------- */
   const map = document.querySelector('[data-map]');
