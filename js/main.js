@@ -116,11 +116,12 @@
   };
   if (motion) document.querySelectorAll('[data-counter]').forEach(runCounters);
 
-  /* ---------- Carrusel de servicios (siempre de a tres) ---------- */
-  // Sin JS queda como scroll horizontal con snap; con JS suma flechas, puntos, avance automático y pausa.
-  const carousel = document.querySelector('[data-carousel]');
-  if (carousel) {
+  /* ---------- Carruseles (servicios de a tres; láminas de casos de a una) ---------- */
+  // Sin JS quedan como scroll horizontal con snap; con JS suman flechas, puntos y, salvo
+  // `data-carousel-autoplay="off"`, avance automático con pausa.
+  const initCarousel = (carousel) => {
     const AUTOPLAY_MS = 7000;
+    const autoplay = motion && carousel.dataset.carouselAutoplay !== 'off';
     const track = carousel.querySelector('[data-carousel-track]');
     const slides = [...track.children];
     const controls = carousel.querySelector('[data-carousel-controls]');
@@ -139,7 +140,7 @@
       clearTimeout(timer);
       const busy = userPaused || hovering || focusInside || !inView || document.hidden
         || track.querySelector('details[open]');
-      if (motion && !busy) timer = setTimeout(() => go(index + 1), AUTOPLAY_MS);
+      if (autoplay && !busy) timer = setTimeout(() => go(index + 1), AUTOPLAY_MS);
     };
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
@@ -163,7 +164,8 @@
 
     carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(index - 1));
     carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(index + 1));
-    if (motion) {
+    if (autoplay) {
+      pauseBtn.hidden = false;
       pauseBtn.addEventListener('click', () => {
         userPaused = !userPaused;
         pauseBtn.textContent = userPaused ? 'Reanudar' : 'Pausar';
@@ -205,7 +207,8 @@
 
     controls.hidden = slides.length < 2;
     render();
-  }
+  };
+  document.querySelectorAll('[data-carousel]').forEach(initCarousel);
 
   /* ---------- Mapa de provincias ---------- */
   const map = document.querySelector('[data-map]');

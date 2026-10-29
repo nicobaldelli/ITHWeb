@@ -34,19 +34,21 @@ y entrá a <http://localhost:8000>.
 Solo se usan los colores de `:root` (blanco, carbón `#2A2A2A`, violeta `#663399`, lila `#F0EBF5`, lima `#98CC32`
 y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
-Hay dos familias que nunca se tocan, y las secciones las alternan para que la página quede equilibrada:
+La familia de colores la decide el fondo de cada sección, y los fondos se alternan (ninguna sección repite el de la
+anterior):
 
-- **Familia lima**: fondo carbón o `#333333` (hero, historia, cómo trabajamos, agenda, footer). Texto blanco, lila para
-  texto secundario, acento e íconos lima, botón `.btn-lime`. Las cards son `#333333` con borde (`.card-dark`, los tres
-  pasos) o lima (`.card-lime`, el CTA final: texto e íconos carbón, botón `.btn-ghost`).
-- **Familia violeta**: fondo blanco o lila. Texto carbón, acento e íconos violeta, botón `.btn-primary`. Cards violeta
-  `.card-violet` (servicios, bloque de Casos): texto blanco, lila para texto secundario, íconos y botones en blanco
-  (`.btn-light`).
-- Cada sección es de una sola familia, nunca las dos mezcladas. Los fondos se alternan: ninguna sección tiene el mismo
-  fondo que la anterior (nunca dos blancas seguidas). Orden actual: hero (carbón) · clientes (blanco) · problema (lila) ·
-  servicios (blanco) · historia (carbón) · equipo (blanco) · presencia (lila) · casos (blanco) · testimonios (lila) ·
-  cómo trabajamos (carbón) · preguntas (lila) · agenda (carbón) · pie (`#333333`).
-- Lima nunca como texto, ícono fino o línea sobre blanco o lila.
+- **Blanco** (`.section`): gris y verde, sin lila. Texto carbón y `#444444`, título chico gris con barra lima, palabra
+  clave subrayada en lima, cards blancas con borde gris o carbón con íconos lima, botón `.btn-lime`.
+  Secciones: problema, historia, casos, testimonios, preguntas.
+- **Lila** (`.section--alt`): violeta. Texto carbón, acento violeta, botón `.btn-primary`. Cards violeta `.card-violet`
+  con íconos, numeración y texto secundario en lila (botón adentro: `.btn-light`).
+  Secciones: clientes, servicios, equipo, presencia, cómo trabajamos.
+- **Carbón** (`.section--dark`): solo inicio y cierre (hero y agenda), más header y pie en `#333333`. Texto blanco, lila
+  para texto secundario, acento lima, botón `.btn-lime`; la card del CTA final es lima (`.card-lime`) con botón `.btn-ghost`.
+- Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (blanco) · equipo (lila) ·
+  casos (blanco) · presencia (lila) · testimonios (blanco) · cómo trabajamos (lila) · preguntas (blanco) · agenda (carbón) ·
+  pie (`#333333`).
+- Lima nunca como texto ni ícono fino sobre blanco: va como barra, relleno o dentro de un círculo carbón.
 
 `.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.
 
@@ -55,6 +57,7 @@ Hay dos familias que nunca se tocan, y las secciones las alternan para que la p�
 - **Texto del hero**: bloque `TEXTO DEL HERO (editable)` en `index.html`. Es provisorio hasta que Claudio pase la versión definitiva.
 - **Imagen o video del hero**: dentro de `.hero__media` hay un ejemplo comentado de `<img>` y de `<video>` en loop. El overlay oscuro se aplica solo.
 - **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
+- **Casos**: las cuatro láminas de casos de éxito de la presentación institucional (sector público 1 y 2, sector privado 1 y 2) en un carrusel sin avance automático: una lámina por vista, flechas y puntos para pasarlas. Cada caso lleva su logo de `img/clientes` si existe.
 - **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Hoy están Buenos Aires, CABA, Santa Fe, Entre Ríos, Córdoba, San Luis, Mendoza, San Juan, Neuquén, Corrientes, Misiones y Salta.
 - **Notas internas** (`.nota`): indicaciones del borrador para Carlos. El botón del pie las oculta o muestra (equivale al switch `notesDisplay` del diseño) y recuerda la elección en `localStorage`.
 
@@ -77,7 +80,7 @@ Hay dos familias que nunca se tocan, y las secciones las alternan para que la p�
 ## Comportamiento
 
 - **Animaciones de entrada**: los elementos `.rv` aparecen al entrar en pantalla. En el hero primero aparece la imagen y después el texto. Se activan solo si hay `IntersectionObserver` y no se pidió reducir movimiento; si no, todo se ve estático.
-- **Carrusel**: avanza solo cada 7 s. Se detiene con el mouse encima, con foco en una tarjeta, con un "Ver más" abierto o fuera de pantalla, y tiene botón de pausa. Con "reducir movimiento" no avanza solo. Sin JS queda como scroll horizontal.
+- **Carruseles**: el de servicios avanza solo cada 7 s; el de casos solo con flechas, puntos o deslizando. Se detiene con el mouse encima, con foco en una tarjeta, con un "Ver más" abierto o fuera de pantalla, y tiene botón de pausa. Con "reducir movimiento" no avanza solo. Sin JS queda como scroll horizontal.
 - **Mapa**: al entrar en pantalla las provincias con presencia se prenden de a una. Al pasar el mouse o tocar una provincia se muestra su nombre.
 - **Preguntas frecuentes**: `<details name="faq">` nativo; al abrir una se cierra la anterior, sin JS.
 
@@ -86,6 +89,7 @@ Hay dos familias que nunca se tocan, y las secciones las alternan para que la p�
 - [ ] Texto definitivo del hero (Claudio).
 - [ ] Crear la landing `/asesoria`. Todos los CTA apuntan ahí.
 - [ ] Validar los doce servicios del carrusel (nombres, orden y marcas mencionadas).
+- [ ] Validar qué casos de éxito se pueden publicar con nombre (hoy están las cuatro láminas de la presentación).
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
 - [ ] Links reales de Blog y LinkedIn en el pie.
