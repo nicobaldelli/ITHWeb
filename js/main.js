@@ -197,7 +197,7 @@
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
       dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
-      if (!dots.length) dotsBox.textContent = `${pool.indexOf(index) + 1} de ${pool.length}`;
+      if (!dots.length) dotsBox.textContent = carousel.dataset.carouselCounter === 'off' ? '' : `${pool.indexOf(index) + 1} de ${pool.length}`;
       setStep(0);
     };
     const go = (i, instant) => {
@@ -299,7 +299,6 @@
         name: slide.querySelector('.case-card__name').textContent.trim(),
         sector: /privad/i.test(slide.querySelector('.case-card__who .eyebrow').textContent) ? 'privado' : 'publico',
         logoSrc: img ? img.getAttribute('src') : '',
-        projects: Math.max(1, slide.querySelectorAll('[data-steps] > li').length),
       };
     });
     const sectorBtns = [...caseMenu.querySelectorAll('[data-sector]')];
@@ -321,7 +320,7 @@
         btn.className = 'case-menu__logo';
         btn.dataset.case = c.i;
         btn.title = c.name;
-        btn.setAttribute('aria-label', `${c.name}: ${c.projects} ${c.projects === 1 ? 'proyecto' : 'proyectos'}`);
+        btn.setAttribute('aria-label', c.name);
         btn.setAttribute('aria-pressed', String(c.i === client));
         btn.style.animationDelay = `${k * 0.03}s`;
         if (c.logoSrc) {
@@ -343,14 +342,14 @@
       if (client !== null) {
         const c = cases[client];
         api.setPool([client], { pinned: true });
-        status.textContent = `${c.name}: ${c.projects === 1 ? 'un proyecto' : `${c.projects} proyectos`}.`;
+        status.textContent = `${c.name}.`;
       } else if (sector) {
         const group = cases.filter((c) => c.sector === sector).map((c) => c.i);
         api.setPool(group);
-        status.textContent = `Pasan al azar los ${group.length} casos del ${SECTOR_NAME[sector]}. Elegí un cliente para ver solo el suyo.`;
+        status.textContent = `Pasan al azar los casos del ${SECTOR_NAME[sector]}. Elegí un cliente para ver solo el suyo.`;
       } else {
         api.setPool([]);
-        status.textContent = `Sin filtro: pasan al azar los ${cases.length} casos.`;
+        status.textContent = 'Sin filtro: pasan al azar todos los casos.';
       }
     };
     caseMenu.addEventListener('click', (e) => {
