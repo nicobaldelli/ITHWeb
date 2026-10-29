@@ -95,7 +95,7 @@ a:hover { color: var(--ink); }
 .wrap { max-width: 1180px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
 
 .section { padding: 96px 0; }
-/* Secciones blancas: trama de hexágonos gris muy tenue que se desvanece hacia el centro (img/hex.svg, animado como el circuito) */
+/* Secciones blancas: hexágonos gris con trazos de circuito sobre las aristas, pads y pulsos que los recorren; se desvanece hacia el centro (img/hex.svg, solo gris: el blanco sirve a las dos familias de color) */
 .section:not(.section--alt):not(.section--dark) { background: var(--white) url("../img/hex.svg") center / cover no-repeat; }
 .section--alt { background: var(--lavender); }
 .section--dark {
