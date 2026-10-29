@@ -295,7 +295,9 @@ a:hover { color: var(--ink); }
 .wa-float:hover { background: var(--lime); color: var(--ink); transform: translateY(-3px) scale(1.06); }
 
 /* ---------- Header ---------- */
-.site-header { background: var(--ink-2); color: var(--white); border-bottom: 1px solid var(--line-dark); }
+/* Barra fija al scrollear; las secciones compensan su alto con scroll-margin para que los anclas no queden tapados */
+.site-header { position: sticky; top: 0; z-index: 40; background: var(--ink-2); color: var(--white); border-bottom: 1px solid var(--line-dark); }
+.section, .clients { scroll-margin-top: var(--header-h); }
 .site-header__inner {
   display: flex;
   flex-wrap: wrap;
@@ -488,8 +490,10 @@ a:hover { color: var(--ink); }
   background: var(--white);
 }
 .compare__card--after { border-color: var(--ink); background: var(--ink); color: var(--white); }
-.compare__card--after .eyebrow { color: var(--lime); }
 
+.compare__title { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; }
+.compare__title::before { content: ""; flex: none; width: 28px; height: 4px; border-radius: 2px; background: var(--line-dark); }
+.compare__card--after .compare__title::before { background: var(--lime); }
 .points { display: flex; flex-direction: column; gap: 24px; }
 .point { display: flex; align-items: flex-start; gap: 14px; }
 .point__title { margin: 0 0 5px; font-size: 22px; font-weight: 600; }
@@ -730,7 +734,8 @@ a:hover { color: var(--ink); }
 .js .cases-layout--menu { grid-template-columns: 300px minmax(0, 1fr); }
 .case-menu { display: flex; flex-direction: column; gap: 20px; padding: 24px; border: 2px solid var(--line-dark); border-radius: var(--radius); background: var(--white); }
 .case-menu[hidden] { display: none; }
-.case-menu__title { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.case-menu__title { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.case-menu__title .ico { flex: none; color: var(--ink); }
 .case-menu__group { display: flex; flex-direction: column; gap: 10px; }
 .case-menu__group[hidden] { display: none; }
 .case-menu__sectors { display: flex; flex-direction: column; gap: 8px; }
