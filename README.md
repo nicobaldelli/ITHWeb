@@ -45,7 +45,7 @@ anterior):
   con íconos, numeración y texto secundario en lila (botón adentro: `.btn-light`).
   Secciones: clientes, servicios, equipo, presencia, cómo trabajamos.
 - **Carbón** (`.section--dark`): hero, historia y agenda, más header y pie en `#333333`. Texto blanco, lila para texto
-  secundario, acento lima, botón `.btn-lime`; la card del CTA final es lima (`.card-lime`) con botón `.btn-ghost`.
+  secundario, acento lima, botón `.btn-lime`; la card del CTA final es gris (`.card-gray`) y pasa a blanca con texto carbón al pasar el mouse, con botón `.btn-ghost`. El WhatsApp flotante es un círculo carbón con el logo oficial en lima.
 - Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (carbón) · equipo (lila) ·
   casos (blanco) · presencia (lila) · testimonios (blanco) · cómo trabajamos (lila) · preguntas (blanco) · agenda (carbón) ·
   pie (`#333333`).

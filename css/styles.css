@@ -18,7 +18,8 @@
    - blanco (.section)        → gris y verde, sin lila: texto carbón y #444, recuadros con borde gris (#4A4A4A), palabra
                                 clave del título en letras lima, chips y barras con relleno lima
    - lila (.section--alt)     → violeta: texto carbón, acento violeta, cards violeta con íconos lila
-   - carbón (.section--dark)  → hero, historia y agenda: texto blanco, lila para texto secundario, acento lima, card lima
+   - carbón (.section--dark)  → hero, historia y agenda: texto blanco, lila para texto secundario, acento lima, card del CTA
+                                final gris (.card-gray) que pasa a blanca al pasar el mouse
    Los fondos se alternan: ninguna sección repite el de la anterior.
    Lima como texto sobre blanco solo en la palabra clave del título (grande y en negrita; 1,9:1, pedido del cliente):
    nunca en texto corrido ni en íconos finos, donde va como barra, relleno o dentro de un círculo carbón. */
@@ -63,7 +64,7 @@ a:hover { color: var(--ink); }
 .site-header :focus-visible,
 .site-footer :focus-visible { outline-color: var(--lime); }
 .card-violet :focus-visible { outline-color: var(--white); }
-.card-lime :focus-visible { outline-color: var(--ink); }
+.card-lime :focus-visible, .card-gray:hover :focus-visible, .card-gray:focus-within :focus-visible { outline-color: var(--ink); }
 
 .list-reset { list-style: none; margin: 0; padding: 0; }
 
@@ -204,9 +205,25 @@ a:hover { color: var(--ink); }
 .card-lime { background: var(--lime); color: var(--ink); }
 .card-lime .icon-circle { border: 2px solid var(--ink); background: transparent; color: var(--ink); }
 .card-lime .btn-ghost:hover { background: var(--ink); color: var(--lime); border-color: var(--ink); }
+/* Card gris sobre carbón (CTA final): al pasar el mouse o entrar con el teclado pasa a blanca con texto carbón */
+.card-gray {
+  background: var(--line-dark);
+  color: var(--white);
+  box-shadow: 0 0 0 rgba(42, 42, 42, 0);
+  transition: background .5s var(--ease), color .5s var(--ease), transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.card-gray .icon-circle { border: 2px solid var(--lime); background: transparent; color: var(--lime); transition: border-color .5s var(--ease), color .5s var(--ease); }
+.card-gray .btn-ghost { color: var(--white); border-color: var(--white); }
+.card-gray .cta-card__text { color: var(--lavender); transition: color .5s var(--ease); } /* el gris del texto no se lee sobre la card gris */
+.card-gray:hover .cta-card__text, .card-gray:focus-within .cta-card__text { color: var(--muted); }
+.card-gray:hover, .card-gray:focus-within { background: var(--white); color: var(--ink); transform: translateY(-5px); box-shadow: 0 18px 40px rgba(0, 0, 0, .35); }
+.card-gray:hover .icon-circle, .card-gray:focus-within .icon-circle { border-color: var(--ink); color: var(--ink); }
+.card-gray:hover .btn-ghost, .card-gray:focus-within .btn-ghost { color: var(--ink); border-color: var(--ink); }
+.card-gray:hover .btn-ghost:hover, .card-gray:focus-within .btn-ghost:hover { background: var(--ink); color: var(--lime); border-color: var(--ink); }
 
 /* Íconos de trazo: el color sale de `color` del contenedor */
 .ico { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.ico--fill { fill: currentColor; stroke: none; }
 
 .icon-circle {
   display: flex;
@@ -276,19 +293,19 @@ a:hover { color: var(--ink); }
   z-index: 50;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 0 22px 0 18px;
-  border-radius: 999px;
-  background: var(--lime);
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 600;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--lime);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--lime);
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(42, 42, 42, .28);
-  transition: transform .25s var(--ease), filter .25s;
+  transition: transform .25s var(--ease), background .25s, color .25s;
 }
-.wa-float:hover { color: var(--ink); transform: translateY(-3px) scale(1.04); filter: brightness(1.06); }
+.wa-float .ico { flex: none; }
+.wa-float:hover { background: var(--lime); color: var(--ink); transform: translateY(-3px) scale(1.06); }
 
 /* ---------- Header ---------- */
 .site-header { background: var(--ink-2); color: var(--white); border-bottom: 1px solid var(--line-dark); }
