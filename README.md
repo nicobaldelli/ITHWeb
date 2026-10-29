@@ -9,6 +9,7 @@ index.html               Página completa (contenido + mapa de provincias en SVG
 css/styles.css           Estilos: paleta en :root, componentes por sección y animaciones
 js/main.js               Menú, CTAs (UTM + medición), revelado, contadores, carrusel, mapa y notas
 img/circuit.svg          Fondo animado de las secciones oscuras (uno solo, cacheado)
+img/hex.svg              Fondo de las secciones blancas: hexágonos gris tenue, desvanecidos al centro, con leve animación
 img/logo-intellihelp.png Logo
 img/clientes/*.webp      Logos de clientes (48, con transparencia) para las dos filas del carrusel
 fonts/saira-latin.woff2  Tipografía Saira (variable 400–700, subconjunto latino), servida desde acá
