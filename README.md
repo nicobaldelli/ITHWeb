@@ -29,7 +29,7 @@ y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
 - **Carbón**: texto blanco, acento lima (`.hl`, íconos, líneas) y botón `.btn-lime`.
 - **Blanco o lila**: texto carbón, acento violeta (`.hl`, íconos, bordes) y botón `.btn-primary`.
-- **Cards violeta** (`.card-violet`): texto blanco; lima solo en íconos o títulos grandes.
+- **Cards violeta** (`.card-violet`): letras siempre blancas; lima solo en íconos (nunca en texto).
 - Lima nunca como texto, ícono fino o línea sobre blanco o lila.
 
 `.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.

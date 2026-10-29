@@ -6,7 +6,7 @@
    Paleta cerrada: no agregar colores. Regla por fondo:
    - gris carbón (--ink)        → texto blanco, acento lima
    - blanco / lila (--lavender) → texto carbón, acento violeta
-   - card violeta (--purple)    → texto blanco; lima solo en íconos o títulos grandes
+   - card violeta (--purple)    → letras siempre blancas; lima solo en íconos
    Lima nunca como texto, ícono fino ni línea sobre blanco o lila (1,9:1). */
 :root {
   --ink: #2A2A2A;
@@ -558,7 +558,7 @@ a:hover { color: var(--ink); }
   padding: 36px 40px;
   border-radius: var(--radius);
 }
-.quote__mark { color: var(--lime); font-size: 56px; font-weight: 500; line-height: .6; }
+.quote__mark { color: var(--white); font-size: 56px; font-weight: 500; line-height: .6; }
 .quote blockquote { max-width: 960px; margin: 0; font-size: 32px; font-weight: 600; line-height: 1.35; }
 .quote blockquote p { margin: 0; }
 .quote figcaption { color: var(--lavender); font-size: 15px; }
@@ -651,7 +651,6 @@ a:hover { color: var(--ink); }
 .case__box--after .case__label { font-weight: 600; }
 .case__arrow { flex: none; color: var(--white); }
 .case__sla { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 22px; border-top: 1px solid var(--lavender); }
-.case__sla .case__value { color: var(--lime); }
 .case__sla-text { flex: 1 1 200px; min-width: 0; font-size: 17px; line-height: 1.5; }
 
 .cases { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 28px; }
@@ -687,7 +686,7 @@ a:hover { color: var(--ink); }
 .step { display: flex; flex: 1 1 280px; flex-direction: column; gap: 14px; min-width: 0; padding: 30px; border-radius: var(--radius); }
 .step__head { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
 .step__num { color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
-.step__title { margin: 0; color: var(--lime); font-size: 36px; font-weight: 700; line-height: 1.1; }
+.step__title { margin: 0; color: var(--white); font-size: 36px; font-weight: 700; line-height: 1.1; }
 .step__text { margin: 0; color: var(--white); font-size: 17px; line-height: 1.6; }
 
 /* ---------- Preguntas frecuentes ---------- */
