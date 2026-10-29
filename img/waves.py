@@ -4,7 +4,7 @@
 # Sobrio: opacidades bajas y desvanecido hacia el centro para no competir con el contenido.
 import math, os
 W, H = 1440, 900
-PURPLE = "#663399"
+PURPLE = "#A385C0"  # violeta aclarado (60 % violeta + 40 % blanco), pedido del cliente
 
 def layer(n, y0, spacing, P, a1, a2, k1, k2, op_lo, op_hi, sw, step=12):
     paths = []
@@ -22,15 +22,15 @@ def layer(n, y0, spacing, P, a1, a2, k1, k2, op_lo, op_hi, sw, step=12):
         paths.append(f'<path d="M{"L".join(pts)}" stroke-width="{sw}" stroke-opacity="{op:.3f}"/>')
     return "\n".join(paths)
 
-front = layer(n=46, y0=330, spacing=7.5, P=1440, a1=95, a2=38, k1=0.055, k2=0.11, op_lo=.16, op_hi=.50, sw=1.25)
-back = layer(n=30, y0=250, spacing=9, P=960, a1=60, a2=24, k1=0.07, k2=0.09, op_lo=.08, op_hi=.22, sw=1.1)
+front = layer(n=46, y0=330, spacing=7.5, P=1440, a1=95, a2=38, k1=0.055, k2=0.11, op_lo=.22, op_hi=.62, sw=1.25)
+back = layer(n=30, y0=250, spacing=9, P=960, a1=60, a2=24, k1=0.07, k2=0.09, op_lo=.10, op_hi=.28, sw=1.1)
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid slice">
 <style>
 .w{{fill:none;stroke:{PURPLE};stroke-linecap:round}}
-.flow-a{{animation:flowA 48s linear infinite}}
-.flow-b{{animation:flowB 70s linear infinite}}
-.sway{{animation:sway 14s ease-in-out infinite}}
+.flow-a{{animation:flowA 70s linear infinite}}
+.flow-b{{animation:flowB 100s linear infinite}}
+.sway{{animation:sway 20s ease-in-out infinite}}
 @keyframes flowA{{to{{transform:translateX(-1440px)}}}}
 @keyframes flowB{{to{{transform:translateX(960px)}}}}
 @keyframes sway{{50%{{transform:translateY(-14px)}}}}
