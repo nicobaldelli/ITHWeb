@@ -374,6 +374,120 @@
     apply();
   }
 
+  /* ---------- Clientes: fichero ---------- */
+  // Los logos salen de la lista .filecab__all (un li por cliente, con data-group). Se arman fichas de hasta seis
+  // logos de un mismo rubro y pasan solas; los rubros son pestañas que filtran (sin elegir, se muestran todos).
+  const filecab = document.querySelector('[data-filecab]');
+  if (filecab) {
+    const PER_CARD = 6;
+    const FLIP_MS = 3800;
+    const ANIM_MS = 600;
+    const source = filecab.querySelector('[data-filecab-logos]');
+    const stack = filecab.querySelector('[data-filecab-stack]');
+    const tabs = [...filecab.querySelectorAll('.filecab__tab')];
+    const controls = filecab.querySelector('[data-filecab-controls]');
+    const status = filecab.querySelector('[data-filecab-status]');
+    const labels = Object.fromEntries(tabs.map((t) => [t.dataset.group, t.textContent.trim()]));
+    const logos = [...source.children].map((li) => ({ group: li.dataset.group, node: li }));
+    let group = null;
+    let cards = [];
+    let current = 0;
+    let timer = 0;
+    let animating = false;
+    let hovering = false;
+    let focusInside = false;
+    let inView = false;
+
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!motion || cards.length < 2 || hovering || focusInside || !inView || document.hidden) return;
+      timer = setTimeout(() => go(1), FLIP_MS);
+    };
+    const render = () => {
+      const n = cards.length;
+      [...stack.children].forEach((el, i) => {
+        const pos = (i - current + n) % n;
+        el.dataset.pos = Math.min(pos, 3);
+        el.inert = pos !== 0;
+      });
+      status.textContent = n ? `${labels[cards[current].group]} · ficha ${current + 1} de ${n}` : '';
+      controls.hidden = n < 2;
+    };
+    const go = (dir) => {
+      const n = cards.length;
+      if (n < 2 || animating) return;
+      const leaving = stack.children[current];
+      current = (current + dir + n) % n;
+      if (motion) {
+        // Hacia adelante, la ficha de adelante se levanta y gira hacia atrás; hacia atrás, la anterior baja girando.
+        const el = dir > 0 ? leaving : stack.children[current];
+        el.classList.add(dir > 0 ? 'is-out' : 'is-in');
+        animating = true;
+        setTimeout(() => { el.classList.remove('is-out', 'is-in'); animating = false; }, ANIM_MS);
+      }
+      render();
+      schedule();
+    };
+    const build = () => {
+      const byGroup = new Map();
+      logos.filter((l) => !group || l.group === group).forEach((l) => {
+        if (!byGroup.has(l.group)) byGroup.set(l.group, []);
+        byGroup.get(l.group).push(l);
+      });
+      cards = [];
+      byGroup.forEach((list, g) => {
+        // Fichas parejas: 16 logos van 6+5+5, no 6+6+4
+        const count = Math.ceil(list.length / PER_CARD);
+        const size = Math.ceil(list.length / count);
+        for (let i = 0; i < list.length; i += size) cards.push({ group: g, logos: list.slice(i, i + size) });
+      });
+      stack.replaceChildren(...cards.map((card, i) => {
+        const el = document.createElement('article');
+        el.className = 'filecab__card';
+        el.setAttribute('aria-label', `${labels[card.group]}, ficha ${i + 1} de ${cards.length}`);
+        const tab = document.createElement('p');
+        tab.className = 'filecab__card-tab';
+        tab.textContent = labels[card.group];
+        const ul = document.createElement('ul');
+        ul.className = 'filecab__logos list-reset';
+        card.logos.forEach((l) => ul.append(l.node.cloneNode(true)));
+        el.append(tab, ul);
+        return el;
+      }));
+      current = 0;
+      render();
+      schedule();
+    };
+
+    filecab.addEventListener('click', (e) => {
+      const tab = e.target.closest('.filecab__tab');
+      if (tab) {
+        group = group === tab.dataset.group ? null : tab.dataset.group; // volver a tocarla la destilda
+        tabs.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.group === group)));
+        build();
+      } else if (e.target.closest('[data-filecab-prev]')) go(-1);
+      else if (e.target.closest('[data-filecab-next]')) go(1);
+      else if (e.target.closest('.filecab__card')) go(1); // tocar la ficha también la pasa
+    });
+    stack.addEventListener('pointerenter', () => { hovering = true; schedule(); });
+    stack.addEventListener('pointerleave', () => { hovering = false; schedule(); });
+    filecab.addEventListener('focusin', () => { focusInside = true; schedule(); });
+    filecab.addEventListener('focusout', (e) => {
+      if (filecab.contains(e.relatedTarget)) return;
+      focusInside = false;
+      schedule();
+    });
+    document.addEventListener('visibilitychange', schedule);
+    new IntersectionObserver((entries) => {
+      inView = lastEntry(entries).isIntersecting;
+      schedule();
+    }, { threshold: 0.4 }).observe(filecab);
+
+    source.hidden = true;
+    stack.hidden = false;
+    build();
+  }
+
   /* ---------- Mapa de provincias ---------- */
   const map = document.querySelector('[data-map]');
   if (map) {
