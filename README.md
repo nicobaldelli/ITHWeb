@@ -10,6 +10,7 @@ css/styles.css           Estilos: paleta en :root, componentes por sección y an
 js/main.js               Menú, CTAs (UTM + medición), revelado, contadores, carrusel, mapa y notas
 img/circuit.svg          Fondo animado de las secciones oscuras (uno solo, cacheado)
 img/hex.svg              Fondo de las secciones blancas: plano de hexágonos gris en perspectiva, con trazos de circuito, pads y pulsos animados, desvanecido al centro. Solo gris: el blanco sirve a las dos familias de color. Lo genera img/hex.py, no editar a mano
+img/waves.svg            Fondo de las secciones lila: campo de ondas violeta (líneas finas en paralelo) que fluye despacio, desvanecido al centro. Lo genera img/waves.py, no editar a mano
 img/logo-intellihelp.png Logo
 img/clientes/*.webp      Logos de clientes (48, con transparencia) para el fichero de clientes y las tarjetas de casos
 fonts/saira-latin.woff2  Tipografía Saira (variable 400–700, subconjunto latino), servida desde acá

@@ -98,7 +98,8 @@ a:hover { color: var(--ink); }
 .section { padding: 96px 0; }
 /* Secciones blancas: plano de hexágonos gris en perspectiva (se aleja hacia arriba, en diagonal) con trazos de circuito sobre las aristas, pads y pulsos; se desvanece hacia el centro (img/hex.svg, generado por img/hex.py; solo gris: el blanco sirve a las dos familias de color) */
 .section:not(.section--alt):not(.section--dark) { background: var(--white) url("../img/hex.svg") center / cover no-repeat; }
-.section--alt { background: var(--lavender); }
+/* Secciones lila: campo de ondas violeta que fluye despacio, desvanecido hacia el centro (img/waves.svg, generado por img/waves.py) */
+.section--alt, .clients { background: var(--lavender) url("../img/waves.svg") center / cover no-repeat; }
 .section--dark {
   padding: 104px 0;
   background: var(--ink) url("../img/circuit.svg") center / cover no-repeat;
