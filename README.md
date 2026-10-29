@@ -10,6 +10,7 @@ css/styles.css           Estilos: paleta en :root, componentes por sección y an
 js/main.js               Menú, CTAs (UTM + medición), revelado, contadores, carrusel, mapa y notas
 img/circuit.svg          Fondo animado de las secciones oscuras (uno solo, cacheado)
 img/logo-intellihelp.png Logo
+img/clientes/*.webp      Logos de clientes (48, con transparencia) para las dos filas del carrusel
 fonts/saira-latin.woff2  Tipografía Saira (variable 400–700, subconjunto latino), servida desde acá
 ```
 
@@ -85,7 +86,8 @@ Hay dos familias que nunca se tocan, y las secciones las alternan para que la p�
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
 - [ ] Links reales de Blog y LinkedIn en el pie.
-- [ ] Imagen o video del hero, fotos del equipo, logos de clientes y testimonios (están como notas).
+- [ ] Imagen o video del hero, fotos del equipo y testimonios (están como notas).
+- [ ] Validar qué logos de clientes se pueden mostrar (hoy están los 48 de la presentación institucional).
 - [ ] Respuesta de "¿Cuánto tarda en comenzar un servicio?".
 - [ ] Quitar las notas internas (o el botón) en la versión pública.
 - [ ] Favicon e imagen para compartir en redes (`og:image`).
