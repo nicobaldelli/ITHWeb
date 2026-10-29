@@ -120,7 +120,8 @@
   // Sin JS quedan como scroll horizontal con snap; con JS suman flechas, puntos o contador y, salvo
   // `data-carousel-autoplay="off"`, avance automático con pausa. Si una tarjeta tiene una lista `data-steps`
   // (varios proyectos de un cliente), se muestran de a uno antes de pasar a la tarjeta siguiente.
-  // Con `data-carousel-order="random"` el orden se baraja (y se vuelve a barajar en cada vuelta). Devuelve una API
+  // Con `data-carousel-order="random"` el avance automático se baraja (y se vuelve a barajar en cada vuelta); las
+  // flechas siempre van en orden lineal. Devuelve una API
   // con `setPool(indices, { pinned })` para limitar las tarjetas visibles (la usa el mini menú de casos).
   const shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -161,6 +162,8 @@
       }
       return seq[(p + dir + seq.length) % seq.length];
     };
+    // Flechas: orden lineal dentro de las tarjetas habilitadas, aunque el automático sea al azar
+    const linear = (dir) => pool[(pool.indexOf(index) + dir + pool.length) % pool.length];
     const firstShown = () => slides.find((slide) => !slide.hidden) || slides[0];
     const offset = (i) => slides[i].offsetLeft - firstShown().offsetLeft;
     let index = seq[0] || 0;
@@ -194,7 +197,7 @@
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
       dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
-      if (!dots.length) dotsBox.textContent = `${seq.indexOf(index) + 1} de ${seq.length}`;
+      if (!dots.length) dotsBox.textContent = `${pool.indexOf(index) + 1} de ${pool.length}`;
       setStep(0);
     };
     const go = (i, instant) => {
@@ -223,8 +226,8 @@
       return dot;
     });
 
-    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(neighbor(-1)));
-    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(neighbor(1)));
+    carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(linear(-1)));
+    carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(linear(1)));
     // Elegir un proyecto a mano dentro de la tarjeta activa
     track.addEventListener('click', (e) => {
       const li = e.target.closest('[data-steps] > li');
