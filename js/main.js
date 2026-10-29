@@ -116,12 +116,17 @@
   };
   if (motion) document.querySelectorAll('[data-counter]').forEach(runCounters);
 
-  /* ---------- Carruseles (servicios de a tres; láminas de casos de a una) ---------- */
-  // Sin JS quedan como scroll horizontal con snap; con JS suman flechas, puntos y, salvo
-  // `data-carousel-autoplay="off"`, avance automático con pausa.
+  /* ---------- Carruseles (servicios de a tres; casos de a uno) ---------- */
+  // Sin JS quedan como scroll horizontal con snap; con JS suman flechas, puntos o contador y, salvo
+  // `data-carousel-autoplay="off"`, avance automático con pausa. Si una tarjeta tiene una lista `data-steps`
+  // (varios proyectos de un cliente), se muestran de a uno antes de pasar a la tarjeta siguiente.
   const initCarousel = (carousel) => {
     const AUTOPLAY_MS = 7000;
+    const STEP_MS = 3500;
+    const MAX_DOTS = 10; // con más tarjetas, contador "n de N" en vez de puntos
     const autoplay = motion && carousel.dataset.carouselAutoplay !== 'off';
+    carousel.classList.toggle('is-auto', autoplay);
+    carousel.style.setProperty('--step-ms', `${STEP_MS}ms`);
     const track = carousel.querySelector('[data-carousel-track]');
     const slides = [...track.children];
     const controls = carousel.querySelector('[data-carousel-controls]');
@@ -129,6 +134,7 @@
     const pauseBtn = carousel.querySelector('[data-carousel-pause]');
     const offset = (i) => slides[i].offsetLeft - slides[0].offsetLeft;
     let index = 0;
+    let step = 0;
     let timer = 0;
     let userPaused = false;
     let hovering = false;
@@ -136,15 +142,27 @@
     let inView = false;
 
     // Avanza solo si nadie está mirando o usando una tarjeta, y nunca con "reducir movimiento".
+    const stepsOf = (i) => [...slides[i].querySelectorAll('[data-steps] > li')];
+    const setStep = (k) => {
+      step = k;
+      stepsOf(index).forEach((li, j) => li.setAttribute('aria-current', String(j === k)));
+    };
     const schedule = () => {
       clearTimeout(timer);
       const busy = userPaused || hovering || focusInside || !inView || document.hidden
         || track.querySelector('details[open]');
-      if (autoplay && !busy) timer = setTimeout(() => go(index + 1), AUTOPLAY_MS);
+      carousel.classList.toggle('is-paused', Boolean(busy));
+      if (!autoplay || busy) return;
+      const steps = stepsOf(index);
+      timer = setTimeout(() => {
+        if (steps.length > 1 && step < steps.length - 1) { setStep(step + 1); schedule(); } else go(index + 1);
+      }, steps.length > 1 ? STEP_MS : AUTOPLAY_MS);
     };
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
       dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+      if (!dots.length) dotsBox.textContent = `${index + 1} de ${slides.length}`;
+      setStep(0);
     };
     const go = (i) => {
       index = (i + slides.length) % slides.length;
@@ -152,7 +170,7 @@
       render();
       schedule();
     };
-    const dots = slides.map((slide, i) => {
+    const dots = slides.length > MAX_DOTS ? [] : slides.map((slide, i) => {
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'carousel__dot';
@@ -164,6 +182,13 @@
 
     carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => go(index - 1));
     carousel.querySelector('[data-carousel-next]').addEventListener('click', () => go(index + 1));
+    // Elegir un proyecto a mano dentro de la tarjeta activa
+    track.addEventListener('click', (e) => {
+      const li = e.target.closest('[data-steps] > li');
+      if (!li || !slides[index].contains(li)) return;
+      setStep(stepsOf(index).indexOf(li));
+      schedule();
+    });
     if (autoplay) {
       pauseBtn.hidden = false;
       pauseBtn.addEventListener('click', () => {

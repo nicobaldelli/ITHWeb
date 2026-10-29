@@ -718,214 +718,506 @@
     </div>
   </section>
 
-  <!-- ===== Casos: las cuatro láminas de casos de éxito de la presentación institucional, de a una ===== -->
+  <!-- ===== Casos: un caso por vez; dentro de cada cliente, sus proyectos se pasan de a uno ===== -->
   <section id="casos" class="section">
     <div class="wrap">
       <div class="section-head rv">
         <span class="eyebrow">Casos</span>
         <h2 class="section-title">Casos reales, <span class="hl">con nombre y apellido.</span></h2>
-        <p class="lead">Lo que hicimos, cliente por cliente. Pasá las láminas con las flechas.</p>
+        <p class="lead">Un caso por vez, sacados de nuestra presentación institucional. Se pasan solos cada pocos segundos, o con las flechas.</p>
       </div>
-      <!-- Una lámina por vista, sin avance automático. Los logos salen de img/clientes. -->
-      <section class="carousel carousel--lime rv" aria-roledescription="carrusel" aria-label="Casos de éxito" data-carousel data-carousel-autoplay="off">
+      <!-- Para sumar un caso, agregar otro article.case-card (los logos salen de img/clientes). Si el cliente tiene varios
+           proyectos, van en una lista `data-steps`: el carrusel los muestra de a uno antes de pasar al cliente siguiente. -->
+      <section class="carousel carousel--lime rv" aria-roledescription="carrusel" aria-label="Casos de éxito" data-carousel>
         <div class="carousel__track" data-carousel-track>
-          <article class="carousel__slide case-slide" role="group" aria-roledescription="lámina" aria-label="Casos de éxito del sector público, lámina 1 de 2">
-            <div class="case-slide__head">
-              <h3 class="eyebrow">Sector público</h3>
-              <span class="case-slide__count">1 de 4</span>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 1 de 39: Gobierno de la Ciudad de Buenos Aires (ASI)">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/agencia-de-sistemas-de-informacion.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Gobierno de la Ciudad de Buenos Aires (ASI)</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Outsourcing</li><li class="chip chip--lime">Desarrollo</li><li class="chip chip--lime">Fibra óptica</li><li class="chip chip--lime">Redes</li></ul>
             </div>
-            <ul class="case-list list-reset">
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/agencia-de-sistemas-de-informacion.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Gobierno de la Ciudad de Buenos Aires (ASI)</h4><ul class="case-item__list"><li>Outsourcing de perfiles multiplataforma.</li><li>Desarrollo de la aplicación del sistema de turnos.</li><li>Red FTTP del Plan Sarmiento: escuelas, comisarías y hospitales.</li><li>Red de acceso GPON y red core con networking Huawei.</li><li>Mantenimiento 24/7 de la red GPON de todas las delegaciones de la Ciudad.</li></ul></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/senado-de-la-nacion-argentina.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Senado de la Nación</h4><p class="case-item__text">Provisión e instalación de una solución de servidores Huawei.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/sedronar.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Sedronar</h4><p class="case-item__text">Provisión e instalación de una solución de storage Huawei.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/administracion-de-parques-nacionales.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Administración de Parques Nacionales</h4><p class="case-item__text">Mantenimiento 7x24 multiplataforma de los edificios de CABA, sobre Furukawa, Huawei, Hikvision, Suprema, Mikrotik y Cisco.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/superintendencia-de-riesgos-del-trabajo.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Superintendencia de Riesgos del Trabajo</h4><p class="case-item__text">Solución integral de control de acceso para todos sus edificios de CABA y sus delegaciones en distintas provincias, con tecnología Hikvision.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/correo-argentino.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Correo Argentino</h4><p class="case-item__text">Desarrollo de sistemas: proyecto SISFACT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/telam.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Télam</h4><p class="case-item__text">Solución de networking para los edificios principales.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/gendarmeria-nacional.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Gendarmería Nacional</h4><p class="case-item__text">Red FTTB para el predio de Campo de Mayo.</p></div>
-              </li>
-            </ul>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <ol class="case-steps list-reset" data-steps aria-label="Proyectos con Gobierno de la Ciudad de Buenos Aires (ASI)">
+                <li class="case-step" aria-current="true"><button type="button" class="case-step__btn">Outsourcing de perfiles multiplataforma para la Agencia de Sistemas de Información.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+                <li class="case-step"><button type="button" class="case-step__btn">Desarrollo de la aplicación del sistema de turnos.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+                <li class="case-step"><button type="button" class="case-step__btn">Red FTTP del Plan Sarmiento para escuelas, comisarías y hospitales.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+                <li class="case-step"><button type="button" class="case-step__btn">Red de acceso GPON y red core con networking Huawei.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+                <li class="case-step"><button type="button" class="case-step__btn">Mantenimiento 24/7 de la red GPON de todas las delegaciones de la Ciudad.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+              </ol>
+              <p class="case-card__hint">5 proyectos: se pasan solos, o elegí uno.</p>
+            </div>
           </article>
-          <article class="carousel__slide case-slide" role="group" aria-roledescription="lámina" aria-label="Casos de éxito del sector público, lámina 2 de 2">
-            <div class="case-slide__head">
-              <h3 class="eyebrow">Sector público</h3>
-              <span class="case-slide__count">2 de 4</span>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 2 de 39: Senado de la Nación">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/senado-de-la-nacion-argentina.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Senado de la Nación</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Data center</li></ul>
             </div>
-            <ul class="case-list list-reset">
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/agip.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">AGIP</h4><p class="case-item__text">Diseño, tendido y mantenimiento 7x24 de una red FTTP para todas las agencias de la Ciudad de Buenos Aires.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/nacion-seguros.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Nación Seguros</h4><p class="case-item__text">Mantenimiento preventivo y correctivo del sistema de videovigilancia de casa central.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ministerio-de-cultura-de-la-ciudad-de-buenos-aires.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Ministerio de Cultura de la Ciudad de Buenos Aires</h4><p class="case-item__text">Solución de telefonía IP sobre equipos Grandstream.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/boletin-oficial-de-la-republica-argentina.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Boletín Oficial de la Nación</h4><p class="case-item__text">Desarrollo del aplicativo que gestiona en línea el BORA.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/museo-moderno.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Museo Moderno de la Ciudad de Buenos Aires</h4><p class="case-item__text">Provisión de una solución de networking para el museo.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ba-salud.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Ministerio de Salud de la Ciudad de Buenos Aires</h4><p class="case-item__text">Provisión, instalación y configuración de switches Huawei core y de borde para la red de hospitales.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/nic-argentina.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">NIC Argentina</h4><p class="case-item__text">Sistema de administración y gestión de dominios.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/came.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">CAME</h4><p class="case-item__text">Consultoría para el desarrollo de una aplicación de e-learning mobile.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ministerio-de-educacion-de-la-ciudad-de-buenos-aires.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Ministerio de Educación de la Ciudad de Buenos Aires</h4><ul class="case-item__list"><li>Instalación y mantenimiento de la red FTTP que conecta todas las escuelas de la Ciudad.</li><li>Prototipo IoT para escuelas: monitoreo de consumo eléctrico, contaminación del aire, ruido y gases tóxicos, sobre Arduino.</li></ul></div>
-              </li>
-            </ul>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión e instalación de una solución de servidores Huawei.</p>
+            </div>
           </article>
-          <article class="carousel__slide case-slide" role="group" aria-roledescription="lámina" aria-label="Casos de éxito del sector privado, lámina 1 de 2">
-            <div class="case-slide__head">
-              <h3 class="eyebrow">Sector privado</h3>
-              <span class="case-slide__count">3 de 4</span>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 3 de 39: Sedronar">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/sedronar.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Sedronar</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Data center</li></ul>
             </div>
-            <ul class="case-list list-reset">
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/gestion-compartida.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Gestión Compartida</h4><p class="case-item__text">Búsqueda de recursos IT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/pfizer.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Laboratorios Pfizer</h4><p class="case-item__text">Outsourcing de recursos funcionales para el área de transformación digital.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/grupo-libertad.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Grupo Libertad</h4><p class="case-item__text">Búsqueda y selección de personal IT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/avalian.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Avalian</h4><p class="case-item__text">Búsqueda y selección de personal IT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/beilox.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Beilox</h4><p class="case-item__text">Búsqueda de recursos TI para su factoría de servicios digitales.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/petropack.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Petropack</h4><p class="case-item__text">Sistema automatizado IIoT para el control de inicio y parada de las máquinas laminadoras.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/osdipp.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">OSDIPP</h4><p class="case-item__text">Outsourcing de soporte técnico a usuarios en oficinas centrales.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ituran.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Ituran</h4><p class="case-item__text">Solución IoT de tracking para personas y objetos.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/lojack.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Lojack</h4><p class="case-item__text">Mesa de ayuda de nivel uno, 5x8, en oficinas del cliente.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/los-noques.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Los Noques</h4><p class="case-item__text">Diseño de una solución de energías renovables.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/los-cardales-country-club.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Los Cardales</h4><p class="case-item__text">Solución de luminarias LED para la zona de parques del country.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/cablevision-fibertel.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Cablevisión</h4><p class="case-item__text">Implementación y consultoría OpenStack.</p></div>
-              </li>
-            </ul>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión e instalación de una solución de storage Huawei.</p>
+            </div>
           </article>
-          <article class="carousel__slide case-slide" role="group" aria-roledescription="lámina" aria-label="Casos de éxito del sector privado, lámina 2 de 2">
-            <div class="case-slide__head">
-              <h3 class="eyebrow">Sector privado</h3>
-              <span class="case-slide__count">4 de 4</span>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 4 de 39: Administración de Parques Nacionales">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/administracion-de-parques-nacionales.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Administración de Parques Nacionales</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Mantenimiento 7x24</li></ul>
             </div>
-            <ul class="case-list list-reset">
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/el-cronista.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">El Cronista</h4><p class="case-item__text">Diseño, implementación y mantenimiento de una solución de videovigilancia y control de acceso con reconocimiento facial Hikvision.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ayassa-fombella.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Ayassa Fombella</h4><p class="case-item__text">Diseño, implementación y mantenimiento de una solución de videovigilancia Hikvision.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/eve-joyeria.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">EVE Joyería</h4><p class="case-item__text">Sistema de control de acceso por reconocimiento facial Hikvision en oficinas del cliente.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/mymtec.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Mymtec</h4><p class="case-item__text">Búsqueda y selección de personal IT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/huawei.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Huawei</h4><p class="case-item__text">Consultoría para la gestión de preventa y técnica en clientes del sector público.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/ase-nacional.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">ASE Nacional / Medifé</h4><p class="case-item__text">Outsourcing de perfiles de automatización de testing y QA.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/sistran.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Sistran</h4><p class="case-item__text">Búsqueda y selección de personal IT.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/laboratorios-bago.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Laboratorio Bagó</h4><p class="case-item__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo"><img src="img/clientes/gemez-depositos-fiscales.webp" alt="" loading="lazy" decoding="async"></span>
-                <div class="case-item__body"><h4 class="case-item__name">Gemez</h4><p class="case-item__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p></div>
-              </li>
-              <li class="case-item">
-                <span class="case-item__logo case-item__logo--text" aria-hidden="true">Tarjeta</span>
-                <div class="case-item__body"><h4 class="case-item__name">Tarjeta Naranja</h4><p class="case-item__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p></div>
-              </li>
-            </ul>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Mantenimiento 7x24 multiplataforma de los edificios de CABA, sobre tecnologías Furukawa, Huawei, Hikvision, Suprema, Mikrotik y Cisco.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 5 de 39: Superintendencia de Riesgos del Trabajo">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/superintendencia-de-riesgos-del-trabajo.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Superintendencia de Riesgos del Trabajo</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Seguridad física</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Solución integral de control de acceso para todos sus edificios de CABA y sus delegaciones en distintas provincias, sobre tecnología Hikvision.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 6 de 39: Correo Argentino">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/correo-argentino.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Correo Argentino</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Desarrollo</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Desarrollo de sistemas: proyecto SISFACT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 7 de 39: Télam">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/telam.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Télam</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Redes</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión de una solución de networking para sus edificios principales.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 8 de 39: Gendarmería Nacional">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/gendarmeria-nacional.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Gendarmería Nacional</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Fibra óptica</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Implementación de una red FTTB para el predio de Campo de Mayo.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 9 de 39: AGIP">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/agip.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">AGIP</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Fibra óptica</li><li class="chip chip--lime">Mantenimiento 7x24</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Diseño, tendido y mantenimiento 7x24 de una red FTTP para todas las agencias de AGIP en la Ciudad de Buenos Aires.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 10 de 39: Nación Seguros">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/nacion-seguros.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Nación Seguros</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Seguridad física</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Mantenimiento preventivo y correctivo del sistema de videovigilancia de casa central.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 11 de 39: Ministerio de Cultura de la Ciudad de Buenos Aires">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ministerio-de-cultura-de-la-ciudad-de-buenos-aires.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Ministerio de Cultura de la Ciudad de Buenos Aires</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Telefonía IP</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión e instalación de una solución de telefonía IP sobre equipos Grandstream.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 12 de 39: Boletín Oficial de la Nación">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/boletin-oficial-de-la-republica-argentina.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Boletín Oficial de la Nación</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Desarrollo</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Desarrollo del aplicativo que gestiona en línea el Boletín Oficial de la República Argentina (BORA).</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 13 de 39: Museo Moderno de la Ciudad de Buenos Aires">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/museo-moderno.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Museo Moderno de la Ciudad de Buenos Aires</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Redes</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión de una solución de networking para el museo.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 14 de 39: Ministerio de Salud de la Ciudad de Buenos Aires">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ba-salud.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Ministerio de Salud de la Ciudad de Buenos Aires</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Redes</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Provisión, instalación y configuración de switches Huawei core y de borde para la red de hospitales.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 15 de 39: NIC Argentina">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/nic-argentina.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">NIC Argentina</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Desarrollo</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Sistema de administración y gestión de dominios.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 16 de 39: CAME">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/came.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">CAME</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Consultoría</li><li class="chip chip--lime">Desarrollo</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Consultoría para el desarrollo de una aplicación de e-learning mobile.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 17 de 39: Ministerio de Educación de la Ciudad de Buenos Aires">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ministerio-de-educacion-de-la-ciudad-de-buenos-aires.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Ministerio de Educación de la Ciudad de Buenos Aires</h3>
+              <span class="eyebrow">Sector público</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Fibra óptica</li><li class="chip chip--lime">IoT</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <ol class="case-steps list-reset" data-steps aria-label="Proyectos con Ministerio de Educación de la Ciudad de Buenos Aires">
+                <li class="case-step" aria-current="true"><button type="button" class="case-step__btn">Instalación y mantenimiento de la red FTTP que conecta todas las escuelas de la Ciudad de Buenos Aires.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+                <li class="case-step"><button type="button" class="case-step__btn">Prototipo IoT para las escuelas: monitoreo de consumo eléctrico, contaminación del aire, ruido y gases tóxicos, sobre componentes Arduino.</button><span class="case-step__bar" aria-hidden="true"></span></li>
+              </ol>
+              <p class="case-card__hint">2 proyectos: se pasan solos, o elegí uno.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 18 de 39: Gestión Compartida">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/gestion-compartida.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Gestión Compartida</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Búsqueda de recursos IT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 19 de 39: Laboratorios Pfizer">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/pfizer.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Laboratorios Pfizer</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Outsourcing</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Outsourcing de recursos funcionales para el área de transformación digital.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 20 de 39: Grupo Libertad">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/grupo-libertad.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Grupo Libertad</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Servicio de búsqueda y selección de personal IT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 21 de 39: Avalian">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/avalian.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Avalian</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Servicio de búsqueda y selección de personal IT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 22 de 39: Beilox">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/beilox.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Beilox</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Búsqueda de recursos TI para su factoría de servicios digitales.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 23 de 39: Petropack">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/petropack.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Petropack</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">IoT</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Sistema automatizado IIoT para el control de inicio y parada de las máquinas laminadoras, en su planta de Paraná.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 24 de 39: OSDIPP">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/osdipp.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">OSDIPP</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Mesa de ayuda</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Outsourcing de soporte técnico a usuarios en sus oficinas centrales.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 25 de 39: Ituran">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ituran.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Ituran</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">IoT</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Solución IoT de tracking para personas y objetos.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 26 de 39: Lojack">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/lojack.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Lojack</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Mesa de ayuda</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Servicio de mesa de ayuda de nivel uno, 5x8, en las oficinas del cliente.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 27 de 39: Los Noques">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/los-noques.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Los Noques</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Energías renovables</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Diseño de una solución de energías renovables.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 28 de 39: Los Cardales Country Club">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/los-cardales-country-club.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Los Cardales Country Club</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Energía</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Diseño de una solución de luminarias LED para la zona de parques del country.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 29 de 39: Cablevisión">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/cablevision-fibertel.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Cablevisión</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Cloud</li><li class="chip chip--lime">Consultoría</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Implementación y consultoría OpenStack.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 30 de 39: El Cronista">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/el-cronista.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">El Cronista</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Seguridad física</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Diseño, implementación y mantenimiento de una solución de videovigilancia y control de acceso con reconocimiento facial Hikvision.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 31 de 39: Ayassa Fombella">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ayassa-fombella.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Ayassa Fombella</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Seguridad física</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Diseño, implementación y mantenimiento de una solución de videovigilancia Hikvision.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 32 de 39: EVE Joyería">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/eve-joyeria.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">EVE Joyería</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Seguridad física</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Sistema de control de acceso por reconocimiento facial Hikvision en las oficinas del cliente.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 33 de 39: Mymtec">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/mymtec.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Mymtec</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Servicio de búsqueda y selección de personal IT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 34 de 39: Huawei">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/huawei.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Huawei</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Consultoría</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Consultoría para la gestión de preventa y técnica en clientes del sector público.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 35 de 39: ASE Nacional / Medifé">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/ase-nacional.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">ASE Nacional / Medifé</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Outsourcing</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Outsourcing de perfiles de automatización de testing y QA.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 36 de 39: Sistran">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/sistran.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Sistran</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Servicio de búsqueda y selección de personal IT.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 37 de 39: Laboratorio Bagó">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/laboratorios-bago.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Laboratorio Bagó</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 38 de 39: Gemez">
+            <div class="case-card__who">
+              <span class="case-card__logo"><img src="img/clientes/gemez-depositos-fiscales.webp" alt="" loading="lazy" decoding="async"></span>
+              <h3 class="case-card__name">Gemez</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p>
+            </div>
+          </article>
+          <article class="carousel__slide case-card" role="group" aria-roledescription="caso" aria-label="Caso 39 de 39: Tarjeta Naranja">
+            <div class="case-card__who">
+              <span class="case-card__logo case-card__logo--text" aria-hidden="true">Tarjeta Naranja</span>
+              <h3 class="case-card__name">Tarjeta Naranja</h3>
+              <span class="eyebrow">Sector privado</span>
+              <ul class="chips list-reset"><li class="chip chip--lime">Búsqueda de personal</li></ul>
+            </div>
+            <div class="case-card__what">
+              <span class="eyebrow">Qué hicimos</span>
+              <p class="case-card__text">Búsqueda y selección de personal para distintas áreas de la empresa.</p>
+            </div>
           </article>
         </div>
         <div class="carousel__controls" data-carousel-controls hidden>
-          <button type="button" class="carousel__btn" data-carousel-prev aria-label="Lámina anterior"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <div class="carousel__dots" data-carousel-dots></div>
-          <button type="button" class="carousel__btn" data-carousel-next aria-label="Lámina siguiente"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          <button type="button" class="carousel__btn" data-carousel-prev aria-label="Caso anterior"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="carousel__dots" data-carousel-dots aria-live="polite"></div>
+          <button type="button" class="carousel__btn" data-carousel-next aria-label="Caso siguiente"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
           <button type="button" class="carousel__pause" data-carousel-pause hidden>Pausar</button>
         </div>
       </section>
-      <p class="nota services-nota"><b>CONFIRMAR CON CARLOS</b>Los casos son los de la presentación institucional 2026 (cuatro láminas). Validar cuáles se pueden publicar con nombre.</p>
+      <p class="nota services-nota"><b>CONFIRMAR CON CARLOS</b>Los 39 casos son los de la presentación institucional 2026. Validar cuáles se pueden publicar con nombre y en qué orden conviene mostrarlos (hoy: sector público y después privado).</p>
     </div>
   </section>
 

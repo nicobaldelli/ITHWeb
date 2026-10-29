@@ -58,7 +58,7 @@ anterior):
 - **Texto del hero**: bloque `TEXTO DEL HERO (editable)` en `index.html`. Es provisorio hasta que Claudio pase la versión definitiva.
 - **Imagen o video del hero**: dentro de `.hero__media` hay un ejemplo comentado de `<img>` y de `<video>` en loop. El overlay oscuro se aplica solo.
 - **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
-- **Casos**: las cuatro láminas de casos de éxito de la presentación institucional (sector público 1 y 2, sector privado 1 y 2) en un carrusel sin avance automático: una lámina por vista, flechas y puntos para pasarlas. Cada caso lleva su logo de `img/clientes` si existe.
+- **Casos**: un caso por vez (39, tomados de la presentación institucional), con logo, sector, etiquetas del servicio y qué hicimos. Avanzan solos cada 7 s o con las flechas; con más de diez tarjetas se muestra un contador "n de N" en vez de puntos. Si un cliente tiene varios proyectos (lista `data-steps`), se muestran de a uno cada 3,5 s con una barra de avance, y recién después pasa al cliente siguiente; también se pueden elegir con un clic.
 - **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Hoy están Buenos Aires, CABA, Santa Fe, Entre Ríos, Córdoba, San Luis, Mendoza, San Juan, Neuquén, Corrientes, Misiones y Salta.
 - **Notas internas** (`.nota`): indicaciones del borrador para Carlos. El botón del pie las oculta o muestra (equivale al switch `notesDisplay` del diseño) y recuerda la elección en `localStorage`.
 
@@ -81,7 +81,7 @@ anterior):
 ## Comportamiento
 
 - **Animaciones de entrada**: los elementos `.rv` aparecen al entrar en pantalla. En el hero primero aparece la imagen y después el texto. Se activan solo si hay `IntersectionObserver` y no se pidió reducir movimiento; si no, todo se ve estático.
-- **Carruseles**: el de servicios avanza solo cada 7 s; el de casos solo con flechas, puntos o deslizando. Se detiene con el mouse encima, con foco en una tarjeta, con un "Ver más" abierto o fuera de pantalla, y tiene botón de pausa. Con "reducir movimiento" no avanza solo. Sin JS queda como scroll horizontal.
+- **Carruseles**: avanzan solos cada 7 s (el de casos, 3,5 s por proyecto dentro de un cliente). Se detienen con el mouse encima, con foco adentro, con un "Ver más" abierto o fuera de pantalla, y tienen botón de pausa. Con "reducir movimiento" no avanzan solos. Sin JS quedan como scroll horizontal. Se detiene con el mouse encima, con foco en una tarjeta, con un "Ver más" abierto o fuera de pantalla, y tiene botón de pausa. Con "reducir movimiento" no avanza solo. Sin JS queda como scroll horizontal.
 - **Mapa**: al entrar en pantalla las provincias con presencia se prenden de a una. Al pasar el mouse o tocar una provincia se muestra su nombre.
 - **Preguntas frecuentes**: `<details name="faq">` nativo; al abrir una se cierra la anterior, sin JS.
 
@@ -90,7 +90,7 @@ anterior):
 - [ ] Texto definitivo del hero (Claudio).
 - [ ] Crear la landing `/asesoria`. Todos los CTA apuntan ahí.
 - [ ] Validar los doce servicios del carrusel (nombres, orden y marcas mencionadas).
-- [ ] Validar qué casos de éxito se pueden publicar con nombre (hoy están las cuatro láminas de la presentación).
+- [ ] Validar qué casos de éxito se pueden publicar con nombre y en qué orden (hoy los 39 de la presentación, público y después privado).
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
 - [ ] Links reales de Blog y LinkedIn en el pie.
