@@ -15,7 +15,8 @@
 /* ---------- Tokens ----------
    Paleta cerrada: no agregar colores. Dos familias que nunca se tocan (lima y violeta), y la familia la decide el
    FONDO de la sección:
-   - blanco (.section)        → gris y verde, sin lila: texto carbón y #444, acentos lima en barras, círculos y cards carbón
+   - blanco (.section)        → gris y verde, sin lila: texto carbón y #444, recuadros con borde o relleno lima, palabra
+                                clave en lima con contorno fino gris
    - lila (.section--alt)     → violeta: texto carbón, acento violeta, cards violeta con íconos lila
    - carbón (.section--dark)  → solo inicio (hero) y cierre (agenda): texto blanco, acento lima, card lima
    Los fondos se alternan: ninguna sección repite el de la anterior.
@@ -129,10 +130,11 @@ a:hover { color: var(--ink); }
 .section-title { margin: 0; font-size: clamp(36px, 4.4vw, 52px); font-weight: 700; line-height: 1.1; }
 .lead { margin: 0; font-size: 21px; line-height: 1.6; color: var(--muted); }
 
-/* Palabra clave: subrayado lima sobre blanco, violeta sobre lila, lima sobre carbón */
-.hl { color: var(--ink); text-decoration: underline; text-decoration-color: var(--lime); text-decoration-thickness: .12em; text-underline-offset: .1em; }
-.section--alt .hl { color: var(--purple); text-decoration: none; }
-.section--dark .hl { color: var(--lime); text-decoration: none; }
+/* Palabra clave: lima con un contorno fino gris sobre blanco (para que se lea), violeta sobre lila, lima sobre carbón.
+   `paint-order` pinta el contorno por debajo del relleno: solo asoma la mitad exterior del trazo. */
+.hl { color: var(--lime); -webkit-text-stroke: 1.4px var(--muted); paint-order: stroke fill; }
+.section--alt .hl { color: var(--purple); -webkit-text-stroke: 0; }
+.section--dark .hl { color: var(--lime); -webkit-text-stroke: 0; }
 
 /* ---------- Botones ---------- */
 .btn {
@@ -401,18 +403,19 @@ a:hover { color: var(--ink); }
   gap: 24px;
   min-width: 0;
   padding: 32px;
-  border: 2px solid var(--line-dark);
+  border: 2px solid var(--lime);
   border-radius: var(--radius);
   background: var(--white);
 }
-.compare__card--after { border-color: var(--ink); background: var(--ink); color: var(--white); }
-.compare__card--after .eyebrow { color: var(--lime); }
+.compare__card--after { background: var(--lime); color: var(--ink); }
+.compare__card--after .eyebrow { color: var(--ink); }
+.compare__card--after .eyebrow::before { background: var(--white); }
 
 .points { display: flex; flex-direction: column; gap: 24px; }
 .point { display: flex; align-items: flex-start; gap: 14px; }
 .point__title { margin: 0 0 5px; font-size: 22px; font-weight: 600; }
 .point__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.compare__card--after .point__text { color: var(--lavender); }
+.compare__card--after .point__text { color: var(--ink); }
 
 .ic {
   display: flex;
@@ -425,7 +428,7 @@ a:hover { color: var(--ink); }
   background: var(--muted);
   color: var(--white);
 }
-.compare__card--after .ic { background: var(--lime); color: var(--ink); }
+.compare__card--after .ic { background: var(--white); color: var(--ink); }
 
 /* ---------- Servicios (carrusel de a tres) ---------- */
 .carousel__track {
@@ -517,10 +520,10 @@ a:hover { color: var(--ink); }
 .card-violet .service__text { color: var(--lavender); }
 .service.card-violet.card-h:hover { border-color: var(--lavender); }
 
-.carousel--lime .carousel__btn { border-color: var(--ink); background: var(--ink); color: var(--lime); }
-.carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--lime); color: var(--ink); }
-.carousel--lime .carousel__dot::before { border-color: var(--ink); }
-.carousel--lime .carousel__dot[aria-current="true"]::before { background: var(--ink); }
+.carousel--lime .carousel__btn { border-color: var(--lime); background: var(--lime); color: var(--ink); }
+.carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--white); color: var(--ink); }
+.carousel--lime .carousel__dot::before { border-color: var(--lime); }
+.carousel--lime .carousel__dot[aria-current="true"]::before { background: var(--lime); }
 .carousel--lime .carousel__pause { color: var(--ink); }
 .services-nota { margin-top: 20px; }
 
@@ -552,7 +555,7 @@ a:hover { color: var(--ink); }
   height: 32px;
   margin-left: -44px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--lime);
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--ink); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
@@ -560,9 +563,9 @@ a:hover { color: var(--ink); }
 .timeline__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 
 .ring { display: block; fill: none; stroke-width: 2; }
-.ring-bg { stroke: rgba(255, 255, 255, .28); }
-.ring-p { stroke: var(--lime); stroke-linecap: round; }
-.ring-c { fill: var(--white); stroke: none; }
+.ring-bg { stroke: rgba(255, 255, 255, .45); }
+.ring-p { stroke: var(--white); stroke-linecap: round; }
+.ring-c { fill: var(--ink); stroke: none; }
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
@@ -650,7 +653,7 @@ a:hover { color: var(--ink); }
   flex-direction: column;
   gap: 20px;
   padding: 28px 32px 32px;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--lime);
   border-radius: var(--radius);
   background: var(--white);
 }
@@ -680,12 +683,11 @@ a:hover { color: var(--ink); }
   min-width: 0;
   margin: 0;
   padding: 28px;
-  border: 2px solid var(--line-dark);
-  border-top: 4px solid var(--lime);
+  border: 2px solid var(--lime);
+  border-top-width: 6px;
   border-radius: var(--radius);
   background: var(--white);
 }
-.testimonial.card-h:hover { border-color: var(--ink); border-top-color: var(--lime); }
 .testimonial__mark { color: var(--ink); font-size: 56px; font-weight: 500; line-height: .6; }
 .testimonial__author { display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
 .testimonial__name { color: var(--ink); font-size: 16px; font-weight: 600; }
@@ -703,7 +705,7 @@ a:hover { color: var(--ink); }
 /* ---------- Preguntas frecuentes ---------- */
 .faq-layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px; }
 .faq-layout__intro { display: flex; flex: 1 1 300px; flex-direction: column; gap: 14px; min-width: 0; }
-.faq { flex: 2 1 480px; min-width: 0; padding: 6px 32px 10px; border: 2px solid var(--line-dark); border-radius: var(--radius); background: var(--white); }
+.faq { flex: 2 1 480px; min-width: 0; padding: 6px 32px 10px; border: 2px solid var(--lime); border-radius: var(--radius); background: var(--white); }
 
 .faq__q {
   display: flex;
@@ -729,13 +731,13 @@ a:hover { color: var(--ink); }
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
   font-size: 20px;
   line-height: 1;
-  transition: background .25s, color .25s;
+  transition: background .25s, box-shadow .25s;
 }
-.faq__item[open] .faq__sign { background: var(--lime); color: var(--ink); }
+.faq__item[open] .faq__sign { background: var(--white); box-shadow: inset 0 0 0 2px var(--lime); }
 .faq__sign::before { content: "+"; }
 .faq__item[open] .faq__sign::before { content: "–"; }
 .faq__a { margin: 0; padding: 0 0 20px; color: var(--muted); font-size: 17px; line-height: 1.6; }
@@ -797,7 +799,7 @@ a:hover { color: var(--ink); }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes ring { from { stroke-dashoffset: 75.4; } to { stroke-dashoffset: 0; } }
-@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(152, 204, 50, .6); } 100% { box-shadow: 0 0 0 16px rgba(152, 204, 50, 0); } }
+@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .7); } 100% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); } }
 @keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(68, 68, 68, .35); } 100% { box-shadow: 0 0 0 16px rgba(68, 68, 68, 0); } }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes heroMedia { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
