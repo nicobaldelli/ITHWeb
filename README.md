@@ -40,13 +40,13 @@ anterior):
 - **Blanco** (`.section`): gris y verde, sin lila. Texto carbón y `#444444`, título chico gris con barra lima, palabra
   clave en lima con un contorno fino gris (`-webkit-text-stroke`), recuadros con borde o relleno lima y texto carbón,
   botón `.btn-lime`.
-  Secciones: problema, historia, casos, testimonios, preguntas.
+  Secciones: problema, casos, testimonios, preguntas.
 - **Lila** (`.section--alt`): violeta. Texto carbón, acento violeta, botón `.btn-primary`. Cards violeta `.card-violet`
   con íconos, numeración y texto secundario en lila (botón adentro: `.btn-light`).
   Secciones: clientes, servicios, equipo, presencia, cómo trabajamos.
-- **Carbón** (`.section--dark`): solo inicio y cierre (hero y agenda), más header y pie en `#333333`. Texto blanco, lila
-  para texto secundario, acento lima, botón `.btn-lime`; la card del CTA final es lima (`.card-lime`) con botón `.btn-ghost`.
-- Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (blanco) · equipo (lila) ·
+- **Carbón** (`.section--dark`): hero, historia y agenda, más header y pie en `#333333`. Texto blanco, lila para texto
+  secundario, acento lima, botón `.btn-lime`; la card del CTA final es lima (`.card-lime`) con botón `.btn-ghost`.
+- Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (carbón) · equipo (lila) ·
   casos (blanco) · presencia (lila) · testimonios (blanco) · cómo trabajamos (lila) · preguntas (blanco) · agenda (carbón) ·
   pie (`#333333`).
 - Lima como texto sobre blanco solo en la palabra clave de los títulos, siempre con el contorno gris.

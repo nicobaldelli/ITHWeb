@@ -18,7 +18,7 @@
    - blanco (.section)        → gris y verde, sin lila: texto carbón y #444, recuadros con borde o relleno lima, palabra
                                 clave en lima con contorno fino gris
    - lila (.section--alt)     → violeta: texto carbón, acento violeta, cards violeta con íconos lila
-   - carbón (.section--dark)  → solo inicio (hero) y cierre (agenda): texto blanco, acento lima, card lima
+   - carbón (.section--dark)  → hero, historia y agenda: texto blanco, lila para texto secundario, acento lima, card lima
    Los fondos se alternan: ninguna sección repite el de la anterior.
    Lima nunca como texto ni ícono fino sobre blanco (1,9:1): sobre blanco va como barra, relleno o dentro de un círculo carbón. */
 :root {
@@ -530,11 +530,10 @@ a:hover { color: var(--ink); }
 /* ---------- Historia ---------- */
 .history { display: flex; flex-wrap: wrap; gap: 48px; }
 .history__intro { display: flex; flex: 1 1 320px; flex-direction: column; gap: 18px; min-width: 0; }
-.history__text { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
+.history__text { margin: 0; color: var(--lavender); font-size: 18px; line-height: 1.6; }
 .history__big { display: flex; flex-direction: column; gap: 2px; margin-top: 20px; }
 .history__big-num { font-size: 176px; font-weight: 700; line-height: .9; }
-.history__big-label { color: var(--muted); font-size: 15px; }
-.history__big::after { content: ""; width: 56px; height: 5px; margin-top: 12px; border-radius: 3px; background: var(--lime); }
+.history__big-label { color: var(--lavender); font-size: 15px; }
 
 .timeline {
   display: flex;
@@ -555,17 +554,17 @@ a:hover { color: var(--ink); }
   height: 32px;
   margin-left: -44px;
   border-radius: 50%;
-  background: var(--lime);
+  background: var(--ink);
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
-.timeline__year { color: var(--ink); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
+.timeline__year { color: var(--lime); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
 .timeline__title { margin: 0; font-size: 23px; font-weight: 600; }
-.timeline__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+.timeline__text { margin: 0; color: var(--lavender); font-size: 17px; line-height: 1.6; }
 
 .ring { display: block; fill: none; stroke-width: 2; }
-.ring-bg { stroke: rgba(255, 255, 255, .45); }
-.ring-p { stroke: var(--white); stroke-linecap: round; }
-.ring-c { fill: var(--ink); stroke: none; }
+.ring-bg { stroke: rgba(255, 255, 255, .28); }
+.ring-p { stroke: var(--lime); stroke-linecap: round; }
+.ring-c { fill: var(--white); stroke: none; }
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
