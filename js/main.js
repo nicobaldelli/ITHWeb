@@ -24,13 +24,13 @@
   if (motion) {
     const items = document.querySelectorAll('.rv');
     // Demora: `data-d` (segundos) o, si no hay, escalonada según la posición entre hermanos `.rv`.
+    // `items` viene en orden de documento, así que basta contar cuántos `.rv` ya pasaron por cada padre.
+    const seen = new Map();
     items.forEach((el) => {
-      let delay = parseFloat(el.dataset.d);
-      if (Number.isNaN(delay)) {
-        const siblings = [...el.parentElement.children].filter((c) => c.classList.contains('rv'));
-        delay = siblings.indexOf(el) * 0.09;
-      }
-      el.style.animationDelay = `${delay}s`;
+      const index = seen.get(el.parentElement) || 0;
+      seen.set(el.parentElement, index + 1);
+      const delay = parseFloat(el.dataset.d);
+      el.style.animationDelay = `${Number.isNaN(delay) ? index * 0.09 : delay}s`;
     });
     const io = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => target.classList.toggle('show', isIntersecting));

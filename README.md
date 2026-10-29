@@ -10,7 +10,13 @@ css/styles.css           Estilos: tokens de color en :root, componentes por secc
 js/main.js               Revelado al hacer scroll, contadores, mapa, formulario y notas internas
 img/circuit.svg          Fondo animado de las secciones oscuras (uno solo, cacheado)
 img/logo-intellihelp.png Logo
+fonts/saira-latin.woff2  Tipografía Saira (variable 400–700, subconjunto latino), servida desde acá
 ```
+
+La tipografía se sirve desde el propio sitio: no hay pedidos a Google Fonts ni CSS externo que bloquee el primer
+pintado. Es el mismo archivo que entrega Google para el subconjunto latino (alcanza para el español), bajo la
+[SIL Open Font License](https://openfontlicense.org/). Si algún día hace falta otro alfabeto, se agrega otro
+`@font-face` con su `unicode-range` en `css/styles.css`.
 
 ## Ver localmente
 

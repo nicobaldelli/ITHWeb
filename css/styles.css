@@ -2,6 +2,16 @@
    Intellihelp — Home
    ========================================================= */
 
+/* ---------- Fuente ---------- */
+/* Saira (SIL Open Font License), fuente variable 400–700, subconjunto latino: un solo archivo local. */
+@font-face {
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/saira-latin.woff2") format("woff2");
+}
+
 /* ---------- Tokens ---------- */
 :root {
   --ink: #2A2A2A;
@@ -102,6 +112,8 @@ a:hover { color: var(--ink); }
   cursor: pointer;
   transition: transform .25s var(--ease), background .25s, color .25s, border-color .25s;
 }
+/* Brillo que cruza el botón al pasar el mouse. Se mueve con transform (no con `left`) para no relayoutar en cada cuadro;
+   445% de su propio ancho (45% del botón) equivale a recorrer dos anchos del botón. */
 .btn::after {
   content: "";
   position: absolute;
@@ -110,15 +122,15 @@ a:hover { color: var(--ink); }
   left: -70%;
   width: 45%;
   background: rgba(255, 255, 255, .4);
-  transform: skewX(-22deg);
-  transition: left .65s var(--ease);
+  transform: translateX(0) skewX(-22deg);
+  transition: transform .65s var(--ease);
   pointer-events: none;
 }
 .btn:hover { transform: translateY(-3px) scale(1.025); box-shadow: 0 14px 28px rgba(42, 42, 42, .18); }
-.btn:hover::after { left: 130%; }
+.btn:hover::after { transform: translateX(445%) skewX(-22deg); }
 
 .btn-lime { background: var(--lime); color: var(--ink); }
-.btn-lime:hover { background: var(--lime); color: var(--ink); filter: brightness(1.06); }
+.btn-lime:hover { color: var(--ink); filter: brightness(1.06); } /* `color` repetido: `a:hover` pesa más que `.btn-lime` */
 .btn-light { background: transparent; color: var(--white); border-color: var(--white); }
 .btn-light:hover { background: var(--white); color: var(--ink); }
 
@@ -424,7 +436,7 @@ a:hover { color: var(--ink); }
   transition: fill .25s, stroke .25s;
 }
 .prov.on { fill: var(--purple); }
-.prov.caba { stroke: var(--white); stroke-width: 2; }
+.prov.caba { stroke-width: 2; }
 .prov:hover { fill: var(--ink); stroke: var(--ink); }
 .prov.caba:hover { stroke: var(--white); }
 
