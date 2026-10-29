@@ -381,6 +381,7 @@
   if (filecab) {
     const PER_CARD = 6;
     const FLIP_MS = 2800;
+    const FIRST_MS = 1400; // la primera pasada al entrar en pantalla, más corta
     const ANIM_MS = 700;
     const source = filecab.querySelector('[data-filecab-logos]');
     const stack = filecab.querySelector('[data-filecab-stack]');
@@ -396,13 +397,14 @@
     let animating = false;
     let focusInside = false;
     let inView = false;
+    let fresh = true; // recién entrado en pantalla
 
     // Sin pausa por mouse encima: al scrollear con la rueda el puntero queda sobre las fichas y la primera pasada
     // tardaba más que las demás. Se pausa solo con foco adentro (teclado), fuera de pantalla o con la pestaña oculta.
     const schedule = () => {
       clearTimeout(timer);
       if (!motion || cards.length < 2 || focusInside || !inView || document.hidden) return;
-      timer = setTimeout(() => go(1), FLIP_MS);
+      timer = setTimeout(() => { fresh = false; go(1); }, fresh ? FIRST_MS : FLIP_MS);
     };
     const render = () => {
       const n = cards.length;
@@ -483,6 +485,7 @@
     document.addEventListener('visibilitychange', schedule);
     new IntersectionObserver((entries) => {
       inView = lastEntry(entries).isIntersecting;
+      if (inView) fresh = true;
       schedule();
     }, { threshold: 0.4 }).observe(filecab);
 
