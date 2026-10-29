@@ -90,10 +90,10 @@ out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" preserveA
 out.append(f'''<style>
 .g{{fill:none;stroke:{GRAY};stroke-linejoin:round}}
 .tr{{fill:none;stroke:{GRAY};stroke-linejoin:round;stroke-linecap:round}}
-.pulse{{fill:none;stroke:{GRAY};stroke-linecap:round;stroke-dasharray:70 930;stroke-dashoffset:1000;animation:run 9s linear infinite}}
+.pulse{{fill:none;stroke:{GRAY};stroke-linecap:round;stroke-dasharray:70 930;stroke-dashoffset:1000;animation:run 7s linear infinite}}
 .pad{{fill:#fff;stroke:{GRAY}}}
-.dot{{fill:{GRAY};animation:twinkle 5s ease-in-out infinite}}
-.drift{{animation:drift 60s ease-in-out infinite}}
+.dot{{fill:{GRAY};animation:twinkle 4s ease-in-out infinite}}
+.drift{{animation:drift 42s ease-in-out infinite}}
 @keyframes run{{to{{stroke-dashoffset:-1000}}}}
 @keyframes twinkle{{0%,100%{{fill-opacity:.2}}50%{{fill-opacity:.65}}}}
 @keyframes drift{{50%{{transform:translate(-12px,8px)}}}}
@@ -117,7 +117,7 @@ for p in traces:
     t = depth(sum(q[2] for q in pr)/len(pr))
     d = "M" + "L".join(fmt(q) for q in pr)
     sw = round(2.0 - 1.2*t, 2); so = round(.48 - .26*t, 2)
-    dur = random.uniform(7, 13); delay = -random.uniform(0, dur)
+    dur = random.uniform(5, 9.5); delay = -random.uniform(0, dur)
     out.append(f'<path class="tr" stroke-width="{sw}" stroke-opacity="{so}" d="{d}"/>')
     out.append(f'<path class="pulse" pathLength="1000" stroke-width="{round(sw+.8,2)}" stroke-opacity="{round(.8-.4*t,2)}" style="animation-duration:{dur:.1f}s;animation-delay:{delay:.1f}s" d="{d}"/>')
     r = round(3.6 - 2.0*t, 1)
