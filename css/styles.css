@@ -18,9 +18,9 @@
                       texto secundario, acento e íconos lima. Card o botón lima (.card-lime, .btn-lime) → texto e íconos carbón.
    - Familia violeta: fondo blanco o lila → texto carbón, acento e íconos violeta. Card violeta (.card-violet) → texto
                       blanco, lila para texto secundario, íconos y botones en blanco.
-   Sobre fondo carbón nunca va una card violeta; sobre una card violeta nunca va lima.
-   Lima nunca como texto, ícono fino ni línea sobre blanco o lila (1,9:1).
-   Las secciones alternan las dos familias para que la página quede equilibrada. */
+   Cada sección es de UNA sola familia: o blanco/carbón/violeta/lila, o blanco/lima/gris. Nunca las dos en la misma sección.
+   Los fondos se alternan: ninguna sección tiene el mismo fondo que la anterior (nunca dos blancas seguidas).
+   Lima nunca como texto, ícono fino ni línea sobre blanco o lila (1,9:1). */
 :root {
   --ink: #2A2A2A;
   --ink-2: #333333;
@@ -106,6 +106,7 @@ a:hover { color: var(--ink); }
 
 .section-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 36px; }
 .section-cta__note { margin: 0; color: var(--muted); font-size: 15px; }
+.section--dark .section-cta__note { color: var(--lavender); }
 
 /* ---------- Tipografía ---------- */
 .eyebrow {
@@ -186,6 +187,7 @@ a:hover { color: var(--ink); }
 
 /* Card carbón (sobre blanco): familia lima. Card lima (sobre carbón): texto e íconos carbón. */
 .card-dark { background: var(--ink); color: var(--white); }
+.section--dark .card-dark { background: var(--ink-2); border: 1px solid var(--line-dark); }
 .card-dark .icon-circle { border: 2px solid var(--lime); background: transparent; color: var(--lime); }
 .card-lime { background: var(--lime); color: var(--ink); }
 .card-lime .icon-circle { border: 2px solid var(--ink); background: transparent; color: var(--ink); }
@@ -395,10 +397,10 @@ a:hover { color: var(--ink); }
   min-width: 0;
   padding: 32px;
   border-radius: var(--radius);
-  background: var(--lavender);
+  background: var(--white);
 }
-.compare__card--after { background: var(--ink); color: var(--white); }
-.compare__card--after .eyebrow { color: var(--lime); }
+.compare__card--after { background: var(--purple); color: var(--white); }
+.compare__card--after .eyebrow { color: var(--white); }
 
 .points { display: flex; flex-direction: column; gap: 24px; }
 .point { display: flex; align-items: flex-start; gap: 14px; }
@@ -414,10 +416,10 @@ a:hover { color: var(--ink); }
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--lavender);
   color: var(--purple);
 }
-.ic-ok { background: var(--lime); color: var(--ink); }
+.compare__card--after .ic { background: var(--white); }
 
 /* ---------- Servicios (carrusel de a tres) ---------- */
 .carousel__track {
@@ -508,6 +510,7 @@ a:hover { color: var(--ink); }
 .card-violet .service__num { color: var(--lavender); }
 .card-violet .service__text { color: var(--lavender); }
 .service.card-violet.card-h:hover { border-color: var(--lavender); }
+.carousel__btn { background: var(--lavender); }
 .services-nota { margin-top: 20px; }
 
 /* ---------- Historia ---------- */
@@ -574,7 +577,7 @@ a:hover { color: var(--ink); }
   padding: 36px 40px;
   border-radius: var(--radius);
 }
-.quote__mark { color: var(--lime); font-size: 56px; font-weight: 500; line-height: .6; }
+.quote__mark { color: var(--white); font-size: 56px; font-weight: 500; line-height: .6; }
 .quote blockquote { max-width: 960px; margin: 0; font-size: 32px; font-weight: 600; line-height: 1.35; }
 .quote blockquote p { margin: 0; }
 .quote figcaption { color: var(--lavender); font-size: 15px; }
@@ -801,7 +804,7 @@ a:hover { color: var(--ink); }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes ring { from { stroke-dashoffset: 75.4; } to { stroke-dashoffset: 0; } }
-@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(152, 204, 50, .6); } 100% { box-shadow: 0 0 0 16px rgba(152, 204, 50, 0); } }
+@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .6); } 100% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); } }
 @keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(102, 51, 153, .35); } 100% { box-shadow: 0 0 0 16px rgba(102, 51, 153, 0); } }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes heroMedia { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }

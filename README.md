@@ -36,14 +36,17 @@ y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
 
 Hay dos familias que nunca se tocan, y las secciones las alternan para que la página quede equilibrada:
 
-- **Familia lima**: fondo carbón o `#333333` (hero, historia, agenda, footer) y cards carbón `.card-dark` sobre blanco
-  (card "Así trabajamos con vos", cita del equipo, los tres pasos). Texto blanco, lila para texto secundario, acento e
-  íconos lima, botón `.btn-lime`. Sobre carbón la card es lima (`.card-lime`): texto e íconos carbón, botón `.btn-ghost`.
+- **Familia lima**: fondo carbón o `#333333` (hero, historia, cómo trabajamos, agenda, footer). Texto blanco, lila para
+  texto secundario, acento e íconos lima, botón `.btn-lime`. Las cards son `#333333` con borde (`.card-dark`, los tres
+  pasos) o lima (`.card-lime`, el CTA final: texto e íconos carbón, botón `.btn-ghost`).
 - **Familia violeta**: fondo blanco o lila. Texto carbón, acento e íconos violeta, botón `.btn-primary`. Cards violeta
   `.card-violet` (servicios, bloque de Casos): texto blanco, lila para texto secundario, íconos y botones en blanco
   (`.btn-light`).
-- Sobre fondo carbón nunca va una card violeta; sobre una card violeta nunca va lima. Lima nunca como texto, ícono fino
-  o línea sobre blanco o lila.
+- Cada sección es de una sola familia, nunca las dos mezcladas. Los fondos se alternan: ninguna sección tiene el mismo
+  fondo que la anterior (nunca dos blancas seguidas). Orden actual: hero (carbón) · clientes (blanco) · problema (lila) ·
+  servicios (blanco) · historia (carbón) · equipo (blanco) · presencia (lila) · casos (blanco) · testimonios (lila) ·
+  cómo trabajamos (carbón) · preguntas (lila) · agenda (carbón) · pie (`#333333`).
+- Lima nunca como texto, ícono fino o línea sobre blanco o lila.
 
 `.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.
 
