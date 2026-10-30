@@ -393,6 +393,8 @@ a:hover { color: var(--ink); }
 /* ---------- Socios tecnológicos (slots que rotan) ---------- */
 /* Grilla fija de celdas blancas; con JS quedan visibles dos filas (tres en celular) y cada tanto una celda al azar
    gira sobre su eje horizontal y aparece otro logo. Sin JS, se ven todos. */
+.slots-groups { display: flex; flex-direction: column; gap: 28px; }
+.slots-group__label { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .slots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; perspective: 900px; }
 .slot { display: flex; align-items: center; justify-content: center; height: 100px; padding: 18px 24px; border-radius: var(--radius-sm); background: var(--white); }
 .slot[hidden] { display: none; }

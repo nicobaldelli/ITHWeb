@@ -510,58 +510,60 @@
   }
 
   /* ---------- Socios tecnológicos: slots que rotan en barrido ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Al entrar en pantalla,
-  // al segundo arranca el recorrido: una celda por segundo, de izquierda a derecha y de arriba hacia abajo, en loop.
-  // Cada celda toma el próximo logo de la cola y manda el suyo al final (orden lineal, sin azar).
-  const slotsGrid = document.querySelector('[data-slots]');
-  if (slotsGrid && motion) {
+  // Dos grillas (mayoristas arriba, marcas abajo), cada una muestra una fila (tres en celular) y guarda el resto de
+  // sus logos en una cola propia. Al entrar en pantalla, al segundo arranca el recorrido: una celda por segundo, en
+  // orden de lectura por las dos grillas, en loop. Cada celda toma el próximo logo de su cola y manda el suyo al final.
+  const slotsWrap = document.querySelector('[data-slots-groups]');
+  if (slotsWrap && motion) {
     const START_MS = 1000;  // espera antes del primer giro
     const STEP_MS = 1000;   // entre el giro de una celda y la siguiente
     const FLIP_MS = 320;
-    const cells = [...slotsGrid.children];
-    const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
-    let visible = 0;
-    let cols = 1;
-    let shown = [];   // índice de logo por celda visible
-    let queue = [];   // índices de logos que esperan, en orden
-    let timer = 0;
-    let inView = false;
-    const columns = () => getComputedStyle(slotsGrid).gridTemplateColumns.split(' ').length;
     const setLogo = (li, logo) => {
       const img = li.querySelector('img');
       img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
     };
+    const grids = [...slotsWrap.querySelectorAll('[data-slots]')].map((grid) => {
+      const cells = [...grid.children];
+      const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
+      return { grid, cells, logos, visible: 0, shown: [], queue: [] };
+    });
+    let timer = 0;
+    let inView = false;
+    let cursor = 0;
     const layout = () => {
-      cols = columns();
-      const n = Math.min(cells.length, cols * (cols <= 2 ? 3 : 2));
-      if (n === visible) return;
-      visible = n;
-      shown = logos.map((_, i) => i).slice(0, n);
-      queue = logos.map((_, i) => i).slice(n);
-      cells.forEach((li, i) => {
-        li.hidden = i >= n;
-        if (i < n) setLogo(li, logos[i]);
+      grids.forEach((g) => {
+        const cols = getComputedStyle(g.grid).gridTemplateColumns.split(' ').length;
+        const n = Math.min(g.cells.length, cols * (cols <= 2 ? 3 : 1));
+        if (n === g.visible) return;
+        g.visible = n;
+        g.shown = g.logos.map((_, i) => i).slice(0, n);
+        g.queue = g.logos.map((_, i) => i).slice(n);
+        g.cells.forEach((li, i) => { li.hidden = i >= n; if (i < n) setLogo(li, g.logos[i]); });
       });
     };
-    const flipCell = (cell) => {
-      if (!queue.length) return;
-      const incoming = queue.shift();
-      const li = cells[cell];
+    const flipCell = (g, cell) => {
+      if (!g.queue.length) return;
+      const incoming = g.queue.shift();
+      const li = g.cells[cell];
       li.classList.add('is-flip');
       setTimeout(() => {
-        queue.push(shown[cell]);
-        shown[cell] = incoming;
-        setLogo(li, logos[incoming]);
+        g.queue.push(g.shown[cell]);
+        g.shown[cell] = incoming;
+        setLogo(li, g.logos[incoming]);
         li.classList.remove('is-flip');
       }, FLIP_MS);
     };
-    let cursor = 0; // próxima celda a girar (orden de lectura: izquierda a derecha, arriba hacia abajo)
+    const total = () => grids.reduce((n, g) => n + g.visible, 0);
     const schedule = (first) => {
       clearTimeout(timer);
       if (!inView || document.hidden) return;
       timer = setTimeout(() => {
-        flipCell(cursor);
-        cursor = (cursor + 1) % visible;
+        let k = cursor;
+        for (const g of grids) {
+          if (k < g.visible) { flipCell(g, k); break; }
+          k -= g.visible;
+        }
+        cursor = (cursor + 1) % total();
         schedule(false);
       }, first ? START_MS : STEP_MS);
     };
@@ -571,7 +573,7 @@
     new IntersectionObserver((entries) => {
       inView = lastEntry(entries).isIntersecting;
       schedule(true);
-    }, { threshold: 0.3 }).observe(slotsGrid);
+    }, { threshold: 0.3 }).observe(slotsWrap);
   }
 
   /* ---------- Mapas (provincias y países) ---------- */
