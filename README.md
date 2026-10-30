@@ -7,7 +7,7 @@ Landing de Intellihelp (ITH): HTML, CSS y JavaScript estáticos, sin dependencia
 ```
 index.html               Página completa (contenido + mapa de provincias en SVG inline)
 css/styles.css           Estilos: paleta en :root, componentes por sección y animaciones
-js/main.js               Menú, CTAs (UTM + medición), revelado, contadores, carrusel, mapa y notas
+js/main.js               Menú, CTAs (UTM + medición), hero, revelado, contadores, carruseles, fichero, mapa
 img/logo-intellihelp.png Logo
 img/clientes/*.webp      Logos de clientes (48, con transparencia) para el fichero de clientes y las tarjetas de casos
 video/hero-placeholder.mp4  Video provisorio del hero (degradé generado con ffmpeg, 16 s en loop, 125 KB). Lo reemplaza el video real
@@ -62,7 +62,6 @@ sección mientras se revisa sección por sección:
 - **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
 - **Casos**: mini menú a la izquierda y un caso por vez a la derecha (39, tomados de la presentación institucional), con logo, sector, etiquetas del servicio y qué hicimos. Sin elegir nada, los 39 pasan solos en orden aleatorio (se vuelve a barajar en cada vuelta); con las flechas van en orden lineal. Al elegir un sector (público o privado) aparecen los logos de sus clientes y pasan al azar solo los de ese sector; al elegir un cliente queda fija su tarjeta con la lista de proyectos. Volver a tocar el sector o el cliente lo destilda; "Ver todos los casos" vuelve al azar. El menú lo arma el JS con los datos de las tarjetas (sector por el eyebrow, logo por `.case-card__logo`); sin JS no aparece y queda el carrusel. Si un cliente tiene varios proyectos (lista `data-steps`), se muestran de a uno cada 3,5 s con una barra de avance; con el cliente fijo, vuelven a empezar.
 - **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Hoy están Buenos Aires, CABA, Santa Fe, Entre Ríos, Córdoba, San Luis, Mendoza, San Juan, Neuquén, Corrientes, Misiones, Salta y Tucumán.
-- **Notas internas** (`.nota`): indicaciones del borrador para Carlos. El botón del pie las oculta o muestra (equivale al switch `notesDisplay` del diseño) y recuerda la elección en `localStorage`.
 
 ## Medición
 
@@ -96,8 +95,7 @@ sección mientras se revisa sección por sección:
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
 - [ ] Links reales de Blog y LinkedIn en el pie.
-- [ ] Imagen o video del hero, fotos del equipo y testimonios (están como notas).
+- [ ] Video real del hero, fotos del equipo (las cajas están vacías) y testimonios reales (hoy hay tres textos de ejemplo).
 - [ ] Validar qué logos de clientes se pueden mostrar (hoy están los 48 de la presentación institucional).
 - [ ] Respuesta de "¿Cuánto tarda en comenzar un servicio?".
-- [ ] Quitar las notas internas (o el botón) en la versión pública.
 - [ ] Favicon e imagen para compartir en redes (`og:image`).

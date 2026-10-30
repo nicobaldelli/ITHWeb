@@ -35,11 +35,10 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
-    // Antes del primer pintado: marca que hay JS, habilita las animaciones de entrada y recuerda si las notas están ocultas.
+    // Antes del primer pintado: marca que hay JS y habilita las animaciones de entrada.
     (function (root) {
       root.classList.add('js');
       if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('anim');
-      try { if (localStorage.getItem('ith-notas') === 'ocultas') root.classList.add('notes-hidden'); } catch (e) {}
     })(document.documentElement);
   </script>
   <script src="js/main.js" defer></script>
@@ -129,7 +128,6 @@
           <span class="stat__label">de Huawei y de Hikvision</span>
         </div>
       </div>
-      <p class="nota nota--white hero__nota"><b>ACÁ VA EL VIDEO</b>Hoy hay un degradé provisorio. Video corto en loop a pantalla completa: el equipo completo en la oficina de Dorrego 1789 (Carlos, Nicolás, Laura, Brian, Alejandro y técnicos). Luz natural, trabajando. Lleva overlay oscuro para que el texto se lea. El texto del hero es provisorio: la versión definitiva la pasa Claudio.</p>
     </div>
   </section>
 
@@ -205,7 +203,6 @@
           <button type="button" class="filecab__btn" data-filecab-next aria-label="Ficha siguiente"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
       </div>
-      <p class="nota"><b>CONFIRMAR CON CARLOS</b>Logos tomados de la presentación institucional 2026 (48). Validar cuáles se pueden mostrar hoy y sumar Cartocor y ODI si dan permiso. El rubro de cada cliente (pestañas del fichero) lo asignamos nosotros: revisar, sobre todo Seguros y salud, Laboratorios e industria y Servicios y comercio.</p>
     </div>
   </section>
 
@@ -519,7 +516,6 @@
           <button type="button" class="carousel__pause" data-carousel-pause>Pausar</button>
         </div>
       </section>
-      <p class="nota nota--white services-nota"><b>CONFIRMAR CON CARLOS</b>Los doce servicios y sus descripciones salen de la presentación institucional 2026 (páginas de Soluciones y Servicios). Validar nombres, orden y qué marcas se pueden mencionar.</p>
 
       <div class="section-cta rv">
         <a id="cta-servicios" data-cta="servicios-agendar" href="/asesoria" class="btn btn-primary">Agendá tu asesoría <span class="arr" aria-hidden="true">→</span></a>
@@ -635,37 +631,37 @@
       </div>
       <ul class="team list-reset">
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Carlos en la oficina, plano medio, sonriendo.</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">CEO y dirección comercial</span>
           <h3 class="member__name">Carlos Baldelli</h3>
           <p class="member__bio">La cara comercial de Intellihelp. Si tenés un proyecto, la primera charla es con él.</p>
         </li>
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Nicolás trabajando con un equipo o un rack.</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">Técnico y comercial</span>
           <h3 class="member__name">Nicolás Baldelli</h3>
           <p class="member__bio">Entiende la red y entiende el negocio. Acompaña cada proyecto desde la propuesta hasta la puesta en marcha.</p>
         </li>
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Laura con un cliente o en la mesa de ayuda.</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">Preventa y postventa</span>
           <h3 class="member__name">Laura Zaltron</h3>
           <p class="member__bio">Está cerca de cada cliente antes y después del servicio, y cubre en sitio cuando hace falta.</p>
         </li>
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Brian atendiendo un ticket.</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">Postventa</span>
           <h3 class="member__name">Brian</h3>
           <p class="member__bio">Parte del equipo desde hace muchos años. Es la primera cara cuando necesitás soporte después de la implementación.</p>
         </li>
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>Alejandro en una instalación.</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">Preventa e instalaciones</span>
           <h3 class="member__name">Alejandro</h3>
           <p class="member__bio">Responsable de las instalaciones: releva, planifica y pone en marcha cada solución en tu sitio.</p>
         </li>
         <li class="member rv">
-          <div class="member__photo"><p class="nota nota--white"><b>FOTO REAL</b>El equipo técnico en un cliente (con permiso del cliente).</p></div>
+          <div class="member__photo"></div>
           <span class="eyebrow">En tus oficinas</span>
           <h3 class="member__name">Nuestro equipo técnico</h3>
           <p class="member__bio">Los profesionales que trabajan todos los días en las empresas y organismos que acompañamos.</p>
@@ -1233,7 +1229,6 @@
         </div>
       </section>
       </div>
-      <p class="nota services-nota"><b>CONFIRMAR CON CARLOS</b>Los 39 casos son los de la presentación institucional 2026. Validar cuáles se pueden publicar con nombre y en qué orden conviene mostrarlos (hoy: sector público y después privado).</p>
     </div>
   </section>
 
@@ -1301,21 +1296,20 @@
       <div class="testimonials">
         <figure class="testimonial card-h rv">
           <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente de outsourcing o mesa de ayuda. Idealmente en video corto, con cara: qué problema tenían y qué cambió en el día a día.</p>
+          <blockquote class="testimonial__text"><p>Desde que trabajamos con Intellihelp tenemos un solo responsable para toda la tecnología. Cuando algo falla, sabemos a quién llamar y se resuelve.</p></blockquote>
           <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
         </figure>
         <figure class="testimonial card-h rv">
           <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente con sucursales en distintas provincias (por ejemplo ODI). Que cuente cómo es tener un solo responsable para todas las sedes.</p>
+          <blockquote class="testimonial__text"><p>Tenemos sucursales en varias provincias y el servicio es el mismo en todas. Una sola relación, un solo contrato, un solo equipo que responde.</p></blockquote>
           <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
         </figure>
         <figure class="testimonial card-h rv">
           <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <p class="nota"><b>TESTIMONIO REAL A PEDIR</b>Cliente de seguridad física o redes. Que cuente la instalación: tiempos, prolijidad y la capacitación a su gente.</p>
+          <blockquote class="testimonial__text"><p>La instalación fue prolija y en los tiempos acordados, y capacitaron a nuestra gente para usar el sistema desde el primer día.</p></blockquote>
           <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
         </figure>
       </div>
-      <p class="nota reviews-note"><b>Reseñas verificadas de Google</b>Acá se integran las reseñas del Perfil de Empresa de Google, enlazadas al perfil real.</p>
     </div>
   </section>
 
@@ -1450,7 +1444,6 @@
     <div class="footer__bottom">
       <span>© 2026 Intellihelp. Todos los derechos reservados.</span>
       <span>Gold Partner Huawei · Gold Partner Hikvision</span>
-      <button type="button" class="notes-toggle" data-notes-toggle>Ocultar notas para Carlos</button>
     </div>
   </div>
 </footer>

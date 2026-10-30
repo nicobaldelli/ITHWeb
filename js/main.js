@@ -6,21 +6,6 @@
   const motion = root.classList.contains('anim'); // ver script en <head>
   const lastEntry = (entries) => entries[entries.length - 1];
 
-  /* ---------- Notas internas para Carlos ---------- */
-  const notesBtn = document.querySelector('[data-notes-toggle]');
-  if (notesBtn) {
-    const sync = () => {
-      const hidden = root.classList.contains('notes-hidden');
-      notesBtn.textContent = `${hidden ? 'Mostrar' : 'Ocultar'} notas para Carlos`;
-    };
-    notesBtn.addEventListener('click', () => {
-      const hidden = root.classList.toggle('notes-hidden');
-      try { localStorage.setItem('ith-notas', hidden ? 'ocultas' : 'visibles'); } catch (e) { /* almacenamiento no disponible */ }
-      sync();
-    });
-    sync();
-  }
-
   /* ---------- Menú en pantallas angostas ---------- */
   const navToggle = document.querySelector('[data-nav-toggle]');
   const nav = navToggle && document.getElementById(navToggle.getAttribute('aria-controls'));

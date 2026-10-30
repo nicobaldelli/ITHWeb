@@ -242,29 +242,6 @@ a:hover { color: var(--ink); }
 .more__body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .card-violet .more__btn { color: var(--lavender); }
 
-/* Notas internas del borrador (se ocultan con el botón del pie) */
-.nota {
-  margin: 0;
-  padding: 12px 14px;
-  border: 1px dashed var(--purple);
-  border-radius: var(--radius-sm);
-  background: var(--lavender);
-  color: var(--ink);
-  font-size: 13px;
-  line-height: 1.5;
-  text-align: left;
-}
-.nota b {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--purple);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.nota--white { background: var(--white); }
-.notes-hidden .nota { display: none; }
 
 /* ---------- WhatsApp flotante ---------- */
 .wa-float {
@@ -388,7 +365,6 @@ a:hover { color: var(--ink); }
 .hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .hero__note { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--lavender); font-size: 16px; text-align: left; }
 .hero__note .ico { flex: none; color: var(--lime); }
-.hero__nota { max-width: 560px; }
 
 .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 56px; margin-top: 10px; }
 .stat { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 180px; }
@@ -503,7 +479,6 @@ a:hover { color: var(--ink); }
   .filecab__tabs { gap: 4px; padding: 0 8px; }
   .filecab__tab { padding: 8px 12px 10px; font-size: 13px; }
 }
-.clients .nota { max-width: 760px; }
 
 /* ---------- Problema / solución ---------- */
 #problema .section-head { margin-bottom: 40px; }
@@ -638,7 +613,6 @@ a:hover { color: var(--ink); }
 .carousel--lime .carousel__dot::before { border-color: var(--lime); }
 .carousel--lime .carousel__dot[aria-current="true"]::before { background: var(--lime); }
 .carousel--lime .carousel__pause { color: var(--ink); }
-.services-nota { margin-top: 20px; }
 
 /* ---------- Historia ---------- */
 .history { display: flex; flex-wrap: wrap; gap: 48px; }
@@ -907,10 +881,11 @@ a:hover { color: var(--ink); }
   background: var(--white);
 }
 .testimonial__mark { color: var(--ink); font-size: 56px; font-weight: 500; line-height: .6; }
+.testimonial__text { margin: 0; font-size: 18px; line-height: 1.55; }
+.testimonial__text p { margin: 0; }
 .testimonial__author { display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
 .testimonial__name { color: var(--ink); font-size: 16px; font-weight: 600; }
 .testimonial__role { color: var(--muted); font-size: 14px; }
-.reviews-note { margin-top: 20px; }
 
 /* ---------- Cómo trabajamos ---------- */
 .steps { display: flex; flex-wrap: wrap; gap: 24px; }
@@ -998,16 +973,6 @@ a:hover { color: var(--ink); }
   color: var(--lavender);
   font-size: 13px;
 }
-.notes-toggle {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--lavender);
-  font: inherit;
-  font-size: 12px;
-  text-decoration: underline dotted;
-  cursor: pointer;
-}
 
 /* =========================================================
    Animaciones
@@ -1073,6 +1038,6 @@ a:hover { color: var(--ink); }
 }
 
 @media print {
-  .wa-float, .notes-toggle, .carousel__controls { display: none; }
+  .wa-float, .carousel__controls { display: none; }
   .anim .rv:not(.show), .anim .rv:not(.show) * { opacity: 1 !important; transform: none !important; }
 }
