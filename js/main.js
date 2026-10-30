@@ -68,6 +68,36 @@
     });
   });
 
+  /* ---------- Hero: solo video hasta que el visitante toca la flecha o scrollea ---------- */
+  const hero = document.querySelector('[data-hero]');
+  if (hero && motion) {
+    const openBtn = hero.querySelector('[data-hero-open]');
+    let opened = false;
+    const open = () => {
+      if (opened) return;
+      opened = true;
+      hero.classList.remove('is-idle');
+      // Replay del revelado escalonado del texto (ya se había disparado, oculto, al cargar)
+      hero.querySelectorAll('.rv.show').forEach((el) => {
+        el.classList.remove('show');
+        void el.offsetWidth;
+        el.classList.add('show');
+      });
+      ['wheel', 'touchmove', 'keydown', 'scroll'].forEach((ev) => removeEventListener(ev, onIntent));
+    };
+    const onIntent = (e) => {
+      if (e.type === 'wheel' && e.deltaY <= 0) return;
+      if (e.type === 'keydown' && !['ArrowDown', 'PageDown', 'End', ' ', 'Spacebar'].includes(e.key)) return;
+      if (e.type === 'scroll' && scrollY < 8) return;
+      open();
+    };
+    hero.classList.add('is-idle');
+    openBtn.hidden = false;
+    openBtn.addEventListener('click', open);
+    if (scrollY > 8) open(); // la página ya venía scrolleada (recarga, ancla)
+    else ['wheel', 'touchmove', 'keydown', 'scroll'].forEach((ev) => addEventListener(ev, onIntent, { passive: true }));
+  }
+
   /* ---------- Revelado al hacer scroll ---------- */
   if (motion) {
     const items = document.querySelectorAll('.rv');

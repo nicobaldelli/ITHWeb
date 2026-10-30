@@ -84,15 +84,20 @@
 
 <main id="contenido">
 
-  <!-- ===== Hero: imagen a pantalla completa, frase y CTA encima ===== -->
-  <section class="hero section--dark bg-gray" aria-labelledby="hero-titulo">
+  <!-- ===== Hero: video de fondo a pantalla completa. Arranca solo con el video y un botón con flecha; al tocarlo
+       o al scrollear aparece el texto encima (con JS; sin JS el texto se ve de entrada). ===== -->
+  <section class="hero section--dark bg-gray" aria-labelledby="hero-titulo" data-hero>
     <div class="hero__media">
-      <!-- Imagen real (reemplaza este comentario):
-           <img src="img/hero.jpg" alt="" fetchpriority="high">
-           o video corto en loop:
-           <video autoplay muted loop playsinline poster="img/hero.jpg"><source src="video/hero.mp4" type="video/mp4"></video> -->
+      <!-- VIDEO PROVISORIO: video/hero-placeholder.mp4 es un degradé generado para marcar el lugar. Cuando llegue el video
+           real, reemplazar el src (y sumar un poster: <video ... poster="img/hero.jpg">). Corto, en loop, sin audio. -->
+      <video class="hero__video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="video/hero-placeholder.mp4" type="video/mp4">
+      </video>
     </div>
-    <div class="wrap hero__inner">
+    <button type="button" class="hero__down" data-hero-open aria-label="Ver más" hidden>
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg>
+    </button>
+    <div class="wrap hero__inner" data-hero-content>
       <span class="eyebrow eyebrow--lime rv" data-d="0.45">Servicios IT para empresas y organismos</span>
 
       <!-- ===== TEXTO DEL HERO (editable) =====
@@ -124,7 +129,7 @@
           <span class="stat__label">de Huawei y de Hikvision</span>
         </div>
       </div>
-      <p class="nota nota--white hero__nota"><b>ACÁ VA IMAGEN (O VIDEO CORTO EN LOOP)</b>Fondo a pantalla completa: el equipo completo en la oficina de Dorrego 1789 (Carlos, Nicolás, Laura, Brian, Alejandro y técnicos). Luz natural, trabajando. Lleva overlay oscuro para que el texto se lea. El texto del hero es provisorio: la versión definitiva la pasa Claudio.</p>
+      <p class="nota nota--white hero__nota"><b>ACÁ VA EL VIDEO</b>Hoy hay un degradé provisorio. Video corto en loop a pantalla completa: el equipo completo en la oficina de Dorrego 1789 (Carlos, Nicolás, Laura, Brian, Alejandro y técnicos). Luz natural, trabajando. Lleva overlay oscuro para que el texto se lea. El texto del hero es provisorio: la versión definitiva la pasa Claudio.</p>
     </div>
   </section>
 
