@@ -395,7 +395,7 @@ a:hover { color: var(--ink); }
    pegada la solapa de su rubro, que baja con ella al pasar. Sin bordes. Sin JS, .filecab__all muestra los 48 en grilla. */
 .clients { padding: 48px 0 64px; }
 .clients__inner { display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
-.filecab { --tab-w: 214px; --tab-h: 44px; --tab-step: 52px; --tab-top: 16px; position: relative; display: flex; flex-direction: column; align-items: stretch; width: 100%; max-width: 980px; padding-left: var(--tab-w); }
+.filecab { --tab-w: 214px; --tab-h: 44px; --tab-step: 52px; --tab-top: 16px; --ctl-w: 64px; position: relative; display: flex; flex-direction: column; align-items: stretch; width: 100%; max-width: 1040px; padding-left: var(--tab-w); padding-right: var(--ctl-w); }
 /* Separadores de rubro: todos a la izquierda, cada uno un poco más abajo y más corto que el anterior (profundidad) */
 .filecab__tabs { position: absolute; left: 0; top: 0; z-index: 0; width: var(--tab-w); height: 100%; }
 .filecab__tab {
@@ -407,21 +407,21 @@ a:hover { color: var(--ink); }
   padding: 0 18px 0 16px;
   border: 0;
   border-radius: 10px 0 0 10px;
-  background: var(--purple);
-  color: var(--white);
+  background: var(--white);
+  color: var(--ink);
   font: inherit;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.15;
   text-align: left;
   cursor: pointer;
-  opacity: calc(.9 - var(--i) * .12);
-  transition: opacity .25s, background .2s, transform .25s var(--ease);
+  box-shadow: 0 6px 18px rgba(42, 42, 42, .10);
+  transition: background .2s, color .2s, transform .25s var(--ease);
 }
 .filecab__tab:nth-child(1) { --i: 0; } .filecab__tab:nth-child(2) { --i: 1; } .filecab__tab:nth-child(3) { --i: 2; }
 .filecab__tab:nth-child(4) { --i: 3; } .filecab__tab:nth-child(5) { --i: 4; } .filecab__tab:nth-child(6) { --i: 5; }
-.filecab__tab:hover, .filecab__tab.is-current { opacity: 1; }
-.filecab__tab[aria-pressed="true"] { opacity: 1; background: var(--ink); }
+.filecab__tab:hover { background: var(--lavender); }
+.filecab__tab.is-current, .filecab__tab[aria-pressed="true"] { background: var(--purple); color: var(--white); }
 
 .filecab__stack { position: relative; z-index: 1; width: 100%; height: 300px; perspective: 1400px; }
 .filecab__stack[hidden] { display: none; }
@@ -457,6 +457,7 @@ a:hover { color: var(--ink); }
   font-size: 13px;
   font-weight: 600;
   line-height: 1.15;
+  box-shadow: 0 6px 18px rgba(42, 42, 42, .10);
   pointer-events: none; /* los clics pasan al separador (botón) que está debajo */
   transition: opacity .3s;
 }
@@ -487,9 +488,9 @@ a:hover { color: var(--ink); }
 .filecab__all[hidden] { display: none; }
 .logo { display: flex; align-items: center; justify-content: center; width: 100%; height: 64px; }
 .logo img { display: block; max-width: 150px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
-.filecab__controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 44px; } /* deja ver las fichas que asoman abajo */
+.filecab__controls { position: absolute; right: 0; top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; width: var(--ctl-w); height: 300px; }
 .filecab__controls[hidden] { display: none; }
-.filecab__status { margin: 0; min-width: 220px; color: var(--muted); font-size: 14px; }
+.filecab__status { display: none; } /* sin texto: solo las flechas (queda para lectores de pantalla vía aria-live si se quisiera) */
 .filecab__btn {
   display: inline-flex;
   align-items: center;
@@ -513,6 +514,8 @@ a:hover { color: var(--ink); }
   .filecab__tab:not([aria-pressed="true"]) { background: var(--lavender); color: var(--purple); }
   .filecab__card-tab { display: none; }
   .filecab__card { border-radius: var(--radius); }
+  .filecab { padding-right: 0; }
+  .filecab__controls { position: static; flex-direction: row; width: auto; height: auto; margin-top: 44px; }
   .filecab__stack { height: 340px; }
   .filecab__card { padding: 18px 20px 22px; }
   .filecab__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
