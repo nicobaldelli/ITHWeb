@@ -509,67 +509,66 @@
     build();
   }
 
-  /* ---------- Socios tecnológicos: slots que rotan de a uno ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en un pool. Cada tanto, varias celdas
-  // al azar (dos o tres, nunca las que acaban de girar) giran casi a la vez y muestran logos del pool.
+  /* ---------- Socios tecnológicos: slots que rotan en barrido ---------- */
+  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Cada 2,5 s arranca un
+  // barrido: la fila de arriba gira celda por celda de derecha a izquierda en 1 s, después la siguiente fila, y así.
+  // Cada celda toma el próximo logo de la cola y manda el suyo al final (orden lineal, sin azar).
   const slotsGrid = document.querySelector('[data-slots]');
   if (slotsGrid && motion) {
-    const TICK_MS = 2000;
+    const HOLD_MS = 2500;   // lo que dura cada logo antes de que pase el que sigue
+    const ROW_MS = 1000;    // recorrido de una fila, de derecha a izquierda
     const FLIP_MS = 320;
     const cells = [...slotsGrid.children];
     const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
     let visible = 0;
+    let cols = 1;
     let shown = [];   // índice de logo por celda visible
-    let pool = [];    // índices de logos que esperan
-    let last = [];    // últimas celdas giradas
+    let queue = [];   // índices de logos que esperan, en orden
     let timer = 0;
     let inView = false;
     const columns = () => getComputedStyle(slotsGrid).gridTemplateColumns.split(' ').length;
+    const setLogo = (li, logo) => {
+      const img = li.querySelector('img');
+      img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
+    };
     const layout = () => {
-      const cols = columns();
+      cols = columns();
       const n = Math.min(cells.length, cols * (cols <= 2 ? 3 : 2));
       if (n === visible) return;
       visible = n;
       shown = logos.map((_, i) => i).slice(0, n);
-      pool = logos.map((_, i) => i).slice(n);
+      queue = logos.map((_, i) => i).slice(n);
       cells.forEach((li, i) => {
         li.hidden = i >= n;
         if (i < n) setLogo(li, logos[i]);
       });
     };
-    const setLogo = (li, logo) => {
-      const img = li.querySelector('img');
-      img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
-    };
-    const flipOne = (cell, delay) => {
-      const k = Math.floor(Math.random() * pool.length);
-      const incoming = pool.splice(k, 1)[0]; // se saca del pool para que dos celdas no traigan el mismo logo
+    const flipCell = (cell) => {
+      if (!queue.length) return;
+      const incoming = queue.shift();
       const li = cells[cell];
+      li.classList.add('is-flip');
       setTimeout(() => {
-        li.classList.add('is-flip');
-        setTimeout(() => {
-          pool.push(shown[cell]);
-          shown[cell] = incoming;
-          setLogo(li, logos[incoming]);
-          li.classList.remove('is-flip');
-        }, FLIP_MS);
-      }, delay);
+        queue.push(shown[cell]);
+        shown[cell] = incoming;
+        setLogo(li, logos[incoming]);
+        li.classList.remove('is-flip');
+      }, FLIP_MS);
     };
-    const flip = () => {
-      if (visible < 2) return;
-      const count = Math.min(pool.length, visible >= 8 ? 2 + Math.floor(Math.random() * 2) : 2); // 2 o 3 a la vez
-      const chosen = [];
-      while (chosen.length < count) {
-        const cell = Math.floor(Math.random() * visible);
-        if (!chosen.includes(cell) && !last.includes(cell)) chosen.push(cell);
+    const sweep = () => {
+      const rows = Math.ceil(visible / cols);
+      for (let cell = 0; cell < visible; cell++) {
+        const row = Math.floor(cell / cols);
+        const fromRight = cols - 1 - (cell % cols);
+        const delay = row * ROW_MS + (fromRight / cols) * ROW_MS;
+        setTimeout(() => flipCell(cell), delay);
       }
-      last = [...chosen, ...last].slice(0, Math.min(visible - count, 6));
-      chosen.forEach((cell, i) => flipOne(cell, i * 120)); // apenas desfasadas, para que no sea un golpe seco
+      return rows * ROW_MS;
     };
     const schedule = () => {
       clearTimeout(timer);
       if (!inView || document.hidden) return;
-      timer = setTimeout(() => { flip(); schedule(); }, TICK_MS);
+      timer = setTimeout(() => { sweep(); schedule(); }, HOLD_MS);
     };
     layout();
     addEventListener('resize', layout);
