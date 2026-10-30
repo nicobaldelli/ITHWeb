@@ -311,6 +311,7 @@ a:hover { color: var(--ink); }
 .nav a:hover { color: var(--purple); }
 
 .site-header__actions { display: flex; align-items: center; gap: 10px; }
+.site-header__cta.btn-gray:hover { background: var(--ink); color: var(--white); border-color: var(--ink); } /* sobre la barra blanca, el hover oscurece en vez de aclarar */
 .nav-toggle { display: none; gap: 8px; padding: 0 16px; }
 
 /* Menú plegable en pantallas angostas (sin JS el menú queda siempre visible) */
