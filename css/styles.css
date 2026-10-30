@@ -595,10 +595,12 @@ a:hover { color: var(--ink); }
   gap: 14px;
   min-width: 0;
   padding: 30px;
-  border: 0; /* blancas, sin borde: el hover solo las eleva (card-h) */
+  border: 0; /* grises, sin borde: el hover solo las eleva (card-h) */
   border-radius: var(--radius);
-  background: var(--white);
+  background: var(--gray-bg);
 }
+.service .icon-circle { background: var(--white); } /* el círculo del ícono en blanco para que destaque sobre la card gris */
+.service .chip { background: var(--white); }
 .service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
 .service__title { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; }
 .service__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
