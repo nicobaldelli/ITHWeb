@@ -510,11 +510,11 @@
   }
 
   /* ---------- Socios tecnológicos: slots que rotan de a uno ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en un pool. Cada tanto una celda
-  // al azar (nunca la misma dos veces seguidas) gira y muestra un logo del pool; el que sale pasa al pool.
+  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en un pool. Cada tanto, varias celdas
+  // al azar (dos o tres, nunca las que acaban de girar) giran casi a la vez y muestran logos del pool.
   const slotsGrid = document.querySelector('[data-slots]');
   if (slotsGrid && motion) {
-    const TICK_MS = 1600;
+    const TICK_MS = 2000;
     const FLIP_MS = 320;
     const cells = [...slotsGrid.children];
     const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
@@ -541,21 +541,30 @@
       const img = li.querySelector('img');
       img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
     };
-    const flip = () => {
-      if (!pool.length || visible < 2) return;
-      let cell;
-      do cell = Math.floor(Math.random() * visible); while (last.includes(cell));
-      last = [cell, ...last].slice(0, Math.min(3, visible - 1));
+    const flipOne = (cell, delay) => {
       const k = Math.floor(Math.random() * pool.length);
-      const incoming = pool[k];
+      const incoming = pool.splice(k, 1)[0]; // se saca del pool para que dos celdas no traigan el mismo logo
       const li = cells[cell];
-      li.classList.add('is-flip');
       setTimeout(() => {
-        pool[k] = shown[cell];
-        shown[cell] = incoming;
-        setLogo(li, logos[incoming]);
-        li.classList.remove('is-flip');
-      }, FLIP_MS);
+        li.classList.add('is-flip');
+        setTimeout(() => {
+          pool.push(shown[cell]);
+          shown[cell] = incoming;
+          setLogo(li, logos[incoming]);
+          li.classList.remove('is-flip');
+        }, FLIP_MS);
+      }, delay);
+    };
+    const flip = () => {
+      if (visible < 2) return;
+      const count = Math.min(pool.length, visible >= 8 ? 2 + Math.floor(Math.random() * 2) : 2); // 2 o 3 a la vez
+      const chosen = [];
+      while (chosen.length < count) {
+        const cell = Math.floor(Math.random() * visible);
+        if (!chosen.includes(cell) && !last.includes(cell)) chosen.push(cell);
+      }
+      last = [...chosen, ...last].slice(0, Math.min(visible - count, 6));
+      chosen.forEach((cell, i) => flipOne(cell, i * 120)); // apenas desfasadas, para que no sea un golpe seco
     };
     const schedule = () => {
       clearTimeout(timer);
