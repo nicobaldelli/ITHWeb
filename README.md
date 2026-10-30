@@ -97,5 +97,5 @@ sección mientras se revisa sección por sección:
 - [ ] Links reales de Blog y LinkedIn en el pie.
 - [ ] Video real del hero, fotos del equipo (las cajas están vacías) y testimonios reales (hoy hay tres textos de ejemplo).
 - [ ] Validar qué logos de clientes se pueden mostrar (hoy están los 48 de la presentación institucional).
-- [ ] Respuesta de "¿Cuánto tarda en comenzar un servicio?".
+- [ ] Validar con Carlos las respuestas de Preguntas frecuentes (forma de cobro, cobertura 7x24 y tiempos de respuesta, tamaño de clientes, acuerdos de confidencialidad, reemplazo de perfiles, mínimo para empezar).
 - [ ] Favicon e imagen para compartir en redes (`og:image`).
