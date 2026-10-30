@@ -510,14 +510,13 @@
   }
 
   /* ---------- Socios tecnológicos: slots que rotan en barrido ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Un barrido recorre la
-  // fila de arriba celda por celda de izquierda a derecha (1,8 s por fila), después la siguiente fila; terminado el
-  // barrido, los logos quedan 2,5 s y arranca el próximo.
+  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Al entrar en pantalla,
+  // al segundo arranca el recorrido: una celda por segundo, de izquierda a derecha y de arriba hacia abajo, en loop.
   // Cada celda toma el próximo logo de la cola y manda el suyo al final (orden lineal, sin azar).
   const slotsGrid = document.querySelector('[data-slots]');
   if (slotsGrid && motion) {
-    const HOLD_MS = 2500;   // pausa entre el final de un barrido y el siguiente
-    const ROW_MS = 1800;    // recorrido de una fila, de izquierda a derecha
+    const START_MS = 1000;  // espera antes del primer giro
+    const STEP_MS = 1000;   // entre el giro de una celda y la siguiente
     const FLIP_MS = 320;
     const cells = [...slotsGrid.children];
     const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
@@ -556,27 +555,22 @@
         li.classList.remove('is-flip');
       }, FLIP_MS);
     };
-    const sweep = () => {
-      const rows = Math.ceil(visible / cols);
-      for (let cell = 0; cell < visible; cell++) {
-        const row = Math.floor(cell / cols);
-        const col = cell % cols;
-        const delay = row * ROW_MS + (col / cols) * ROW_MS;
-        setTimeout(() => flipCell(cell), delay);
-      }
-      return rows * ROW_MS;
-    };
-    const schedule = () => {
+    let cursor = 0; // próxima celda a girar (orden de lectura: izquierda a derecha, arriba hacia abajo)
+    const schedule = (first) => {
       clearTimeout(timer);
       if (!inView || document.hidden) return;
-      timer = setTimeout(() => { const dur = sweep(); timer = setTimeout(schedule, dur); }, HOLD_MS);
+      timer = setTimeout(() => {
+        flipCell(cursor);
+        cursor = (cursor + 1) % visible;
+        schedule(false);
+      }, first ? START_MS : STEP_MS);
     };
     layout();
     addEventListener('resize', layout);
-    document.addEventListener('visibilitychange', schedule);
+    document.addEventListener('visibilitychange', () => schedule(true));
     new IntersectionObserver((entries) => {
       inView = lastEntry(entries).isIntersecting;
-      schedule();
+      schedule(true);
     }, { threshold: 0.3 }).observe(slotsGrid);
   }
 
