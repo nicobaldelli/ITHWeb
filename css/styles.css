@@ -739,7 +739,7 @@ a:hover { color: var(--ink); }
   cursor: pointer;
   transition: fill .25s, stroke .25s;
 }
-.prov.on { fill: var(--purple); }
+.prov.on { fill: var(--map-accent, var(--purple)); }
 .prov.caba { stroke-width: 2; }
 .prov:hover { fill: var(--ink); stroke: var(--ink); }
 .prov.caba:hover { stroke: var(--white); }
@@ -758,8 +758,15 @@ a:hover { color: var(--ink); }
   font-size: 13px;
 }
 .legend li { display: flex; align-items: center; gap: 8px; }
-.legend__dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); }
+.legend__dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--map-accent, var(--purple)); }
 .legend__dot--off { background: var(--gray-bg); border: 1px solid var(--muted); }
+/* Presencia regional: lo que en la nacional es violeta acá va en lima */
+.presence--lime { --map-accent: var(--lime); }
+.presence--lime .map-info__name { color: var(--ink); }
+.presence--lime .legend { border-top-color: var(--gray-bg); }
+.presence--lime .prov { stroke: var(--gray-bg); } /* sobre la card blanca, el borde entre países se ve en gris */
+.presence--lime .prov.on { stroke: var(--white); }
+.armap--region { max-width: 300px; }
 
 /* ---------- Casos (mini menú a la izquierda + un caso por vez) ---------- */
 .cases-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
@@ -1014,7 +1021,7 @@ a:hover { color: var(--ink); }
 @keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(68, 68, 68, .35); } 100% { box-shadow: 0 0 0 16px rgba(68, 68, 68, 0); } }
 @keyframes stepbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes heroMedia { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
-@keyframes provOn { from { fill: var(--gray-bg); } to { fill: var(--purple); } }
+@keyframes provOn { from { fill: var(--gray-bg); } to { fill: var(--map-accent, var(--purple)); } }
 
 .ico, .ring-c { transform-box: fill-box; transform-origin: center; }
 .svc-ico { animation: float 4s ease-in-out infinite; }

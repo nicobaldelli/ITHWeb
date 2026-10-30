@@ -506,34 +506,38 @@
     build();
   }
 
-  /* ---------- Mapa de provincias ---------- */
-  const map = document.querySelector('[data-map]');
-  if (map) {
+  /* ---------- Mapas (provincias y países) ---------- */
+  // Cada `[data-map]` pinta sus zonas con `on`, las prende de a una al entrar en pantalla (en el orden de
+  // `data-map-order`, o el del documento) y muestra el nombre al pasar el mouse. El texto va en la .map-card.
+  document.querySelectorAll('[data-map]').forEach((map) => {
     const active = [...map.querySelectorAll('.prov.on')];
-    // La descripción accesible se arma con las provincias marcadas con `on`.
+    const order = (map.dataset.mapOrder || '').split('|').filter(Boolean);
+    const isRegion = map.classList.contains('armap--region');
     try {
       const names = new Intl.ListFormat('es').format(active.map((p) => p.dataset.name));
-      map.setAttribute('aria-label', `Mapa de Argentina por provincias. Con proyectos o partners: ${names}.`);
+      map.setAttribute('aria-label', isRegion
+        ? `Mapa de Sudamérica por países. Con presencia: ${names}.`
+        : `Mapa de Argentina por provincias. Con proyectos o partners: ${names}.`);
     } catch (e) { /* queda la descripción del HTML */ }
 
-    // Al entrar en pantalla, las provincias se prenden de a una: de CABA hacia afuera.
     if (motion) {
-      const ORDER = ['Ciudad Autónoma de Buenos Aires', 'Buenos Aires', 'Santa Fe', 'Entre Ríos', 'Córdoba', 'San Luis', 'Mendoza', 'San Juan', 'Neuquén', 'Corrientes', 'Misiones', 'Salta', 'Tucumán'];
-      const rank = (p) => { const i = ORDER.indexOf(p.dataset.name); return i === -1 ? ORDER.length : i; };
+      const rank = (p) => { const i = order.indexOf(p.dataset.name); return i === -1 ? order.length : i; };
       [...active].sort((a, b) => rank(a) - rank(b)).forEach((p, i) => { p.style.animationDelay = `${0.5 + i * 0.25}s`; });
       new IntersectionObserver((entries) => {
         map.classList.toggle('is-lit', lastEntry(entries).isIntersecting);
       }, { threshold: 0.35 }).observe(map);
     }
 
-    const mapName = document.querySelector('[data-map-name]');
-    const mapStatus = document.querySelector('[data-map-status]');
+    const card = map.closest('.map-card') || document;
+    const mapName = card.querySelector('[data-map-name]');
+    const mapStatus = card.querySelector('[data-map-status]');
     if (mapName && mapStatus) {
+      const onText = isRegion ? 'Con presencia' : 'Con proyectos o partners';
       map.addEventListener('pointerover', (e) => {
         const prov = e.target.closest('.prov');
         if (!prov) return;
         mapName.textContent = prov.dataset.name;
-        mapStatus.textContent = prov.classList.contains('on') ? 'Con proyectos o partners' : 'A sumar';
+        mapStatus.textContent = prov.classList.contains('on') ? onText : 'A sumar';
       });
       map.addEventListener('pointerout', (e) => {
         if (!e.target.closest('.prov')) return;
@@ -541,5 +545,5 @@
         mapStatus.textContent = '';
       });
     }
-  }
+  });
 })();

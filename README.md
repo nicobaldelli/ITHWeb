@@ -36,7 +36,7 @@ gris de fondo `#E6E2EA` y los neutros `#333333`, `#444444`, `#4A4A4A`).
 
 **Fondos (reunión de octubre 2026).** Sin animaciones de fondo: solo color. Las secciones alternan blanco y gris `#E6E2EA`
 (clases `.bg-white` y `.bg-gray` en cada `<section>`), empezando en gris por el hero. La barra superior es blanca; el pie
-sigue en carbón `#333333`. Orden: hero (video) · servicios (blanco) · soluciones (gris) · presencia nacional (blanco) · presencia regional (gris, a completar) · clientes (blanco) · equipo (gris) · historia (blanco) · cómo trabajamos (gris) · casos (blanco) · preguntas (gris) · agenda (blanco). Problema y Testimonios se quitaron en la reunión de octubre 2026.
+sigue en carbón `#333333`. Orden: hero (video) · servicios (blanco) · soluciones (gris) · presencia nacional (blanco) · presencia regional (gris) · clientes (blanco) · equipo (gris) · historia (blanco) · cómo trabajamos (gris) · casos (blanco) · preguntas (gris) · agenda (blanco). Problema y Testimonios se quitaron en la reunión de octubre 2026.
 
 **Acentos.** Las clases `.section--alt` y `.section--dark` ya no pintan fondo, pero conservan la familia de acentos de cada
 sección mientras se revisa sección por sección:
@@ -81,7 +81,7 @@ sección mientras se revisa sección por sección:
 
 - **Animaciones de entrada**: los elementos `.rv` aparecen al entrar en pantalla. En el hero primero aparece la imagen y después el texto. Se activan solo si hay `IntersectionObserver` y no se pidió reducir movimiento; si no, todo se ve estático.
 - **Carruseles**: avanzan solos cada 7 s (el de casos, 3,5 s por proyecto dentro de un cliente). Se detienen con el mouse encima, con foco adentro, con un "Ver más" abierto o fuera de pantalla, y tienen botón de pausa. Con "reducir movimiento" no avanzan solos. Sin JS quedan como scroll horizontal.
-- **Mapa**: al entrar en pantalla las provincias con presencia se prenden de a una. Al pasar el mouse o tocar una provincia se muestra su nombre.
+- **Mapas**: el nacional (provincias, violeta) y el regional (Sudamérica: Argentina, Chile, Uruguay, Paraguay y Perú, en lima; contornos de Natural Earth simplificados). Al entrar en pantalla las zonas con presencia se prenden de a una en el orden de `data-map-order`. Al pasar el mouse se muestra el nombre. Para sumar una zona, agregar `on` a su clase.
 - **Preguntas frecuentes**: `<details name="faq">` nativo; al abrir una se cierra la anterior, sin JS.
 
 ## Pendientes antes de publicar
