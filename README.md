@@ -46,7 +46,7 @@ sección mientras se revisa sección por sección:
 - `.section--alt` (clientes, servicios, equipo, presencia, cómo trabajamos): violeta. Acento violeta, botón `.btn-primary`,
   cards violeta `.card-violet` con íconos y texto secundario en lila.
 - `.section--dark` (hero, historia, agenda): texto carbón y `#444444`, barras lima, botón `.btn-lime`, secundario `.btn-light`
-  con borde carbón; la card del CTA final es lima (`.card-lime`) con botón gris que pasa a blanco (`.btn-gray`). El WhatsApp
+  con borde carbón; la card del CTA final tiene el estilo de las cards de Soluciones (`.card-dark`: carbón, letras blancas, círculo lima) con botón lima. El WhatsApp
   flotante es un círculo carbón con el logo oficial en lima.
 - Lima como texto solo en la palabra clave del título (grande y en negrita; contraste 1,9:1, pedido del cliente). Nunca en
   texto corrido ni íconos finos: ahí va como relleno o barra.
