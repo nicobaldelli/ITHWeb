@@ -602,8 +602,8 @@ a:hover { color: var(--ink); }
 .service .icon-circle { background: var(--white); } /* el círculo del ícono en blanco para que destaque sobre la card gris */
 .service .chip { background: var(--white); }
 .service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
-.service__title { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; }
-.service__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
+.service__title { margin: 0; color: var(--purple); font-size: 26px; font-weight: 700; line-height: 1.2; }
+.service__text { margin: 0; color: color-mix(in srgb, var(--purple) 78%, var(--white)); font-size: 17px; line-height: 1.6; } /* lila: violeta aclarado, lo más claro que se deja leer sobre la card gris */
 
 .carousel--lime .carousel__btn { border-color: var(--lime); background: var(--lime); color: var(--ink); }
 .carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--white); color: var(--ink); }
