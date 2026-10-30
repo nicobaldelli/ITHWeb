@@ -760,12 +760,20 @@ a:hover { color: var(--ink); }
 .legend li { display: flex; align-items: center; gap: 8px; }
 .legend__dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--map-accent, var(--purple)); }
 .legend__dot--off { background: var(--gray-bg); border: 1px solid var(--muted); }
-/* Presencia regional: lo que en la nacional es violeta acá va en lima */
+/* Presencia regional: la card del mapa con el estilo de las cards de Soluciones (carbón, letras blancas, acento lima) */
 .presence--lime { --map-accent: var(--lime); }
-.presence--lime .map-info__name { color: var(--ink); }
-.presence--lime .legend { border-top-color: var(--gray-bg); }
-.presence--lime .prov { stroke: var(--gray-bg); } /* sobre la card blanca, el borde entre países se ve en gris */
-.presence--lime .prov.on { stroke: var(--white); }
+.presence--lime .map-card { background: var(--ink); color: var(--white); }
+.presence--lime .map-info__name { color: var(--white); }
+.presence--lime .map-info__status { color: var(--lavender); }
+.presence--lime .legend { border-top-color: var(--line-dark); color: var(--lavender); }
+.presence--lime .legend__dot--off { background: var(--line-dark); border-color: var(--lavender); }
+.presence--lime .prov { fill: var(--line-dark); stroke: var(--ink); } /* países "a sumar": gris oscuro sobre carbón */
+.presence--lime .prov.on { fill: var(--lime); }
+.presence--lime .prov:hover { fill: var(--white); stroke: var(--ink); }
+.presence--lime .checks .ico { color: var(--ink); }
+.presence--lime .anim .armap:not(.is-lit) .prov.on, .anim .presence--lime .armap:not(.is-lit) .prov.on { fill: var(--line-dark); }
+.presence--lime .armap.is-lit .prov.on { animation-name: provOnDark; }
+@keyframes provOnDark { from { fill: var(--line-dark); } to { fill: var(--lime); } }
 .armap--region { max-width: 300px; }
 
 /* ---------- Casos (mini menú a la izquierda + un caso por vez) ---------- */
