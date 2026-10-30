@@ -8,9 +8,6 @@ Landing de Intellihelp (ITH): HTML, CSS y JavaScript estáticos, sin dependencia
 index.html               Página completa (contenido + mapa de provincias en SVG inline)
 css/styles.css           Estilos: paleta en :root, componentes por sección y animaciones
 js/main.js               Menú, CTAs (UTM + medición), revelado, contadores, carrusel, mapa y notas
-img/circuit.svg          Fondo animado de las secciones oscuras (uno solo, cacheado)
-img/hex.svg              Fondo de las secciones blancas: plano de hexágonos gris en perspectiva, con trazos de circuito, pads y pulsos animados, desvanecido al centro. Solo gris: el blanco sirve a las dos familias de color. Lo genera img/hex.py, no editar a mano
-img/waves.svg            Fondo de las secciones lila: campo de ondas violeta (líneas finas en paralelo) que fluye despacio, desvanecido al centro. Lo genera img/waves.py, no editar a mano
 img/logo-intellihelp.png Logo
 img/clientes/*.webp      Logos de clientes (48, con transparencia) para el fichero de clientes y las tarjetas de casos
 fonts/saira-latin.woff2  Tipografía Saira (variable 400–700, subconjunto latino), servida desde acá
@@ -33,32 +30,33 @@ y entrá a <http://localhost:8000>.
 
 ## Paleta
 
-Solo se usan los colores de `:root` (blanco, carbón `#2A2A2A`, violeta `#663399`, lila `#F0EBF5`, lima `#98CC32`
-y los neutros `#333333`, `#444444`, `#4A4A4A`). Regla por fondo:
+Solo se usan los colores de `:root` (blanco, carbón `#2A2A2A`, violeta `#663399`, lila `#F0EBF5`, lima `#98CC32`,
+gris de fondo `#E6E2EA` y los neutros `#333333`, `#444444`, `#4A4A4A`).
 
-La familia de colores la decide el fondo de cada sección, y los fondos se alternan (ninguna sección repite el de la
-anterior):
+**Fondos (reunión de octubre 2026).** Sin animaciones de fondo: solo color. Las secciones alternan blanco y gris `#E6E2EA`
+(clases `.bg-white` y `.bg-gray` en cada `<section>`), empezando en gris por el hero. La barra superior es blanca; el pie
+sigue en carbón `#333333`. Orden: hero (gris) · clientes (blanco) · problema (gris) · servicios (blanco) · historia (gris) ·
+equipo (blanco) · casos (gris) · presencia (blanco) · testimonios (gris) · cómo trabajamos (blanco) · preguntas (gris) ·
+agenda (blanco).
 
-- **Blanco** (`.section`): gris y verde, sin lila. Texto carbón y `#444444`, título chico gris con barra lima, palabra
-  clave del título en letras lima, recuadros con borde gris (`#4A4A4A`), chips y barras con relleno lima, botón `.btn-lime`.
-  Secciones: problema, casos, testimonios, preguntas.
-- **Lila** (`.section--alt`): violeta. Texto carbón, acento violeta, botón `.btn-primary`. Cards violeta `.card-violet`
-  con íconos, numeración y texto secundario en lila (botón adentro: `.btn-light`).
-  Secciones: clientes, servicios, equipo, presencia, cómo trabajamos.
-- **Carbón** (`.section--dark`): hero, historia y agenda, más header y pie en `#333333`. Texto blanco, lila para texto
-  secundario, acento lima, botón `.btn-lime`; la card del CTA final es lima (`.card-lime`) con botón gris que pasa a blanco al pasar el mouse (`.btn-gray`). El WhatsApp flotante es un círculo carbón con el logo oficial en lima.
-- Orden actual: hero (carbón) · clientes (lila) · problema (blanco) · servicios (lila) · historia (carbón) · equipo (lila) ·
-  casos (blanco) · presencia (lila) · testimonios (blanco) · cómo trabajamos (lila) · preguntas (blanco) · agenda (carbón) ·
-  pie (`#333333`).
-- Lima como texto sobre blanco solo en la palabra clave del título (grande y en negrita; contraste 1,9:1, pedido del
-  cliente). Nunca en texto corrido ni íconos finos: ahí va como relleno o barra.
+**Acentos.** Las clases `.section--alt` y `.section--dark` ya no pintan fondo, pero conservan la familia de acentos de cada
+sección mientras se revisa sección por sección:
+- Sin modificador (problema, casos, testimonios, preguntas): gris y verde. Texto carbón y `#444444`, título chico con barra
+  lima, palabra clave del título en letras lima, recuadros con borde gris `#4A4A4A`, chips y barras con relleno lima.
+- `.section--alt` (clientes, servicios, equipo, presencia, cómo trabajamos): violeta. Acento violeta, botón `.btn-primary`,
+  cards violeta `.card-violet` con íconos y texto secundario en lila.
+- `.section--dark` (hero, historia, agenda): texto carbón y `#444444`, barras lima, botón `.btn-lime`, secundario `.btn-light`
+  con borde carbón; la card del CTA final es lima (`.card-lime`) con botón gris que pasa a blanco (`.btn-gray`). El WhatsApp
+  flotante es un círculo carbón con el logo oficial en lima.
+- Lima como texto solo en la palabra clave del título (grande y en negrita; contraste 1,9:1, pedido del cliente). Nunca en
+  texto corrido ni íconos finos: ahí va como relleno o barra.
 
-`.hl` toma el color de acento que corresponde al fondo de la sección. Todas las combinaciones cumplen WCAG AA.
+`.hl` toma el color de acento que corresponde a la sección.
 
 ## Cómo editar
 
 - **Texto del hero**: bloque `TEXTO DEL HERO (editable)` en `index.html`. Es provisorio hasta que Claudio pase la versión definitiva.
-- **Imagen o video del hero**: dentro de `.hero__media` hay un ejemplo comentado de `<img>` y de `<video>` en loop. El overlay oscuro se aplica solo.
+- **Imagen o video del hero**: dentro de `.hero__media` hay un ejemplo comentado de `<img>` y de `<video>` en loop. El velo claro se aplica solo.
 - **Clientes**: fichero. Los rubros (sector público, seguros y salud, laboratorios e industria, medios y tecnología, servicios y comercio) son pestañas: sin elegir ninguna pasan los 48 logos; al elegir una, solo los de ese rubro, y volver a tocarla la destilda. Los logos van en fichas blancas de hasta seis, de un mismo rubro, apiladas: la de adelante cae hacia el frente girando cada 2,8 s (la primera, 1,4 s después de entrar en pantalla) (o con las flechas, o tocando la ficha). Se detiene con foco adentro o fuera de pantalla (no con el mouse encima, para que todas las pasadas duren igual); con "reducir movimiento" no pasa sola. La fuente de datos es la lista `.filecab__all` (un `li` por cliente con `data-group`); sin JS se ve como grilla con los 48. El rubro de cada cliente lo asignamos nosotros: validar con Carlos.
 - **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
 - **Casos**: mini menú a la izquierda y un caso por vez a la derecha (39, tomados de la presentación institucional), con logo, sector, etiquetas del servicio y qué hicimos. Sin elegir nada, los 39 pasan solos en orden aleatorio (se vuelve a barajar en cada vuelta); con las flechas van en orden lineal. Al elegir un sector (público o privado) aparecen los logos de sus clientes y pasan al azar solo los de ese sector; al elegir un cliente queda fija su tarjeta con la lista de proyectos. Volver a tocar el sector o el cliente lo destilda; "Ver todos los casos" vuelve al azar. El menú lo arma el JS con los datos de las tarjetas (sector por el eyebrow, logo por `.case-card__logo`); sin JS no aparece y queda el carrusel. Si un cliente tiene varios proyectos (lista `data-steps`), se muestran de a uno cada 3,5 s con una barra de avance; con el cliente fijo, vuelven a empezar.
