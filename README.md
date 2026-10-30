@@ -47,8 +47,8 @@ regional, historia (con línea de tiempo violeta), casos y agenda. `.hl` toma el
 
 **Cards.** Grises sin borde sobre blanco (Servicios, Cómo trabajamos) o carbón con letras blancas y acentos lima
 (Soluciones `.service--dark`, Casos, card del mapa regional, card final `.card-dark`). Botones: `.btn-soft` gris claro,
-`.btn-gray` gris oscuro, `.btn-lime` lima, `.btn-light` con borde. El WhatsApp flotante arranca lima con el logo blanco
-y a los 4 s se asienta en blanco con el logo carbón.
+`.btn-gray` gris oscuro, `.btn-lime` lima, `.btn-light` con borde. El WhatsApp flotante es lima con el logo blanco; al pasar
+el mouse, blanco con el logo carbón.
 
 Lima como texto solo en la palabra clave del título (grande y en negrita; contraste 1,9:1, pedido del cliente). Nunca en
 texto corrido ni íconos finos.
