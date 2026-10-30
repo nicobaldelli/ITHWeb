@@ -59,7 +59,7 @@ a:hover { color: var(--ink); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .section--alt :focus-visible { outline-color: var(--purple); }
 
-.site-footer :focus-visible { outline-color: var(--lime); }
+.site-footer :focus-visible { outline-color: var(--ink); }
 .card-violet :focus-visible { outline-color: var(--white); }
 .card-lime :focus-visible { outline-color: var(--ink); }
 
@@ -122,7 +122,7 @@ a:hover { color: var(--ink); }
 .eyebrow::before { content: ""; flex: none; width: 24px; height: 3px; border-radius: 2px; background: var(--lime); }
 .section--alt .eyebrow { color: var(--purple); }
 .section--alt .eyebrow::before { background: var(--purple); }
-.site-footer .eyebrow--lime { color: var(--lime); }
+.site-footer .eyebrow--lime { color: var(--muted); }
 .section--dark .eyebrow::before { background: var(--lime); }
 
 .section-title { margin: 0; font-size: clamp(36px, 4.4vw, 52px); font-weight: 700; line-height: 1.1; }
@@ -205,6 +205,11 @@ a:hover { color: var(--ink); }
 .card-lime { background: var(--lime); color: var(--ink); }
 .card-lime .icon-circle { border: 2px solid var(--ink); background: transparent; color: var(--ink); }
 .card-lime .btn-ghost:hover { background: var(--ink); color: var(--lime); border-color: var(--ink); }
+/* Card del CTA final con el estilo de las cards de Soluciones: carbón, letras blancas, círculo lima con ícono carbón */
+.card-dark { background: var(--ink); color: var(--white); }
+.card-dark .icon-circle { background: var(--lime); color: var(--ink); }
+.card-dark .cta-card__text { color: var(--lavender); }
+.card-dark :focus-visible { outline-color: var(--lime); }
 
 /* Íconos de trazo: el color sale de `color` del contenedor */
 .ico { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
@@ -1059,27 +1064,28 @@ a:hover { color: var(--ink); }
 .cta-card__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
 
 /* ---------- Footer ---------- */
-.site-footer { padding: 48px 0 24px; border-top: 1px solid var(--line-dark); background: var(--ink-2); color: var(--white); }
-.site-footer a { color: var(--lavender); font-size: 17px; text-decoration: none; }
-.site-footer a:hover { color: var(--lime); }
+/* Pie en blanco (reunión de octubre 2026) */
+.site-footer { padding: 48px 0 24px; border-top: 1px solid var(--gray-bg); background: var(--white); color: var(--ink); }
+.site-footer a { color: var(--ink); font-size: 17px; text-decoration: none; }
+.site-footer a:hover { color: var(--purple); }
 .footer__inner { display: flex; flex-direction: column; gap: 32px; }
 .footer__cols { display: flex; flex-wrap: wrap; gap: 32px 48px; }
 .footer__about { display: flex; flex: 2 1 280px; flex-direction: column; gap: 12px; min-width: 0; }
 .footer__brand { display: flex; align-items: center; gap: 12px; }
 .footer__brand img { display: block; width: auto; height: 44px; border-radius: 6px; }
-.footer__tag { color: var(--lavender); font-size: 12px; line-height: 1.15; letter-spacing: .04em; }
-.footer__text { max-width: 360px; margin: 0; color: var(--lavender); font-size: 17px; line-height: 1.6; }
+.footer__tag { color: var(--muted); font-size: 12px; line-height: 1.15; letter-spacing: .04em; }
+.footer__text { max-width: 360px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 .footer__col { display: flex; flex: 1 1 160px; flex-direction: column; gap: 10px; min-width: 0; }
 .footer__col--wide { flex-basis: 200px; }
-.footer__address { color: var(--lavender); font-size: 15px; font-style: normal; }
+.footer__address { color: var(--muted); font-size: 15px; font-style: normal; }
 .footer__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px 24px;
   padding-top: 18px;
-  border-top: 1px solid var(--muted);
-  color: var(--lavender);
+  border-top: 1px solid var(--gray-bg);
+  color: var(--muted);
   font-size: 13px;
 }
 
