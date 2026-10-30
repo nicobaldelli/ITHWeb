@@ -634,11 +634,8 @@ a:hover { color: var(--ink); }
 .history { display: flex; flex-wrap: wrap; gap: 48px; }
 .history__intro { display: flex; flex: 1 1 320px; flex-direction: column; gap: 18px; min-width: 0; }
 .history__text { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
-.history__big { display: flex; flex-direction: column; gap: 2px; margin-top: 32px; }
-.history__more { position: relative; z-index: 1; } /* por encima del número gigante, que asoma unos píxeles hacia arriba */
 .history__more .more__body { padding-top: 12px; }
-.history__big-num { color: var(--purple); font-size: 176px; font-weight: 700; line-height: .9; font-variant-numeric: tabular-nums; }
-.history__big-label { color: var(--muted); font-size: 28px; font-weight: 600; line-height: 1.2; }
+#historia .section-title [data-count] { font-variant-numeric: tabular-nums; }
 
 .timeline {
   display: flex;
@@ -647,7 +644,7 @@ a:hover { color: var(--ink); }
   gap: 30px;
   min-width: 0;
   padding-left: 28px;
-  border-left: 2px solid var(--gray-bg); /* línea y círculos gris claro, anillos y años en violeta */
+  border-left: 2px solid var(--purple); /* línea y círculos violeta, anillos gris claro, años violeta */
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
 .timeline__mark {
@@ -659,7 +656,7 @@ a:hover { color: var(--ink); }
   height: 32px;
   margin-left: -44px;
   border-radius: 50%;
-  background: var(--gray-bg);
+  background: var(--purple);
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--purple); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
@@ -674,8 +671,8 @@ a:hover { color: var(--ink); }
 /* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
 #historia .eyebrow::before { background: var(--purple); }
 #historia .hl { color: var(--purple); }
-#historia .ring-p { stroke: var(--purple); }
-#historia .ring-c { fill: var(--purple); }
+#historia .ring-p { stroke: var(--gray-bg); }
+#historia .ring-c { fill: var(--gray-bg); }
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
