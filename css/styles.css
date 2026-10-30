@@ -601,15 +601,16 @@ a:hover { color: var(--ink); }
 }
 .service .icon-circle { background: var(--white); } /* el círculo del ícono en blanco para que destaque sobre la card gris */
 .service .chip { background: var(--white); }
-/* Soluciones: cards gris oscuro con letras lima (sobre sección gris claro) */
-.service--dark { background: var(--line-dark); }
-.service--dark .service__num, .service--dark .service__title, .service--dark .service__text, .service--dark .more__btn { color: var(--lime); }
-.service--dark .icon-circle { background: var(--ink); color: var(--lime); }
-.service--dark .chip { background: var(--lime); color: var(--ink); }
+.service .more__btn { color: var(--ink); }
+/* Soluciones: cards gris oscuro con letras blancas, círculo del ícono gris claro con el ícono en lima; chips igual */
+.service--dark { background: var(--line-dark); color: var(--white); }
+.service--dark .service__num, .service--dark .service__title, .service--dark .service__text, .service--dark .more__btn { color: var(--white); }
+.service--dark .icon-circle { background: var(--gray-bg); color: var(--lime); }
+.service--dark .chip { background: var(--gray-bg); color: var(--lime); font-weight: 600; }
 .service--dark :focus-visible { outline-color: var(--lime); }
-.service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
-.service__title { margin: 0; color: var(--purple); font-size: 26px; font-weight: 700; line-height: 1.2; }
-.service__text { margin: 0; color: color-mix(in srgb, var(--purple) 78%, var(--white)); font-size: 17px; line-height: 1.6; } /* lila: violeta aclarado, lo más claro que se deja leer sobre la card gris */
+.service__num { color: var(--ink); font-size: 14px; font-weight: 600; }
+.service__title { margin: 0; color: var(--ink); font-size: 26px; font-weight: 700; line-height: 1.2; }
+.service__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
 
 .carousel--lime .carousel__btn { border-color: var(--lime); background: var(--lime); color: var(--ink); }
 .carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--white); color: var(--ink); }
