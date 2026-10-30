@@ -127,7 +127,7 @@
         };
         raf = requestAnimationFrame(step);
       }, delay);
-    }, { threshold: 0.35 }).observe(group);
+    }, { threshold: 0.15 }).observe(group); // arranca apenas asoma el bloque
   };
   if (motion) document.querySelectorAll('[data-counter]').forEach(runCounters);
 
