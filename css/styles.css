@@ -105,6 +105,18 @@ a:hover { color: var(--ink); }
 
 .section-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 36px; }
 .section-cta__note { margin: 0; color: var(--muted); font-size: 15px; }
+/* Próximo paso: link de texto que lleva a la sección que responde la duda siguiente */
+.next-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--lime); }
+.section--alt .next-link { text-decoration-color: var(--purple); }
+.next-link:hover { color: var(--purple); }
+.next-link .arr { display: inline-block; transition: transform .3s var(--ease); }
+.next-link:hover .arr { transform: translateX(4px); }
+.section-cta .next-link { flex-basis: 100%; }
+.section-next { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 36px 0 0; }
+.faq__a a { color: var(--purple); font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.faq__a a:hover { color: var(--ink); }
+.logo--link { cursor: pointer; border-radius: 8px; transition: transform .25s var(--ease), box-shadow .25s; }
+.logo--link:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(42, 42, 42, .12); }
 .section--dark .section-cta__note { color: var(--muted); }
 
 /* ---------- Tipografía ---------- */
@@ -298,7 +310,8 @@ a:hover { color: var(--ink); }
 
 .nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; }
 .nav a { color: var(--ink); font-size: 17px; text-decoration: none; transition: color .2s; }
-.nav a:hover { color: var(--purple); }
+.nav a:hover, .nav a.is-active { color: var(--purple); }
+.nav a.is-active { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 
 .site-header__actions { display: flex; align-items: center; gap: 10px; }
 .site-header__cta.btn-soft:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }

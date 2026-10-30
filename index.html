@@ -68,7 +68,7 @@
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#equipo">Quiénes somos</a></li>
         <li><a href="#casos">Casos</a></li>
-        <li><a href="#novedades">Novedades</a></li>
+        <li hidden><a href="#novedades">Novedades</a></li><!-- oculta hasta que exista el blog -->
       </ul>
     </nav>
     <div class="site-header__actions">
@@ -110,7 +110,7 @@
 
       <div class="hero__ctas rv" data-d="1.05">
         <a id="cta-hero" data-cta="hero-agendar" href="/asesoria" class="btn btn-lime">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
-        <a href="#equipo" class="btn btn-light">Conocé al equipo</a>
+        <a href="#servicios" class="btn btn-light" data-next>Ver qué hacemos</a>
       </div>
       <p class="hero__note rv" data-d="1.15"><svg class="ico" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg>El relevamiento y la propuesta son sin cargo, aunque todavía estés evaluando.</p>
       <div class="stats rv" data-d="1.3" data-counter="1300">
@@ -269,6 +269,7 @@
       <div class="section-cta rv">
         <a id="cta-servicios" data-cta="servicios-agendar" href="/asesoria" class="btn btn-soft">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
         <p class="section-cta__note">Te ayudamos a definir qué necesita tu empresa.</p>
+        <a class="next-link" href="#soluciones" data-next>Ver las soluciones que implementamos <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -457,6 +458,7 @@
       <div class="section-cta rv">
         <a id="cta-soluciones" data-cta="soluciones-agendar" href="/asesoria" class="btn btn-gray">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
         <p class="section-cta__note">Te ayudamos a elegir la solución para tu empresa.</p>
+        <a class="next-link" href="#presencia" data-next>Ver dónde trabajamos <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -512,6 +514,7 @@
           <li><span class="legend__dot legend__dot--off"></span>A sumar</li>
         </ul>
       </div>
+      <p class="section-next rv"><a class="next-link" href="#casos" data-next>Ver casos reales <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -569,6 +572,7 @@
           <li><span class="legend__dot legend__dot--off"></span>A sumar</li>
         </ul>
       </div>
+      <p class="section-next rv"><a class="next-link" href="#casos" data-next>Ver casos reales <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -749,6 +753,7 @@
           <p class="member__bio" data-more>Los técnicos y profesionales de TI que trabajan todos los días en las empresas y organismos que acompañamos, en outsourcing o en mantenimiento. Seleccionados, inducidos y capacitados por nosotros.</p>
         </li>
       </ul>
+      <p class="section-next rv"><a class="next-link" href="#como-trabajamos" data-next>Así trabajamos con vos <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -934,6 +939,8 @@
       <div class="section-cta rv">
         <a id="cta-como-trabajamos" data-cta="como-trabajamos-agendar" href="/asesoria" class="btn btn-soft">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
         <p class="section-cta__note">El relevamiento y la propuesta son sin cargo.</p>
+        <a class="next-link" href="#casos" data-next>Ver casos <span class="arr" aria-hidden="true">→</span></a>
+        <a class="next-link" href="#preguntas" data-next>Preguntas frecuentes <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -1492,6 +1499,7 @@
         </div>
       </section>
       </div>
+      <p class="section-next rv"><a class="next-link" href="#presencia" data-next>¿Tenés sucursales? Mirá nuestra presencia <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -1510,7 +1518,7 @@
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Cuánto cuesta? ¿Cómo cobran?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Depende de lo que necesites. Los servicios continuos, como mesa de ayuda, outsourcing o mantenimiento, se contratan por un abono mensual acordado de antemano. Los proyectos, como una red, un sistema de control de acceso o un data center, se cotizan cerrados, con el equipamiento y la instalación incluidos. En los dos casos el precio está en la propuesta, sin sorpresas después.</p>
+          <p class="faq__a">Depende de lo que necesites. Los <a href="#servicios">servicios continuos</a>, como mesa de ayuda, outsourcing o mantenimiento, se contratan por un abono mensual acordado de antemano. Los <a href="#soluciones">proyectos</a>, como una red, un sistema de control de acceso o un data center, se cotizan cerrados, con el equipamiento y la instalación incluidos. En los dos casos el precio está en la propuesta, sin sorpresas después.</p>
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Tengo que cambiar lo que ya tengo?<span class="faq__sign" aria-hidden="true"></span></summary>
@@ -1518,19 +1526,19 @@
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Qué pasa si algo falla un fin de semana o de madrugada?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Para eso existen los servicios de mantenimiento 7x24: cubrimos las 24 horas, todos los días. El acuerdo de nivel de servicio (SLA) lo ajustamos a la medida de tu necesidad: cobertura, horarios y tiempos de respuesta se definen con vos y quedan por escrito en la propuesta.</p>
+          <p class="faq__a">Para eso existen los <a href="#servicios">servicios de mantenimiento 7x24</a>: cubrimos las 24 horas, todos los días. El acuerdo de nivel de servicio (SLA) lo ajustamos a la medida de tu necesidad: cobertura, horarios y tiempos de respuesta se definen con vos y quedan por escrito en la propuesta.</p>
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Con quién hablo cuando necesito algo?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Con una persona con nombre y apellido, responsable de tu cuenta, que conoce tu empresa y tu historial. Para el día a día hay una mesa de ayuda que recibe tus pedidos y los sigue hasta que vos confirmás que quedaron resueltos.</p>
+          <p class="faq__a">Con <a href="#equipo">una persona con nombre y apellido</a>, responsable de tu cuenta, que conoce tu empresa y tu historial. Para el día a día hay una mesa de ayuda que recibe tus pedidos y los sigue hasta que vos confirmás que quedaron resueltos.</p>
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">Mi empresa tiene sucursales en varias provincias. ¿Las cubren?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Sí. Trabajamos en más de doce provincias, con partners locales que siguen nuestros procesos, y también en Chile, Uruguay, Paraguay y Perú. Vos tenés una sola relación, un solo contrato y un solo responsable para todas tus sedes; de coordinar a los técnicos locales nos ocupamos nosotros.</p>
+          <p class="faq__a">Sí. Trabajamos en <a href="#presencia">más de doce provincias</a>, con partners locales que siguen nuestros procesos, y también en <a href="#presencia-regional">Chile, Uruguay, Paraguay y Perú</a>. Vos tenés una sola relación, un solo contrato y un solo responsable para todas tus sedes; de coordinar a los técnicos locales nos ocupamos nosotros.</p>
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">Si contrato outsourcing, ¿cómo eligen a la gente que va a estar en mi empresa?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Buscamos perfiles que encajen con tu equipo y tu tecnología, los evaluamos con psicodiagnóstico laboral y los seleccionamos junto con vos. Antes de empezar hacen una inducción en tu empresa y después los capacitamos de forma continua. Si un perfil no funciona, lo reemplazamos.</p>
+          <p class="faq__a">Buscamos perfiles que encajen con tu equipo y tu tecnología, los evaluamos con psicodiagnóstico laboral (así trabaja nuestro <a href="#servicios">outsourcing</a>) y los seleccionamos junto con vos. Antes de empezar hacen una inducción en tu empresa y después los capacitamos de forma continua. Si un perfil no funciona, lo reemplazamos.</p>
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Qué pasa con la confidencialidad de mi información?<span class="faq__sign" aria-hidden="true"></span></summary>
@@ -1538,7 +1546,7 @@
         </details>
         <details class="faq__item" name="faq">
           <summary class="faq__q">¿Puedo empezar con algo chico?<span class="faq__sign" aria-hidden="true"></span></summary>
-          <p class="faq__a">Sí, y es lo más habitual. Muchos clientes arrancan con un servicio puntual, una mesa de ayuda o la instalación de una red, y van sumando a medida que comprueban cómo trabajamos. No hay un mínimo para empezar.</p>
+          <p class="faq__a">Sí, y es lo más habitual. Muchos <a href="#casos">clientes</a> arrancan con un servicio puntual, una mesa de ayuda o la instalación de una red, y van sumando a medida que comprueban <a href="#como-trabajamos">cómo trabajamos</a>. No hay un mínimo para empezar.</p>
         </details>
       </div>
     </div>

@@ -23,7 +23,48 @@
     });
   }
 
-  /* ---------- CTAs "Agendá tu asesoría": parámetros de campaña + medición ---------- */
+  /* ---------- Barra: resalta la sección que se está viendo ---------- */
+  // Cada link de la barra cubre una o más secciones (Quiénes somos abarca Equipo e Historia).
+  const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+  if (navLinks.length && 'IntersectionObserver' in window) {
+    const COVERS = { '#equipo': ['equipo', 'historia'] };
+    const linkFor = {};
+    navLinks.forEach((a) => (COVERS[a.getAttribute('href')] || [a.getAttribute('href').slice(1)]).forEach((id) => { linkFor[id] = a; }));
+    const sections = Object.keys(linkFor).map((id) => document.getElementById(id)).filter(Boolean);
+    const visible = new Map();
+    const paint = () => {
+      let best = null;
+      visible.forEach((ratio, el) => { if (ratio > 0 && (!best || ratio > visible.get(best))) best = el; });
+      navLinks.forEach((a) => a.classList.toggle('is-active', Boolean(best) && linkFor[best.id] === a));
+    };
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => visible.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+      paint();
+    }, { threshold: [0, .2, .4, .6, .8], rootMargin: '-77px 0px -40% 0px' }).observe && sections.forEach((sec) => {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => visible.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+        paint();
+      }, { threshold: [0, .2, .4, .6, .8], rootMargin: '-77px 0px -40% 0px' }).observe(sec);
+    });
+  }
+
+  /* ---------- Enlaces internos: medición y apertura del texto plegado al llegar ---------- */
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || link.getAttribute('href') === '#') return;
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    const more = target.querySelector('.section-head details.more--text, .presence__text details.more--text, .history__more');
+    if (more) more.open = true; // que el visitante no aterrice en un párrafo plegado
+    (window.dataLayer = window.dataLayer || []).push({
+      event: 'internal_nav',
+      link_text: link.textContent.replace('→', '').trim(),
+      link_target: link.getAttribute('href'),
+      link_from: (link.closest('section[id]') || link.closest('header, footer') || {}).id || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : ''),
+    });
+  });
+
+  /* ---------- CTAs "Agendá reunión": parámetros de campaña + medición ---------- */
   // Los UTM (y los click IDs de Google, Meta y Microsoft) de la URL de entrada se reenvían a /asesoria.
   // Se guardan en la sesión para no perderlos si el visitante navega antes de hacer clic.
   const CAMPAIGN_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
@@ -398,6 +439,14 @@
     caseMenu.hidden = false;
     caseMenu.parentElement.classList.add('cases-layout--menu');
     apply();
+    // Para que otras secciones (el fichero de clientes) puedan abrir un caso: por el archivo del logo
+    caseMenu.selectByLogo = (src) => {
+      const c = cases.find((x) => x.logoSrc && src.endsWith(x.logoSrc.replace(/^.*\//, '')));
+      if (!c) return false;
+      sector = c.sector; client = c.i; apply();
+      return true;
+    };
+    caseMenu.hasLogo = (src) => cases.some((x) => x.logoSrc && src.endsWith(x.logoSrc.replace(/^.*\//, '')));
   }
 
   /* ---------- Clientes: fichero ---------- */
@@ -493,9 +542,28 @@
       current = 0;
       render();
       schedule();
+      markLinks();
     };
 
+    // Logos con caso de éxito: al tocarlos se abre su caso en la sección Casos
+    const casesMenu = document.querySelector('[data-case-menu]');
+    function markLinks() {
+      if (!casesMenu || !casesMenu.hasLogo) return;
+      stack.querySelectorAll('.logo img').forEach((img) => {
+        const li = img.closest('.logo');
+        const linked = casesMenu.hasLogo(img.getAttribute('src'));
+        li.classList.toggle('logo--link', linked);
+        if (linked) { li.setAttribute('role', 'link'); li.setAttribute('tabindex', '0'); li.title = `Ver el caso de ${img.alt}`; }
+      });
+    }
     filecab.addEventListener('click', (e) => {
+      const logo = e.target.closest('.logo--link');
+      if (logo && casesMenu && casesMenu.selectByLogo(logo.querySelector('img').getAttribute('src'))) {
+        e.stopPropagation();
+        document.getElementById('casos').scrollIntoView({ behavior: motion ? 'smooth' : 'auto' });
+        (window.dataLayer = window.dataLayer || []).push({ event: 'internal_nav', link_text: logo.querySelector('img').alt, link_target: '#casos', link_from: 'clientes' });
+        return;
+      }
       const tab = e.target.closest('.filecab__tab');
       if (tab) {
         group = group === tab.dataset.group ? null : tab.dataset.group; // volver a tocarla la destilda
