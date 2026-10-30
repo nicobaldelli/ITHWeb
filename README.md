@@ -36,8 +36,8 @@ gris de fondo `#E6E2EA` y los neutros `#333333`, `#444444`, `#4A4A4A`).
 
 **Fondos (reunión de octubre 2026).** Sin animaciones de fondo: solo color. Las secciones alternan blanco y gris `#E6E2EA`
 (clases `.bg-white` y `.bg-gray` en cada `<section>`), empezando en gris por el hero. La barra superior es blanca; el pie
-sigue en carbón `#333333`. Orden: hero (video) · clientes (blanco) · problema (gris) · servicios (blanco) · soluciones (gris) · historia (blanco) ·
-equipo (gris) · casos (blanco) · presencia (gris) · testimonios (blanco) · cómo trabajamos (gris) · preguntas (blanco) ·
+sigue en carbón `#333333`. Orden: hero (video) · clientes (blanco) · problema (gris) · servicios (blanco) · soluciones (gris) · equipo (blanco) ·
+historia (gris) · casos (blanco) · presencia (gris) · testimonios (blanco) · cómo trabajamos (gris) · preguntas (blanco) ·
 agenda (gris).
 
 **Acentos.** Las clases `.section--alt` y `.section--dark` ya no pintan fondo, pero conservan la familia de acentos de cada
