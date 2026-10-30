@@ -82,7 +82,6 @@
 </header>
 
 <main id="contenido">
-
   <!-- ===== Hero: video de fondo a pantalla completa. Arranca solo con el video y un botón con flecha; al tocarlo
        o al scrollear aparece el texto encima (con JS; sin JS el texto se ve de entrada). ===== -->
   <section class="hero section--dark bg-gray" aria-labelledby="hero-titulo" data-hero>
@@ -122,146 +121,6 @@
         <div class="stat">
           <span class="stat__value">+<span data-count="12">12</span> provincias</span>
           <span class="stat__label">con proyectos y partners locales</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Clientes ===== -->
-  <section class="clients section--alt bg-white" aria-labelledby="clientes-titulo">
-    <div class="wrap clients__inner">
-      <h2 id="clientes-titulo" class="eyebrow">Organizaciones que confiaron su tecnología en nosotros</h2>
-      <!-- Fichero de clientes: los rubros son pestañas (botones) y los logos van en fichas que pasan una tras otra.
-           Sin rubro elegido se muestran todos. La lista .filecab__all es la fuente de datos (un li por cliente, con
-           `data-group`); sin JS se ve como grilla, con JS el script arma las fichas (img/clientes). -->
-      <div class="filecab" data-filecab>
-        <div class="filecab__tabs" role="group" aria-label="Rubro">
-          <button type="button" class="filecab__tab" data-group="publico" aria-pressed="false">Sector público</button>
-          <button type="button" class="filecab__tab" data-group="salud" aria-pressed="false">Seguros y salud</button>
-          <button type="button" class="filecab__tab" data-group="industria" aria-pressed="false">Laboratorios e industria</button>
-          <button type="button" class="filecab__tab" data-group="medios" aria-pressed="false">Medios y tecnología</button>
-          <button type="button" class="filecab__tab" data-group="servicios" aria-pressed="false">Servicios y comercio</button>
-        </div>
-        <div class="filecab__stack" data-filecab-stack hidden></div>
-        <ul class="filecab__all list-reset" data-filecab-logos aria-label="Clientes">
-          <li class="logo" data-group="publico"><img src="img/clientes/agip.webp" alt="AGIP" width="140" height="49" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/senado-de-la-nacion-argentina.webp" alt="Senado de la Nación Argentina" width="106" height="100" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/agencia-de-sistemas-de-informacion.webp" alt="Agencia de Sistemas de Información" width="212" height="82" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/gobierno-de-la-ciudad-de-buenos-aires.webp" alt="Gobierno de la Ciudad de Buenos Aires" width="155" height="67" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/ministerio-de-educacion-de-la-ciudad-de-buenos-aires.webp" alt="Ministerio de Educación de la Ciudad de Buenos Aires" width="228" height="45" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/ministerio-de-cultura-de-la-ciudad-de-buenos-aires.webp" alt="Ministerio de Cultura de la Ciudad de Buenos Aires" width="219" height="47" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/superintendencia-de-riesgos-del-trabajo.webp" alt="Superintendencia de Riesgos del Trabajo" width="146" height="94" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/ba-salud.webp" alt="BA Salud" width="100" height="86" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/administracion-de-parques-nacionales.webp" alt="Administración de Parques Nacionales" width="138" height="136" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/correo-argentino.webp" alt="Correo Argentino" width="216" height="56" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/telam.webp" alt="Télam" width="137" height="47" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/sedronar.webp" alt="Sedronar" width="172" height="56" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/boletin-oficial-de-la-republica-argentina.webp" alt="Boletín Oficial de la República Argentina" width="191" height="64" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/museo-moderno.webp" alt="Museo Moderno" width="119" height="82" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/gendarmeria-nacional.webp" alt="Gendarmería Nacional" width="171" height="115" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="publico"><img src="img/clientes/nic-argentina.webp" alt="NIC Argentina" width="79" height="70" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/nacion-seguros.webp" alt="Nación Seguros" width="186" height="43" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/medife.webp" alt="Medifé" width="137" height="136" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/ase-nacional.webp" alt="ASE Nacional" width="175" height="59" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/osdipp.webp" alt="OSDIPP" width="185" height="32" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/avalian.webp" alt="Avalian" width="106" height="76" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="salud"><img src="img/clientes/gestion-compartida.webp" alt="Gestión Compartida" width="152" height="50" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/pfizer.webp" alt="Pfizer" width="176" height="74" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/laboratorios-bago.webp" alt="Laboratorios Bagó" width="156" height="53" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/reckitt-benckiser.webp" alt="Reckitt Benckiser" width="171" height="79" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/petropack.webp" alt="Petropack" width="189" height="72" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/specchem.webp" alt="SpecChem" width="176" height="41" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/finca-sophenia.webp" alt="Finca Sophenia" width="143" height="98" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/beilox.webp" alt="Beilox" width="107" height="46" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="industria"><img src="img/clientes/gemez-depositos-fiscales.webp" alt="Gemez Depósitos Fiscales" width="107" height="107" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/cablevision-fibertel.webp" alt="Cablevisión Fibertel" width="222" height="61" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/el-cronista.webp" alt="El Cronista" width="196" height="31" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/eo-107-9.webp" alt="EO 107.9" width="119" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/huawei.webp" alt="Huawei" width="107" height="107" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/global-hitss.webp" alt="Global Hitss" width="191" height="44" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/mymtec.webp" alt="Mymtec" width="178" height="90" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/sistran.webp" alt="Sistran" width="149" height="73" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/lojack.webp" alt="Lojack" width="151" height="69" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/strix.webp" alt="Strix" width="165" height="87" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="medios"><img src="img/clientes/ituran.webp" alt="Ituran" width="140" height="63" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/came.webp" alt="CAME" width="146" height="73" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/los-cardales-country-club.webp" alt="Los Cardales Country Club" width="150" height="50" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/eve-joyeria.webp" alt="EVE Joyería" width="148" height="46" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/los-noques.webp" alt="Los Noques" width="128" height="79" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/ayassa-fombella.webp" alt="Ayassa Fombella" width="182" height="81" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/grupo-libertad.webp" alt="Grupo Libertad" width="175" height="91" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/universal-credit.webp" alt="Universal Credit" width="170" height="46" loading="lazy" decoding="async"></li>
-          <li class="logo" data-group="servicios"><img src="img/clientes/asociacion-argentina-de-golf.webp" alt="Asociación Argentina de Golf" width="77" height="76" loading="lazy" decoding="async"></li>
-        </ul>
-        <div class="filecab__controls" data-filecab-controls hidden>
-          <button type="button" class="filecab__btn" data-filecab-prev aria-label="Ficha anterior"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <p class="filecab__status" data-filecab-status aria-live="polite"></p>
-          <button type="button" class="filecab__btn" data-filecab-next aria-label="Ficha siguiente"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Problema / solución ===== -->
-  <section id="problema" class="section bg-gray">
-    <div class="wrap">
-      <div class="section-head rv">
-        <span class="eyebrow">Lo que cuesta un mal soporte</span>
-        <h2 class="section-title">Cuando la tecnología se frena, <span class="hl">se frena tu empresa.</span></h2>
-        <p class="lead">Cada hora con la red caída, una cámara apagada o un equipo sin soporte se paga en ventas, en datos y en la paciencia de tu gente.</p>
-      </div>
-      <div class="compare">
-        <div class="compare__card rv">
-          <h3 class="compare__title">Así se vive hoy</h3>
-          <ul class="points list-reset">
-            <li class="point">
-              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
-              <div>
-                <h3 class="point__title">Tres proveedores, ningún responsable</h3>
-                <p class="point__text">Uno para la red, otro para las cámaras, otro para la mesa de ayuda. Cuando algo falla, se pasan la pelota.</p>
-              </div>
-            </li>
-            <li class="point">
-              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
-              <div>
-                <h3 class="point__title">Cada sucursal, a la buena de Dios</h3>
-                <p class="point__text">Cada sede con su técnico suelto, su criterio y sus tiempos.</p>
-              </div>
-            </li>
-            <li class="point">
-              <span class="ic ic-no" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.2"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></span>
-              <div>
-                <h3 class="point__title">Cada vez, una cara nueva</h3>
-                <p class="point__text">El técnico rota y hay que explicarle todo de nuevo.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="compare__card compare__card--after rv">
-          <h3 class="compare__title">Así trabajamos con vos</h3>
-          <ul class="points list-reset">
-            <li class="point">
-              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
-              <div>
-                <h3 class="point__title">Un solo equipo responsable</h3>
-                <p class="point__text">Redes, soporte y seguridad física con un único interlocutor que responde por todo.</p>
-              </div>
-            </li>
-            <li class="point">
-              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
-              <div>
-                <h3 class="point__title">El mismo estándar en toda la Argentina</h3>
-                <p class="point__text">Partners locales que trabajan con nuestros procesos, y Intellihelp como responsable ante vos.</p>
-              </div>
-            </li>
-            <li class="point">
-              <span class="ic ic-ok" aria-hidden="true"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg></span>
-              <div>
-                <h3 class="point__title">Personas que ya conocen tu empresa</h3>
-                <p class="point__text">Profesionales asignados a tu cuenta, con inducción en tu empresa y capacitación continua.</p>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -407,15 +266,7 @@
         </div>
       </section>
 
-      <div class="section-cta rv">
-        <a id="cta-servicios" data-cta="servicios-agendar" href="/asesoria" class="btn btn-soft">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
-        <p class="section-cta__note">Te ayudamos a definir qué necesita tu empresa.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Historia ===== -->
-  <!-- ===== Soluciones: misma estructura que Servicios, fondo gris claro y cards gris oscuro con letras lima.
+  <!-- ===== Soluciones: misma estructura que Servicios, fondo gris claro y cards carbón con ícono lima.
        Nueve soluciones, según la lámina "Soluciones" de la presentación institucional 2026. ===== -->
   <section id="soluciones" class="section bg-gray">
     <div class="wrap">
@@ -596,14 +447,148 @@
         </div>
       </section>
 
-      <div class="section-cta rv">
-        <a id="cta-soluciones" data-cta="soluciones-agendar" href="/asesoria" class="btn btn-gray">Agendá reunión <span class="arr" aria-hidden="true">→</span></a>
-        <p class="section-cta__note">Te ayudamos a elegir la solución para tu empresa.</p>
+  <!-- ===== Presencia nacional ===== -->
+  <section id="presencia" class="section section--alt bg-white">
+    <div class="wrap presence">
+      <div class="presence__text rv">
+        <span class="eyebrow">Presencia nacional</span>
+        <h2 class="section-title">El mismo estándar de servicio <span class="hl">en toda la Argentina.</span></h2>
+        <p class="lead">El técnico local resuelve lo puntual. Nosotros sumamos la estructura que una empresa necesita para tener un servicio de primer nivel en cualquier provincia.</p>
+        <ul class="checks list-reset">
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Ideal para empresas con sucursales: una sola relación para todas tus sedes.</span></li>
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Partners locales en Mendoza, Salta y Rosario que trabajan con nuestros procesos.</span></li>
+          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Intellihelp responde por todo: contratos, equipamiento y tiempos, en cualquier provincia.</span></li>
+        </ul>
+      </div>
+      <div class="map-card rv">
+        <!-- Para sumar una provincia, agregar "on" a su clase: se pinta, se prende en la animación
+             y se suma sola a la descripción accesible del mapa. -->
+        <svg class="armap" role="img" aria-label="Mapa de Argentina por provincias. Con proyectos o partners: Salta, Tucumán, Misiones, Corrientes, San Juan, Córdoba, Santa Fe, Entre Ríos, Mendoza, San Luis, Buenos Aires, Neuquén y Ciudad Autónoma de Buenos Aires." viewBox="0 0 360 768" data-map>
+          <path class="prov" data-name="Jujuy" d="M95.5 6.8l1.2.2 1.8 2.7 2 .1 2.3 2.4.5.8 1.2.8 1.8 0 1-.3 2.4 0 .8-.3 5.5 0 .7.5.1 1.1-.8 2.2-.2 1.2-1 1.6-.3 3 .3 1 .2 1.9.7 1.1.3 1.2 0 1 .8 1.7.2.8 1.3 1.3 3.4 1.2.3.5-.2.8-.8 1 0 2 2.8 2.7 1.4 2.8 1 .7 1.6.2 1.4-.5 1 0 2.5 1 .6 1.1.7.5 1-.1 2.3-1.9 1 0 .7.7.2 5.7.3.8 0 2.8.3 1.2.2 4.2-.2.5-1.5 1.8-.3.8-.7.7-1 .3-1.6-.1-1 .5-3 3-.7 0-2-1.7-1.3 0-.5.5-.4 1-1.1.8-.7 0-1.3-.5-2.5-1.8-1.5.2-2.4-.2-4.6-1.3-1.5-1.5-.2-.7-.8-1-.4-1.3-.8-1.2-.3-1.3-1.7-1.5-1.3-.7-1.7-1.8-.3-4-.5-1-.4-1.5-1-1.9-4.6-3.3-1.4-.3-1.6.1-1 1.5 0 1.5.6 1.5.2 1.4 1 1.6.2 7.9-.4 1.3-.6 1-1.7 1.3-2 .2-1.3-1-.9-.2-1.6-1.5-1.2-.6-3-3-1.8-1.5-2.4-1.2-1.1-1-.2-.8.8-1.4.2-2.8.7-1.2.3-2.1.8-1.9 0-2 1-2 0-2.1-1-1.4-1.8-1.6-.7-1 0-.7 1-1.2 1.4-1 .3-.8.2-2.5 1.5-.8.6-.7 1.4-.2 1-.6.3-1 0-1.7 1.2-2.7 1.1-.3 1-.7 1.2-.1 1-.7 1.8-.3 1.9-.9.6-.6.7-1.9.3-2 0-1.6z"><title>Jujuy</title></path>
+          <path class="prov on" data-name="Salta" d="M178 22.2l.2.6-.2.2 0 41.2-2.7 3.3-.3.8-1.7 1.9-1.3 2.1-2 2.2-.3 1-3 3.5-.9 1.5-2.6 3.2-3.4 4.6-1.8 2-.3.9-1.5 1.3-9.7.2-1.2-.7-1.3-.2-2.5-1-1.2.2-1.3 1.8-.2.9-1.8 3.3-.2 1-.8 1.2-.2 1.5-.8 1.8-.2 2-.3.8-.5.5-1 .2-2-.5-.3.2-2-.2-2 .5-1 .7-1.5 0-.7-.5-1.7-.5-4-2.7-2 0-1.5.7-3.3-.5-.7.5-.5 1.5-1.8 1.8-.7.3-3.5 0-1.1-.5-.7-.6-1.8-1-.9 0-1.1.8-.5 1.5-1.4 1.3-1.6.2-.5-.3-1.4-2.4-1.1-1.1-1.9-2.9-1.8-2.1-.5-1.7.2-2 .8-.7.8 0 1.9-.8 1.3-.2 1.8-3.1.2-.9-1.5-2.5-.2-2-.3-.6-1-.5-1.8 0-.9.3-2.8 0-1.2.3-18.8.5-1.5-.3-3.2-.2-2.3-.8-2.2 0-1.1-.3-1 0-1.5-1.5-.5-1.9-1-1.6-1.7-1.5-.2-2 .9-1.2.3-1.3 5-5.9 1.3-.8 1.4-.3.6-.7 2-1 1-.2 1.4-1 1-.1.5-.5 1.3-.5.7-.7 1.1-.2.9-.6 1.3-.5.5-.5 1.7-.5 1-.9 1-1.8.5-3.5.6-.7.7 0 .7.4 1.8 1.5 1 .5 4.3 4 3.4 2.3 2.1.8.9 0 .5-.3 1.8-.3 1.7-1.7 1-2.5 0-7.2-.7-1.3-.2-1-.8-1.5-.3-1.8 0-1 .8-.9.8.2.7.7 2.3 1.3 1.7 1.5.2 1 .6.8.2.7.2 3.7.6 1.8 1.7 2 1.7.7 1.5 1.3.3 1.5 1 1.7.2.8 2.1 3 1.5.5 1.5.8 2.5.2 1.5.7 2.5-.2.9.5.6.8 1.2.2 1.2.8 1.5 0 1.6-1.3.5-1 .7.2 1.3 1.1 1.4.4.6-.4 2.9-2.8 3.1-.2.5-.3 1.9-2.2.1-.6 1-1.2.2-.5-.2-11.2-.1-.1 0-3-.4-.9-.1-1.5-.7-.6-1.8-.2-1.4.3-1.3 1-.7.2-1.1-1-1.9-1-3.5 0-.1.2-1.2-.2-.5-.3-.3-1.4-.9-1.3-2-1.7-.1-.3 0-1.5.3-1-.2-2.2-.6-.8-.7-.3-2-.2-1.3-1.3-.5-1.7-.5-.8-.4-2.2-1-2.5.2-3.3.7-.9 1-2 .3-3.3.8-.8 2.2-.2 2.8.8.9 0 1.8 1 1.5.2 1.7 1.3.3.7 0 2 1 1.5.2 1 .6.8.4 2.5.8 1.7.8.8.5 1.4.7.8 0 .7.5.5.7 0 .5-.4 1.1-4.3 0-1.3.4-1.2 1-2 .5-.5.5-1.5.5-.5.3-1.5.7-.7.3-1.3 1.5-2 .5-1.3 1.3-1.4 1 .2 1.7.8.8 0 .7-.3.3-.7.9-.6 16.1 0 .9 1 .1 2.1.5.5 1.2.2 1 .7 1.5 2.5 4.3 3.6.9.4z"><title>Salta</title></path>
+          <path class="prov" data-name="Formosa" d="M179.5 23.8l1 1 .5 1.7.8 1.2.2.8 2 2.3.7 1.5.1 1.2 3 2.5 3.5 3.8 1 .2 2.5 2.5 2.7 1.5.8.8.9.2.8.7 1.3.3 1.7 1.3.2 1.2 1 1.8 1.3 1.5 1.2.9 1.5.3 1.3.8 1 .2 1.5.8 1.3 0 3.5 1.9 1.5.1 1.7 1 1.8.5 2-.1.7-.4 2 .2 1.7 1.5 1.1.5 2.2 1.8 3 2 8.2 6.9.6.1 1 1 2.2 1.2 3.2 2.5.6.3 1.7.2 1.8.8 2.5.2 1.7 1.5 1.7 2.2 1.1.3 1.7-1 .8.8 1.9 1 .8.9 2 .3 1.7.7 5.1 5.8.2.5 0 3.2-1.3 1.6-1.2.5-1.5 1.4 0 .5-.8 1.1-.4 1.4-1.8 2.6-.2 1.4-3.5 2.3-.6 1.3-.5.5-.4 1-1.6 2.2-.4 3 .2 4-.2.5-.6.7-.4 1-1.1 1.1-.5 0-.5-.3-4.7-4.8-.7-.4-4.8-4.8-2-1.7-1.2-.5-1.5 0-1.5 1-.6-.1-2.4-3.5-1.8-1-1.3-.4-1.2-1.1-.5-1.5-1.7-2.4-6.3-5.8-.8-.2-1.7-1.1-1.2-2.4-2.8-3.8-1.3-2.3-1.2-1.2-2.2-1-1.1-1-.7-.2-1.7-1.5-3.6-2.5-.9-.8-1-.2-.5-.6-.1-.9-.7-.8-.2-1-1.3-1.5-1.8-1-1-.2-1.2-.6-1.3-.4-4.7-4.8-1.3-1-1.9-.2-1.5-1-1.8-1.6-1.5-.9-1.7-.5-1.5-.8-1 0-.8-.5-.2-.3 0-12.5-.1-.2 0-14.2.1-.1-.1-6z"><title>Formosa</title></path>
+          <path class="prov" data-name="Chaco" d="M179.7 59.3l.5-.1 1.3.6 1.3.2 1 .5 4.4 3.3 2.1.2 2.4 2 3.6 4 1.4.7 1.6.1 2.2 1.2 1.2 1.3.5 2 1 1.2 2.3 1.3 7.7 5.7 1.1.3 1.7 1.7 1 2 .8.8.5 1.2 1.5 1.7.4 1.1 1 1.5.8.9 1.2.1 1 .7 5.6 5.3 1.2 1.5 1.2 2.7.6.7 1.4.3 2.1 1.2 1.9 3 .8.6 2.5 0 1-.8.8.2 6.5 5.8 6.4 6.3-.4 1.2-1.1 1.2-1.5.6-3 3.7-.2 1.2 1 1.1-.2.9-.6.6-1 .2-1.7 1-1.5 1.8 0 3 .8 1.5.2.9 0 3.5-.3 1.3-.7.8-.3.2-10.7-.2-1.2-.3-5.8 0-.2-.2-6.6-.1-.2-.2-26-.2-.2-.1-3.5 0-.6-.7-.2-1 .2-.2 0-9 .1-.1 0-30.7.2-.2 0-10.3-.2-.3-1-.7-12.3 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-9-.2-1 .2-.5-.5.2-1 1.8-1.9.4-.8 3.5-4.3.3-.9 2.2-2.5.6-1.1 2-2.4 4.2-5.8 2.7-3.2.3-.8 1.8-2 .5-1.3-.1-3.9z"><title>Chaco</title></path>
+          <path class="prov on" data-name="Misiones" d="M348.3 101l1.7 1.3.7 1.2.3 3.2 0 2.6 1 1.9.2 1.1.6.9.9 2 0 .6-.7 1.7 0 1.2-1 1.8-.2 2.5-.8 1.5-.5 2.5.2.2.1 4.3-.6.7-.4 1-1.5 1.5-1.6.1-.7.4-1.8 1.6-2.2 1-1.5.4-.5.6 0 .5-1.7 1.5-2.8-.1-.8.3-2 .2-1.7 1-.7.6-2.5.4-4.5 4.8-1 .2-.5.5-.8.3-1.7.2-.6.6-1 .5-1.2 1.5-5 1.9-.7-.7-.8-1.7-.2-1.8-1-2.2 0-2.1-.6-1.4-.4-2-.8-1-1-2 0-.6.3-.4.5 0 2.2 1.9.7 0 .6-.7 1-.2 1.2-1 1-.5 1.7-4.5 1.8-1.1 1.5-1.7 4.8-.2.5-.5 1-2 1.2-1.1.7-.4.6 0 2-2.1 1-.4.9-.8 0-1.2.5-1 1.1-1.1 1-1.5 0-1.5.9-2.5.3-3 .7-1.2 1.1-3.2 0-3.1-.3-.9.2-1.8.5-.5.5-.2 1 .9 1.3.5.5 0 1.8-1 3.7-.2z"><title>Misiones</title></path>
+          <path class="prov on" data-name="Corrientes" d="M304.7 137l.3.5-.2.7.2 1.8 1.8 3.2.2 1.8.8 2.2.4 3.1.6 1.2.4 1.3.8 1-.2 1-1.8 1.9.2 1.8-.7.5-1.3 0-1 .8-1 1.5-3.2 3.7-2.8 2.8-.9.4-1.1 1.1-.4 1-.8 1-5.8 5.7-.4.8-.6.7-.4 1-1 1.2-4.6 4.1-.4.7-2.5 2.8-.6.4-2.2-.2-1 .3-.5.5-.2 2.7-1 2.2-7.6 6.6-2 2.2-.5 1.2-1.2 1-.7-.7-.1-1-2.5-3.2-.5-1.1-1.2-1.2-1.2 0-1.5-.8-2-.4-1.8-.8-2.5 0-1.8 1-4.5-.2-1 .4-.7.6-1 .4-1 .8-1.7 0-2-1-1.8 0-1 .5-.5 0-.5-.5 0-.8.8-1.5.4-1.5-.2-2.2-1-1.7 0-2.1 1.8-3.4 0-5.6 2.2-4 2.5-1.4 2.3-2.3.9-1.7.3-2 .8-1.5.2-1.8.7-1.2.3-2 .8-1.6 0-7.2 1.5-1.5 1.4-.7 2.1-3 .2-6.8-.2-.2 0-1.8-.3-.7 0-1.1.8-1.7.9-.2 1-.8 1.1-.3 1.4-.9 12.8 0 1.3.7 1.5.3 1.5 1 .7 0 1.5.9 1.7.3 1.3.8 1.8.2 1.4.8 1 .2 1.6.8 2.4-.1 1.5-.9 1.3.2 2.3 1.8 1.2 0 1.3-1 1 0 1 .9.2.6 1 1.2 1.3.5 1.5-.3 1.2-1.2.8-2.2 1.4-1.1.6-.4z"><title>Corrientes</title></path>
+          <path class="prov" data-name="Catamarca" d="M51.7 86.2l.6-.4 2.7 0 2.2.5 1 0 1.1.5 3.2.2 2.3.8 9.9-.1.8-.4 3 0 1-.3 3.5 0 .2-.2 7.8 0 .7.5.3 2 1 1.2-.2 1.5-1.5 1.8-2.5.5-2.5 1.4-.3.5 0 3.3 1.7 2.2.3.8 1.8 2.2 1.4 2.1 3 3.9.8.1 1.3-.8 1-.2 1.4-1.5.5-1.3.3-.2 1.3.2 1 1 .2.7-1 1.3-.3 1.2-.7 1.1 0 1.7.3.7 1.5 1.1 1.9.2 2.3 1.8.8 1 0 3.5-1.6 2.2-.5 1-2.7 2.8-.3.9-1 1.1-.4.7.2 1 .8.8 1.5 0 1 .7.4 2 .6.8.4 2.2.6.8.4 1 .8 1.2 4.5 4.2 1.2.5.8.6 1.2 0 2.3-1.8 1.2-.2 1.3 1 1.3.2 1.2 1.5.2 2.7.6 1.8.2 6.3-1.7 2.2-.1.8 1.8 1.9.3 1 0 1 .4.8.3 2.5.2 5.5.8 4.2 0 1.6 1 3.2 0 3 .5 1.2 0 .8-.7 1.2-3.1 3.6-1.4.4-1.6.8-1.2 0-.7-.7-1-2.8-.8-1.2-.2-1-.8-1.3-.2-.8-.6-.9-.4-1.1-2-3.7 0-4.2-.1-.3-1.4-1-4.8-5-2.3-1.7-3-1.6-1-1 .3-1.5-2.5-2.7-.3-1.2-.7-1.1-.3-1.9-.9-1.1-1.3-.4-1-.6-2.7-.5-1.5-.7-2.5 0-2.3 1-1 0-2 .7-9.7-.2-1.3.5-.5-.2-.7-.6-1.8-3-.8-.9-.7-.3-2.3-.3-1.5-.5-1.2 0-.8-.4-1-.8-.7-.2-.5-.5-.2-.6-.1-3.4-.4-.6-.8-.7-1.3 0-1 .5-3.2 0-1.5.5-2 0-2 .8-1.2 0-.3-.3 0-1 .8-1.7 0-2.5 1-1.8 1.9-2.3.1-2.9 1.5-1.5 1 0 1.5 1 .9 0 .6-.3.4-1 .8-.8 1.3-.7 1.9-.2.6-.3.5-.8 0-3.2-1.8-2.2-.5-1-3.7-4.8 0-4.2.4-.6 2.3-2.5.2-1.2-.5-.8-.5-2.9-.7-1-.3-2.1-.7-1.7-.2-1.3-.8-1.4-.2-1.5-1-1.6 0-2 .2-.9.8-1.5 0-2z"><title>Catamarca</title></path>
+          <path class="prov on" data-name="Tucumán" d="M133.5 107.2l.5.8 0 2.5-.5 4.8-1.3 1.4-.9 1.1-.5 1.4-.8 1-.2 2.3-.8 1.7-.2 1-.8 1.1-.2 1.4-2 3-2.6 3.1 0 .9.8.8 0 .7-.8 1.1 0 .9.8 2.6-.2 2-1.6 2-.5.2-1-.2-.5-.5-.9-.3-1-1-1 .2-3 2.1-1.3-.3-1.5-1-2.3-2.2-2-2.5-.4-1.1-.8-1.5-.2-1.5-.6-1.2-.4-1.7-.6-.5-1.4 0-.8-.6 0-.9 1-.8 2-2.3 1.8-2.7 1-1 0-5.7-1.5-1.6-1-.4-1-1-1.1-.5-.7 0-.8-.6-.2-.9.7-2.1 1.3-1.9 4.8-.1 2.4-2.4.3-1.1.5-.4 3.8 0 1.4-.6 1.1.5 1 1 1.2.3 1.2.8.8.2 1.5.8 2.8 0 2.2-1 2.8 0 .9.4z"><title>Tucumán</title></path>
+          <path class="prov" data-name="Santiago del Estero" d="M141.3 92.2l.4 0 .8.6 1 0 2.3 1 11.9 0 .1-.1.2.1 32.3 0 .7.7-.2 17.5-.1.2-.2 15.6-.2.2 0 5.5-.1.2-.2 14.5-.5 2.6-.5 1.2-.2 4-.8 2.3 0 2.4-.5 1.6 0 2-.5.9-.2 3.3-.8 2.3-.2 4.4-.8 2.3-.2 3.3-.8 2.7 0 3-1 4.7-.3.5-.4 0-.5-.7 0-1.3-.8-1.4-.3-1.6-1.2-1.4-.5-.1-1.7.5-5.1 0-.5-.2-1 .3-11.7 0-.5-.1-3.7-2.9-1.3-.3-4 .2-1.5-.7-2.2-1.3-1.3-1.7-1-.2-1.7-.8-2.8 0-1.7.8-2.3.2-1.8.8-1.7.2-1.3.7-2.4.5-.6-.2-.5-.7-.2-1.1-.5-1-.2-5.4-.6-2.5-.4-3 0-3.6-.5-1.2-1.1-1-.4-.7.2-.6.8-.7.7-1.2-.2-4.3-.5-2 0-2.2-1-3.6.2-.5 2.7-3.2 0-.8-.9-1.9 0-2.3 1-1.2.2-.6-1-1-.2-.7 4-5.3.2-1.2.8-1.5 0-.7 1-1.5 0-1.6 1-2.5 1-1.2.2-.5 1.8-1.5 0-4.5.2-.2 0-2.3.3-1 0-1.7.5-1 0-1 .4-1.1.5-.7.3-2.7.8-1.5.2-1 1.8-3.1.4-1.4z"><title>Santiago del Estero</title></path>
+          <path class="prov" data-name="La Rioja" d="M43.2 146.2l1-.4 2.1 0 3-1 4.4 0 .5-.3.5 0 .8 1 .5 2.7 0 1.3.5.7.8.1 2.4 1.4 4.5.3 1.6 1.5 1.4 2.3 1.3 1.5.8 0 1-.5 11.7 0 1.7-.8 2-.2.8-.5.8 0 1.2.5 2.3.2 1.2.7 1.3.1.7.5.7 1.2.3 1.8.8 1.2.2 1 2 2-.2.8.2 1.4 1.3 1.1 1 .4 3.9 2.5 5.8 5.6.3 1.2 0 2.7 1.7 3.1 0 .7 1.8 3.2.2 1.1.7.9.3 1.1.8 1.2.2 1 .7.8.5 1.2-.2 2.8-.3.9-.5.5-.4 2.3-.8 1.5-.2 1.7-.8 1.3-.2 2-.6 1-.4 1.8-.8 1.5-.2 2-.8 1.4.2 8.8.3 1 0 3.8.3 1.2 0 3.3-.5.5-1.5 0-1.5-.5-1.3 0-.8.5-.9.2-1.3 1-7.3 0-2-1-1.4-.2-.5-.8 0-1.5-3.8-3.8-1-2-.2-1.9-.5-1.3.4-2.5 0-2.7-.7-.8-.2-4.3-.6-.9-.4-1-1-1.1-2.6-2.4-5.2-5.1-.3-1.9-3.4-3-3-2.1-8.1-7.5-1.9-1.2-4.8 0-1.7-.8-.6 0-1.7.8-3 0-.5-.3-.2-.4 0-8-.3-.5 0-.8.3-.8 1-1.4.2-.8-.2-.8-1-1-1.1-2.2-1.5-1.8-1.4-2.9-.8-1-.8-.5-1.9-1.8-.8-.2-1.3-.8-3-.2-.5-.6.1-.7 3-3.3.9-1.9.3-1.6.7-.7 1.3-.2.8-.6.2-2.4z"><title>La Rioja</title></path>
+          <path class="prov on" data-name="San Juan" d="M33.7 161l1.3-.2 2.2.4.8.5 1.3.3 3.4 3.2 1.6 3.1 1.2 1.4.7 1.6 1 1 .1 1.4-1.3 1.8 0 1.3.5 1.2 0 2.2.2.1 0 5.2-.2.5.8 1.3 3.5.4 1.9-.9 1.6 0 1.4.7 1.1.2 2.7-.2 1.2.3 5 4.2 1.6 1.8 2.4 2 2 1.4 3.3 3 .2 1 .8 1.3 8.2 8 1.5 2.3.3.9-.2.3.2 9.5.8 1.2.2 2.5 1.2 1.6 2.8 2.7.8 1.3 0 1.2-.6.7-.5.1-.7-.1-.8-.7-1.4-.2-5.8.4-1 1.1-.2 1.5.2 4.5-.2.5-.6.7-1.2.3-5.7 0-1.3-1.1-.5-.9-1.3-1.3-1-.2-.7.5-1 .2-2.5 1.8-1 0-1 .4-3 2.5-1.2.3-1.3 1-1.3.5-1.7-.7-.5-.5-.7-2 .2-1-.8-1.1-1.2-.2-2-1.3-1-1-1.2-.2-2.3 2.2-2.2.1-2.1 1.2-.7.7-.2.8-.6.7-.4 1.1-.5.5-1.5.2-2.3 1-4.5 0-2.2 1.3-.5 0-.5-.5-.8-1.6-.2-1.4.9-1 .8-.5.3-.6 0-1.9-1.1-1.8-.7-.3-1.5 0-1.2-1-.6-1.7-1.7-2.5 0-8.2-.2-.6.9-.9 1.8 0 .3-.3.2-1.3 1.5-1.4 0-.6-1.5-2.2 0-2.7.7-1.1.1-1.7 1-1.8.4-2 .6-1.5.7-.7 1.8 0 1.2-1.2.5-1.8.7-1 .5-1.7 0-.8-.4-.7-1-1-.3-.8 0-6-1.5-2.8-.2-1.4-.8-1.3-.2-1.8-1-1.7 0-1 1-1.2.4-1 1.3-1.3 1.2-.5.8-1 0-.5-.7-1.3 0-1.5.9-1.7.3-1.8-.5-2.4.5-1.3.8-1 .4-1.2 0-2.3z"><title>San Juan</title></path>
+          <path class="prov on" data-name="Córdoba" d="M140 179l.7 0 1.5.8 1.3.2 1.3 1.7 2.7 1.3 1 .8 5.8.2 2.2 1.8 3 1.5 1-.3 7 0 .2-.2 10.8 0 .5.2.7.7.5 2.3.6 1 .4 1.5.6.8.4 1.5-.2 4.2-.5 1.5 0 1.2 1.7 2.6 2.8 3.2-.2 2.5-.8 2-.2 2.2-.8 1.8-.2 2.8-.6 1.4-.4 2.6-.8 1.7 0 1.8-.3.7-2.4 2.5-.1 1.2.3.5 0 1.3.3 1 .2 5.5.3 1.8 3.7 5.4 1.3 1 .5.8.2 3.5 2 2.8 0 3.4-.3.8-3.7 4-1.8 2.7-1.5 2.8-1.5 2-.5 1.3-1.7 2.4-.3 1-1.4 1.6-.3 1-1 1.2-.2.7-3.5 5.3-.3 1-.8 1-1 1.8-.9.7-9.1 0-.7.3-.3.9.1 11.8-1 1-.5-.2-27.5.2-.5-.5-.1-10.3-.5-1.7-.4-19.7-.1-.1 0-2.4-.7-1.1-.2-3 .4-.9 1.6-1.6 0-4.4.9-1.8.3-1.7.7-1 .3-2 .7-1.1 0-.9-.9-2.3 0-2.3-.1-.5-1-.7-1 0-1.2.3-2 0-.5-.5-.2-1.6-.6-1.2-.4-1.3-.8-.9-4.8-2.8-1-.2-1.4-.8-1.3-.2-.7-1 0-10.5-.1-.1 0-4.4-.4-.8 0-1.2.5-1 .2-1.5.8-1.5.2-2 .8-1.1.2-1.9.8-1.1.2-2 .8-1.4 0-1 1-2.5.2-1.3.8-1.7.9-.8 2.5-.3 1.1-.7 4.4-4.8.1-3.4-.6-1.8 0-1 .5-.5 2.5-.7.8 0 2.3-1 1.5 0 1.9-.8 1.8-.2z"><title>Córdoba</title></path>
+          <path class="prov on" data-name="Santa Fe" d="M245.5 148l.5.5-.2.5-3 2.5-.3.8 0 6.5-.5 1.2-.3 2-.7 1.2 0 1.3-1 1.7-.2 2.1-1 2-1 1.4-1.5 1.3-1.8 1-1.2 1.2-.3 1.1-1 1.4 0 .5-.8 1.5.1 3.8-.3 1 0 1-1 1.7-.3 1.5.1 2.1 1.2 2.2 0 1.2-1 1.8 0 1.5-.5 2.7.5 2-.2 5.5-1.1 1.8-2.7 3.2-.2.6-1.8 2-.3.9-2.9 3.5-1.5 2.3-.5 1.7-1 1-1 1.5-2.5 2.8-1 .5-1.8.2-1 .5-.5.8-.2 1-1 1.7-.3 1.3 0 1.2-.3.8 0 .7.3.5 0 2.1-.3.9 0 2-.4 2-.8 2.3 0 3.5.8 1.3.2 2.2 1 2.7 1 1.5 0 .6 1 1.2 1 2 1.2.8 1.8 1.9.3.6-.1.5-1.2 1-1.2 3.2-1 1.7-.6.5-.9-.2-1-1.2-.6-.3-5.2 0-7.3 8.8-.2.5-2.8 3.2-.5 1-.7.5-1.2 1.7-2 2.1-.5.2-18 0-.5-.5.2-1 1.7-2.2.3-1 .8-.8.4-1 1.6-2.3.2-.7.7-.7 1.1-2.3 1.7-2.3.7-1.5 2.6-4 1-2 1-1.2.4-1 3.8-4.3 1.2-1.9 0-4.3-.5-1.3-1.7-2.2-.2-3.5-2.6-2.7-.4-1-1-1-1-1.8-.8-4.8-.2-5.9.4-.6 1.6-1.5.2-1 .8-1.7.2-3 .8-1.7 0-1.3 1-2.7 0-2.1 1-2.4 0-1.5.7-2 0-1-4.5-5.5-.2-2 1-3.8 0-3.3 1-3.2 0-2.2.4-1.6.6-1.7 0-3.7 1-3.3 0-1.8.9-3.2.3-4.8.8-2.5.2-4.2.8-2.5 0-2.2 1-3.8 0-2.8.4-1.9 1-.5 7.5 0 .1.2 6 0 3.4.3 9.1-.1 1.5.5 5.9 0 .1.1 13 0 .2.2 5.8 0 .2-.2z"><title>Santa Fe</title></path>
+          <path class="prov on" data-name="Entre Ríos" d="M250 197.2l1.2.6 2 .2 1.6.8 1.5.2 1.2 1 .7 1.3 2.6 3.4.4 1.8.8 1.2.2 1.1.6 1.2.2 1.7.8 1.3 0 .5-.8 1.5-.2 1.5-.6 1.2-.2 2.6-.7.9-.5 1.3-1 1-1.6 2.5 0 1 .5.5.8 1.7 0 .8-.3.5-.4 1.8-1 1.9-.5.5-1.5.5-.6 1 0 1 .6 1.6 0 2.4-.5 1 0 .5.7 1.3.8 1 0 .7-.5.5-.5 1.3-.8 1 0 4.2.2.1-.2.2 0 4.3.5 1.4-.3 2.6-.9 1-1 .4-1.8 0-1.2.6-.3.7 0 1.5-.8 2.2-.4 3.6-.5 1.2 0 4-.3 1.8 0 2 .7 1 0 .7-.5.7-.7.3-1 0-1.3-1-.9-.3-1.6-1.5-2.4-1.2-1.1 0-.9-.3-2-1.7-1.6-1-.9-.2-1.5-.8-1.6-.2-1.7-.8-1.7-.2-.8-.6-.8-.2-2-1.7-2.5-1.5-8.4-8.6 0-.4-1.6-2.3-.4-1.2-1-1.6 0-.9-.8-2-.7-3.6.5-2.2 0-1.7 1-2.3 0-8.3 1.4-2.7 1-1 2.1-.2.5-.3 3.9-4.5 2-2.8.3-1.7 1.5-1.5 1.3-1.8.4-.9 1.6-1.8.2-.5 4.7-6.2.3-.8 0-.8.7-1.5 0-1-.9-3.2.2-1.2.7-.5 3.1-.1 1.4.3.8.7 1.3.1 2.2-1.6 2.2-1.2 4.3.2 1.5-.4.8-.6z"><title>Entre Ríos</title></path>
+          <path class="prov on" data-name="Mendoza" d="M47.3 240.2l1 0 1.4 1.3 1.3.7.8.8.4 1.8.8 1.4.7.6 1.8 1 1.8-.1 1-.9 2.5-1.1 2.2-1.9 1.3-.6 1.7-.4 3-2 .7.2 2.6 2.8.5.2 7.7-.2.5.7 0 3.2 2 3 0 .3.8 1 1.2 2.3 0 6.7.8 2.2.2 4.3.8 2 .2 2.5.8 1.3.2 1 1 1.2.3 1 .7 1 .8.7.5 1.1 1.5 1.9.4.8 1.6 2.3 0 2.2-.8 2.3 0 2.5.5 1.2.5 2.8.8 1 .2.9.7.8.5 1.3.8 1 1 2 .2 2 .6 1.7 0 2 .2.2-.3 9.1-.7 1.5 0 2.9-.3 1-.4 3.6-.8.7-10.2 0-1.8.3-3 0-.8.4-2.7-.2-1.2.3-7.5.2-.5.7.2 11.1.3 1.4 0 2.1.4.9 0 2.6.3 2.7 0 6.5.2.2 0 1.8.5 1.5-.2 1.3.3 1-.1.9-.5.3-1.2 0-1.7-.8-.5 0-2.6-2-1.4-.5-1.1-.2-1 .3-1.4 0-.6-.3-1.2-1.2-.8-2.3-1.4-.8-4.5-.2-1.1.5-1.2 0-1.5-.5-1.3 0-.9-.7-1-1.8 0-2.5-1-1.7-4.5-4.3-1-.2-1.3-1.1-.3-1.4-2.5-3.6-.7-1.5-1-.5-.7-1 0-1 .4-.9-.4-1.8 0-1.2.4-.8 0-1.7-1.2-3.6-.2-2.2-1-3.3 0-1.2-.3-.7-1.5-.5-.3-.5.1-.5.7-.5 1.5.2.8-.7.2-.5 0-5.5.5-1.5.3-5 2.4-3.5.6-.6.4-1.2 0-1.7.6-.5 1.9-.1 1-1.2.1-.5 0-2.2-.3-1 0-1.1-.7-1.9-.1-2-.7-1.5 0-2.5.8-2.8 0-2.3.2-1.2.5-1.2 0-1.5-.7-.8-1.5-1.2-1-.1-.8.5-1 0-1.3-1.9 0-1.8 1.1-2.8.2-1-.8-1.2-1.7-1.5-.2-2.5-1-3.5 0-1-1-1.3-.3-1.2.5-.5 1.8-.7.9 0 1.6.5 2-1 1 0 1.9-.8 1.3-.2 1.2-2 .3-1.1.7-.7 1.5-1 2.5-.2z"><title>Mendoza</title></path>
+          <path class="prov on" data-name="San Luis" d="M83.3 235.2l1.2.1 1-.3 2.5 0 1.5.8 2.3 0 .5-.3 1.5-.3 1.4.6 2.5.7 6.1.2 2.9-1.9 3.6 0 .9.4 2.3-.2 1 .7 1.5.3.8.7 1.4.3.8.7 1.3.5 1.7 2.1.2 1.2.8 1.7 0 1.1.5.5 1.2.2 3.1-.3.9 1 .3 1.6 0 3.2-1 1.7 0 1.3-.8 1.5-.4 2-.6 1.3.1 1.7-.1 1.3-1 1.2-.9 1.5 0 .8.7 2.4.2 4.5.3.8 0 2.3.3 1.2 0 4 .2.2 0 21.3.3 1.8 0 6 .4.9-.2 1.1.2 4.4-.2.3.3 1.2 0 6.8.2.2 0 .8-.7.8-13.1.2-.2.2-3.3 0-1.4.3-3.1 0-1.2.3-2.8 0-.2.2-.7-.2-.5-.5 0-3.8.2-1.3.8-2.7 0-3.5.5-2.5 0-1.5-.3-1.2-.2-5.5-.8-2.1-.2-1.4-1-1.3-.8-1.5-.5-1.5-.8-1-.7-1.3-.3-2.5 0-3 .5-2.5 0-1.4-.4-1.5-2-3-.8-.8-.3-1-1.7-1.8-2-3.7-.2-.8-.8-1.7-.3-3.8-.5-1.2-.4-1.8 0-2.4-.5-1-.3-1.5.3-4.1-.5-2.2-.6-.7-1-1.5-.4-1-1-1.1-.6-1.9 0-10z"><title>San Luis</title></path>
+          <path class="prov on" data-name="Buenos Aires" d="M216.5 267.2l3.3 3.3 2.7 1.7 3 2.3.7.3 2 .4 1 .6 1.1 0 1.4.9 2.1.3.7.7.8.3 2 1.8 1.9.2 1.3.8.8.2.7.7 3.8 2.5 1.2.1 1.8-.6.7 0 .5.5.2.5-.2.8-1 1-.2.7-2.1 2.1-.4.7.2 1.8-2.3 1.9-1.2 2.1.2 2.7.8 1.8 1.7 1.4 3.5.1 1.1-1 1.4 0 1.1.9 1.4.5.5.5 1.6.3.5.5 1.5.5.7.7.8.3 2.4 1.7 5.8 5.8.3.8 1.5 2.2 0 2.8-3.5 4.2-.3.7 0 .5-1 1.8.2 2.8.8 1.9.2 1.5.8 1.6 4.7 4.4 1.5.8.6 0 1.2-.7.5 0 .5.5.3 3 .4.9 0 7.5-.7 1.3-2.8 3-4.4 7.5-5.5 5.2-.5 1-1.5 1.8-.5 1.2-1.1 1.5-.2 3.1-1.5 1.5-1.7 1.2-.8.2-.7.6-2.6 1.2-1 .8-2 1-1.2.2-1.3.8-1.9.2-1.3.8-1.3.2-1.5.8-2.2.4-1 .6-1.2.2-1.1.7-3.4.3-2.6 1-2.7.2-1.8.6-2.7.2-2.8.8-3.7.2-3.3 1-2.2 0-2.5.8-4 .2-1 .3-4.8 0-1.2.4-9.5 0-2 .5-1 1.1-.2 1.4-.3.6-.8.5-.9-.6 0-1.9.7-1.8-.5-2-.5-.8-2-1.5-2.2-.7-2 .5-.5.8-.1 2.2.5 1.5.5.7-.4 2.6.4.7.3 2.8 1.3 1.2 1.2.3.7.7.8 1.5 0 1.7-.3 1.1-.7 1.2-.2 3.3-2.5 2.2-.5 1.3-.6.7-.4 1.8.2 2.9-2.7 3.1-.1.7 1 2.8 1.6 1.5.5.9 1.4 1.3.1 1.5-1 2-.5.5-.3 1-.5.5-2.7 1.2-1.1.8-.9.2-.5.5-2 1-.5-.5 0-.9-.8-2-.2-1.1-1-1.7-.5-.5-.6-.2-1.2-.8-1.5-.2-1-.5-.8-1 .1-.8-.1-44.3.1-.4-.3-1.1-.3-91.5.6-1 5.2 0 .2.1 2 0 .1-.1 3.2 0 .2.1 1.6-.1 1.4.1 16.1-.1 1.4-1.2.1-.5 2.2-2.3 1.8-2.4.2-.5 2-2.1 2.8-3.9 2.9-3.1.5-1 1.3-1.2 3.2 0 .5.2 1.8 1.6.5.2 1.3-.2 1.9-1.8.3-1.3.8-1.4 0-.8 1.2-1.2z"><title>Buenos Aires</title></path>
+          <path class="prov" data-name="La Pampa" d="M157.3 304.5l-.1 4.7.3.8 0 5.2.2.1-.2 21.5.3 1.2 0 56 .2.2 0 5-.5.5-.3 0-3-2.5-.7-.2-3.2-2.8-1-.4-2-1.5-1.5-.5-3.3-1.6-2.8-.4-1.7-.8-1.8 0-2.2-.5-.3.2-6.4 0-1.6.3-1.9-.7-1.8-.3-1.7 0-1.8.3-1-.3-4.7-.3-1.6-.5-3.4 0-3.1-.4-1.9-1.6-.3-.9-1-.5-.7-.6-2-.4-1.1-.8-1.4-.2-.8-.6-1-.4-1.3-1.6-.4-.9 0-.8-1-1-.8-.2-.8.5-1.9.2-1.8.8-1 0-1.7-1.5-.1-.6-.5-.5-1.5-.9-1.5-.3-1-.8-.2-.4.2-1 3.5-3.1.1-1.2-1-1.8-1.5-1.5-1.3-.4-1.3-.8-4.4 0-.5-.7 0-5.5-.1-.1 0-1.9-.5-1.5.1-1.6-.3-1 0-2.7-.2-.2 0-8.8-.3-1.3.2-1.7-.4-.7 0-2-.3-1 0-2.5.5-.6.3-.2 4 0 .2-.2 13 0 1-.3 2.7.2 1.6-.5 2.9.1 2.1-.5.4.2 11.3-.2.2-.1 3.5 0 .8-.4 3.3 0 1.4-.3 7 0 .8-.8-.2-21 .9-.7 9 0 .8-.3 6.2 0 .3.1 1.2-.3 8.8 0 .2-.2 1.1 0z"><title>La Pampa</title></path>
+          <path class="prov on" data-name="Neuquén" d="M30.8 335.8l.7.4 1.2 1.3.5 1.2 1.3 1.5.5 1 .2 1.1.6.7.4.8.8.9 1.7.5 4 4 .6 1.5.7 3.3 1.5 1.8 2.3 1 5.5 0 .2-.1 2.8.1.7.7.2 1.5 1.3 1.5 1.3.5 3.7-.2.8.4 3.5 2.6 2.7.2 1.2.7.3.8 0 8.5.2.2 0 2.5.3.8.3 3.2.2 9 .5 4-.2.5-.6.6-2 1.2-3.7 3.3-.2.9-1.6 2.3-.4.8-2.6 3.2-2.7 1.5-.8.2-1.4 1-1.1 1.5-.5 1.5-1.5 1.5-1.5.5-.5.5-1.5.5-1.2.8-1.3.2-2.5 2.3-.7 1.5-.2 3.7-.3.8.3 2.5-1 1.8-1.3 1.4-1.2.6-4 .2-.8.8-.8.4-.5.5-1.4.5-.8.6-1.5.4-1.2.8-2.3 2.5 0 1.7.8 1 .2 1-.8 1.1-.4 1.2-1.8 1.3-2.3.2-1.4-1-5 0-.5-.2-.8-1.1-.3-1.7-.9-1.3 0-2 .9-2.5.1-1.5 2-2.4.4-1 0-.8-.5-.8-.5-.4-.7 0-.7-.6-.1-.5.3-1.7.3-.3.9 0 .6-.4.4-.5 0-3 .1-.1-.6-2.4-.7-.6-1-1.7 0-2 1-.7 1 .2.8-.2.7-.6-.5-1.9.8-2 0-1 .9-1.3.1-1-.8-2.2-.2-3-.5-1 0-.6 2.2-2.2.7-.2 4.8-3.5.8-.8 1.2-2.7-.3-1.5-2.9-3.3-.3-2.5-.3-.8-.4-3.7-1.1-2.7-.7-.8-.2-1.3-1.8-3.2 0-1.2.8-1.3 0-2.7-1-1.8 0-2.3.4-2.7-.4-1.8-.6-1.2-.4-1.2 0-4.5 1-.8.5-1.3-.1-.2 0-2.5.5-.8.8-.9.8-.3 2.4 0 .6-.3.5-.7 0-3.2.9-1 .3-1 .7-.5z"><title>Neuquén</title></path>
+          <path class="prov" data-name="Río Negro" d="M16.8 460.7l0-1.4.5-1.1-.5-2.4 0-2.6-.1-.2.1-.3 0-5.5-.1-.5.3-1.2.5-.3.8.1 2.7-.1 2.8 1.5 1.2 0 1.3-.9.7 0 .7-.3 2.1-2.8.4-2.7-.7-1.3.2-1.2 2.8-2.3 1.5-.4.8-.6 1.5-.5 2-1.7 2.4.2.6-.4 1.7-.1 2.8-3.4 0-5.8.5-2 .9-1.7.6-.6 1.2-.5.5-.5 1.2-.4 1.1-.8 1.5-.3 1-.9 1-.3 1.4-1.5 1.3-2.7 1.5-1.1 1.3-.4 2-1.1 1.9-1.9.5-1 1.5-1.8.3-.8.8-.9.2-.8.7-1 2.8-2.5 2.3-1.3 1-1.2 0-3.7-.8-6.1-.5-15.2-.3-.8.1-1.7-.3-1 0-1 .7-.7 2.6-.1 2.2.6 1.8 1.2.7 1 .2.7-.2.8-1.8 1.2-1 1.3-.4.8.2 2 .7.9 1.6 1 1.5.3 1.2 1.5 1.3 1.3.5.2 3.2-.2 1.7-.8.6-.2 1 .2.5.7.5 1.6 1.2 1.4 1.7 1.1 1.3.2.8.7 1.7.3 2.3 1.2.7 1.1 1.8 1.7 2.9.7 8.1.1 1.7.4 1 .6 4.7-.1 2.6.3 2.9 0 .1-.2 8.7.2 1.3.7 2.4.3 1.6.8 1.4 0 4 2 1.1 1 2.2 1.2 3 2.7.8.3 1.9 1.7 1 .5.8 1.1 0 28.4.8 1 2.7.3 1.8 1 .7.7.8 1.6.2 1.7.7 1.7-.2.8-2.2 1.3-12.3 0-3.5-2.8-1.3 0-1.9-.8-1.6-.4-.9-.6-2-1-1.5-.2-1.6-1-2-.2-1.5-.8-.9-.8-.5-.2-1.6.2-1 .8-.4 1.2-.8 1.1-.2 1.2-.5 1.2 0 2.8.5.8.4 4.4 1.8 5-.2 6.5-.6 1.1-.2 1.2-.7.5-18.5 0-.1.2-3.9 0-1 .3-3.5 0-1 .3-15.5.4-1.5.5-3.1 0-.4-.2-1.1.3-2.5 0-.2.2-5.7 0-1 .3-3.3.2-1.2.3-2 0-.1.2-5.9 0-.1.2-5 .1-3 .5-7.5.2-4.4.8-8.3.2-2.2.5-4.8.5-1.8 0-.7-.5-.2-1-.8-1-.3-1.5z"><title>Río Negro</title></path>
+          <path class="prov" data-name="Chubut" d="M152.2 464.3l.6 1.4.2 1 .8 1.5.2 3.5.2.1-.2 1 .2.2-.2.2 0 1.6-1 1.7 0 .8-1.5 1.5-2.7.2-.8.3-1.5-.1-1.3-1.7 0-2.2-.4-1-1.6-1.3-2.2-1-3.7.2-.6.6-1 .4-2 1.5-1.7.5-1 1.3 0 1.7.3.6 1.2 1 1.7 1 .8.2 2.5 1.7 1.2.1 1.6-.1.7.3 0 .5-.5.5-3.2 1-1.1.8-1.4.2-.6.3-4 3.9-.4 2.6-3.6 4.7-.2 4.8 2 4 0 1.2-1 1.8.2 4.7-1 1.8-.4 1.2-.6.7-.9.3-.6.8-1 .5-1.7 1.7-.8 1.3-.2 1.7.3.7 1.5 1.1.7.9-.7 1.8-.8.3-1.3-.8-2.4 0-2-.7-1.1 0-.7.5-1.2.2-.6.8-2.9 1.5-1 1-.1 1-.7.7-2.7.2-2.8 1.6-1.5 1.5-.2.9-1.8 2.6 0 .4-2.8 3.6-.2 3.4-1.8 1.8-.4 1.2-.8.8-2.3.2-1.4.5-1.6-.2-1 .3-8.9.2-.1.2-5.7.1-.8.4-5.4.1-.1.2-6.4 0-.1.2-2 0-1.9.5-4.3.1-.2.2-7 0-7.1 1-4.9-.2-3-2.5-.1-1.1.1-3.9.7-.5 1 .2 1-.2.8-.6.5-2.7 2.5-2.3.2-1-.7-1 0-.5-2.8-2.7-2.3-2.8-2.9-.4-2.5.2-.8-.7-1.2-.5-.3-.3 0-.8.5-.5 2.2 0 .8-.4 3.2 0 1.1-.6.9 0 1.1.6 2.5-.1.5-.5.4-.9 0-2.8 1.5-2.2 0-1-.9-1.1-1.3-1.2-9 0-.7-.5-.1-4.8 2.1-3.4 0-1.5-1-1.6-1.3-1.5.2-.9 1.1-1.5-.1-1-1.2-1.3-1.5-1-1.3-1.3-.2-.5.5-1.4 1.8-1.3.2-.5-.2-2.7-1-1.1-1.6-.7-2.4.2-1.8-1.7-.2-2 .5-2.3-.5-1.5 0-1.2-.8-1.3 0-.9 1-1.8-.2-2.8-1-1.5 0-1.4.9-1.1.1-.7.5-.5.5-.2 2.5.2.9-.3.5-.5.1-1-.6-1.4.6-.8 8.7-.2 1.5-.1 1.5-.5 3.3-.2.2-.2 4.5 0 1.5-.1 1.5-.5 1.8 0 .2-.2 10-.2.2-.1 2 0 1.8-.5 1 .1 1-.3 8-.2 1-.3 4.7-.2 5-.5 9.5-.1.8-.4 3.3 0 1.2-.3 21-.3.2-.2 3 0 .8-.3 4.5.1 1-.3 3.3 0 .7.5.5 1.2 0 .6 1.7 1.5 1.3.2 1.5.8 1.2.2 2.1 1 .4.3 0 .7-.5.8 0 .9.8 1 .7.1 6.1 0 1-.3 1.4-1.2.1-.5 0-1.5-1.1-1.3 0-.7.3-.3 1.2-.3 2.5-1.4.6.2z"><title>Chubut</title></path>
+          <path class="prov" data-name="Santa Cruz" d="M91.5 552.7l.5.6 0 4.5.8 2.5.2 1.5 1.2 2 1 1.2 4.3 3.8 7.2 7.2 5.6.2.9.3 4.3 0 2 .5 1.5 1.5 0 1.5.8 1.5.2 2.5-.8 2.3-.2 1.2-1.2 1.2-.8 1.3 0 2.8 1 1.5 0 1.2-.7.8-.1 1.5-.9.9-1.1.6-5.4 5.5-2.8 2.2-2.8 2.8-1.5.4-2.5 1.8-1 1.2-.5 1.3-.9 1.2-3.5 3.6-.5 1.4-.8 1-.7 4 0 3 .4.8 0 1.7-.4.8 0 1.3-.3 1.2 0 2.5-.8 2.3-.2 1.2-.7.7-1.3 2.3-1.5 1.5-2 1.2-2.2 1.6-1.3.4-2 1-3.7 2.8-2.1 2.5-.2.8-.8 1.5-.5 4.4-.4.8 0 3.3-.6 1.5 0 .7 1 1 .3.7 0 1.8 1 2.7 1 1.6.2 1.5.8 1.4.2 1-.2.5-1 1 0 1 1.3 2.1.7.7.2.8.6.7 2.5 4.5 3.7 4.7.5 1.3-1 .2-1.5-.7-1.7 0-3.5-2-5.3-.2-1.2-.6-1.1-.4-.9-.6-1.6-.4-.9-.6-1.1-.4-5.4.2-1.6.3-1.5 0-.9.4-4 .1-.1.2-6.7 0-1 .3-1.5 0-.8.4-2 0-1.9.3-.8-.7-.2-1.6-1.5-1.5-.3-.7-2.8-1.7-.9-.8-.1-.5-1-.8-.4-.7 0-.5.7-1.5 0-2.7.7-1 .1-1.3-.3-.7-1.8-1.8 0-1.2 1.1-2 0-3.5-1.1-2.1 0-1-.4-1.2-1.3-1.3-1.8-.2-2.4 1.3-.6 0-.7-.3-1.3 0-1.5 1-2 2-1-.5-.2-.8-.7-1.2-.1-1.8-.9-2.5 0-1.9-4-4.1 0-2.4-.8-1.6 0-1.4.7-1.3-.2-2-.5-.8-.5-2.2-.7-1.3 0-3.2.4-.8 1.3-1.4 1.8 0 1.4-.6.1-3 .9-1.7.1-1.5.4-.8 1.1-1.4 1.2-.1 1.5-1 .7-.7 1-1.7.3-1.3-.2-4-1-2 0-.7.7-.6.8-.4 1.5-1.5 1-1.8 0-3-.3-1.8-.3-.7-3-2.7-.2-1.3.7-1 .1-1.5 1-2 0-1.7.9-1.5 0-.5-.5-.6.1-1 .7-.7 1-.3 1.5-1.5.3-.9 0-1 .7-.6.8-.2 1-.7.4-.5 0-1-1.9-2 0-4.6 3.4-4.5 0-2.9-.4-1.1-1-1.5 0-3.2-1.8-2.5-.2-1.3.9-.9.5-.1 1.6-1.9 1.7-.6 2.3 0 2.2-.4 6.3 0 3.2-.5 2 0 2.7-.5 5.8 0 .2-.1 1.8 0 1-.4 2.5 0 1-.3 12-.2.2-.1 2.3 0 1.5-.5 2 0 .2-.2z"><title>Santa Cruz</title></path>
+          <path class="prov" data-name="Tierra del Fuego" d="M87.8 710.2l.7 0 .3.3 1 1.8 0 .5-.6 1-.4 1.4-.1 2.3.5 2.2 1.1 1 1.2.1 1 1 .5 1 .2 1.4.5.5 1.6 3 1 1.3 3.7 3.3 1.2 1.9 5.1 4.6 1 .4 2 1.6.9.2.8.7 1.2.3 1.1.7 2.9 3.1 2.3 1.9 1 .3.7.7 1.6.8 1.9.3 1.1.9 2.5.6 6.2-.5.5.7 0 2-.8 1-.2.7-.7.6-1.3 0-1.5.9-.7 0-1.8-.9-2.2 0-.5.2-2 1.8-2.8.2-2.3 2-.7 0-1.3-1-.5 0-3.9-2-.8-.2-7.8-.1-.9-.4-2.8 0-1.2-.3-2.5 0-3.1.8-1.2 0-.5-.5-.2-7.8-.3-1.2 0-2.8-.3-.8-.4-14.2-.3-1.7 0-1.6-.3-.9 0-2.5-.4-2 .2-4.1-.3-1.2 0-2.8-.2-.2 0-2zM151 752.5l-.7.7-2.3 0-.7.5-2.3.5-1.3.8-1.2 0-.3-.3 0-.5 1.8-1.4 2.8-.1 1.7-.7 2 0zM216.8 676.7l.2.5-.3.6-1.2 1.2-1 .2-1.3 1.3-1.4 2.2-1.5 1.6-.3.9-1.3 1.6-2.4.2-.8.7-1.5.5-.8.8-.4 1.2-.5.6-1 .5-1 0-1 1-.6-.1-.7-.7-.2-.7-1-1.1 0-.9.5-.5 1.4.5.8-.1 1.3-1.2 1-2.2 1.9-1.5 2.3-1.3.8-1.2 0-.8-.6-.7-2.7-1.6-1.3-1.5.3-.5 1.7.6 3.3 0 1.5-1.3.7 0 1.8.7 2.5-.2 1.2.8 1-.3zM238 676.3l.2 1.2-.5.5-1 0-.7.3-.7 1.4.9 1.6 1.5 1 0 .7-.4.3-3.6-.1-.7.3-1.5 1.5-.8.3-1.4 0-1-.3-3.1 0-1-.5-.9 0-1 .8 0 .7.5.7 1.2.8 1.7.8 0 .5-.4.4-.8.1-1 .7-.5 0-2.3-1.8-.9-.2-.8.8 0 1.5 1 1.4 0 .8-.3.5-.5.2-2.2-1.7-.8-.2-.9 1 .4 1.2 0 .7-.4.3-.8-.3-1.3-1.7 0-1 .5-.5.3-.8.2-2.4.8-.8 1.3-.5.5-.8 2.5-2.5.7-.4 1.5-.1 1.2-1 .1-.5-.1-.7-1.4-.7-.3-.3 0-.7 1.2-1.3.1-1 2.2-2.3 1.2-.2.5.5 1 .3 1.6-1 .9 0 .5.7-1.2 1.2 0 1 1.7 1.6.5 1.4 1.1 1.1 1.2 0 .5-1-.2-2.8.7-.8 3-.4z"><title>Tierra del Fuego</title></path>
+          <circle class="prov on caba" data-name="Ciudad Autónoma de Buenos Aires" cx="246.7" cy="297.2" r="5.5"><title>CABA</title></circle>
+        </svg>
+        <div class="map-info" aria-hidden="true">
+          <span class="map-info__name" data-map-name></span>
+          <span class="map-info__status" data-map-status></span>
+        </div>
+        <ul class="legend list-reset">
+          <li><span class="legend__dot"></span>Con proyectos o partners</li>
+          <li><span class="legend__dot legend__dot--off"></span>A sumar</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="equipo" class="section section--alt bg-white">
+  <!-- ===== Presencia regional: a completar (países, partners). ===== -->
+  <section id="presencia-regional" class="section section--alt bg-gray">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="eyebrow">Presencia regional</span>
+        <h2 class="section-title">Sección en preparación.</h2>
+        <p class="lead">Acá van los países y partners con los que trabajamos fuera de la Argentina.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Clientes ===== -->
+  <section class="clients section--alt bg-white" aria-labelledby="clientes-titulo">
+    <div class="wrap clients__inner">
+      <h2 id="clientes-titulo" class="eyebrow">Organizaciones que confiaron su tecnología en nosotros</h2>
+      <!-- Fichero de clientes: los rubros son pestañas (botones) y los logos van en fichas que pasan una tras otra.
+           Sin rubro elegido se muestran todos. La lista .filecab__all es la fuente de datos (un li por cliente, con
+           `data-group`); sin JS se ve como grilla, con JS el script arma las fichas (img/clientes). -->
+      <div class="filecab" data-filecab>
+        <div class="filecab__tabs" role="group" aria-label="Rubro">
+          <button type="button" class="filecab__tab" data-group="publico" aria-pressed="false">Sector público</button>
+          <button type="button" class="filecab__tab" data-group="salud" aria-pressed="false">Seguros y salud</button>
+          <button type="button" class="filecab__tab" data-group="industria" aria-pressed="false">Laboratorios e industria</button>
+          <button type="button" class="filecab__tab" data-group="medios" aria-pressed="false">Medios y tecnología</button>
+          <button type="button" class="filecab__tab" data-group="servicios" aria-pressed="false">Servicios y comercio</button>
+        </div>
+        <div class="filecab__stack" data-filecab-stack hidden></div>
+        <ul class="filecab__all list-reset" data-filecab-logos aria-label="Clientes">
+          <li class="logo" data-group="publico"><img src="img/clientes/agip.webp" alt="AGIP" width="140" height="49" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/senado-de-la-nacion-argentina.webp" alt="Senado de la Nación Argentina" width="106" height="100" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/agencia-de-sistemas-de-informacion.webp" alt="Agencia de Sistemas de Información" width="212" height="82" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/gobierno-de-la-ciudad-de-buenos-aires.webp" alt="Gobierno de la Ciudad de Buenos Aires" width="155" height="67" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/ministerio-de-educacion-de-la-ciudad-de-buenos-aires.webp" alt="Ministerio de Educación de la Ciudad de Buenos Aires" width="228" height="45" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/ministerio-de-cultura-de-la-ciudad-de-buenos-aires.webp" alt="Ministerio de Cultura de la Ciudad de Buenos Aires" width="219" height="47" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/superintendencia-de-riesgos-del-trabajo.webp" alt="Superintendencia de Riesgos del Trabajo" width="146" height="94" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/ba-salud.webp" alt="BA Salud" width="100" height="86" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/administracion-de-parques-nacionales.webp" alt="Administración de Parques Nacionales" width="138" height="136" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/correo-argentino.webp" alt="Correo Argentino" width="216" height="56" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/telam.webp" alt="Télam" width="137" height="47" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/sedronar.webp" alt="Sedronar" width="172" height="56" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/boletin-oficial-de-la-republica-argentina.webp" alt="Boletín Oficial de la República Argentina" width="191" height="64" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/museo-moderno.webp" alt="Museo Moderno" width="119" height="82" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/gendarmeria-nacional.webp" alt="Gendarmería Nacional" width="171" height="115" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="publico"><img src="img/clientes/nic-argentina.webp" alt="NIC Argentina" width="79" height="70" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/nacion-seguros.webp" alt="Nación Seguros" width="186" height="43" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/medife.webp" alt="Medifé" width="137" height="136" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/ase-nacional.webp" alt="ASE Nacional" width="175" height="59" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/osdipp.webp" alt="OSDIPP" width="185" height="32" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/avalian.webp" alt="Avalian" width="106" height="76" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="salud"><img src="img/clientes/gestion-compartida.webp" alt="Gestión Compartida" width="152" height="50" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/pfizer.webp" alt="Pfizer" width="176" height="74" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/laboratorios-bago.webp" alt="Laboratorios Bagó" width="156" height="53" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/reckitt-benckiser.webp" alt="Reckitt Benckiser" width="171" height="79" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/petropack.webp" alt="Petropack" width="189" height="72" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/specchem.webp" alt="SpecChem" width="176" height="41" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/finca-sophenia.webp" alt="Finca Sophenia" width="143" height="98" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/beilox.webp" alt="Beilox" width="107" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="industria"><img src="img/clientes/gemez-depositos-fiscales.webp" alt="Gemez Depósitos Fiscales" width="107" height="107" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/cablevision-fibertel.webp" alt="Cablevisión Fibertel" width="222" height="61" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/el-cronista.webp" alt="El Cronista" width="196" height="31" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/eo-107-9.webp" alt="EO 107.9" width="119" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/huawei.webp" alt="Huawei" width="107" height="107" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/global-hitss.webp" alt="Global Hitss" width="191" height="44" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/mymtec.webp" alt="Mymtec" width="178" height="90" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/sistran.webp" alt="Sistran" width="149" height="73" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/lojack.webp" alt="Lojack" width="151" height="69" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/strix.webp" alt="Strix" width="165" height="87" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="medios"><img src="img/clientes/ituran.webp" alt="Ituran" width="140" height="63" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/came.webp" alt="CAME" width="146" height="73" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/los-cardales-country-club.webp" alt="Los Cardales Country Club" width="150" height="50" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/eve-joyeria.webp" alt="EVE Joyería" width="148" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/los-noques.webp" alt="Los Noques" width="128" height="79" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/ayassa-fombella.webp" alt="Ayassa Fombella" width="182" height="81" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/grupo-libertad.webp" alt="Grupo Libertad" width="175" height="91" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/universal-credit.webp" alt="Universal Credit" width="170" height="46" loading="lazy" decoding="async"></li>
+          <li class="logo" data-group="servicios"><img src="img/clientes/asociacion-argentina-de-golf.webp" alt="Asociación Argentina de Golf" width="77" height="76" loading="lazy" decoding="async"></li>
+        </ul>
+        <div class="filecab__controls" data-filecab-controls hidden>
+          <button type="button" class="filecab__btn" data-filecab-prev aria-label="Ficha anterior"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <p class="filecab__status" data-filecab-status aria-live="polite"></p>
+          <button type="button" class="filecab__btn" data-filecab-next aria-label="Ficha siguiente"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Quiénes somos: Equipo ===== -->
+  <section id="equipo" class="section section--alt bg-gray">
     <div class="wrap">
       <div class="section-head rv">
         <span class="eyebrow">Equipo</span>
@@ -656,8 +641,8 @@
     </div>
   </section>
 
-  <!-- ===== Equipo ===== -->
-  <section id="historia" class="section section--dark bg-gray">
+  <!-- ===== Quiénes somos: Nuestra historia ===== -->
+  <section id="historia" class="section section--dark bg-white">
     <div class="wrap history">
       <div class="history__intro rv" data-counter="0">
         <span class="eyebrow">Nuestra historia</span>
@@ -799,6 +784,46 @@
           </div>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- ===== Cómo trabajamos: escuchar, ir y resolver ===== -->
+  <section id="como-trabajamos" class="section section--alt bg-gray">
+    <div class="wrap">
+      <div class="section-head section-head--wide rv">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2 class="section-title">En 16 años la tecnología cambió mucho. Supimos adaptarnos a cada nuevo escenario sobre tres puntos clave: <span class="hl">escuchar, ir y resolver.</span></h2>
+      </div>
+      <ol class="steps list-reset">
+        <li class="step card-violet rv">
+          <div class="step__head">
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 5h16v10H9l-5 4V5z"/><path d="M8 10h8"/></svg></span>
+            <span class="step__num" aria-hidden="true">01</span>
+          </div>
+          <h3 class="step__title">Escuchar</h3>
+          <p class="step__text">Una primera charla, sin cargo, para entender cómo trabaja tu empresa, qué se rompe y qué te preocupa.</p>
+        </li>
+        <li class="step card-violet rv">
+          <div class="step__head">
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span class="step__num" aria-hidden="true">02</span>
+          </div>
+          <h3 class="step__title">Ir</h3>
+          <p class="step__text">Vamos a tu oficina o sucursal, relevamos la situación y te presentamos una propuesta por escrito: alcance, tiempos y responsables.</p>
+        </li>
+        <li class="step card-violet rv">
+          <div class="step__head">
+            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5A5 5 0 0 1 21 19"/></svg></span>
+            <span class="step__num" aria-hidden="true">03</span>
+          </div>
+          <h3 class="step__title">Resolver</h3>
+          <p class="step__text">Un equipo asignado desde el primer día, con inducción en tu empresa, una persona responsable de tu cuenta y seguimiento continuo.</p>
+        </li>
+      </ol>
+      <div class="section-cta rv">
+        <a id="cta-como-trabajamos" data-cta="como-trabajamos-agendar" href="/asesoria" class="btn btn-primary">Agendá tu asesoría <span class="arr" aria-hidden="true">→</span></a>
+        <p class="section-cta__note">La primera charla y el asesoramiento son sin cargo.</p>
+      </div>
     </div>
   </section>
 
@@ -1355,133 +1380,9 @@
           <button type="button" class="carousel__pause" data-carousel-pause hidden>Pausar</button>
         </div>
       </section>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Presencia nacional ===== -->
-  <section id="presencia" class="section section--alt bg-gray">
-    <div class="wrap presence">
-      <div class="presence__text rv">
-        <span class="eyebrow">Presencia nacional</span>
-        <h2 class="section-title">El mismo estándar de servicio <span class="hl">en toda la Argentina.</span></h2>
-        <p class="lead">El técnico local resuelve lo puntual. Nosotros sumamos la estructura que una empresa necesita para tener un servicio de primer nivel en cualquier provincia.</p>
-        <ul class="checks list-reset">
-          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Ideal para empresas con sucursales: una sola relación para todas tus sedes.</span></li>
-          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Partners locales en Mendoza, Salta y Rosario que trabajan con nuestros procesos.</span></li>
-          <li><svg class="ico" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span>Intellihelp responde por todo: contratos, equipamiento y tiempos, en cualquier provincia.</span></li>
-        </ul>
-      </div>
-      <div class="map-card rv">
-        <!-- Para sumar una provincia, agregar "on" a su clase: se pinta, se prende en la animación
-             y se suma sola a la descripción accesible del mapa. -->
-        <svg class="armap" role="img" aria-label="Mapa de Argentina por provincias. Con proyectos o partners: Salta, Tucumán, Misiones, Corrientes, San Juan, Córdoba, Santa Fe, Entre Ríos, Mendoza, San Luis, Buenos Aires, Neuquén y Ciudad Autónoma de Buenos Aires." viewBox="0 0 360 768" data-map>
-          <path class="prov" data-name="Jujuy" d="M95.5 6.8l1.2.2 1.8 2.7 2 .1 2.3 2.4.5.8 1.2.8 1.8 0 1-.3 2.4 0 .8-.3 5.5 0 .7.5.1 1.1-.8 2.2-.2 1.2-1 1.6-.3 3 .3 1 .2 1.9.7 1.1.3 1.2 0 1 .8 1.7.2.8 1.3 1.3 3.4 1.2.3.5-.2.8-.8 1 0 2 2.8 2.7 1.4 2.8 1 .7 1.6.2 1.4-.5 1 0 2.5 1 .6 1.1.7.5 1-.1 2.3-1.9 1 0 .7.7.2 5.7.3.8 0 2.8.3 1.2.2 4.2-.2.5-1.5 1.8-.3.8-.7.7-1 .3-1.6-.1-1 .5-3 3-.7 0-2-1.7-1.3 0-.5.5-.4 1-1.1.8-.7 0-1.3-.5-2.5-1.8-1.5.2-2.4-.2-4.6-1.3-1.5-1.5-.2-.7-.8-1-.4-1.3-.8-1.2-.3-1.3-1.7-1.5-1.3-.7-1.7-1.8-.3-4-.5-1-.4-1.5-1-1.9-4.6-3.3-1.4-.3-1.6.1-1 1.5 0 1.5.6 1.5.2 1.4 1 1.6.2 7.9-.4 1.3-.6 1-1.7 1.3-2 .2-1.3-1-.9-.2-1.6-1.5-1.2-.6-3-3-1.8-1.5-2.4-1.2-1.1-1-.2-.8.8-1.4.2-2.8.7-1.2.3-2.1.8-1.9 0-2 1-2 0-2.1-1-1.4-1.8-1.6-.7-1 0-.7 1-1.2 1.4-1 .3-.8.2-2.5 1.5-.8.6-.7 1.4-.2 1-.6.3-1 0-1.7 1.2-2.7 1.1-.3 1-.7 1.2-.1 1-.7 1.8-.3 1.9-.9.6-.6.7-1.9.3-2 0-1.6z"><title>Jujuy</title></path>
-          <path class="prov on" data-name="Salta" d="M178 22.2l.2.6-.2.2 0 41.2-2.7 3.3-.3.8-1.7 1.9-1.3 2.1-2 2.2-.3 1-3 3.5-.9 1.5-2.6 3.2-3.4 4.6-1.8 2-.3.9-1.5 1.3-9.7.2-1.2-.7-1.3-.2-2.5-1-1.2.2-1.3 1.8-.2.9-1.8 3.3-.2 1-.8 1.2-.2 1.5-.8 1.8-.2 2-.3.8-.5.5-1 .2-2-.5-.3.2-2-.2-2 .5-1 .7-1.5 0-.7-.5-1.7-.5-4-2.7-2 0-1.5.7-3.3-.5-.7.5-.5 1.5-1.8 1.8-.7.3-3.5 0-1.1-.5-.7-.6-1.8-1-.9 0-1.1.8-.5 1.5-1.4 1.3-1.6.2-.5-.3-1.4-2.4-1.1-1.1-1.9-2.9-1.8-2.1-.5-1.7.2-2 .8-.7.8 0 1.9-.8 1.3-.2 1.8-3.1.2-.9-1.5-2.5-.2-2-.3-.6-1-.5-1.8 0-.9.3-2.8 0-1.2.3-18.8.5-1.5-.3-3.2-.2-2.3-.8-2.2 0-1.1-.3-1 0-1.5-1.5-.5-1.9-1-1.6-1.7-1.5-.2-2 .9-1.2.3-1.3 5-5.9 1.3-.8 1.4-.3.6-.7 2-1 1-.2 1.4-1 1-.1.5-.5 1.3-.5.7-.7 1.1-.2.9-.6 1.3-.5.5-.5 1.7-.5 1-.9 1-1.8.5-3.5.6-.7.7 0 .7.4 1.8 1.5 1 .5 4.3 4 3.4 2.3 2.1.8.9 0 .5-.3 1.8-.3 1.7-1.7 1-2.5 0-7.2-.7-1.3-.2-1-.8-1.5-.3-1.8 0-1 .8-.9.8.2.7.7 2.3 1.3 1.7 1.5.2 1 .6.8.2.7.2 3.7.6 1.8 1.7 2 1.7.7 1.5 1.3.3 1.5 1 1.7.2.8 2.1 3 1.5.5 1.5.8 2.5.2 1.5.7 2.5-.2.9.5.6.8 1.2.2 1.2.8 1.5 0 1.6-1.3.5-1 .7.2 1.3 1.1 1.4.4.6-.4 2.9-2.8 3.1-.2.5-.3 1.9-2.2.1-.6 1-1.2.2-.5-.2-11.2-.1-.1 0-3-.4-.9-.1-1.5-.7-.6-1.8-.2-1.4.3-1.3 1-.7.2-1.1-1-1.9-1-3.5 0-.1.2-1.2-.2-.5-.3-.3-1.4-.9-1.3-2-1.7-.1-.3 0-1.5.3-1-.2-2.2-.6-.8-.7-.3-2-.2-1.3-1.3-.5-1.7-.5-.8-.4-2.2-1-2.5.2-3.3.7-.9 1-2 .3-3.3.8-.8 2.2-.2 2.8.8.9 0 1.8 1 1.5.2 1.7 1.3.3.7 0 2 1 1.5.2 1 .6.8.4 2.5.8 1.7.8.8.5 1.4.7.8 0 .7.5.5.7 0 .5-.4 1.1-4.3 0-1.3.4-1.2 1-2 .5-.5.5-1.5.5-.5.3-1.5.7-.7.3-1.3 1.5-2 .5-1.3 1.3-1.4 1 .2 1.7.8.8 0 .7-.3.3-.7.9-.6 16.1 0 .9 1 .1 2.1.5.5 1.2.2 1 .7 1.5 2.5 4.3 3.6.9.4z"><title>Salta</title></path>
-          <path class="prov" data-name="Formosa" d="M179.5 23.8l1 1 .5 1.7.8 1.2.2.8 2 2.3.7 1.5.1 1.2 3 2.5 3.5 3.8 1 .2 2.5 2.5 2.7 1.5.8.8.9.2.8.7 1.3.3 1.7 1.3.2 1.2 1 1.8 1.3 1.5 1.2.9 1.5.3 1.3.8 1 .2 1.5.8 1.3 0 3.5 1.9 1.5.1 1.7 1 1.8.5 2-.1.7-.4 2 .2 1.7 1.5 1.1.5 2.2 1.8 3 2 8.2 6.9.6.1 1 1 2.2 1.2 3.2 2.5.6.3 1.7.2 1.8.8 2.5.2 1.7 1.5 1.7 2.2 1.1.3 1.7-1 .8.8 1.9 1 .8.9 2 .3 1.7.7 5.1 5.8.2.5 0 3.2-1.3 1.6-1.2.5-1.5 1.4 0 .5-.8 1.1-.4 1.4-1.8 2.6-.2 1.4-3.5 2.3-.6 1.3-.5.5-.4 1-1.6 2.2-.4 3 .2 4-.2.5-.6.7-.4 1-1.1 1.1-.5 0-.5-.3-4.7-4.8-.7-.4-4.8-4.8-2-1.7-1.2-.5-1.5 0-1.5 1-.6-.1-2.4-3.5-1.8-1-1.3-.4-1.2-1.1-.5-1.5-1.7-2.4-6.3-5.8-.8-.2-1.7-1.1-1.2-2.4-2.8-3.8-1.3-2.3-1.2-1.2-2.2-1-1.1-1-.7-.2-1.7-1.5-3.6-2.5-.9-.8-1-.2-.5-.6-.1-.9-.7-.8-.2-1-1.3-1.5-1.8-1-1-.2-1.2-.6-1.3-.4-4.7-4.8-1.3-1-1.9-.2-1.5-1-1.8-1.6-1.5-.9-1.7-.5-1.5-.8-1 0-.8-.5-.2-.3 0-12.5-.1-.2 0-14.2.1-.1-.1-6z"><title>Formosa</title></path>
-          <path class="prov" data-name="Chaco" d="M179.7 59.3l.5-.1 1.3.6 1.3.2 1 .5 4.4 3.3 2.1.2 2.4 2 3.6 4 1.4.7 1.6.1 2.2 1.2 1.2 1.3.5 2 1 1.2 2.3 1.3 7.7 5.7 1.1.3 1.7 1.7 1 2 .8.8.5 1.2 1.5 1.7.4 1.1 1 1.5.8.9 1.2.1 1 .7 5.6 5.3 1.2 1.5 1.2 2.7.6.7 1.4.3 2.1 1.2 1.9 3 .8.6 2.5 0 1-.8.8.2 6.5 5.8 6.4 6.3-.4 1.2-1.1 1.2-1.5.6-3 3.7-.2 1.2 1 1.1-.2.9-.6.6-1 .2-1.7 1-1.5 1.8 0 3 .8 1.5.2.9 0 3.5-.3 1.3-.7.8-.3.2-10.7-.2-1.2-.3-5.8 0-.2-.2-6.6-.1-.2-.2-26-.2-.2-.1-3.5 0-.6-.7-.2-1 .2-.2 0-9 .1-.1 0-30.7.2-.2 0-10.3-.2-.3-1-.7-12.3 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-1-.2-1.8 0-.2.2-9-.2-1 .2-.5-.5.2-1 1.8-1.9.4-.8 3.5-4.3.3-.9 2.2-2.5.6-1.1 2-2.4 4.2-5.8 2.7-3.2.3-.8 1.8-2 .5-1.3-.1-3.9z"><title>Chaco</title></path>
-          <path class="prov on" data-name="Misiones" d="M348.3 101l1.7 1.3.7 1.2.3 3.2 0 2.6 1 1.9.2 1.1.6.9.9 2 0 .6-.7 1.7 0 1.2-1 1.8-.2 2.5-.8 1.5-.5 2.5.2.2.1 4.3-.6.7-.4 1-1.5 1.5-1.6.1-.7.4-1.8 1.6-2.2 1-1.5.4-.5.6 0 .5-1.7 1.5-2.8-.1-.8.3-2 .2-1.7 1-.7.6-2.5.4-4.5 4.8-1 .2-.5.5-.8.3-1.7.2-.6.6-1 .5-1.2 1.5-5 1.9-.7-.7-.8-1.7-.2-1.8-1-2.2 0-2.1-.6-1.4-.4-2-.8-1-1-2 0-.6.3-.4.5 0 2.2 1.9.7 0 .6-.7 1-.2 1.2-1 1-.5 1.7-4.5 1.8-1.1 1.5-1.7 4.8-.2.5-.5 1-2 1.2-1.1.7-.4.6 0 2-2.1 1-.4.9-.8 0-1.2.5-1 1.1-1.1 1-1.5 0-1.5.9-2.5.3-3 .7-1.2 1.1-3.2 0-3.1-.3-.9.2-1.8.5-.5.5-.2 1 .9 1.3.5.5 0 1.8-1 3.7-.2z"><title>Misiones</title></path>
-          <path class="prov on" data-name="Corrientes" d="M304.7 137l.3.5-.2.7.2 1.8 1.8 3.2.2 1.8.8 2.2.4 3.1.6 1.2.4 1.3.8 1-.2 1-1.8 1.9.2 1.8-.7.5-1.3 0-1 .8-1 1.5-3.2 3.7-2.8 2.8-.9.4-1.1 1.1-.4 1-.8 1-5.8 5.7-.4.8-.6.7-.4 1-1 1.2-4.6 4.1-.4.7-2.5 2.8-.6.4-2.2-.2-1 .3-.5.5-.2 2.7-1 2.2-7.6 6.6-2 2.2-.5 1.2-1.2 1-.7-.7-.1-1-2.5-3.2-.5-1.1-1.2-1.2-1.2 0-1.5-.8-2-.4-1.8-.8-2.5 0-1.8 1-4.5-.2-1 .4-.7.6-1 .4-1 .8-1.7 0-2-1-1.8 0-1 .5-.5 0-.5-.5 0-.8.8-1.5.4-1.5-.2-2.2-1-1.7 0-2.1 1.8-3.4 0-5.6 2.2-4 2.5-1.4 2.3-2.3.9-1.7.3-2 .8-1.5.2-1.8.7-1.2.3-2 .8-1.6 0-7.2 1.5-1.5 1.4-.7 2.1-3 .2-6.8-.2-.2 0-1.8-.3-.7 0-1.1.8-1.7.9-.2 1-.8 1.1-.3 1.4-.9 12.8 0 1.3.7 1.5.3 1.5 1 .7 0 1.5.9 1.7.3 1.3.8 1.8.2 1.4.8 1 .2 1.6.8 2.4-.1 1.5-.9 1.3.2 2.3 1.8 1.2 0 1.3-1 1 0 1 .9.2.6 1 1.2 1.3.5 1.5-.3 1.2-1.2.8-2.2 1.4-1.1.6-.4z"><title>Corrientes</title></path>
-          <path class="prov" data-name="Catamarca" d="M51.7 86.2l.6-.4 2.7 0 2.2.5 1 0 1.1.5 3.2.2 2.3.8 9.9-.1.8-.4 3 0 1-.3 3.5 0 .2-.2 7.8 0 .7.5.3 2 1 1.2-.2 1.5-1.5 1.8-2.5.5-2.5 1.4-.3.5 0 3.3 1.7 2.2.3.8 1.8 2.2 1.4 2.1 3 3.9.8.1 1.3-.8 1-.2 1.4-1.5.5-1.3.3-.2 1.3.2 1 1 .2.7-1 1.3-.3 1.2-.7 1.1 0 1.7.3.7 1.5 1.1 1.9.2 2.3 1.8.8 1 0 3.5-1.6 2.2-.5 1-2.7 2.8-.3.9-1 1.1-.4.7.2 1 .8.8 1.5 0 1 .7.4 2 .6.8.4 2.2.6.8.4 1 .8 1.2 4.5 4.2 1.2.5.8.6 1.2 0 2.3-1.8 1.2-.2 1.3 1 1.3.2 1.2 1.5.2 2.7.6 1.8.2 6.3-1.7 2.2-.1.8 1.8 1.9.3 1 0 1 .4.8.3 2.5.2 5.5.8 4.2 0 1.6 1 3.2 0 3 .5 1.2 0 .8-.7 1.2-3.1 3.6-1.4.4-1.6.8-1.2 0-.7-.7-1-2.8-.8-1.2-.2-1-.8-1.3-.2-.8-.6-.9-.4-1.1-2-3.7 0-4.2-.1-.3-1.4-1-4.8-5-2.3-1.7-3-1.6-1-1 .3-1.5-2.5-2.7-.3-1.2-.7-1.1-.3-1.9-.9-1.1-1.3-.4-1-.6-2.7-.5-1.5-.7-2.5 0-2.3 1-1 0-2 .7-9.7-.2-1.3.5-.5-.2-.7-.6-1.8-3-.8-.9-.7-.3-2.3-.3-1.5-.5-1.2 0-.8-.4-1-.8-.7-.2-.5-.5-.2-.6-.1-3.4-.4-.6-.8-.7-1.3 0-1 .5-3.2 0-1.5.5-2 0-2 .8-1.2 0-.3-.3 0-1 .8-1.7 0-2.5 1-1.8 1.9-2.3.1-2.9 1.5-1.5 1 0 1.5 1 .9 0 .6-.3.4-1 .8-.8 1.3-.7 1.9-.2.6-.3.5-.8 0-3.2-1.8-2.2-.5-1-3.7-4.8 0-4.2.4-.6 2.3-2.5.2-1.2-.5-.8-.5-2.9-.7-1-.3-2.1-.7-1.7-.2-1.3-.8-1.4-.2-1.5-1-1.6 0-2 .2-.9.8-1.5 0-2z"><title>Catamarca</title></path>
-          <path class="prov on" data-name="Tucumán" d="M133.5 107.2l.5.8 0 2.5-.5 4.8-1.3 1.4-.9 1.1-.5 1.4-.8 1-.2 2.3-.8 1.7-.2 1-.8 1.1-.2 1.4-2 3-2.6 3.1 0 .9.8.8 0 .7-.8 1.1 0 .9.8 2.6-.2 2-1.6 2-.5.2-1-.2-.5-.5-.9-.3-1-1-1 .2-3 2.1-1.3-.3-1.5-1-2.3-2.2-2-2.5-.4-1.1-.8-1.5-.2-1.5-.6-1.2-.4-1.7-.6-.5-1.4 0-.8-.6 0-.9 1-.8 2-2.3 1.8-2.7 1-1 0-5.7-1.5-1.6-1-.4-1-1-1.1-.5-.7 0-.8-.6-.2-.9.7-2.1 1.3-1.9 4.8-.1 2.4-2.4.3-1.1.5-.4 3.8 0 1.4-.6 1.1.5 1 1 1.2.3 1.2.8.8.2 1.5.8 2.8 0 2.2-1 2.8 0 .9.4z"><title>Tucumán</title></path>
-          <path class="prov" data-name="Santiago del Estero" d="M141.3 92.2l.4 0 .8.6 1 0 2.3 1 11.9 0 .1-.1.2.1 32.3 0 .7.7-.2 17.5-.1.2-.2 15.6-.2.2 0 5.5-.1.2-.2 14.5-.5 2.6-.5 1.2-.2 4-.8 2.3 0 2.4-.5 1.6 0 2-.5.9-.2 3.3-.8 2.3-.2 4.4-.8 2.3-.2 3.3-.8 2.7 0 3-1 4.7-.3.5-.4 0-.5-.7 0-1.3-.8-1.4-.3-1.6-1.2-1.4-.5-.1-1.7.5-5.1 0-.5-.2-1 .3-11.7 0-.5-.1-3.7-2.9-1.3-.3-4 .2-1.5-.7-2.2-1.3-1.3-1.7-1-.2-1.7-.8-2.8 0-1.7.8-2.3.2-1.8.8-1.7.2-1.3.7-2.4.5-.6-.2-.5-.7-.2-1.1-.5-1-.2-5.4-.6-2.5-.4-3 0-3.6-.5-1.2-1.1-1-.4-.7.2-.6.8-.7.7-1.2-.2-4.3-.5-2 0-2.2-1-3.6.2-.5 2.7-3.2 0-.8-.9-1.9 0-2.3 1-1.2.2-.6-1-1-.2-.7 4-5.3.2-1.2.8-1.5 0-.7 1-1.5 0-1.6 1-2.5 1-1.2.2-.5 1.8-1.5 0-4.5.2-.2 0-2.3.3-1 0-1.7.5-1 0-1 .4-1.1.5-.7.3-2.7.8-1.5.2-1 1.8-3.1.4-1.4z"><title>Santiago del Estero</title></path>
-          <path class="prov" data-name="La Rioja" d="M43.2 146.2l1-.4 2.1 0 3-1 4.4 0 .5-.3.5 0 .8 1 .5 2.7 0 1.3.5.7.8.1 2.4 1.4 4.5.3 1.6 1.5 1.4 2.3 1.3 1.5.8 0 1-.5 11.7 0 1.7-.8 2-.2.8-.5.8 0 1.2.5 2.3.2 1.2.7 1.3.1.7.5.7 1.2.3 1.8.8 1.2.2 1 2 2-.2.8.2 1.4 1.3 1.1 1 .4 3.9 2.5 5.8 5.6.3 1.2 0 2.7 1.7 3.1 0 .7 1.8 3.2.2 1.1.7.9.3 1.1.8 1.2.2 1 .7.8.5 1.2-.2 2.8-.3.9-.5.5-.4 2.3-.8 1.5-.2 1.7-.8 1.3-.2 2-.6 1-.4 1.8-.8 1.5-.2 2-.8 1.4.2 8.8.3 1 0 3.8.3 1.2 0 3.3-.5.5-1.5 0-1.5-.5-1.3 0-.8.5-.9.2-1.3 1-7.3 0-2-1-1.4-.2-.5-.8 0-1.5-3.8-3.8-1-2-.2-1.9-.5-1.3.4-2.5 0-2.7-.7-.8-.2-4.3-.6-.9-.4-1-1-1.1-2.6-2.4-5.2-5.1-.3-1.9-3.4-3-3-2.1-8.1-7.5-1.9-1.2-4.8 0-1.7-.8-.6 0-1.7.8-3 0-.5-.3-.2-.4 0-8-.3-.5 0-.8.3-.8 1-1.4.2-.8-.2-.8-1-1-1.1-2.2-1.5-1.8-1.4-2.9-.8-1-.8-.5-1.9-1.8-.8-.2-1.3-.8-3-.2-.5-.6.1-.7 3-3.3.9-1.9.3-1.6.7-.7 1.3-.2.8-.6.2-2.4z"><title>La Rioja</title></path>
-          <path class="prov on" data-name="San Juan" d="M33.7 161l1.3-.2 2.2.4.8.5 1.3.3 3.4 3.2 1.6 3.1 1.2 1.4.7 1.6 1 1 .1 1.4-1.3 1.8 0 1.3.5 1.2 0 2.2.2.1 0 5.2-.2.5.8 1.3 3.5.4 1.9-.9 1.6 0 1.4.7 1.1.2 2.7-.2 1.2.3 5 4.2 1.6 1.8 2.4 2 2 1.4 3.3 3 .2 1 .8 1.3 8.2 8 1.5 2.3.3.9-.2.3.2 9.5.8 1.2.2 2.5 1.2 1.6 2.8 2.7.8 1.3 0 1.2-.6.7-.5.1-.7-.1-.8-.7-1.4-.2-5.8.4-1 1.1-.2 1.5.2 4.5-.2.5-.6.7-1.2.3-5.7 0-1.3-1.1-.5-.9-1.3-1.3-1-.2-.7.5-1 .2-2.5 1.8-1 0-1 .4-3 2.5-1.2.3-1.3 1-1.3.5-1.7-.7-.5-.5-.7-2 .2-1-.8-1.1-1.2-.2-2-1.3-1-1-1.2-.2-2.3 2.2-2.2.1-2.1 1.2-.7.7-.2.8-.6.7-.4 1.1-.5.5-1.5.2-2.3 1-4.5 0-2.2 1.3-.5 0-.5-.5-.8-1.6-.2-1.4.9-1 .8-.5.3-.6 0-1.9-1.1-1.8-.7-.3-1.5 0-1.2-1-.6-1.7-1.7-2.5 0-8.2-.2-.6.9-.9 1.8 0 .3-.3.2-1.3 1.5-1.4 0-.6-1.5-2.2 0-2.7.7-1.1.1-1.7 1-1.8.4-2 .6-1.5.7-.7 1.8 0 1.2-1.2.5-1.8.7-1 .5-1.7 0-.8-.4-.7-1-1-.3-.8 0-6-1.5-2.8-.2-1.4-.8-1.3-.2-1.8-1-1.7 0-1 1-1.2.4-1 1.3-1.3 1.2-.5.8-1 0-.5-.7-1.3 0-1.5.9-1.7.3-1.8-.5-2.4.5-1.3.8-1 .4-1.2 0-2.3z"><title>San Juan</title></path>
-          <path class="prov on" data-name="Córdoba" d="M140 179l.7 0 1.5.8 1.3.2 1.3 1.7 2.7 1.3 1 .8 5.8.2 2.2 1.8 3 1.5 1-.3 7 0 .2-.2 10.8 0 .5.2.7.7.5 2.3.6 1 .4 1.5.6.8.4 1.5-.2 4.2-.5 1.5 0 1.2 1.7 2.6 2.8 3.2-.2 2.5-.8 2-.2 2.2-.8 1.8-.2 2.8-.6 1.4-.4 2.6-.8 1.7 0 1.8-.3.7-2.4 2.5-.1 1.2.3.5 0 1.3.3 1 .2 5.5.3 1.8 3.7 5.4 1.3 1 .5.8.2 3.5 2 2.8 0 3.4-.3.8-3.7 4-1.8 2.7-1.5 2.8-1.5 2-.5 1.3-1.7 2.4-.3 1-1.4 1.6-.3 1-1 1.2-.2.7-3.5 5.3-.3 1-.8 1-1 1.8-.9.7-9.1 0-.7.3-.3.9.1 11.8-1 1-.5-.2-27.5.2-.5-.5-.1-10.3-.5-1.7-.4-19.7-.1-.1 0-2.4-.7-1.1-.2-3 .4-.9 1.6-1.6 0-4.4.9-1.8.3-1.7.7-1 .3-2 .7-1.1 0-.9-.9-2.3 0-2.3-.1-.5-1-.7-1 0-1.2.3-2 0-.5-.5-.2-1.6-.6-1.2-.4-1.3-.8-.9-4.8-2.8-1-.2-1.4-.8-1.3-.2-.7-1 0-10.5-.1-.1 0-4.4-.4-.8 0-1.2.5-1 .2-1.5.8-1.5.2-2 .8-1.1.2-1.9.8-1.1.2-2 .8-1.4 0-1 1-2.5.2-1.3.8-1.7.9-.8 2.5-.3 1.1-.7 4.4-4.8.1-3.4-.6-1.8 0-1 .5-.5 2.5-.7.8 0 2.3-1 1.5 0 1.9-.8 1.8-.2z"><title>Córdoba</title></path>
-          <path class="prov on" data-name="Santa Fe" d="M245.5 148l.5.5-.2.5-3 2.5-.3.8 0 6.5-.5 1.2-.3 2-.7 1.2 0 1.3-1 1.7-.2 2.1-1 2-1 1.4-1.5 1.3-1.8 1-1.2 1.2-.3 1.1-1 1.4 0 .5-.8 1.5.1 3.8-.3 1 0 1-1 1.7-.3 1.5.1 2.1 1.2 2.2 0 1.2-1 1.8 0 1.5-.5 2.7.5 2-.2 5.5-1.1 1.8-2.7 3.2-.2.6-1.8 2-.3.9-2.9 3.5-1.5 2.3-.5 1.7-1 1-1 1.5-2.5 2.8-1 .5-1.8.2-1 .5-.5.8-.2 1-1 1.7-.3 1.3 0 1.2-.3.8 0 .7.3.5 0 2.1-.3.9 0 2-.4 2-.8 2.3 0 3.5.8 1.3.2 2.2 1 2.7 1 1.5 0 .6 1 1.2 1 2 1.2.8 1.8 1.9.3.6-.1.5-1.2 1-1.2 3.2-1 1.7-.6.5-.9-.2-1-1.2-.6-.3-5.2 0-7.3 8.8-.2.5-2.8 3.2-.5 1-.7.5-1.2 1.7-2 2.1-.5.2-18 0-.5-.5.2-1 1.7-2.2.3-1 .8-.8.4-1 1.6-2.3.2-.7.7-.7 1.1-2.3 1.7-2.3.7-1.5 2.6-4 1-2 1-1.2.4-1 3.8-4.3 1.2-1.9 0-4.3-.5-1.3-1.7-2.2-.2-3.5-2.6-2.7-.4-1-1-1-1-1.8-.8-4.8-.2-5.9.4-.6 1.6-1.5.2-1 .8-1.7.2-3 .8-1.7 0-1.3 1-2.7 0-2.1 1-2.4 0-1.5.7-2 0-1-4.5-5.5-.2-2 1-3.8 0-3.3 1-3.2 0-2.2.4-1.6.6-1.7 0-3.7 1-3.3 0-1.8.9-3.2.3-4.8.8-2.5.2-4.2.8-2.5 0-2.2 1-3.8 0-2.8.4-1.9 1-.5 7.5 0 .1.2 6 0 3.4.3 9.1-.1 1.5.5 5.9 0 .1.1 13 0 .2.2 5.8 0 .2-.2z"><title>Santa Fe</title></path>
-          <path class="prov on" data-name="Entre Ríos" d="M250 197.2l1.2.6 2 .2 1.6.8 1.5.2 1.2 1 .7 1.3 2.6 3.4.4 1.8.8 1.2.2 1.1.6 1.2.2 1.7.8 1.3 0 .5-.8 1.5-.2 1.5-.6 1.2-.2 2.6-.7.9-.5 1.3-1 1-1.6 2.5 0 1 .5.5.8 1.7 0 .8-.3.5-.4 1.8-1 1.9-.5.5-1.5.5-.6 1 0 1 .6 1.6 0 2.4-.5 1 0 .5.7 1.3.8 1 0 .7-.5.5-.5 1.3-.8 1 0 4.2.2.1-.2.2 0 4.3.5 1.4-.3 2.6-.9 1-1 .4-1.8 0-1.2.6-.3.7 0 1.5-.8 2.2-.4 3.6-.5 1.2 0 4-.3 1.8 0 2 .7 1 0 .7-.5.7-.7.3-1 0-1.3-1-.9-.3-1.6-1.5-2.4-1.2-1.1 0-.9-.3-2-1.7-1.6-1-.9-.2-1.5-.8-1.6-.2-1.7-.8-1.7-.2-.8-.6-.8-.2-2-1.7-2.5-1.5-8.4-8.6 0-.4-1.6-2.3-.4-1.2-1-1.6 0-.9-.8-2-.7-3.6.5-2.2 0-1.7 1-2.3 0-8.3 1.4-2.7 1-1 2.1-.2.5-.3 3.9-4.5 2-2.8.3-1.7 1.5-1.5 1.3-1.8.4-.9 1.6-1.8.2-.5 4.7-6.2.3-.8 0-.8.7-1.5 0-1-.9-3.2.2-1.2.7-.5 3.1-.1 1.4.3.8.7 1.3.1 2.2-1.6 2.2-1.2 4.3.2 1.5-.4.8-.6z"><title>Entre Ríos</title></path>
-          <path class="prov on" data-name="Mendoza" d="M47.3 240.2l1 0 1.4 1.3 1.3.7.8.8.4 1.8.8 1.4.7.6 1.8 1 1.8-.1 1-.9 2.5-1.1 2.2-1.9 1.3-.6 1.7-.4 3-2 .7.2 2.6 2.8.5.2 7.7-.2.5.7 0 3.2 2 3 0 .3.8 1 1.2 2.3 0 6.7.8 2.2.2 4.3.8 2 .2 2.5.8 1.3.2 1 1 1.2.3 1 .7 1 .8.7.5 1.1 1.5 1.9.4.8 1.6 2.3 0 2.2-.8 2.3 0 2.5.5 1.2.5 2.8.8 1 .2.9.7.8.5 1.3.8 1 1 2 .2 2 .6 1.7 0 2 .2.2-.3 9.1-.7 1.5 0 2.9-.3 1-.4 3.6-.8.7-10.2 0-1.8.3-3 0-.8.4-2.7-.2-1.2.3-7.5.2-.5.7.2 11.1.3 1.4 0 2.1.4.9 0 2.6.3 2.7 0 6.5.2.2 0 1.8.5 1.5-.2 1.3.3 1-.1.9-.5.3-1.2 0-1.7-.8-.5 0-2.6-2-1.4-.5-1.1-.2-1 .3-1.4 0-.6-.3-1.2-1.2-.8-2.3-1.4-.8-4.5-.2-1.1.5-1.2 0-1.5-.5-1.3 0-.9-.7-1-1.8 0-2.5-1-1.7-4.5-4.3-1-.2-1.3-1.1-.3-1.4-2.5-3.6-.7-1.5-1-.5-.7-1 0-1 .4-.9-.4-1.8 0-1.2.4-.8 0-1.7-1.2-3.6-.2-2.2-1-3.3 0-1.2-.3-.7-1.5-.5-.3-.5.1-.5.7-.5 1.5.2.8-.7.2-.5 0-5.5.5-1.5.3-5 2.4-3.5.6-.6.4-1.2 0-1.7.6-.5 1.9-.1 1-1.2.1-.5 0-2.2-.3-1 0-1.1-.7-1.9-.1-2-.7-1.5 0-2.5.8-2.8 0-2.3.2-1.2.5-1.2 0-1.5-.7-.8-1.5-1.2-1-.1-.8.5-1 0-1.3-1.9 0-1.8 1.1-2.8.2-1-.8-1.2-1.7-1.5-.2-2.5-1-3.5 0-1-1-1.3-.3-1.2.5-.5 1.8-.7.9 0 1.6.5 2-1 1 0 1.9-.8 1.3-.2 1.2-2 .3-1.1.7-.7 1.5-1 2.5-.2z"><title>Mendoza</title></path>
-          <path class="prov on" data-name="San Luis" d="M83.3 235.2l1.2.1 1-.3 2.5 0 1.5.8 2.3 0 .5-.3 1.5-.3 1.4.6 2.5.7 6.1.2 2.9-1.9 3.6 0 .9.4 2.3-.2 1 .7 1.5.3.8.7 1.4.3.8.7 1.3.5 1.7 2.1.2 1.2.8 1.7 0 1.1.5.5 1.2.2 3.1-.3.9 1 .3 1.6 0 3.2-1 1.7 0 1.3-.8 1.5-.4 2-.6 1.3.1 1.7-.1 1.3-1 1.2-.9 1.5 0 .8.7 2.4.2 4.5.3.8 0 2.3.3 1.2 0 4 .2.2 0 21.3.3 1.8 0 6 .4.9-.2 1.1.2 4.4-.2.3.3 1.2 0 6.8.2.2 0 .8-.7.8-13.1.2-.2.2-3.3 0-1.4.3-3.1 0-1.2.3-2.8 0-.2.2-.7-.2-.5-.5 0-3.8.2-1.3.8-2.7 0-3.5.5-2.5 0-1.5-.3-1.2-.2-5.5-.8-2.1-.2-1.4-1-1.3-.8-1.5-.5-1.5-.8-1-.7-1.3-.3-2.5 0-3 .5-2.5 0-1.4-.4-1.5-2-3-.8-.8-.3-1-1.7-1.8-2-3.7-.2-.8-.8-1.7-.3-3.8-.5-1.2-.4-1.8 0-2.4-.5-1-.3-1.5.3-4.1-.5-2.2-.6-.7-1-1.5-.4-1-1-1.1-.6-1.9 0-10z"><title>San Luis</title></path>
-          <path class="prov on" data-name="Buenos Aires" d="M216.5 267.2l3.3 3.3 2.7 1.7 3 2.3.7.3 2 .4 1 .6 1.1 0 1.4.9 2.1.3.7.7.8.3 2 1.8 1.9.2 1.3.8.8.2.7.7 3.8 2.5 1.2.1 1.8-.6.7 0 .5.5.2.5-.2.8-1 1-.2.7-2.1 2.1-.4.7.2 1.8-2.3 1.9-1.2 2.1.2 2.7.8 1.8 1.7 1.4 3.5.1 1.1-1 1.4 0 1.1.9 1.4.5.5.5 1.6.3.5.5 1.5.5.7.7.8.3 2.4 1.7 5.8 5.8.3.8 1.5 2.2 0 2.8-3.5 4.2-.3.7 0 .5-1 1.8.2 2.8.8 1.9.2 1.5.8 1.6 4.7 4.4 1.5.8.6 0 1.2-.7.5 0 .5.5.3 3 .4.9 0 7.5-.7 1.3-2.8 3-4.4 7.5-5.5 5.2-.5 1-1.5 1.8-.5 1.2-1.1 1.5-.2 3.1-1.5 1.5-1.7 1.2-.8.2-.7.6-2.6 1.2-1 .8-2 1-1.2.2-1.3.8-1.9.2-1.3.8-1.3.2-1.5.8-2.2.4-1 .6-1.2.2-1.1.7-3.4.3-2.6 1-2.7.2-1.8.6-2.7.2-2.8.8-3.7.2-3.3 1-2.2 0-2.5.8-4 .2-1 .3-4.8 0-1.2.4-9.5 0-2 .5-1 1.1-.2 1.4-.3.6-.8.5-.9-.6 0-1.9.7-1.8-.5-2-.5-.8-2-1.5-2.2-.7-2 .5-.5.8-.1 2.2.5 1.5.5.7-.4 2.6.4.7.3 2.8 1.3 1.2 1.2.3.7.7.8 1.5 0 1.7-.3 1.1-.7 1.2-.2 3.3-2.5 2.2-.5 1.3-.6.7-.4 1.8.2 2.9-2.7 3.1-.1.7 1 2.8 1.6 1.5.5.9 1.4 1.3.1 1.5-1 2-.5.5-.3 1-.5.5-2.7 1.2-1.1.8-.9.2-.5.5-2 1-.5-.5 0-.9-.8-2-.2-1.1-1-1.7-.5-.5-.6-.2-1.2-.8-1.5-.2-1-.5-.8-1 .1-.8-.1-44.3.1-.4-.3-1.1-.3-91.5.6-1 5.2 0 .2.1 2 0 .1-.1 3.2 0 .2.1 1.6-.1 1.4.1 16.1-.1 1.4-1.2.1-.5 2.2-2.3 1.8-2.4.2-.5 2-2.1 2.8-3.9 2.9-3.1.5-1 1.3-1.2 3.2 0 .5.2 1.8 1.6.5.2 1.3-.2 1.9-1.8.3-1.3.8-1.4 0-.8 1.2-1.2z"><title>Buenos Aires</title></path>
-          <path class="prov" data-name="La Pampa" d="M157.3 304.5l-.1 4.7.3.8 0 5.2.2.1-.2 21.5.3 1.2 0 56 .2.2 0 5-.5.5-.3 0-3-2.5-.7-.2-3.2-2.8-1-.4-2-1.5-1.5-.5-3.3-1.6-2.8-.4-1.7-.8-1.8 0-2.2-.5-.3.2-6.4 0-1.6.3-1.9-.7-1.8-.3-1.7 0-1.8.3-1-.3-4.7-.3-1.6-.5-3.4 0-3.1-.4-1.9-1.6-.3-.9-1-.5-.7-.6-2-.4-1.1-.8-1.4-.2-.8-.6-1-.4-1.3-1.6-.4-.9 0-.8-1-1-.8-.2-.8.5-1.9.2-1.8.8-1 0-1.7-1.5-.1-.6-.5-.5-1.5-.9-1.5-.3-1-.8-.2-.4.2-1 3.5-3.1.1-1.2-1-1.8-1.5-1.5-1.3-.4-1.3-.8-4.4 0-.5-.7 0-5.5-.1-.1 0-1.9-.5-1.5.1-1.6-.3-1 0-2.7-.2-.2 0-8.8-.3-1.3.2-1.7-.4-.7 0-2-.3-1 0-2.5.5-.6.3-.2 4 0 .2-.2 13 0 1-.3 2.7.2 1.6-.5 2.9.1 2.1-.5.4.2 11.3-.2.2-.1 3.5 0 .8-.4 3.3 0 1.4-.3 7 0 .8-.8-.2-21 .9-.7 9 0 .8-.3 6.2 0 .3.1 1.2-.3 8.8 0 .2-.2 1.1 0z"><title>La Pampa</title></path>
-          <path class="prov on" data-name="Neuquén" d="M30.8 335.8l.7.4 1.2 1.3.5 1.2 1.3 1.5.5 1 .2 1.1.6.7.4.8.8.9 1.7.5 4 4 .6 1.5.7 3.3 1.5 1.8 2.3 1 5.5 0 .2-.1 2.8.1.7.7.2 1.5 1.3 1.5 1.3.5 3.7-.2.8.4 3.5 2.6 2.7.2 1.2.7.3.8 0 8.5.2.2 0 2.5.3.8.3 3.2.2 9 .5 4-.2.5-.6.6-2 1.2-3.7 3.3-.2.9-1.6 2.3-.4.8-2.6 3.2-2.7 1.5-.8.2-1.4 1-1.1 1.5-.5 1.5-1.5 1.5-1.5.5-.5.5-1.5.5-1.2.8-1.3.2-2.5 2.3-.7 1.5-.2 3.7-.3.8.3 2.5-1 1.8-1.3 1.4-1.2.6-4 .2-.8.8-.8.4-.5.5-1.4.5-.8.6-1.5.4-1.2.8-2.3 2.5 0 1.7.8 1 .2 1-.8 1.1-.4 1.2-1.8 1.3-2.3.2-1.4-1-5 0-.5-.2-.8-1.1-.3-1.7-.9-1.3 0-2 .9-2.5.1-1.5 2-2.4.4-1 0-.8-.5-.8-.5-.4-.7 0-.7-.6-.1-.5.3-1.7.3-.3.9 0 .6-.4.4-.5 0-3 .1-.1-.6-2.4-.7-.6-1-1.7 0-2 1-.7 1 .2.8-.2.7-.6-.5-1.9.8-2 0-1 .9-1.3.1-1-.8-2.2-.2-3-.5-1 0-.6 2.2-2.2.7-.2 4.8-3.5.8-.8 1.2-2.7-.3-1.5-2.9-3.3-.3-2.5-.3-.8-.4-3.7-1.1-2.7-.7-.8-.2-1.3-1.8-3.2 0-1.2.8-1.3 0-2.7-1-1.8 0-2.3.4-2.7-.4-1.8-.6-1.2-.4-1.2 0-4.5 1-.8.5-1.3-.1-.2 0-2.5.5-.8.8-.9.8-.3 2.4 0 .6-.3.5-.7 0-3.2.9-1 .3-1 .7-.5z"><title>Neuquén</title></path>
-          <path class="prov" data-name="Río Negro" d="M16.8 460.7l0-1.4.5-1.1-.5-2.4 0-2.6-.1-.2.1-.3 0-5.5-.1-.5.3-1.2.5-.3.8.1 2.7-.1 2.8 1.5 1.2 0 1.3-.9.7 0 .7-.3 2.1-2.8.4-2.7-.7-1.3.2-1.2 2.8-2.3 1.5-.4.8-.6 1.5-.5 2-1.7 2.4.2.6-.4 1.7-.1 2.8-3.4 0-5.8.5-2 .9-1.7.6-.6 1.2-.5.5-.5 1.2-.4 1.1-.8 1.5-.3 1-.9 1-.3 1.4-1.5 1.3-2.7 1.5-1.1 1.3-.4 2-1.1 1.9-1.9.5-1 1.5-1.8.3-.8.8-.9.2-.8.7-1 2.8-2.5 2.3-1.3 1-1.2 0-3.7-.8-6.1-.5-15.2-.3-.8.1-1.7-.3-1 0-1 .7-.7 2.6-.1 2.2.6 1.8 1.2.7 1 .2.7-.2.8-1.8 1.2-1 1.3-.4.8.2 2 .7.9 1.6 1 1.5.3 1.2 1.5 1.3 1.3.5.2 3.2-.2 1.7-.8.6-.2 1 .2.5.7.5 1.6 1.2 1.4 1.7 1.1 1.3.2.8.7 1.7.3 2.3 1.2.7 1.1 1.8 1.7 2.9.7 8.1.1 1.7.4 1 .6 4.7-.1 2.6.3 2.9 0 .1-.2 8.7.2 1.3.7 2.4.3 1.6.8 1.4 0 4 2 1.1 1 2.2 1.2 3 2.7.8.3 1.9 1.7 1 .5.8 1.1 0 28.4.8 1 2.7.3 1.8 1 .7.7.8 1.6.2 1.7.7 1.7-.2.8-2.2 1.3-12.3 0-3.5-2.8-1.3 0-1.9-.8-1.6-.4-.9-.6-2-1-1.5-.2-1.6-1-2-.2-1.5-.8-.9-.8-.5-.2-1.6.2-1 .8-.4 1.2-.8 1.1-.2 1.2-.5 1.2 0 2.8.5.8.4 4.4 1.8 5-.2 6.5-.6 1.1-.2 1.2-.7.5-18.5 0-.1.2-3.9 0-1 .3-3.5 0-1 .3-15.5.4-1.5.5-3.1 0-.4-.2-1.1.3-2.5 0-.2.2-5.7 0-1 .3-3.3.2-1.2.3-2 0-.1.2-5.9 0-.1.2-5 .1-3 .5-7.5.2-4.4.8-8.3.2-2.2.5-4.8.5-1.8 0-.7-.5-.2-1-.8-1-.3-1.5z"><title>Río Negro</title></path>
-          <path class="prov" data-name="Chubut" d="M152.2 464.3l.6 1.4.2 1 .8 1.5.2 3.5.2.1-.2 1 .2.2-.2.2 0 1.6-1 1.7 0 .8-1.5 1.5-2.7.2-.8.3-1.5-.1-1.3-1.7 0-2.2-.4-1-1.6-1.3-2.2-1-3.7.2-.6.6-1 .4-2 1.5-1.7.5-1 1.3 0 1.7.3.6 1.2 1 1.7 1 .8.2 2.5 1.7 1.2.1 1.6-.1.7.3 0 .5-.5.5-3.2 1-1.1.8-1.4.2-.6.3-4 3.9-.4 2.6-3.6 4.7-.2 4.8 2 4 0 1.2-1 1.8.2 4.7-1 1.8-.4 1.2-.6.7-.9.3-.6.8-1 .5-1.7 1.7-.8 1.3-.2 1.7.3.7 1.5 1.1.7.9-.7 1.8-.8.3-1.3-.8-2.4 0-2-.7-1.1 0-.7.5-1.2.2-.6.8-2.9 1.5-1 1-.1 1-.7.7-2.7.2-2.8 1.6-1.5 1.5-.2.9-1.8 2.6 0 .4-2.8 3.6-.2 3.4-1.8 1.8-.4 1.2-.8.8-2.3.2-1.4.5-1.6-.2-1 .3-8.9.2-.1.2-5.7.1-.8.4-5.4.1-.1.2-6.4 0-.1.2-2 0-1.9.5-4.3.1-.2.2-7 0-7.1 1-4.9-.2-3-2.5-.1-1.1.1-3.9.7-.5 1 .2 1-.2.8-.6.5-2.7 2.5-2.3.2-1-.7-1 0-.5-2.8-2.7-2.3-2.8-2.9-.4-2.5.2-.8-.7-1.2-.5-.3-.3 0-.8.5-.5 2.2 0 .8-.4 3.2 0 1.1-.6.9 0 1.1.6 2.5-.1.5-.5.4-.9 0-2.8 1.5-2.2 0-1-.9-1.1-1.3-1.2-9 0-.7-.5-.1-4.8 2.1-3.4 0-1.5-1-1.6-1.3-1.5.2-.9 1.1-1.5-.1-1-1.2-1.3-1.5-1-1.3-1.3-.2-.5.5-1.4 1.8-1.3.2-.5-.2-2.7-1-1.1-1.6-.7-2.4.2-1.8-1.7-.2-2 .5-2.3-.5-1.5 0-1.2-.8-1.3 0-.9 1-1.8-.2-2.8-1-1.5 0-1.4.9-1.1.1-.7.5-.5.5-.2 2.5.2.9-.3.5-.5.1-1-.6-1.4.6-.8 8.7-.2 1.5-.1 1.5-.5 3.3-.2.2-.2 4.5 0 1.5-.1 1.5-.5 1.8 0 .2-.2 10-.2.2-.1 2 0 1.8-.5 1 .1 1-.3 8-.2 1-.3 4.7-.2 5-.5 9.5-.1.8-.4 3.3 0 1.2-.3 21-.3.2-.2 3 0 .8-.3 4.5.1 1-.3 3.3 0 .7.5.5 1.2 0 .6 1.7 1.5 1.3.2 1.5.8 1.2.2 2.1 1 .4.3 0 .7-.5.8 0 .9.8 1 .7.1 6.1 0 1-.3 1.4-1.2.1-.5 0-1.5-1.1-1.3 0-.7.3-.3 1.2-.3 2.5-1.4.6.2z"><title>Chubut</title></path>
-          <path class="prov" data-name="Santa Cruz" d="M91.5 552.7l.5.6 0 4.5.8 2.5.2 1.5 1.2 2 1 1.2 4.3 3.8 7.2 7.2 5.6.2.9.3 4.3 0 2 .5 1.5 1.5 0 1.5.8 1.5.2 2.5-.8 2.3-.2 1.2-1.2 1.2-.8 1.3 0 2.8 1 1.5 0 1.2-.7.8-.1 1.5-.9.9-1.1.6-5.4 5.5-2.8 2.2-2.8 2.8-1.5.4-2.5 1.8-1 1.2-.5 1.3-.9 1.2-3.5 3.6-.5 1.4-.8 1-.7 4 0 3 .4.8 0 1.7-.4.8 0 1.3-.3 1.2 0 2.5-.8 2.3-.2 1.2-.7.7-1.3 2.3-1.5 1.5-2 1.2-2.2 1.6-1.3.4-2 1-3.7 2.8-2.1 2.5-.2.8-.8 1.5-.5 4.4-.4.8 0 3.3-.6 1.5 0 .7 1 1 .3.7 0 1.8 1 2.7 1 1.6.2 1.5.8 1.4.2 1-.2.5-1 1 0 1 1.3 2.1.7.7.2.8.6.7 2.5 4.5 3.7 4.7.5 1.3-1 .2-1.5-.7-1.7 0-3.5-2-5.3-.2-1.2-.6-1.1-.4-.9-.6-1.6-.4-.9-.6-1.1-.4-5.4.2-1.6.3-1.5 0-.9.4-4 .1-.1.2-6.7 0-1 .3-1.5 0-.8.4-2 0-1.9.3-.8-.7-.2-1.6-1.5-1.5-.3-.7-2.8-1.7-.9-.8-.1-.5-1-.8-.4-.7 0-.5.7-1.5 0-2.7.7-1 .1-1.3-.3-.7-1.8-1.8 0-1.2 1.1-2 0-3.5-1.1-2.1 0-1-.4-1.2-1.3-1.3-1.8-.2-2.4 1.3-.6 0-.7-.3-1.3 0-1.5 1-2 2-1-.5-.2-.8-.7-1.2-.1-1.8-.9-2.5 0-1.9-4-4.1 0-2.4-.8-1.6 0-1.4.7-1.3-.2-2-.5-.8-.5-2.2-.7-1.3 0-3.2.4-.8 1.3-1.4 1.8 0 1.4-.6.1-3 .9-1.7.1-1.5.4-.8 1.1-1.4 1.2-.1 1.5-1 .7-.7 1-1.7.3-1.3-.2-4-1-2 0-.7.7-.6.8-.4 1.5-1.5 1-1.8 0-3-.3-1.8-.3-.7-3-2.7-.2-1.3.7-1 .1-1.5 1-2 0-1.7.9-1.5 0-.5-.5-.6.1-1 .7-.7 1-.3 1.5-1.5.3-.9 0-1 .7-.6.8-.2 1-.7.4-.5 0-1-1.9-2 0-4.6 3.4-4.5 0-2.9-.4-1.1-1-1.5 0-3.2-1.8-2.5-.2-1.3.9-.9.5-.1 1.6-1.9 1.7-.6 2.3 0 2.2-.4 6.3 0 3.2-.5 2 0 2.7-.5 5.8 0 .2-.1 1.8 0 1-.4 2.5 0 1-.3 12-.2.2-.1 2.3 0 1.5-.5 2 0 .2-.2z"><title>Santa Cruz</title></path>
-          <path class="prov" data-name="Tierra del Fuego" d="M87.8 710.2l.7 0 .3.3 1 1.8 0 .5-.6 1-.4 1.4-.1 2.3.5 2.2 1.1 1 1.2.1 1 1 .5 1 .2 1.4.5.5 1.6 3 1 1.3 3.7 3.3 1.2 1.9 5.1 4.6 1 .4 2 1.6.9.2.8.7 1.2.3 1.1.7 2.9 3.1 2.3 1.9 1 .3.7.7 1.6.8 1.9.3 1.1.9 2.5.6 6.2-.5.5.7 0 2-.8 1-.2.7-.7.6-1.3 0-1.5.9-.7 0-1.8-.9-2.2 0-.5.2-2 1.8-2.8.2-2.3 2-.7 0-1.3-1-.5 0-3.9-2-.8-.2-7.8-.1-.9-.4-2.8 0-1.2-.3-2.5 0-3.1.8-1.2 0-.5-.5-.2-7.8-.3-1.2 0-2.8-.3-.8-.4-14.2-.3-1.7 0-1.6-.3-.9 0-2.5-.4-2 .2-4.1-.3-1.2 0-2.8-.2-.2 0-2zM151 752.5l-.7.7-2.3 0-.7.5-2.3.5-1.3.8-1.2 0-.3-.3 0-.5 1.8-1.4 2.8-.1 1.7-.7 2 0zM216.8 676.7l.2.5-.3.6-1.2 1.2-1 .2-1.3 1.3-1.4 2.2-1.5 1.6-.3.9-1.3 1.6-2.4.2-.8.7-1.5.5-.8.8-.4 1.2-.5.6-1 .5-1 0-1 1-.6-.1-.7-.7-.2-.7-1-1.1 0-.9.5-.5 1.4.5.8-.1 1.3-1.2 1-2.2 1.9-1.5 2.3-1.3.8-1.2 0-.8-.6-.7-2.7-1.6-1.3-1.5.3-.5 1.7.6 3.3 0 1.5-1.3.7 0 1.8.7 2.5-.2 1.2.8 1-.3zM238 676.3l.2 1.2-.5.5-1 0-.7.3-.7 1.4.9 1.6 1.5 1 0 .7-.4.3-3.6-.1-.7.3-1.5 1.5-.8.3-1.4 0-1-.3-3.1 0-1-.5-.9 0-1 .8 0 .7.5.7 1.2.8 1.7.8 0 .5-.4.4-.8.1-1 .7-.5 0-2.3-1.8-.9-.2-.8.8 0 1.5 1 1.4 0 .8-.3.5-.5.2-2.2-1.7-.8-.2-.9 1 .4 1.2 0 .7-.4.3-.8-.3-1.3-1.7 0-1 .5-.5.3-.8.2-2.4.8-.8 1.3-.5.5-.8 2.5-2.5.7-.4 1.5-.1 1.2-1 .1-.5-.1-.7-1.4-.7-.3-.3 0-.7 1.2-1.3.1-1 2.2-2.3 1.2-.2.5.5 1 .3 1.6-1 .9 0 .5.7-1.2 1.2 0 1 1.7 1.6.5 1.4 1.1 1.1 1.2 0 .5-1-.2-2.8.7-.8 3-.4z"><title>Tierra del Fuego</title></path>
-          <circle class="prov on caba" data-name="Ciudad Autónoma de Buenos Aires" cx="246.7" cy="297.2" r="5.5"><title>CABA</title></circle>
-        </svg>
-        <div class="map-info" aria-hidden="true">
-          <span class="map-info__name" data-map-name></span>
-          <span class="map-info__status" data-map-status></span>
-        </div>
-        <ul class="legend list-reset">
-          <li><span class="legend__dot"></span>Con proyectos o partners</li>
-          <li><span class="legend__dot legend__dot--off"></span>A sumar</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Testimonios ===== -->
-  <section id="testimonios" class="section bg-white">
-    <div class="wrap">
-      <div class="section-head rv">
-        <span class="eyebrow">Lo que dicen nuestros clientes</span>
-        <h2 class="section-title">La mejor carta de presentación <span class="hl">la escriben ellos.</span></h2>
-      </div>
-      <div class="testimonials">
-        <figure class="testimonial card-h rv">
-          <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <blockquote class="testimonial__text"><p>Desde que trabajamos con Intellihelp tenemos un solo responsable para toda la tecnología. Cuando algo falla, sabemos a quién llamar y se resuelve.</p></blockquote>
-          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
-        </figure>
-        <figure class="testimonial card-h rv">
-          <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <blockquote class="testimonial__text"><p>Tenemos sucursales en varias provincias y el servicio es el mismo en todas. Una sola relación, un solo contrato, un solo equipo que responde.</p></blockquote>
-          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
-        </figure>
-        <figure class="testimonial card-h rv">
-          <span class="testimonial__mark num" aria-hidden="true">“</span>
-          <blockquote class="testimonial__text"><p>La instalación fue prolija y en los tiempos acordados, y capacitaron a nuestra gente para usar el sistema desde el primer día.</p></blockquote>
-          <figcaption class="testimonial__author"><span class="testimonial__name">Nombre y apellido</span><span class="testimonial__role">Cargo, empresa</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Cómo trabajamos: escuchar, ir y resolver ===== -->
-  <section id="como-trabajamos" class="section section--alt bg-gray">
-    <div class="wrap">
-      <div class="section-head section-head--wide rv">
-        <span class="eyebrow">Cómo trabajamos</span>
-        <h2 class="section-title">En 16 años la tecnología cambió mucho. Supimos adaptarnos a cada nuevo escenario sobre tres puntos clave: <span class="hl">escuchar, ir y resolver.</span></h2>
-      </div>
-      <ol class="steps list-reset">
-        <li class="step card-violet rv">
-          <div class="step__head">
-            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 5h16v10H9l-5 4V5z"/><path d="M8 10h8"/></svg></span>
-            <span class="step__num" aria-hidden="true">01</span>
-          </div>
-          <h3 class="step__title">Escuchar</h3>
-          <p class="step__text">Una primera charla, sin cargo, para entender cómo trabaja tu empresa, qué se rompe y qué te preocupa.</p>
-        </li>
-        <li class="step card-violet rv">
-          <div class="step__head">
-            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-            <span class="step__num" aria-hidden="true">02</span>
-          </div>
-          <h3 class="step__title">Ir</h3>
-          <p class="step__text">Vamos a tu oficina o sucursal, relevamos la situación y te presentamos una propuesta por escrito: alcance, tiempos y responsables.</p>
-        </li>
-        <li class="step card-violet rv">
-          <div class="step__head">
-            <span class="icon-circle icon-circle--sm"><svg class="ico svc-ico" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5A5 5 0 0 1 21 19"/></svg></span>
-            <span class="step__num" aria-hidden="true">03</span>
-          </div>
-          <h3 class="step__title">Resolver</h3>
-          <p class="step__text">Un equipo asignado desde el primer día, con inducción en tu empresa, una persona responsable de tu cuenta y seguimiento continuo.</p>
-        </li>
-      </ol>
-      <div class="section-cta rv">
-        <a id="cta-como-trabajamos" data-cta="como-trabajamos-agendar" href="/asesoria" class="btn btn-primary">Agendá tu asesoría <span class="arr" aria-hidden="true">→</span></a>
-        <p class="section-cta__note">La primera charla y el asesoramiento son sin cargo.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== Preguntas frecuentes ===== -->
-  <section id="preguntas" class="section bg-white">
+  <section id="preguntas" class="section bg-gray">
     <div class="wrap faq-layout">
       <div class="faq-layout__intro rv">
         <span class="eyebrow">Preguntas frecuentes</span>
@@ -1514,7 +1415,7 @@
   </section>
 
   <!-- ===== Agenda: CTA final ===== -->
-  <section id="agenda" class="section section--dark bg-gray">
+  <section id="agenda" class="section section--dark bg-white">
     <div class="wrap contact">
       <div class="contact__intro rv">
         <span class="eyebrow eyebrow--lime">Hablemos</span>
