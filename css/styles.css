@@ -646,7 +646,7 @@ a:hover { color: var(--ink); }
   gap: 24px;
   min-width: 0;
   padding-left: 28px;
-  border-left: 2px solid var(--ink); /* línea negra; hitos: anillo negro, hueco, anillo negro y punto violeta */
+  border-left: 2px solid var(--ink); /* línea negra; hitos: círculo violeta con un ícono según el tipo */
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
 .timeline__item--same-year { margin-top: -8px; } /* varios hitos del mismo año: un poco más juntos, el año solo en el primero */
@@ -658,10 +658,12 @@ a:hover { color: var(--ink); }
   width: 32px;
   height: 32px;
   margin-left: -44px;
-  border: 2px solid var(--ink); /* anillo exterior negro; adentro se ve el fondo */
+  border: 3px solid var(--white); /* separa el círculo de la línea */
   border-radius: 50%;
-  background: transparent;
+  background: var(--purple);
+  color: var(--white);
 }
+.timeline__mark .ico { display: block; }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--purple); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
 .timeline__title { margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3; }
@@ -675,9 +677,6 @@ a:hover { color: var(--ink); }
 /* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
 #historia .eyebrow::before { background: var(--purple); }
 #historia .hl { color: var(--purple); }
-#historia .ring-bg { stroke: transparent; }
-#historia .ring-p { stroke: var(--ink); }   /* anillo interior negro (se dibuja al entrar) */
-#historia .ring-c { fill: var(--purple); }  /* punto central violeta */
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
@@ -1030,6 +1029,7 @@ a:hover { color: var(--ink); }
 .anim .rv:not(.show) :is(.ico, .num, .ic) { opacity: 0; transform: scale(.4); }
 .anim .rv:not(.show) .ring-p { stroke-dashoffset: 75.4; }
 .anim .rv:not(.show) .ring-c { opacity: 0; transform: scale(0); }
+.anim .rv:not(.show) .timeline__mark { opacity: 0; transform: scale(.4); }
 
 /* `backwards` (no `both`): al terminar, la tarjeta vuelve a sus estilos y el hover de .card-h funciona */
 .rv.show { animation: rise .9s var(--ease) backwards; }
@@ -1040,6 +1040,8 @@ a:hover { color: var(--ink); }
 .rv.show .ico :is(path, circle, rect) { stroke-dasharray: 64; stroke-dashoffset: 64; animation: draw .9s .32s ease-out forwards; }
 .rv.show .svc-ico { animation: pop .6s .2s var(--ease) both, float 4s 1s ease-in-out infinite; }
 .rv.show .ring-p { animation: ring 1.1s .15s var(--ease) both; }
+.rv.show .timeline__mark { animation: pop .5s .1s var(--ease) both; }
+.rv.show .timeline__mark .ico { animation: pop .45s .4s var(--ease) both; }
 .rv.show .ring-c { animation: pop .5s 1.05s var(--ease) both; }
 
 /* Mapa: las provincias con presencia se "prenden" de a una (demoras desde JS) */
