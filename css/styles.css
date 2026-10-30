@@ -390,32 +390,16 @@ a:hover { color: var(--ink); }
   .hero__title { font-size: 30px; }
 }
 
-/* ---------- Socios tecnológicos (red de nodos) ---------- */
-/* Fondo carbón. Los logos son nodos blancos unidos por líneas finas; el JS los distribuye (grilla con desorden) y hace
-   viajar pulsos lima por las líneas, encendiendo el nodo de llegada. Sin JS, grilla fija. */
-.bg-ink { background: var(--ink); color: var(--white); }
-.bg-ink .section-title { color: var(--white); }
-.netmap { position: relative; }
-.netmap__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.netmap__edge { stroke: rgba(255, 255, 255, .22); stroke-width: 1.2; }
-.netmap__pulse { stroke: var(--lime); stroke-width: 2.5; stroke-linecap: round; filter: drop-shadow(0 0 4px rgba(152, 204, 50, .9)); }
-.netmap__nodes { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
-.node {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 64px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: var(--white);
-  transition: box-shadow .35s var(--ease), transform .35s var(--ease);
-}
-.node img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
-.node.is-lit { box-shadow: 0 0 0 3px var(--lime), 0 0 28px rgba(152, 204, 50, .55); transform: scale(1.06); }
-/* Con JS: nodos en posiciones calculadas; el contenedor toma la altura que el JS le da */
-.js .netmap--live .netmap__nodes { display: block; position: relative; }
-.js .netmap--live .node { position: absolute; width: var(--node-w, 128px); height: var(--node-h, 64px); margin: 0; }
-@media (max-width: 600px) { .netmap__nodes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* ---------- Socios tecnológicos (slots que rotan) ---------- */
+/* Grilla fija de celdas blancas; con JS quedan visibles dos filas (tres en celular) y cada tanto una celda al azar
+   gira sobre su eje horizontal y aparece otro logo. Sin JS, se ven todos. */
+.slots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; perspective: 900px; }
+.slot { display: flex; align-items: center; justify-content: center; height: 100px; padding: 18px 24px; border-radius: var(--radius-sm); background: var(--white); }
+.slot[hidden] { display: none; }
+.slot img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; backface-visibility: hidden; transition: transform .32s var(--ease), opacity .32s var(--ease); }
+.slot.is-flip img { transform: rotateX(90deg); opacity: 0; }
+@media (max-width: 980px) { .slots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .slots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .slot { height: 84px; padding: 14px 18px; } }
 
 /* ---------- Clientes (fichero) ---------- */
 /* Fichero con solapas a la izquierda: los rubros son separadores escalonados (botones que filtran) y cada ficha lleva
