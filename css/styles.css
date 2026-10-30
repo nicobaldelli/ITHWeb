@@ -284,9 +284,9 @@ a:hover { color: var(--ink); }
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(42, 42, 42, .28);
   transition: transform .25s var(--ease), background .25s, color .25s;
-  animation: waSettle 1s 4s var(--ease) forwards; /* arranca lima para llamar la atención y a los 4 s se asienta en gris claro */
+  animation: waSettle 1s 4s var(--ease) forwards; /* arranca lima con logo carbón y a los 4 s se asienta en blanco con logo lima */
 }
-@keyframes waSettle { to { background: var(--gray-bg); color: var(--ink); } }
+@keyframes waSettle { to { background: var(--white); color: var(--lime); } } /* se asienta invertido: círculo blanco, logo lima */
 .wa-float .ico { flex: none; }
 .wa-float:hover { background: var(--lime) !important; color: var(--ink); transform: translateY(-3px) scale(1.06); }
 
@@ -1166,7 +1166,7 @@ a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   .svc-ico, .case-step__bar, .filecab__card, .hero__down { animation: none; transition: none; }
-  .wa-float { animation: none; background: var(--gray-bg); }
+  .wa-float { animation: none; background: var(--white); color: var(--lime); }
   .btn, .btn::after, .card-h, .wa-float, .more__chev { transition: none; }
 }
 
