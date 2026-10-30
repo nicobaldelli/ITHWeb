@@ -13,13 +13,12 @@
 }
 
 /* ---------- Tokens ----------
-   Paleta cerrada: no agregar colores. Dos familias que nunca se tocan (lima y violeta).
-   FONDOS (reunión de octubre 2026): sin animaciones, solo color. Se alternan blanco y gris #E6E2EA (.bg-white / .bg-gray)
-   empezando en gris por el hero; la barra superior es blanca. Las clases .section--alt y .section--dark ya no pintan
-   fondo: conservan la familia de acentos de cada sección (violeta en las que eran lila; en las que eran carbón, texto
-   carbón con acentos lima) hasta que se revise sección por sección.
-   Lima como texto sobre blanco solo en la palabra clave del título (grande y en negrita; 1,9:1, pedido del cliente):
-   nunca en texto corrido ni en íconos finos, donde va como barra, relleno o dentro de un círculo carbón. */
+   Paleta cerrada: no agregar colores. Dos familias de acento que no se mezclan en una misma sección: lima y violeta.
+   Fondos: solo color, sin animaciones. Las secciones alternan blanco y gris #E6E2EA (.bg-white / .bg-gray); el hero lleva
+   video; barra superior y pie en blanco. Cards oscuras (.service--dark, .card-dark, Casos) en carbón con letras blancas.
+   .section--alt marca la familia violeta (rótulo, palabra clave, controles); sin modificador o con .section--dark, lima.
+   Lima como texto solo en la palabra clave del título (grande y en negrita; 1,9:1, pedido del cliente): nunca en texto
+   corrido ni en íconos finos, donde va como relleno, barra o dentro de un círculo carbón. */
 :root {
   --ink: #2A2A2A;
   --ink-2: #333333;
@@ -60,8 +59,6 @@ a:hover { color: var(--ink); }
 .section--alt :focus-visible { outline-color: var(--purple); }
 
 .site-footer :focus-visible { outline-color: var(--ink); }
-.card-violet :focus-visible { outline-color: var(--white); }
-.card-lime :focus-visible { outline-color: var(--ink); }
 
 .list-reset { list-style: none; margin: 0; padding: 0; }
 
@@ -181,10 +178,6 @@ a:hover { color: var(--ink); }
 .btn:hover::after { transform: translateX(445%) skewX(-22deg); }
 
 /* Principal: .btn-primary (violeta) y .btn-lime (lima con letra carbón); .btn-light es el secundario con borde carbón */
-.btn-primary { background: var(--purple); color: var(--white); }
-.btn-primary:hover { background: var(--ink); color: var(--white); }
-.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
-.btn-ghost:hover { color: var(--purple); border-color: var(--purple); }
 .btn-light { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn-light:hover { background: var(--ink); color: var(--white); }
 /* Botón de la card lima del CTA final: gris, y al pasar el mouse fondo blanco */
@@ -207,16 +200,7 @@ a:hover { color: var(--ink); }
 .card-h { transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s; }
 .card-h:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(42, 42, 42, .10); }
 
-.card-violet { background: var(--purple); color: var(--white); }
-/* Íconos en lila, un poco más oscuro (lila mezclado con un 25 % de violeta; sin color-mix queda lila puro) */
-.card-violet .icon-circle { border: 2px solid var(--lavender); background: transparent; color: var(--lavender); }
-.card-violet .icon-circle { border-color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); }
-.card-violet .more__chev { color: color-mix(in srgb, var(--lavender) 75%, var(--purple)); }
-
 /* Card lima (sobre carbón): texto e íconos carbón. */
-.card-lime { background: var(--lime); color: var(--ink); }
-.card-lime .icon-circle { border: 2px solid var(--ink); background: transparent; color: var(--ink); }
-.card-lime .btn-ghost:hover { background: var(--ink); color: var(--lime); border-color: var(--ink); }
 /* Card del CTA final con el estilo de las cards de Soluciones: carbón, letras blancas, círculo lima con ícono carbón */
 .card-dark { background: var(--ink); color: var(--white); }
 .card-dark .icon-circle { background: var(--lime); color: var(--ink); }
@@ -263,8 +247,6 @@ a:hover { color: var(--ink); }
 .more__body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more--text .more__body { padding-top: 8px; }
 .more--text .more__body > p { margin: 0; }
-.card-violet .more__btn { color: var(--lavender); }
-
 
 /* ---------- WhatsApp flotante ---------- */
 .wa-float {
@@ -556,44 +538,6 @@ a:hover { color: var(--ink); }
 }
 }
 
-/* ---------- Problema / solución ---------- */
-#problema .section-head { margin-bottom: 40px; }
-.compare { display: flex; flex-wrap: wrap; gap: 24px; }
-.compare__card {
-  display: flex;
-  flex: 1 1 340px;
-  flex-direction: column;
-  gap: 24px;
-  min-width: 0;
-  padding: 32px;
-  border: 2px solid var(--line-dark);
-  border-radius: var(--radius);
-  background: var(--white);
-}
-.compare__card--after { border-color: var(--ink); background: var(--ink); color: var(--white); }
-
-.compare__title { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2; }
-.compare__title::before { content: ""; flex: none; width: 28px; height: 4px; border-radius: 2px; background: var(--line-dark); }
-.compare__card--after .compare__title::before { background: var(--lime); }
-.points { display: flex; flex-direction: column; gap: 24px; }
-.point { display: flex; align-items: flex-start; gap: 14px; }
-.point__title { margin: 0 0 5px; font-size: 22px; font-weight: 600; }
-.point__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.compare__card--after .point__text { color: var(--lavender); }
-
-.ic {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--muted);
-  color: var(--white);
-}
-.compare__card--after .ic { background: var(--lime); color: var(--ink); }
-
 /* ---------- Servicios (carrusel de a tres) ---------- */
 .carousel__track {
   position: relative; /* contiene a los .sr-only absolutos del grupo fuera de vista */
@@ -741,11 +685,6 @@ a:hover { color: var(--ink); }
 .timeline__title { margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3; }
 .timeline__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 
-.ring { display: block; fill: none; stroke-width: 2; }
-.ring-bg { stroke: rgba(255, 255, 255, .28); }
-.ring-p { stroke: var(--lime); stroke-linecap: round; }
-.ring-c { fill: var(--white); stroke: none; }
-
 /* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
 #historia .eyebrow::before { background: var(--purple); }
 #historia .hl { color: var(--purple); }
@@ -769,19 +708,6 @@ a:hover { color: var(--ink); }
 .member:hover .member__photo { box-shadow: inset 0 0 0 2px var(--purple); }
 .member__name { margin: 0; font-size: 26px; font-weight: 600; }
 .member__bio { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-
-.quote {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin: 64px 0 0;
-  padding: 36px 40px;
-  border-radius: var(--radius);
-}
-.quote__mark { color: var(--lavender); font-size: 56px; font-weight: 500; line-height: .6; }
-.quote blockquote { max-width: 960px; margin: 0; font-size: 32px; font-weight: 600; line-height: 1.35; }
-.quote blockquote p { margin: 0; }
-.quote figcaption { color: var(--lavender); font-size: 15px; }
 
 /* ---------- Presencia ---------- */
 .presence { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px; }
@@ -904,7 +830,6 @@ a:hover { color: var(--ink); }
 .case-menu__logo:hover { transform: translateY(-2px); }
 .case-menu__logo[aria-pressed="true"] { box-shadow: inset 0 0 0 3px var(--lime); }
 .anim .case-menu__logo { animation: rise .4s var(--ease) both; }
-.case-menu__status { display: none; } /* sin texto de estado */
 .case-menu__reset { align-self: flex-start; padding: 0; border: 0; background: none; color: var(--white); font: inherit; font-size: 14px; font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; cursor: pointer; }
 .case-menu__reset:hover { text-decoration-color: var(--lime); }
 .case-menu__reset[hidden] { display: none; }
@@ -986,28 +911,6 @@ a:hover { color: var(--ink); }
   .case-card__what { justify-content: flex-start; } /* en una columna, sin hueco entre las etiquetas y los proyectos */
   .case-card__text { font-size: 19px; }
 }
-
-/* ---------- Testimonios ---------- */
-.testimonials { display: flex; flex-wrap: wrap; gap: 20px; }
-.testimonial {
-  display: flex;
-  flex: 1 1 300px;
-  flex-direction: column;
-  gap: 18px;
-  min-width: 0;
-  margin: 0;
-  padding: 28px;
-  border: 2px solid var(--line-dark);
-  border-top-width: 6px;
-  border-radius: var(--radius);
-  background: var(--white);
-}
-.testimonial__mark { color: var(--ink); font-size: 56px; font-weight: 500; line-height: .6; }
-.testimonial__text { margin: 0; font-size: 18px; line-height: 1.55; }
-.testimonial__text p { margin: 0; }
-.testimonial__author { display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
-.testimonial__name { color: var(--ink); font-size: 16px; font-weight: 600; }
-.testimonial__role { color: var(--muted); font-size: 14px; }
 
 /* ---------- Cómo trabajamos ---------- */
 .steps { display: flex; flex-wrap: wrap; gap: 24px; }
@@ -1110,40 +1013,29 @@ a:hover { color: var(--ink); }
 @keyframes pop { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-@keyframes ring { from { stroke-dashoffset: 75.4; } to { stroke-dashoffset: 0; } }
-@keyframes rippleOk { 0% { box-shadow: 0 0 0 0 rgba(152, 204, 50, .6); } 100% { box-shadow: 0 0 0 16px rgba(152, 204, 50, 0); } }
-@keyframes rippleNo { 0% { box-shadow: 0 0 0 0 rgba(68, 68, 68, .35); } 100% { box-shadow: 0 0 0 16px rgba(68, 68, 68, 0); } }
 @keyframes stepbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes heroMedia { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
 @keyframes provOn { from { fill: var(--gray-bg); } to { fill: var(--map-accent, var(--purple)); } }
 
-.ico, .ring-c { transform-box: fill-box; transform-origin: center; }
+.ico { transform-box: fill-box; transform-origin: center; }
 .svc-ico { animation: float 4s ease-in-out infinite; }
-.ring-p { stroke-dasharray: 75.4; stroke-dashoffset: 0; }
 
-/* Hero: primero aparece la imagen; el texto entra después (demoras en data-d) */
+/* Hero: primero aparece el video; el texto entra después (demoras en data-d) */
 .anim .hero__media { animation: heroMedia 1.2s var(--ease) both; }
 
 /* Estado previo al revelado. Solo aplica con `.anim` en <html>, que se agrega
    desde <head> cuando hay IntersectionObserver y no se pidió reducir movimiento. */
 .anim .rv:not(.show) { opacity: 0; transform: translateY(26px); }
-.anim .rv:not(.show) :is(.ico, .num, .ic) { opacity: 0; transform: scale(.4); }
-.anim .rv:not(.show) .ring-p { stroke-dashoffset: 75.4; }
-.anim .rv:not(.show) .ring-c { opacity: 0; transform: scale(0); }
+.anim .rv:not(.show) :is(.ico, .num) { opacity: 0; transform: scale(.4); }
 .anim .rv:not(.show) .timeline__mark { opacity: 0; transform: scale(.4); }
 
 /* `backwards` (no `both`): al terminar, la tarjeta vuelve a sus estilos y el hover de .card-h funciona */
 .rv.show { animation: rise .9s var(--ease) backwards; }
 .rv.show :is(.ico, .num) { animation: pop .6s .22s var(--ease) both; }
-.rv.show .ic-ok { animation: pop .5s .15s var(--ease) both, rippleOk 1s .55s ease-out both; }
-.rv.show .ic-no { animation: pop .5s .15s var(--ease) both, rippleNo 1s .55s ease-out both; }
-.rv.show .ic .ico { animation: pop .4s .45s var(--ease) both; }
 .rv.show .ico :is(path, circle, rect) { stroke-dasharray: 64; stroke-dashoffset: 64; animation: draw .9s .32s ease-out forwards; }
 .rv.show .svc-ico { animation: pop .6s .2s var(--ease) both, float 4s 1s ease-in-out infinite; }
-.rv.show .ring-p { animation: ring 1.1s .15s var(--ease) both; }
 .rv.show .timeline__mark { animation: pop .5s .1s var(--ease) both; }
 .rv.show .timeline__mark .ico { animation: pop .45s .4s var(--ease) both; }
-.rv.show .ring-c { animation: pop .5s 1.05s var(--ease) both; }
 
 /* Mapa: las provincias con presencia se "prenden" de a una (demoras desde JS) */
 .anim .armap:not(.is-lit) .prov.on { fill: var(--gray-bg); }

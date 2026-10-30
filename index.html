@@ -50,7 +50,7 @@
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- TODO: reemplazar por el número real de WhatsApp (también en #agenda) -->
-<!-- Botón redondo con el logo oficial de WhatsApp: arranca lima y a los segundos se asienta en gris claro; al pasar el mouse vuelve a lima. -->
+<!-- Botón redondo con el logo oficial de WhatsApp: arranca lima con el logo blanco y a los 4 s se asienta en blanco con el logo carbón. -->
 <a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="wa-float" aria-label="Escribinos por WhatsApp" title="Escribinos por WhatsApp">
   <svg class="ico ico--fill" aria-hidden="true" width="30" height="30" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
@@ -62,13 +62,12 @@
       <span class="brand__tag"><span>Servicios TI</span><span>desde 2010</span></span>
     </a>
     <nav id="menu" class="nav" aria-label="Principal">
-      <!-- Novedades todavía no tiene sección: el ancla queda preparada (#novedades). -->
       <ul class="list-reset">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#equipo">Quiénes somos</a></li>
         <li><a href="#casos">Casos</a></li>
-        <li hidden><a href="#novedades">Novedades</a></li><!-- oculta hasta que exista el blog -->
+        <li hidden><a href="#novedades">Novedades</a></li><!-- oculta hasta que exista el blog; quitar `hidden` y apuntar al blog -->
       </ul>
     </nav>
     <div class="site-header__actions">
@@ -579,9 +578,10 @@
   <section class="clients section--alt bg-white" aria-labelledby="clientes-titulo">
     <div class="wrap clients__inner">
       <h2 id="clientes-titulo" class="eyebrow">Organizaciones que confiaron su tecnología en nosotros</h2>
-      <!-- Fichero de clientes: los rubros son pestañas (botones) y los logos van en fichas que pasan una tras otra.
-           Sin rubro elegido se muestran todos. La lista .filecab__all es la fuente de datos (un li por cliente, con
-           `data-group`); sin JS se ve como grilla, con JS el script arma las fichas (img/clientes). -->
+      <!-- Fichero de clientes: los rubros son solapas a la izquierda (botones que filtran) y los logos van en fichas
+           que caen una tras otra, cada una con la solapa de su rubro pegada. Sin rubro elegido pasan todos. La lista
+           .filecab__all es la fuente de datos (un li por cliente, con `data-group`); sin JS se ve como grilla, con JS el
+           script arma las fichas (img/clientes). Los logos que tienen caso de éxito abren su caso en Casos. -->
       <div class="filecab" data-filecab>
         <div class="filecab__tabs" role="group" aria-label="Rubro">
           <button type="button" class="filecab__tab" data-group="publico" aria-pressed="false">Sector público</button>
@@ -650,14 +650,14 @@
     </div>
   </section>
 
-  <!-- ===== Socios tecnológicos: grilla fija de slots; cada tanto, una celda al azar gira y muestra otro logo.
+  <!-- ===== Socios tecnológicos: grilla fija de slots que giran en barrido, una celda por segundo en orden de lectura.
        Sin JS se ven los 35 en grilla. Logos en img/socios (recortados de la lámina de socios). ===== -->
   <section id="socios" class="section bg-gray" aria-labelledby="socios-titulo">
     <div class="wrap">
       <div class="section-head rv">
         <h2 id="socios-titulo" class="section-title section-title--big">Socios tecnológicos</h2>
       </div>
-      <!-- Arriba los mayoristas, abajo las marcas. Cada grupo rota sus propios logos; el recorrido sigue el orden de lectura. -->
+      <!-- Arriba los mayoristas, abajo las marcas (sin rótulo). Cada grupo rota sus propios logos; el recorrido sigue el orden de lectura. -->
       <div class="slots-groups rv" data-slots-groups>
         <div class="slots-group">
           <ul class="slots list-reset" data-slots aria-label="Mayoristas">
@@ -908,7 +908,7 @@
     </div>
   </section>
 
-  <!-- ===== Cómo trabajamos: escuchar, ir y resolver ===== -->
+  <!-- ===== Cómo trabajamos: detectar, proponer e implementar ===== -->
   <section id="como-trabajamos" class="section section--alt bg-white">
     <div class="wrap">
       <div class="section-head section-head--wide rv">
@@ -960,7 +960,8 @@
       </div>
       <!-- Para sumar un caso, agregar otro article.case-card (los logos salen de img/clientes). Si el cliente tiene varios
            proyectos, van en una lista `data-steps`: el carrusel los muestra de a uno antes de pasar al cliente siguiente.
-           El mini menú de la izquierda lo arma el JS a partir de las tarjetas (sector = eyebrow, logo = .case-card__logo). -->
+           El filtro de la izquierda lo arma el JS a partir de las tarjetas (sector = eyebrow, logo = .case-card__logo);
+           con un cliente elegido la tarjeta queda fija, sin avance automático. -->
       <div class="cases-layout" data-cases-layout>
       <aside class="case-menu rv" data-case-menu hidden aria-label="Elegir casos">
         <div class="case-menu__group">
@@ -974,7 +975,6 @@
           <p class="case-menu__title">Cliente</p>
           <ul class="case-menu__logos list-reset" data-case-logos aria-label="Clientes del sector"></ul>
         </div>
-        <p class="case-menu__status" data-case-status aria-live="polite"></p>
         <button type="button" class="case-menu__reset" data-case-reset hidden>Ver todos los casos</button>
       </aside>
       <section class="carousel carousel--lime rv" aria-roledescription="carrusel" aria-label="Casos de éxito" data-carousel data-carousel-order="random" data-carousel-counter="off">

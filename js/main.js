@@ -1,4 +1,7 @@
-/* Intellihelp — Home: interacciones de la página (sin dependencias). */
+/* Intellihelp — Home: interacciones de la página (sin dependencias).
+   Módulos, en orden: menú angosto · barra con sección activa · enlaces internos · CTAs (campaña + medición) ·
+   hero con video · párrafos "Ver más" · revelado al scrollear · contadores · carruseles · filtro de casos ·
+   fichero de clientes · socios (slots) · mapas. Cada módulo busca sus nodos y, si no están, no hace nada. */
 (() => {
   'use strict';
 
@@ -60,7 +63,7 @@
       event: 'internal_nav',
       link_text: link.textContent.replace('→', '').trim(),
       link_target: link.getAttribute('href'),
-      link_from: (link.closest('section[id]') || link.closest('header, footer') || {}).id || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : ''),
+      link_from: (link.closest('section[id]') || {}).id || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : ''),
     });
   });
 
@@ -379,9 +382,7 @@
     const sectorBtns = [...caseMenu.querySelectorAll('[data-sector]')];
     const clientsBox = caseMenu.querySelector('[data-case-clients]');
     const logosList = caseMenu.querySelector('[data-case-logos]');
-    const status = caseMenu.querySelector('[data-case-status]');
     const resetBtn = caseMenu.querySelector('[data-case-reset]');
-    const SECTOR_NAME = { publico: 'sector público', privado: 'sector privado' };
     let sector = null;
     let client = null;
 
@@ -414,18 +415,9 @@
       clientsBox.hidden = !sector;
       resetBtn.hidden = !sector && client === null;
       renderLogos();
-      if (client !== null) {
-        const c = cases[client];
-        api.setPool([client], { pinned: true });
-        status.textContent = `${c.name}.`;
-      } else if (sector) {
-        const group = cases.filter((c) => c.sector === sector).map((c) => c.i);
-        api.setPool(group);
-        status.textContent = `Pasan al azar los casos del ${SECTOR_NAME[sector]}. Elegí un cliente para ver solo el suyo.`;
-      } else {
-        api.setPool([]);
-        status.textContent = 'Sin filtro: pasan al azar todos los casos.';
-      }
+      if (client !== null) api.setPool([client], { pinned: true });           // un cliente: su tarjeta fija
+      else if (sector) api.setPool(cases.filter((c) => c.sector === sector).map((c) => c.i)); // un sector: al azar entre los suyos
+      else api.setPool([]);                                                     // sin filtro: todos al azar
     };
     caseMenu.addEventListener('click', (e) => {
       const sBtn = e.target.closest('[data-sector]');
