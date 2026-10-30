@@ -509,66 +509,117 @@
     build();
   }
 
-  /* ---------- Socios tecnológicos: slots que rotan de a uno ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en un pool. Cada tanto una celda
-  // al azar (nunca la misma dos veces seguidas) gira y muestra un logo del pool; el que sale pasa al pool.
-  const slotsGrid = document.querySelector('[data-slots]');
-  if (slotsGrid && motion) {
-    const TICK_MS = 1600;
-    const FLIP_MS = 320;
-    const cells = [...slotsGrid.children];
-    const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
-    let visible = 0;
-    let shown = [];   // índice de logo por celda visible
-    let pool = [];    // índices de logos que esperan
-    let last = [];    // últimas celdas giradas
+  /* ---------- Socios tecnológicos: red de nodos con pulsos ---------- */
+  // Los nodos se reparten en una grilla con desorden y se unen por un árbol de expansión mínima más algunos vecinos
+  // cercanos. Cada tanto un pulso lima recorre una arista y enciende el nodo al que llega; el siguiente pulso suele
+  // salir de ese nodo, como tráfico que se propaga.
+  const netmap = document.querySelector('[data-netmap]');
+  if (netmap) {
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = netmap.querySelector('.netmap__lines');
+    const list = netmap.querySelector('.netmap__nodes');
+    const nodes = [...list.children];
+    let pos = [];     // centro de cada nodo
+    let edges = [];   // [a, b]
+    let adj = [];
     let timer = 0;
     let inView = false;
-    const columns = () => getComputedStyle(slotsGrid).gridTemplateColumns.split(' ').length;
+    let lastLit = -1;
+
     const layout = () => {
-      const cols = columns();
-      const n = Math.min(cells.length, cols * (cols <= 2 ? 3 : 2));
-      if (n === visible) return;
-      visible = n;
-      shown = logos.map((_, i) => i).slice(0, n);
-      pool = logos.map((_, i) => i).slice(n);
-      cells.forEach((li, i) => {
-        li.hidden = i >= n;
-        if (i < n) setLogo(li, logos[i]);
+      const W = list.clientWidth || netmap.clientWidth;
+      const cols = W < 600 ? 3 : W < 900 ? 5 : 7;
+      const rows = Math.ceil(nodes.length / cols);
+      const nodeW = Math.min(128, Math.floor(W / cols) - 18);
+      const nodeH = Math.round(nodeW / 2);
+      const cellW = W / cols;
+      const cellH = nodeH + 46;
+      netmap.classList.add('netmap--live');
+      netmap.style.setProperty('--node-w', `${nodeW}px`);
+      netmap.style.setProperty('--node-h', `${nodeH}px`);
+      list.style.height = `${rows * cellH}px`;
+      // Desorden determinista (mismo dibujo en cada carga) dentro de cada celda
+      const seed = (i) => { const x = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+      pos = nodes.map((li, i) => {
+        const c = i % cols, r = Math.floor(i / cols);
+        const jx = (seed(i) - .5) * (cellW - nodeW) * .8;
+        const jy = (seed(i + 100) - .5) * (cellH - nodeH) * .8;
+        const x = c * cellW + cellW / 2 + jx, y = r * cellH + cellH / 2 + jy;
+        li.style.left = `${Math.round(x - nodeW / 2)}px`;
+        li.style.top = `${Math.round(y - nodeH / 2)}px`;
+        return { x, y };
       });
+      // Aristas: árbol de expansión mínima (Prim) + el vecino más cercano de cada nodo
+      const d2 = (a, b) => (pos[a].x - pos[b].x) ** 2 + (pos[a].y - pos[b].y) ** 2;
+      const inTree = new Set([0]); edges = [];
+      while (inTree.size < nodes.length) {
+        let best = null;
+        inTree.forEach((a) => nodes.forEach((_, b) => { if (!inTree.has(b) && (!best || d2(a, b) < d2(best[0], best[1]))) best = [a, b]; }));
+        edges.push(best); inTree.add(best[1]);
+      }
+      const has = (a, b) => edges.some(([p, q]) => (p === a && q === b) || (p === b && q === a));
+      nodes.forEach((_, a) => {
+        // los dos vecinos más cercanos de cada nodo, para que la red tenga también enlaces cruzados
+        const near = nodes.map((__, b) => b).filter((b) => b !== a).sort((b, c) => d2(a, b) - d2(a, c)).slice(0, 2);
+        near.forEach((b) => { if (!has(a, b)) edges.push([a, b]); });
+      });
+      adj = nodes.map(() => []);
+      edges.forEach(([a, b]) => { adj[a].push(b); adj[b].push(a); });
+      svg.setAttribute('viewBox', `0 0 ${W} ${rows * cellH}`);
+      svg.replaceChildren(...edges.map(([a, b]) => {
+        const l = document.createElementNS(svgNS, 'line');
+        l.setAttribute('class', 'netmap__edge');
+        l.setAttribute('x1', pos[a].x); l.setAttribute('y1', pos[a].y); l.setAttribute('x2', pos[b].x); l.setAttribute('y2', pos[b].y);
+        return l;
+      }));
     };
-    const setLogo = (li, logo) => {
-      const img = li.querySelector('img');
-      img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
+
+    // Un pulso: segmento lima que recorre la arista de `from` a `to`; al llegar, enciende `to`
+    const pulse = (from, to) => {
+      const l = document.createElementNS(svgNS, 'line');
+      l.setAttribute('class', 'netmap__pulse');
+      l.setAttribute('x1', pos[from].x); l.setAttribute('y1', pos[from].y); l.setAttribute('x2', pos[to].x); l.setAttribute('y2', pos[to].y);
+      const len = Math.hypot(pos[to].x - pos[from].x, pos[to].y - pos[from].y);
+      const dash = Math.min(40, len * .5);
+      l.setAttribute('stroke-dasharray', `${dash} ${len + dash}`);
+      svg.append(l);
+      const dur = 450 + len * 2.2;
+      const t0 = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / dur);
+        l.setAttribute('stroke-dashoffset', String(dash - k * (len + dash)));
+        if (k < 1) requestAnimationFrame(step);
+        else {
+          l.remove();
+          nodes[to].classList.add('is-lit');
+          setTimeout(() => nodes[to].classList.remove('is-lit'), 1300);
+        }
+      };
+      l.setAttribute('stroke-dashoffset', String(dash));
+      requestAnimationFrame(step);
     };
-    const flip = () => {
-      if (!pool.length || visible < 2) return;
-      let cell;
-      do cell = Math.floor(Math.random() * visible); while (last.includes(cell));
-      last = [cell, ...last].slice(0, Math.min(3, visible - 1));
-      const k = Math.floor(Math.random() * pool.length);
-      const incoming = pool[k];
-      const li = cells[cell];
-      li.classList.add('is-flip');
-      setTimeout(() => {
-        pool[k] = shown[cell];
-        shown[cell] = incoming;
-        setLogo(li, logos[incoming]);
-        li.classList.remove('is-flip');
-      }, FLIP_MS);
+    const tick = () => {
+      let from = lastLit >= 0 && Math.random() < .7 ? lastLit : Math.floor(Math.random() * nodes.length);
+      const options = adj[from] || [];
+      if (!options.length) from = 0;
+      const to = (adj[from])[Math.floor(Math.random() * adj[from].length)];
+      pulse(from, to);
+      lastLit = to;
     };
     const schedule = () => {
       clearTimeout(timer);
-      if (!inView || document.hidden) return;
-      timer = setTimeout(() => { flip(); schedule(); }, TICK_MS);
+      if (!motion || !inView || document.hidden) return;
+      timer = setTimeout(() => { tick(); schedule(); }, 900 + Math.random() * 700);
     };
+
     layout();
-    addEventListener('resize', layout);
+    let rsz = 0;
+    addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(layout, 150); });
     document.addEventListener('visibilitychange', schedule);
     new IntersectionObserver((entries) => {
       inView = lastEntry(entries).isIntersecting;
       schedule();
-    }, { threshold: 0.3 }).observe(slotsGrid);
+    }, { threshold: 0.2 }).observe(netmap);
   }
 
   /* ---------- Mapas (provincias y países) ---------- */
