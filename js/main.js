@@ -83,6 +83,19 @@
     else ['wheel', 'touchmove', 'keydown', 'scroll'].forEach((ev) => addEventListener(ev, onIntent, { passive: true }));
   }
 
+  /* ---------- Párrafos largos detrás de "Ver más" ---------- */
+  // Cada párrafo marcado con `data-more` se envuelve en el mismo desplegable que usan las cards (details.more).
+  // Sin JS, el párrafo se ve completo.
+  document.querySelectorAll('[data-more]').forEach((par) => {
+    const details = document.createElement('details');
+    details.className = 'more more--text';
+    details.innerHTML = '<summary class="more__btn"><span class="more__label--closed">Ver más</span><span class="more__label--open">Ver menos</span>'
+      + '<svg class="more__chev" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>'
+      + '<div class="more__body"></div>';
+    par.replaceWith(details);
+    details.querySelector('.more__body').append(par);
+  });
+
   /* ---------- Revelado al hacer scroll ---------- */
   if (motion) {
     const items = document.querySelectorAll('.rv');
