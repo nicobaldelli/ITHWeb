@@ -258,16 +258,18 @@ a:hover { color: var(--ink); }
   justify-content: center;
   width: 60px;
   height: 60px;
-  border: 2px solid var(--lime);
+  border: 0;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(42, 42, 42, .28);
   transition: transform .25s var(--ease), background .25s, color .25s;
+  animation: waSettle 1s 4s var(--ease) forwards; /* arranca lima para llamar la atención y a los 4 s se asienta en gris claro */
 }
+@keyframes waSettle { to { background: var(--gray-bg); color: var(--ink); } }
 .wa-float .ico { flex: none; }
-.wa-float:hover { background: var(--lime); color: var(--ink); transform: translateY(-3px) scale(1.06); }
+.wa-float:hover { background: var(--lime) !important; color: var(--ink); transform: translateY(-3px) scale(1.06); }
 
 /* ---------- Header ---------- */
 /* Barra fija al scrollear; las secciones compensan su alto con scroll-margin para que los anclas no queden tapados */
@@ -292,7 +294,7 @@ a:hover { color: var(--ink); }
 .nav a:hover { color: var(--purple); }
 
 .site-header__actions { display: flex; align-items: center; gap: 10px; }
-.site-header__cta.btn-gray:hover { background: var(--ink); color: var(--white); border-color: var(--ink); } /* sobre la barra blanca, el hover oscurece en vez de aclarar */
+.site-header__cta.btn-soft:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
 .nav-toggle { display: none; gap: 8px; padding: 0 16px; }
 
 /* Menú plegable en pantallas angostas (sin JS el menú queda siempre visible) */
@@ -1140,6 +1142,7 @@ a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   .svc-ico, .case-step__bar, .filecab__card, .hero__down { animation: none; transition: none; }
+  .wa-float { animation: none; background: var(--gray-bg); }
   .btn, .btn::after, .card-h, .wa-float, .more__chev { transition: none; }
 }
 
