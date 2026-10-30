@@ -636,7 +636,7 @@ a:hover { color: var(--ink); }
 .history__text { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
 .history__big { display: flex; flex-direction: column; gap: 2px; margin-top: 20px; }
 .history__big-num { font-size: 176px; font-weight: 700; line-height: .9; }
-.history__big-label { color: var(--muted); font-size: 15px; }
+.history__big-label { color: var(--muted); font-size: 28px; font-weight: 600; line-height: 1.2; }
 
 .timeline {
   display: flex;
@@ -645,7 +645,7 @@ a:hover { color: var(--ink); }
   gap: 30px;
   min-width: 0;
   padding-left: 28px;
-  border-left: 2px solid var(--muted);
+  border-left: 2px solid var(--gray-bg);
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
 .timeline__mark {
@@ -657,7 +657,7 @@ a:hover { color: var(--ink); }
   height: 32px;
   margin-left: -44px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--gray-bg);
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
@@ -668,6 +668,12 @@ a:hover { color: var(--ink); }
 .ring-bg { stroke: rgba(255, 255, 255, .28); }
 .ring-p { stroke: var(--lime); stroke-linecap: round; }
 .ring-c { fill: var(--white); stroke: none; }
+
+/* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
+#historia .eyebrow::before { background: var(--purple); }
+#historia .hl { color: var(--purple); }
+#historia .ring-p { stroke: var(--purple); }
+#historia .ring-c { fill: var(--purple); }
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
