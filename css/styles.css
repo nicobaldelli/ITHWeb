@@ -391,30 +391,39 @@ a:hover { color: var(--ink); }
 }
 
 /* ---------- Clientes (fichero) ---------- */
-/* Rubros como pestañas de fichero; los logos van en fichas blancas apiladas que pasan una tras otra (la de adelante se
-   levanta y gira hacia atrás). Sin JS, .filecab__all muestra los 48 en grilla. */
+/* Fichero con solapas a la izquierda: los rubros son separadores escalonados (botones que filtran) y cada ficha lleva
+   pegada la solapa de su rubro, que baja con ella al pasar. Sin bordes. Sin JS, .filecab__all muestra los 48 en grilla. */
 .clients { padding: 48px 0 64px; }
 .clients__inner { display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
-.filecab { display: flex; flex-direction: column; align-items: stretch; width: 100%; max-width: 960px; }
-.filecab__tabs { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; padding: 0 12px; }
+.filecab { --tab-w: 214px; --tab-h: 44px; --tab-step: 52px; --tab-top: 16px; position: relative; display: flex; flex-direction: column; align-items: stretch; width: 100%; max-width: 980px; padding-left: var(--tab-w); }
+/* Separadores de rubro: todos a la izquierda, cada uno un poco más abajo y más corto que el anterior (profundidad) */
+.filecab__tabs { position: absolute; left: 0; top: 0; z-index: 0; width: var(--tab-w); height: 100%; }
 .filecab__tab {
-  padding: 10px 18px 12px;
-  border: 2px solid var(--purple);
-  border-bottom: 0;
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  background: var(--lavender);
-  color: var(--purple);
+  position: absolute;
+  right: 0;
+  top: calc(var(--tab-top) + var(--i) * var(--tab-step));
+  width: calc(var(--tab-w) - 8px - var(--i) * 7px);
+  height: var(--tab-h);
+  padding: 0 18px 0 16px;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  background: var(--purple);
+  color: var(--white);
   font: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
+  text-align: left;
   cursor: pointer;
-  transition: background .2s, color .2s, transform .2s;
+  opacity: calc(.9 - var(--i) * .12);
+  transition: opacity .25s, background .2s, transform .25s var(--ease);
 }
-.filecab__tab:hover { background: var(--white); }
-.filecab__tab[aria-pressed="true"] { background: var(--purple); color: var(--white); transform: translateY(2px); }
+.filecab__tab:nth-child(1) { --i: 0; } .filecab__tab:nth-child(2) { --i: 1; } .filecab__tab:nth-child(3) { --i: 2; }
+.filecab__tab:nth-child(4) { --i: 3; } .filecab__tab:nth-child(5) { --i: 4; } .filecab__tab:nth-child(6) { --i: 5; }
+.filecab__tab:hover, .filecab__tab.is-current { opacity: 1; }
+.filecab__tab[aria-pressed="true"] { opacity: 1; background: var(--ink); }
 
-.filecab__stack { position: relative; z-index: 1; width: 100%; height: 280px; perspective: 1400px; }
+.filecab__stack { position: relative; z-index: 1; width: 100%; height: 300px; perspective: 1400px; }
 .filecab__stack[hidden] { display: none; }
 .filecab__card {
   position: absolute;
@@ -422,15 +431,37 @@ a:hover { color: var(--ink); }
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 20px 28px 24px;
-  border: 2px solid var(--purple);
-  border-radius: var(--radius);
+  padding: 24px 28px;
+  border: 0;
+  border-radius: 0 var(--radius) var(--radius) var(--radius);
   background: var(--white);
   box-shadow: 0 12px 32px rgba(42, 42, 42, .10);
   transform-origin: 50% 100%;
   transition: transform .6s var(--ease), opacity .45s var(--ease);
   cursor: pointer;
 }
+/* La solapa de la ficha: pegada a su borde izquierdo, en la posición de su rubro; viaja con la ficha */
+.filecab__card-tab {
+  position: absolute;
+  right: 100%;
+  top: calc(var(--tab-top) + var(--i) * var(--tab-step));
+  display: flex;
+  align-items: center;
+  width: calc(var(--tab-w) - 8px - var(--i) * 7px);
+  height: var(--tab-h);
+  margin: 0;
+  padding: 0 18px 0 16px;
+  border-radius: 10px 0 0 10px;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.15;
+  pointer-events: none; /* los clics pasan al separador (botón) que está debajo */
+  transition: opacity .3s;
+}
+/* Solo la ficha de adelante muestra su solapa (y la que está saliendo o entrando, para que viaje con ella) */
+.filecab__card:not([data-pos="0"]):not(.is-out):not(.is-in) .filecab__card-tab { opacity: 0; }
 /* Pila: la ficha activa adelante; las dos siguientes asoman por abajo; el resto, escondido detrás */
 .filecab__card[data-pos="0"] { z-index: 5; }
 .filecab__card[data-pos="1"] { z-index: 4; transform: translateY(10px) scale(.975); }
@@ -451,10 +482,8 @@ a:hover { color: var(--ink); }
   40% { opacity: 1; }
   to { transform: none; opacity: 1; }
 }
-.filecab__card-tab { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--purple); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.filecab__card-tab::before { content: ""; flex: none; width: 24px; height: 3px; border-radius: 2px; background: var(--purple); }
 .filecab__logos { display: grid; flex: 1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 28px; align-items: center; }
-.filecab__all { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px 28px; width: 100%; padding: 24px 28px; border: 2px solid var(--purple); border-radius: var(--radius); background: var(--white); }
+.filecab__all { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px 28px; width: 100%; padding: 24px 28px; border-radius: var(--radius); background: var(--white); }
 .filecab__all[hidden] { display: none; }
 .logo { display: flex; align-items: center; justify-content: center; width: 100%; height: 64px; }
 .logo img { display: block; max-width: 150px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
@@ -468,20 +497,26 @@ a:hover { color: var(--ink); }
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 2px solid var(--purple);
+  border: 0;
   border-radius: 50%;
-  background: var(--white);
-  color: var(--purple);
+  background: var(--purple);
+  color: var(--white);
   cursor: pointer;
   transition: background .2s, color .2s;
 }
-.filecab__btn:hover { background: var(--purple); color: var(--white); }
+.filecab__btn:hover { background: var(--ink); }
 @media (max-width: 760px) {
+  /* Sin lugar para solapas laterales: los rubros van arriba como botones y las fichas no llevan solapa */
+  .filecab { padding-left: 0; }
+  .filecab__tabs { position: static; height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 12px; }
+  .filecab__tab { position: static; width: auto; height: auto; padding: 8px 12px; border-radius: 8px; opacity: 1; }
+  .filecab__tab:not([aria-pressed="true"]) { background: var(--lavender); color: var(--purple); }
+  .filecab__card-tab { display: none; }
+  .filecab__card { border-radius: var(--radius); }
   .filecab__stack { height: 340px; }
   .filecab__card { padding: 18px 20px 22px; }
   .filecab__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
-  .filecab__tabs { gap: 4px; padding: 0 8px; }
-  .filecab__tab { padding: 8px 12px 10px; font-size: 13px; }
+}
 }
 
 /* ---------- Problema / solución ---------- */

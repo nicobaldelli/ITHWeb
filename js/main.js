@@ -426,6 +426,7 @@
         el.inert = pos !== 0;
       });
       status.textContent = n ? `${labels[cards[current].group]} · ficha ${current + 1} de ${n}` : '';
+      tabs.forEach((t) => t.classList.toggle('is-current', n > 0 && t.dataset.group === cards[current].group));
       controls.hidden = n < 2;
     };
     const go = (dir) => {
@@ -460,9 +461,11 @@
         const el = document.createElement('article');
         el.className = 'filecab__card';
         el.setAttribute('aria-label', `${labels[card.group]}, ficha ${i + 1} de ${cards.length}`);
-        const tab = document.createElement('p');
+        const tab = document.createElement('span');
         tab.className = 'filecab__card-tab';
+        tab.setAttribute('aria-hidden', 'true');
         tab.textContent = labels[card.group];
+        tab.style.setProperty('--i', tabs.findIndex((t) => t.dataset.group === card.group));
         const ul = document.createElement('ul');
         ul.className = 'filecab__logos list-reset';
         card.logos.forEach((l) => {
