@@ -510,13 +510,14 @@
   }
 
   /* ---------- Socios tecnológicos: slots que rotan en barrido ---------- */
-  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Cada 2,5 s arranca un
-  // barrido: la fila de arriba gira celda por celda de derecha a izquierda en 1 s, después la siguiente fila, y así.
+  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en una cola. Un barrido recorre la
+  // fila de arriba celda por celda de izquierda a derecha (1,8 s por fila), después la siguiente fila; terminado el
+  // barrido, los logos quedan 2,5 s y arranca el próximo.
   // Cada celda toma el próximo logo de la cola y manda el suyo al final (orden lineal, sin azar).
   const slotsGrid = document.querySelector('[data-slots]');
   if (slotsGrid && motion) {
-    const HOLD_MS = 2500;   // lo que dura cada logo antes de que pase el que sigue
-    const ROW_MS = 1000;    // recorrido de una fila, de derecha a izquierda
+    const HOLD_MS = 2500;   // pausa entre el final de un barrido y el siguiente
+    const ROW_MS = 1800;    // recorrido de una fila, de izquierda a derecha
     const FLIP_MS = 320;
     const cells = [...slotsGrid.children];
     const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
@@ -559,8 +560,8 @@
       const rows = Math.ceil(visible / cols);
       for (let cell = 0; cell < visible; cell++) {
         const row = Math.floor(cell / cols);
-        const fromRight = cols - 1 - (cell % cols);
-        const delay = row * ROW_MS + (fromRight / cols) * ROW_MS;
+        const col = cell % cols;
+        const delay = row * ROW_MS + (col / cols) * ROW_MS;
         setTimeout(() => flipCell(cell), delay);
       }
       return rows * ROW_MS;
@@ -568,7 +569,7 @@
     const schedule = () => {
       clearTimeout(timer);
       if (!inView || document.hidden) return;
-      timer = setTimeout(() => { sweep(); schedule(); }, HOLD_MS);
+      timer = setTimeout(() => { const dur = sweep(); timer = setTimeout(schedule, dur); }, HOLD_MS);
     };
     layout();
     addEventListener('resize', layout);
