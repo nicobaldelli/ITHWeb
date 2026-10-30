@@ -595,18 +595,13 @@ a:hover { color: var(--ink); }
   gap: 14px;
   min-width: 0;
   padding: 30px;
-  border: 2px solid var(--white);
+  border: 0; /* blancas, sin borde: el hover solo las eleva (card-h) */
   border-radius: var(--radius);
   background: var(--white);
 }
-.service.card-h:hover { border-color: var(--purple); }
-.service.card-violet { border-color: var(--purple); background: var(--purple); }
 .service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
 .service__title { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2; }
-.service__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
-.card-violet .service__num { color: var(--lavender); }
-.card-violet .service__text { color: var(--lavender); }
-.service.card-violet.card-h:hover { border-color: var(--lavender); }
+.service__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
 
 .carousel--lime .carousel__btn { border-color: var(--lime); background: var(--lime); color: var(--ink); }
 .carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--white); color: var(--ink); }
