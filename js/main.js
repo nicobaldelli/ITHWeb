@@ -86,14 +86,15 @@
   /* ---------- Revelado al hacer scroll ---------- */
   if (motion) {
     const items = document.querySelectorAll('.rv');
-    // Demora: `data-d` (segundos) o, si no hay, escalonada según la posición entre hermanos `.rv`.
+    // Demora: `data-d` (segundos) o, si no hay, escalonada según la posición entre hermanos `.rv`, con tope: en listas
+    // largas (la línea de tiempo) cada ítem aparece apenas entra en pantalla, sin arrastrar la espera de los anteriores.
     // `items` viene en orden de documento, así que basta contar cuántos `.rv` ya pasaron por cada padre.
     const seen = new Map();
     items.forEach((el) => {
       const index = seen.get(el.parentElement) || 0;
       seen.set(el.parentElement, index + 1);
       const delay = parseFloat(el.dataset.d);
-      el.style.animationDelay = `${Number.isNaN(delay) ? index * 0.09 : delay}s`;
+      el.style.animationDelay = `${Number.isNaN(delay) ? Math.min(index, 3) * 0.09 : delay}s`;
     });
     const io = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => target.classList.toggle('show', isIntersecting));
