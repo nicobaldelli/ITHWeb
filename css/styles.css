@@ -635,7 +635,9 @@ a:hover { color: var(--ink); }
 .history__intro { display: flex; flex: 1 1 320px; flex-direction: column; gap: 18px; min-width: 0; }
 .history__text { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
 .history__more .more__body { padding-top: 12px; }
-#historia .section-title [data-count] { font-variant-numeric: tabular-nums; }
+#historia .section-title { font-size: clamp(44px, 5.8vw, 72px); }
+/* El contador ocupa siempre dos cifras: al pasar de 0 a 14 no se mueve el resto de la oración */
+#historia .section-title [data-count] { display: inline-block; min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; }
 
 .timeline {
   display: flex;
@@ -644,7 +646,7 @@ a:hover { color: var(--ink); }
   gap: 30px;
   min-width: 0;
   padding-left: 28px;
-  border-left: 2px solid var(--purple); /* línea y círculos violeta, anillos gris claro, años violeta */
+  border-left: 2px solid var(--ink); /* línea negra; hitos: anillo negro, hueco, anillo negro y punto violeta */
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
 .timeline__mark {
@@ -655,8 +657,9 @@ a:hover { color: var(--ink); }
   width: 32px;
   height: 32px;
   margin-left: -44px;
+  border: 2px solid var(--ink); /* anillo exterior negro; adentro se ve el fondo */
   border-radius: 50%;
-  background: var(--purple);
+  background: transparent;
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--purple); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
@@ -671,8 +674,9 @@ a:hover { color: var(--ink); }
 /* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
 #historia .eyebrow::before { background: var(--purple); }
 #historia .hl { color: var(--purple); }
-#historia .ring-p { stroke: var(--gray-bg); }
-#historia .ring-c { fill: var(--gray-bg); }
+#historia .ring-bg { stroke: transparent; }
+#historia .ring-p { stroke: var(--ink); }   /* anillo interior negro (se dibuja al entrar) */
+#historia .ring-c { fill: var(--purple); }  /* punto central violeta */
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
