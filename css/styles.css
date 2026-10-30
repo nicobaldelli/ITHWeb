@@ -280,15 +280,15 @@ a:hover { color: var(--ink); }
   border: 0;
   border-radius: 50%;
   background: var(--lime);
-  color: var(--ink);
+  color: var(--white);
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(42, 42, 42, .28);
   transition: transform .25s var(--ease), background .25s, color .25s;
-  animation: waSettle 1s 4s var(--ease) forwards; /* arranca lima con logo carbón y a los 4 s se asienta en blanco con logo lima */
+  animation: waSettle 1s 4s var(--ease) forwards; /* arranca lima con el logo blanco y a los 4 s se asienta en blanco con el logo carbón */
 }
-@keyframes waSettle { to { background: var(--white); color: var(--lime); } } /* se asienta invertido: círculo blanco, logo lima */
+@keyframes waSettle { to { background: var(--white); color: var(--ink); } }
 .wa-float .ico { flex: none; }
-.wa-float:hover { background: var(--lime) !important; color: var(--ink); transform: translateY(-3px) scale(1.06); }
+.wa-float:hover { background: var(--lime) !important; color: var(--white) !important; transform: translateY(-3px) scale(1.06); }
 
 /* ---------- Header ---------- */
 /* Barra fija al scrollear; las secciones compensan su alto con scroll-margin para que los anclas no queden tapados */
@@ -1166,7 +1166,7 @@ a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   .svc-ico, .case-step__bar, .filecab__card, .hero__down { animation: none; transition: none; }
-  .wa-float { animation: none; background: var(--white); color: var(--lime); }
+  .wa-float { animation: none; background: var(--white); color: var(--ink); }
   .btn, .btn::after, .card-h, .wa-float, .more__chev { transition: none; }
 }
 
