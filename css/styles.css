@@ -709,7 +709,7 @@ a:hover { color: var(--ink); }
   width: 32px;
   height: 32px;
   margin-left: -44px;
-  border: 3px solid var(--white); /* separa el círculo de la línea */
+  border: 3px solid var(--gray-bg); /* separa el círculo de la línea; del color del fondo de la sección (gris) */
   border-radius: 50%;
   background: var(--purple);
   color: var(--white);
