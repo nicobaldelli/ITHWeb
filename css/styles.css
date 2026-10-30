@@ -1036,6 +1036,10 @@ a:hover { color: var(--ink); }
   transition: background .25s, box-shadow .25s;
 }
 .faq__item[open] .faq__sign { background: var(--white); box-shadow: inset 0 0 0 2px var(--lime); }
+/* Preguntas frecuentes en violeta (la sección lleva .section--alt): subrayado y signo +/– */
+.section--alt .faq__q:hover { text-decoration-color: var(--purple); }
+.section--alt .faq__sign { background: var(--purple); color: var(--white); }
+.section--alt .faq__item[open] .faq__sign { background: var(--white); color: var(--purple); box-shadow: inset 0 0 0 2px var(--purple); }
 .faq__sign::before { content: "+"; }
 .faq__item[open] .faq__sign::before { content: "–"; }
 .faq__a { margin: 0; padding: 0 0 20px; color: var(--muted); font-size: 17px; line-height: 1.6; }
