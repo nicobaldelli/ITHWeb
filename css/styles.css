@@ -101,6 +101,7 @@ a:hover { color: var(--ink); }
 
 .section-head { max-width: 760px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
 .section-head--wide { max-width: 980px; }
+.section-title--big { font-size: clamp(40px, 5.2vw, 64px); }
 
 .section-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 36px; }
 .section-cta__note { margin: 0; color: var(--muted); font-size: 15px; }
@@ -177,6 +178,9 @@ a:hover { color: var(--ink); }
 /* Botón de la card lima del CTA final: gris, y al pasar el mouse fondo blanco */
 .btn-gray { background: var(--line-dark); color: var(--white); border-color: var(--line-dark); }
 .btn-gray:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+/* Gris claro (el de las cards de Servicios), letra carbón; al pasar el mouse se invierte */
+.btn-soft { background: var(--gray-bg); color: var(--ink); border-color: var(--gray-bg); }
+.btn-soft:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
 .btn-lime { background: var(--lime); color: var(--ink); }
 .btn-lime:hover { color: var(--ink); filter: brightness(1.06); } /* `color` repetido: `a:hover` pesa más que `.btn-lime` */
 
@@ -615,6 +619,11 @@ a:hover { color: var(--ink); }
 .service__title { margin: 0; color: var(--ink); font-size: 26px; font-weight: 700; line-height: 1.2; }
 .service__text { margin: 0; color: var(--ink); font-size: 17px; line-height: 1.6; }
 
+.carousel--soft .carousel__btn { border-color: var(--gray-bg); background: var(--gray-bg); color: var(--ink); }
+.carousel--soft .carousel__btn:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+.carousel--soft .carousel__dot::before { border-color: var(--gray-bg); }
+.carousel--soft .carousel__dot[aria-current="true"]::before { background: var(--gray-bg); }
+.carousel--soft .carousel__pause { color: var(--ink); }
 .carousel--lime .carousel__btn { border-color: var(--lime); background: var(--lime); color: var(--ink); }
 .carousel--lime .carousel__btn:hover { border-color: var(--lime); background: var(--white); color: var(--ink); }
 .carousel--lime .carousel__dot::before { border-color: var(--lime); }
