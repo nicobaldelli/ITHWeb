@@ -203,10 +203,9 @@
       carousel.classList.toggle('is-paused', Boolean(busy));
       if (!autoplay || busy) return;
       const steps = stepsOf(index);
-      if (pinned && steps.length < 2) return; // una sola tarjeta con un solo proyecto: nada que pasar
+      if (pinned) return; // tarjeta elegida a mano: queda quieta, sin barras ni avance automático
       timer = setTimeout(() => {
         if (steps.length > 1 && step < steps.length - 1) { setStep(step + 1); schedule(); }
-        else if (pinned) { setStep(0); schedule(); } // tarjeta elegida: sus proyectos vuelven a empezar
         else go(neighbor(1));
       }, steps.length > 1 ? STEP_MS : AUTOPLAY_MS);
     };
@@ -226,6 +225,7 @@
     const setPool = (indices, opts = {}) => {
       pool = indices.length ? [...indices] : slides.map((_, i) => i);
       pinned = Boolean(opts.pinned);
+      carousel.classList.toggle('is-pinned', pinned);
       slides.forEach((slide, i) => { slide.hidden = !pool.includes(i); });
       dots.forEach((dot, i) => { dot.hidden = !pool.includes(i); });
       buildSeq(pool.includes(index) && !pinned ? index : undefined);
