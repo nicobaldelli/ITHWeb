@@ -643,12 +643,13 @@ a:hover { color: var(--ink); }
   display: flex;
   flex: 2 1 460px;
   flex-direction: column;
-  gap: 30px;
+  gap: 24px;
   min-width: 0;
   padding-left: 28px;
   border-left: 2px solid var(--ink); /* línea negra; hitos: anillo negro, hueco, anillo negro y punto violeta */
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
+.timeline__item--same-year { margin-top: -8px; } /* varios hitos del mismo año: un poco más juntos, el año solo en el primero */
 .timeline__mark {
   display: flex;
   flex: none;
@@ -663,7 +664,7 @@ a:hover { color: var(--ink); }
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--purple); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
-.timeline__title { margin: 0; font-size: 23px; font-weight: 600; }
+.timeline__title { margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3; }
 .timeline__text { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 
 .ring { display: block; fill: none; stroke-width: 2; }
