@@ -509,6 +509,68 @@
     build();
   }
 
+  /* ---------- Socios tecnológicos: slots que rotan de a uno ---------- */
+  // La grilla muestra dos filas (tres en celular); el resto de los logos espera en un pool. Cada tanto una celda
+  // al azar (nunca la misma dos veces seguidas) gira y muestra un logo del pool; el que sale pasa al pool.
+  const slotsGrid = document.querySelector('[data-slots]');
+  if (slotsGrid && motion) {
+    const TICK_MS = 1600;
+    const FLIP_MS = 320;
+    const cells = [...slotsGrid.children];
+    const logos = cells.map((li) => { const img = li.querySelector('img'); return { src: img.getAttribute('src'), alt: img.alt, w: img.width, h: img.height }; });
+    let visible = 0;
+    let shown = [];   // índice de logo por celda visible
+    let pool = [];    // índices de logos que esperan
+    let last = [];    // últimas celdas giradas
+    let timer = 0;
+    let inView = false;
+    const columns = () => getComputedStyle(slotsGrid).gridTemplateColumns.split(' ').length;
+    const layout = () => {
+      const cols = columns();
+      const n = Math.min(cells.length, cols * (cols <= 2 ? 3 : 2));
+      if (n === visible) return;
+      visible = n;
+      shown = logos.map((_, i) => i).slice(0, n);
+      pool = logos.map((_, i) => i).slice(n);
+      cells.forEach((li, i) => {
+        li.hidden = i >= n;
+        if (i < n) setLogo(li, logos[i]);
+      });
+    };
+    const setLogo = (li, logo) => {
+      const img = li.querySelector('img');
+      img.src = logo.src; img.alt = logo.alt; img.width = logo.w; img.height = logo.h;
+    };
+    const flip = () => {
+      if (!pool.length || visible < 2) return;
+      let cell;
+      do cell = Math.floor(Math.random() * visible); while (last.includes(cell));
+      last = [cell, ...last].slice(0, Math.min(3, visible - 1));
+      const k = Math.floor(Math.random() * pool.length);
+      const incoming = pool[k];
+      const li = cells[cell];
+      li.classList.add('is-flip');
+      setTimeout(() => {
+        pool[k] = shown[cell];
+        shown[cell] = incoming;
+        setLogo(li, logos[incoming]);
+        li.classList.remove('is-flip');
+      }, FLIP_MS);
+    };
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!inView || document.hidden) return;
+      timer = setTimeout(() => { flip(); schedule(); }, TICK_MS);
+    };
+    layout();
+    addEventListener('resize', layout);
+    document.addEventListener('visibilitychange', schedule);
+    new IntersectionObserver((entries) => {
+      inView = lastEntry(entries).isIntersecting;
+      schedule();
+    }, { threshold: 0.3 }).observe(slotsGrid);
+  }
+
   /* ---------- Mapas (provincias y países) ---------- */
   // Cada `[data-map]` pinta sus zonas con `on`, las prende de a una al entrar en pantalla (en el orden de
   // `data-map-order`, o el del documento) y muestra el nombre al pasar el mouse. El texto va en la .map-card.
