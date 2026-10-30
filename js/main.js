@@ -516,7 +516,7 @@
     try {
       const names = new Intl.ListFormat('es').format(active.map((p) => p.dataset.name));
       map.setAttribute('aria-label', isRegion
-        ? `Mapa de Sudamérica por países. Con presencia: ${names}.`
+        ? `Mapa de Latinoamérica por países. Con presencia: ${names}.`
         : `Mapa de Argentina por provincias. Con proyectos o partners: ${names}.`);
     } catch (e) { /* queda la descripción del HTML */ }
 

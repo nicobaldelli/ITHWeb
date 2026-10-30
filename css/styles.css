@@ -774,7 +774,7 @@ a:hover { color: var(--ink); }
 .presence--lime .anim .armap:not(.is-lit) .prov.on, .anim .presence--lime .armap:not(.is-lit) .prov.on { fill: var(--line-dark); }
 .presence--lime .armap.is-lit .prov.on { animation-name: provOnDark; }
 @keyframes provOnDark { from { fill: var(--line-dark); } to { fill: var(--lime); } }
-.armap--region { max-width: 300px; }
+.armap--region { max-width: 340px; }
 
 /* ---------- Casos (mini menú a la izquierda + un caso por vez) ---------- */
 .cases-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
