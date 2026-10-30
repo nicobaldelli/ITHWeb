@@ -638,7 +638,7 @@ a:hover { color: var(--ink); }
 .history__more { position: relative; z-index: 1; } /* por encima del número gigante, que asoma unos píxeles hacia arriba */
 .history__more .more__body { padding-top: 12px; }
 .history__big-num { color: var(--purple); font-size: 176px; font-weight: 700; line-height: .9; font-variant-numeric: tabular-nums; }
-.history__big-label { color: var(--muted); font-size: 15px; }
+.history__big-label { color: var(--muted); font-size: 28px; font-weight: 600; line-height: 1.2; }
 
 .timeline {
   display: flex;
@@ -647,7 +647,7 @@ a:hover { color: var(--ink); }
   gap: 30px;
   min-width: 0;
   padding-left: 28px;
-  border-left: 2px solid var(--gray-bg); /* línea gris claro, hitos en violeta */
+  border-left: 2px solid var(--gray-bg); /* línea y círculos gris claro, anillos y años en violeta */
 }
 .timeline__item { display: flex; align-items: flex-start; gap: 18px; }
 .timeline__mark {
@@ -659,7 +659,7 @@ a:hover { color: var(--ink); }
   height: 32px;
   margin-left: -44px;
   border-radius: 50%;
-  background: var(--purple);
+  background: var(--gray-bg);
 }
 .timeline__body { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
 .timeline__year { color: var(--purple); font-size: 14px; font-weight: 600; letter-spacing: .1em; }
@@ -668,8 +668,14 @@ a:hover { color: var(--ink); }
 
 .ring { display: block; fill: none; stroke-width: 2; }
 .ring-bg { stroke: rgba(255, 255, 255, .28); }
-.ring-p { stroke: var(--white); stroke-linecap: round; }
+.ring-p { stroke: var(--lime); stroke-linecap: round; }
 .ring-c { fill: var(--white); stroke: none; }
+
+/* Historia en violeta: lo que en el resto del sitio es lima acá va en violeta */
+#historia .eyebrow::before { background: var(--purple); }
+#historia .hl { color: var(--purple); }
+#historia .ring-p { stroke: var(--purple); }
+#historia .ring-c { fill: var(--purple); }
 
 /* ---------- Equipo ---------- */
 .team { display: flex; flex-wrap: wrap; gap: 24px; }
