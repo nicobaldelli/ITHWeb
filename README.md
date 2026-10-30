@@ -66,7 +66,7 @@ sección mientras se revisa sección por sección:
 ## Medición
 
 - En el `<head>` y al inicio del `<body>` hay slots comentados para Google Tag Manager, Google Analytics 4 y Microsoft Clarity, sin IDs cargados.
-- Cada botón "Agendá tu asesoría" lleva `id` único y `data-cta`:
+- Cada botón "Agendá reunión" lleva `id` único y `data-cta`:
 
   | id | data-cta |
   |---|---|
