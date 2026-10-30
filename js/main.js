@@ -201,7 +201,9 @@
     return arr;
   };
   const initCarousel = (carousel) => {
-    const AUTOPLAY_MS = 7000;
+    // `data-carousel-ms`: tiempo por vista; `data-carousel-first`: espera de la primera pasada al entrar en pantalla
+    const AUTOPLAY_MS = Number(carousel.dataset.carouselMs) || 7000;
+    const FIRST_MS = Number(carousel.dataset.carouselFirst) || AUTOPLAY_MS;
     const STEP_MS = 3500;
     const MAX_DOTS = 10; // con más tarjetas, contador "n de N" en vez de puntos
     const autoplay = motion && carousel.dataset.carouselAutoplay !== 'off';
@@ -243,6 +245,7 @@
     let hovering = false;
     let focusInside = false;
     let inView = false;
+    let fresh = true; // recién entrado en pantalla: la primera pasada usa FIRST_MS
 
     // Avanza solo si nadie está mirando o usando una tarjeta, y nunca con "reducir movimiento".
     const stepsOf = (i) => [...slides[i].querySelectorAll('[data-steps] > li')];
@@ -259,9 +262,10 @@
       const steps = stepsOf(index);
       if (pinned) return; // tarjeta elegida a mano: queda quieta, sin barras ni avance automático
       timer = setTimeout(() => {
+        fresh = false;
         if (steps.length > 1 && step < steps.length - 1) { setStep(step + 1); schedule(); }
         else go(neighbor(1));
-      }, steps.length > 1 ? STEP_MS : AUTOPLAY_MS);
+      }, steps.length > 1 ? STEP_MS : (fresh ? FIRST_MS : AUTOPLAY_MS));
     };
     const render = () => {
       slides.forEach((slide, i) => { slide.inert = i !== index; });
@@ -343,6 +347,7 @@
     addEventListener('resize', () => track.scrollTo({ left: offset(index), behavior: 'auto' }));
     new IntersectionObserver((entries) => {
       inView = lastEntry(entries).isIntersecting;
+      if (inView) fresh = true;
       schedule();
     }, { threshold: 0.4 }).observe(carousel);
 

@@ -84,7 +84,7 @@ sección mientras se revisa sección por sección:
 ## Comportamiento
 
 - **Animaciones de entrada**: los elementos `.rv` aparecen al entrar en pantalla. En el hero primero aparece la imagen y después el texto. Se activan solo si hay `IntersectionObserver` y no se pidió reducir movimiento; si no, todo se ve estático.
-- **Carruseles**: avanzan solos cada 7 s (el de casos, 3,5 s por proyecto dentro de un cliente). Se detienen con el mouse encima, con foco adentro, con un "Ver más" abierto o fuera de pantalla, y tienen botón de pausa. Con "reducir movimiento" no avanzan solos. Sin JS quedan como scroll horizontal.
+- **Carruseles**: avanzan solos cada 7 s (Servicios y Soluciones cada 5 s, con la primera pasada a los 1,8 s de entrar en pantalla, vía `data-carousel-ms` y `data-carousel-first`; el de casos, 3,5 s por proyecto dentro de un cliente). Se detienen con el mouse encima, con foco adentro, con un "Ver más" abierto o fuera de pantalla, y tienen botón de pausa. Con "reducir movimiento" no avanzan solos. Sin JS quedan como scroll horizontal.
 - **Mapas**: el nacional (provincias, violeta) y el regional (Latinoamérica, de México a Tierra del Fuego: Argentina, Chile, Uruguay, Paraguay y Perú en lima; contornos de Natural Earth simplificados). Al entrar en pantalla las zonas con presencia se prenden de a una en el orden de `data-map-order`. Al pasar el mouse se muestra el nombre. Para sumar una zona, agregar `on` a su clase.
 - **Preguntas frecuentes**: `<details name="faq">` nativo; al abrir una se cierra la anterior, sin JS.
 
