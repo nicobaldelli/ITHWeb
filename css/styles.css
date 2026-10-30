@@ -535,7 +535,7 @@ a:hover { color: var(--ink); }
   .carousel__track { scroll-behavior: smooth; }
 }
 .carousel__slide { display: flex; flex: 0 0 100%; gap: 20px; min-width: 0; scroll-snap-align: start; }
-.carousel__slide > .service { flex: 1 1 0; }
+.carousel__slide > .service { flex: 0 0 calc((100% - 40px) / 3); } /* ancho fijo: una vista con menos de tres tarjetas no las estira */
 @media (max-width: 760px) {
   .carousel__slide { flex-direction: column; }
   .carousel__slide > .service { flex: none; }
@@ -601,6 +601,12 @@ a:hover { color: var(--ink); }
 }
 .service .icon-circle { background: var(--white); } /* el círculo del ícono en blanco para que destaque sobre la card gris */
 .service .chip { background: var(--white); }
+/* Soluciones: cards gris oscuro con letras lima (sobre sección gris claro) */
+.service--dark { background: var(--line-dark); }
+.service--dark .service__num, .service--dark .service__title, .service--dark .service__text, .service--dark .more__btn { color: var(--lime); }
+.service--dark .icon-circle { background: var(--ink); color: var(--lime); }
+.service--dark .chip { background: var(--lime); color: var(--ink); }
+.service--dark :focus-visible { outline-color: var(--lime); }
 .service__num { color: var(--purple); font-size: 14px; font-weight: 600; }
 .service__title { margin: 0; color: var(--purple); font-size: 26px; font-weight: 700; line-height: 1.2; }
 .service__text { margin: 0; color: color-mix(in srgb, var(--purple) 78%, var(--white)); font-size: 17px; line-height: 1.6; } /* lila: violeta aclarado, lo más claro que se deja leer sobre la card gris */

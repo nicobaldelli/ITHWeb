@@ -36,15 +36,15 @@ gris de fondo `#E6E2EA` y los neutros `#333333`, `#444444`, `#4A4A4A`).
 
 **Fondos (reunión de octubre 2026).** Sin animaciones de fondo: solo color. Las secciones alternan blanco y gris `#E6E2EA`
 (clases `.bg-white` y `.bg-gray` en cada `<section>`), empezando en gris por el hero. La barra superior es blanca; el pie
-sigue en carbón `#333333`. Orden: hero (gris) · clientes (blanco) · problema (gris) · servicios (blanco) · historia (gris) ·
-equipo (blanco) · casos (gris) · presencia (blanco) · testimonios (gris) · cómo trabajamos (blanco) · preguntas (gris) ·
-agenda (blanco).
+sigue en carbón `#333333`. Orden: hero (video) · clientes (blanco) · problema (gris) · servicios (blanco) · soluciones (gris) · historia (blanco) ·
+equipo (gris) · casos (blanco) · presencia (gris) · testimonios (blanco) · cómo trabajamos (gris) · preguntas (blanco) ·
+agenda (gris).
 
 **Acentos.** Las clases `.section--alt` y `.section--dark` ya no pintan fondo, pero conservan la familia de acentos de cada
 sección mientras se revisa sección por sección:
 - Sin modificador (problema, casos, testimonios, preguntas): gris y verde. Texto carbón y `#444444`, título chico con barra
   lima, palabra clave del título en letras lima, recuadros con borde gris `#4A4A4A`, chips y barras con relleno lima.
-- `.section--alt` (clientes, servicios, equipo, presencia, cómo trabajamos): violeta. Acento violeta, botón `.btn-primary`,
+- `.section--alt` (clientes, servicios, soluciones, equipo, presencia, cómo trabajamos): violeta. Acento violeta, botón `.btn-primary`,
   cards violeta `.card-violet` con íconos y texto secundario en lila.
 - `.section--dark` (hero, historia, agenda): texto carbón y `#444444`, barras lima, botón `.btn-lime`, secundario `.btn-light`
   con borde carbón; la card del CTA final es lima (`.card-lime`) con botón gris que pasa a blanco (`.btn-gray`). El WhatsApp
@@ -59,7 +59,7 @@ sección mientras se revisa sección por sección:
 - **Texto del hero**: bloque `TEXTO DEL HERO (editable)` en `index.html`. Es provisorio hasta que Claudio pase la versión definitiva.
 - **Video del hero**: `video/hero-placeholder.mp4` es un degradé provisorio; el real va en el mismo `<video>` de `.hero__media` (corto, en loop, sin audio, con `poster`). Con JS el hero arranca mostrando solo el video, con velo suave y un botón gris claro con flecha abajo; al tocarlo, o al scrollear (rueda, dedo, teclado), aparece el texto encima con el velo oscuro y el botón se va. Sin JS, o con "reducir movimiento", el texto se ve de entrada.
 - **Clientes**: fichero. Los rubros (sector público, seguros y salud, laboratorios e industria, medios y tecnología, servicios y comercio) son pestañas: sin elegir ninguna pasan los 48 logos; al elegir una, solo los de ese rubro, y volver a tocarla la destilda. Los logos van en fichas blancas de hasta seis, de un mismo rubro, apiladas: la de adelante cae hacia el frente girando cada 2,8 s (la primera, 1,4 s después de entrar en pantalla) (o con las flechas, o tocando la ficha). Se detiene con foco adentro o fuera de pantalla (no con el mouse encima, para que todas las pasadas duren igual); con "reducir movimiento" no pasa sola. La fuente de datos es la lista `.filecab__all` (un `li` por cliente con `data-group`); sin JS se ve como grilla con los 48. El rubro de cada cliente lo asignamos nosotros: validar con Carlos.
-- **Servicios**: doce tarjetas violeta tomadas de la presentación institucional 2026, en un carrusel que muestra siempre tres por vista. Para sumar un servicio, agregá una tarjeta al último `.carousel__slide` (o un `.carousel__slide` nuevo al completar tres). La descripción va dentro de un `<details>`: queda en el DOM (indexable) y se despliega con "Ver más".
+- **Servicios** y **Soluciones**: dos secciones con la misma estructura, separadas según las láminas "Servicios" (7) y "Soluciones" (9) de la presentación institucional 2026. Carrusel de tres tarjetas por vista con "Ver más" que despliega descripción y chips. Servicios: fondo blanco, cards grises sin borde, ícono violeta en círculo blanco, título violeta y descripción lila. Soluciones: fondo gris, cards gris oscuro (`.service--dark`) con letras lima y chips lima. CTA "Agendá reunión" gris oscuro en las dos.
 - **Casos**: mini menú a la izquierda y un caso por vez a la derecha (39, tomados de la presentación institucional), con logo, sector, etiquetas del servicio y qué hicimos. Sin elegir nada, los 39 pasan solos en orden aleatorio (se vuelve a barajar en cada vuelta); con las flechas van en orden lineal. Al elegir un sector (público o privado) aparecen los logos de sus clientes y pasan al azar solo los de ese sector; al elegir un cliente queda fija su tarjeta con la lista de proyectos. Volver a tocar el sector o el cliente lo destilda; "Ver todos los casos" vuelve al azar. El menú lo arma el JS con los datos de las tarjetas (sector por el eyebrow, logo por `.case-card__logo`); sin JS no aparece y queda el carrusel. Si un cliente tiene varios proyectos (lista `data-steps`), se muestran de a uno cada 3,5 s con una barra de avance; con el cliente fijo, vuelven a empezar.
 - **Provincias del mapa**: agregá `on` a la clase de la provincia. Se pinta, se prende en la animación y se suma sola a la descripción accesible. Hoy están Buenos Aires, CABA, Santa Fe, Entre Ríos, Córdoba, San Luis, Mendoza, San Juan, Neuquén, Corrientes, Misiones, Salta y Tucumán.
 
@@ -90,7 +90,7 @@ sección mientras se revisa sección por sección:
 
 - [ ] Texto definitivo del hero (Claudio).
 - [ ] Crear la landing `/asesoria`. Todos los CTA apuntan ahí.
-- [ ] Validar los doce servicios del carrusel (nombres, orden y marcas mencionadas).
+- [ ] Validar los 7 servicios y las 9 soluciones (nombres, orden, descripciones y marcas mencionadas). "Salas de reunión y telefonía IP" quedó afuera: VoIP está en Redes de acceso.
 - [ ] Validar qué casos de éxito se pueden publicar con nombre y en qué orden (hoy los 39 de la presentación, público y después privado).
 - [ ] Instalar GTM, GA4 y Clarity en los slots (Claudio).
 - [ ] Número real de WhatsApp (`wa.me/5491100000000`, aparece dos veces).
